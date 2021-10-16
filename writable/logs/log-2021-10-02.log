@@ -1,0 +1,12 @@
+CRITICAL - 2021-10-02 02:36:38 --> Undefined array key "website_name"
+#0 /home/anonymous/Desktop/Projects/hotels.ng/app/Views/parts/dashboard/header.php(7): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(214): include('...')
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Users.php(15): view()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Users->dashboard()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#7 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#10 {main}

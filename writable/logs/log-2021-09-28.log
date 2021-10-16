@@ -1,0 +1,12 @@
+CRITICAL - 2021-09-28 06:15:38 --> Class "App\Filters\Login" not found
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(374): CodeIgniter\Filters\Filters->run()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#4 {main}
+CRITICAL - 2021-09-28 06:15:38 --> Class "App\Filters\Login" not found
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(374): CodeIgniter\Filters\Filters->run()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#4 {main}

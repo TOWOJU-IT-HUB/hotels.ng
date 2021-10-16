@@ -1,0 +1,43 @@
+ERROR - 2021-10-06 15:01:01 --> Error connecting to the database: Connection refused
+CRITICAL - 2021-10-06 15:01:01 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/BaseController.php(64): CodeIgniter\BaseModel->find(1)
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#10 {main}
+ERROR - 2021-10-06 15:04:00 --> Error connecting to the database: Unknown database 'hotels'
+CRITICAL - 2021-10-06 15:04:00 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'hotels'
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/BaseController.php(64): CodeIgniter\BaseModel->find(1)
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#10 {main}
+ERROR - 2021-10-06 15:04:13 --> Table 'hotels.settings' doesn't exist
+CRITICAL - 2021-10-06 15:04:13 --> Table 'hotels.settings' doesn't exist
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#6 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/BaseController.php(64): CodeIgniter\BaseModel->find(1)
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#9 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#12 {main}

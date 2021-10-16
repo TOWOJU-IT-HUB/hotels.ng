@@ -1,0 +1,436 @@
+CRITICAL - 2021-10-08 01:22:21 --> Session: Configured save path "" is not writable by the PHP process.
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Session/Handlers/FileHandler.php(102): CodeIgniter\Session\Exceptions\SessionException::forWriteProtectedSavePath('')
+#1 [internal function]: CodeIgniter\Session\Handlers\FileHandler->open('/', 'ci_session')
+#2 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Session/Session.php(898): session_start()
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Session/Session.php(238): CodeIgniter\Session\Session->startSession()
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/Services.php(577): CodeIgniter\Session\Session->start()
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/BaseService.php(248): CodeIgniter\Config\Services::session(Object(Config\App), false)
+#6 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/BaseService.php(189): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/Services.php(563): CodeIgniter\Config\BaseService::getSharedInstance('session', NULL)
+#8 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/BaseService.php(248): CodeIgniter\Config\Services::session()
+#9 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/BaseController.php(56): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#10 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#11 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#12 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#15 {main}
+CRITICAL - 2021-10-08 01:22:28 --> Session: Configured save path "" is not writable by the PHP process.
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Session/Handlers/FileHandler.php(102): CodeIgniter\Session\Exceptions\SessionException::forWriteProtectedSavePath('')
+#1 [internal function]: CodeIgniter\Session\Handlers\FileHandler->open('/', 'ci_session')
+#2 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Session/Session.php(898): session_start()
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Session/Session.php(238): CodeIgniter\Session\Session->startSession()
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/Services.php(577): CodeIgniter\Session\Session->start()
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/BaseService.php(248): CodeIgniter\Config\Services::session(Object(Config\App), false)
+#6 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/BaseService.php(189): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/Services.php(563): CodeIgniter\Config\BaseService::getSharedInstance('session', NULL)
+#8 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Config/BaseService.php(248): CodeIgniter\Config\Services::session()
+#9 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/BaseController.php(56): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#10 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#11 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#12 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#14 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#15 {main}
+CRITICAL - 2021-10-08 01:26:07 --> Invalid file: admin/wishlist.php
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/wishlist....')
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render('admin/wishlist', Array, true)
+#2 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/Admin.php(75): view('admin/wishlist')
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Admin->wishlist()
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#8 {main}
+CRITICAL - 2021-10-08 01:29:15 --> Invalid file: admin/withdrawal.php
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/withdrawa...')
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render('admin/withdrawa...', Array, true)
+#2 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/Admin.php(91): view('admin/withdrawa...')
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Admin->withdrawal()
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#8 {main}
+CRITICAL - 2021-10-08 01:30:04 --> Invalid file: admin/partners_earnings.php
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/partners_...')
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#2 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/Admin.php(107): view('admin/partners_...')
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#8 {main}
+CRITICAL - 2021-10-08 01:31:48 --> Invalid file: admin/analytics.php
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/analytics...')
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render('admin/analytics', Array, true)
+#2 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/Admin.php(83): view('admin/analytics')
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Admin->analytics()
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#8 {main}
+CRITICAL - 2021-10-08 01:35:01 --> Invalid file: admin/withdrawal.php
+#0 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/withdrawa...')
+#1 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render('admin/withdrawa...', Array, true)
+#2 /home/towoju/Documents/Projects/hotels.ng/app/Controllers/Admin.php(91): view('admin/withdrawa...')
+#3 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Admin->withdrawal()
+#4 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /home/towoju/Documents/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/towoju/Documents/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/towoju/Do...')
+#8 {main}
+ERROR - 2021-10-08 19:26:52 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2021-10-08 19:26:52 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(66): CodeIgniter\BaseModel->find(1)
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+ERROR - 2021-10-08 19:32:33 --> Table 'hotels.orders' doesn't exist
+CRITICAL - 2021-10-08 19:32:33 --> Table 'hotels.orders' doesn't exist
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(60): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->myorders()
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+ERROR - 2021-10-08 19:33:01 --> Table 'hotels.orders' doesn't exist
+CRITICAL - 2021-10-08 19:33:01 --> Table 'hotels.orders' doesn't exist
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(60): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->myorders()
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+CRITICAL - 2021-10-08 19:49:25 --> Undefined variable: notifications
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\notifications.php(86): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 86, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/notificat...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(34): view('admin/notificat...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->notifications()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+ERROR - 2021-10-08 19:56:26 --> Table 'hotels.orders' doesn't exist
+CRITICAL - 2021-10-08 19:56:26 --> Table 'hotels.orders' doesn't exist
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(62): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->myorders()
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+CRITICAL - 2021-10-08 20:03:14 --> Undefined variable: users
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\all_users.php(44): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 44, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/all_users', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(117): view('admin/all_users')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->all_users()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 20:04:53 --> Undefined index: adddress
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\all_users.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 50, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/all_users', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(119): view('admin/all_users')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->all_users()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 21:20:49 --> Undefined variable: earnings
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(89): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 89, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(109): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 21:30:28 --> Undefined variable: earnings
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(89): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 89, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(109): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 21:32:27 --> Undefined variable: earnings
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(89): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 89, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(111): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 21:35:04 --> Undefined index: services
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(92): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 92, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(111): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 21:41:54 --> Undefined index: services
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(91): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 91, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(111): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 21:42:03 --> Undefined index: booking_to
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(93): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 93, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(111): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 22:06:22 --> Undefined variable: context
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1299): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 1299, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(78): country_currency()
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-08 22:07:14 --> file_get_contents(https://ipapi.co/1.2.3.4/json/::1/json/): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\Users\\towoj\\...', 1301, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1301): file_get_contents('https://ipapi.c...', false, Resource id #157)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(78): country_currency()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-08 22:07:45 --> file_get_contents(https://ipapi.co/::1/json/): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\Users\\towoj\\...', 1301, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1301): file_get_contents('https://ipapi.c...', false, Resource id #157)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(78): country_currency()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-08 22:08:33 --> file_get_contents(https://ipapi.co/10.192.168.1/json/): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\Users\\towoj\\...', 1304, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1304): file_get_contents('https://ipapi.c...', false, Resource id #157)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(78): country_currency()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-08 22:09:01 --> Illegal string offset 'currency'
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1305): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Illegal string ...', 'C:\\Users\\towoj\\...', 1305, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(78): country_currency()
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-08 22:09:12 --> Illegal string offset 'currency'
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1305): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Illegal string ...', 'C:\\Users\\towoj\\...', 1305, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(78): country_currency()
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-08 22:09:38 --> Undefined index: currency
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1306): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 1306, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(78): country_currency()
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-08 22:23:14 --> Undefined index: partner_id
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(104): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 104, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(111): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 22:24:05 --> Undefined index: id
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\partners_earnings.php(104): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 104, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/partners_...', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(111): view('admin/partners_...')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->partners_earnings()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 22:32:30 --> Invalid file: admin/all_posts.php
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/all_posts...')
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/all_posts', Array, true)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(101): view('admin/all_posts')
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->all_posts()
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-08 22:33:01 --> Undefined variable: earnings
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\all_posts.php(92): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 92, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/all_posts', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(101): view('admin/all_posts')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->all_posts()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 22:35:28 --> Undefined variable: posts
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Views\admin\all_posts.php(92): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 92, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('admin/all_posts', Array, true)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(101): view('admin/all_posts')
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->all_posts()
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-08 22:42:50 --> Undefined property: App\Controllers\Admin::$blog
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(100): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\towoj\\...', 100, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->all_posts()
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-10-08 23:14:07 --> file_get_contents(): SSL: The operation completed successfully.
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\Users\\towoj\\...', 1304, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1304): file_get_contents('https://ipapi.c...', false)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(80): country_currency()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-08 23:14:53 --> file_get_contents(): SSL: An existing connection was forcibly closed by the remote host.
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\Users\\towoj\\...', 1304, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1304): file_get_contents('https://ipapi.c...', false)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(80): country_currency()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-08 23:23:10 --> file_get_contents(): SSL: The operation completed successfully.
+
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\Users\\towoj\\...', 1304, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1304): file_get_contents('https://ipapi.c...', false)
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\BaseController.php(80): country_currency()
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-08 23:45:44 --> Too few arguments to function App\Controllers\Admin::add_post(), 0 passed in C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php on line 802 and exactly 1 expected
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_post()
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#5 {main}
+CRITICAL - 2021-10-08 23:45:57 --> Undefined variable: post_id
+#0 C:\Users\towoj\Documents\Projects\hotels.ng\app\Controllers\Admin.php(117): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 117, Array)
+#1 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_post()
+#2 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\Projects\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\Projects\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}

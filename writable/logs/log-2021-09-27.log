@@ -1,0 +1,114 @@
+CRITICAL - 2021-09-27 10:31:42 --> Invalid file: login.php
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(82): view()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->login()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#8 {main}
+CRITICAL - 2021-09-27 10:36:51 --> Call to undefined method CodeIgniter\Router\RouteCollection::()
+#0 /home/anonymous/Desktop/Projects/hotels.ng/app/Config/Routes.php(41): CodeIgniter\Router\RouteCollection->match()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(689): require('...')
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(358): CodeIgniter\CodeIgniter->tryToRouteIt()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#6 {main}
+ERROR - 2021-09-27 10:37:15 --> Table 'hotels.users' doesn't exist
+CRITICAL - 2021-09-27 10:37:15 --> Table 'hotels.users' doesn't exist
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/app/Validation/UserRules.php(13): CodeIgniter\BaseModel->first()
+#7 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Validation/Validation.php(277): App\Validation\UserRules->ValidateUser()
+#8 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Validation/Validation.php(151): CodeIgniter\Validation\Validation->processRules()
+#9 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Controller.php(160): CodeIgniter\Validation\Validation->run()
+#10 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(64): CodeIgniter\Controller->validate()
+#11 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->login()
+#12 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#13 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#14 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#15 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#16 {main}
+CRITICAL - 2021-09-27 11:06:11 --> Invalid file: customers/register.php
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/View/View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Common.php(1093): CodeIgniter\View\View->render()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(131): view()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->register()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#7 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#8 {main}
+CRITICAL - 2021-09-27 11:21:18 --> Undefined property: App\Controllers\Home::$user
+#0 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(120): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->register()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#6 {main}
+CRITICAL - 2021-09-27 11:22:04 --> Class "App\Models\User" not found
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(780): App\Controllers\BaseController->initController()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#5 {main}
+CRITICAL - 2021-09-27 11:22:20 --> CodeIgniter\HTTP\Request::fetchGlobal(): Argument #3 ($filter) must be of type ?int, string given, called in /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/HTTP/IncomingRequest.php on line 590
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/HTTP/IncomingRequest.php(590): CodeIgniter\HTTP\Request->fetchGlobal()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(121): CodeIgniter\HTTP\IncomingRequest->getPost()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->register()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#7 {main}
+CRITICAL - 2021-09-27 11:23:31 --> CodeIgniter\HTTP\Request::fetchGlobal(): Argument #3 ($filter) must be of type ?int, string given, called in /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/HTTP/IncomingRequest.php on line 590
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/HTTP/IncomingRequest.php(590): CodeIgniter\HTTP\Request->fetchGlobal()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(121): CodeIgniter\HTTP\IncomingRequest->getPost()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->register()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#7 {main}
+CRITICAL - 2021-09-27 11:23:33 --> CodeIgniter\HTTP\Request::fetchGlobal(): Argument #3 ($filter) must be of type ?int, string given, called in /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/HTTP/IncomingRequest.php on line 590
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/HTTP/IncomingRequest.php(590): CodeIgniter\HTTP\Request->fetchGlobal()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(121): CodeIgniter\HTTP\IncomingRequest->getPost()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->register()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#7 {main}
+CRITICAL - 2021-09-27 11:24:01 --> Trying to access array offset on value of type null
+#0 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(89): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(133): App\Controllers\Home->setUserSession()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->register()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#7 {main}
+ERROR - 2021-09-27 11:29:30 --> Duplicate entry '1' for key 'PRIMARY'
+CRITICAL - 2021-09-27 11:29:30 --> Duplicate entry '1' for key 'PRIMARY'
+#0 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(280): mysqli->query()
+#1 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query()
+#4 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert()
+#6 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Model.php(620): CodeIgniter\BaseModel->insert()
+#7 /home/anonymous/Desktop/Projects/hotels.ng/app/Controllers/Home.php(132): CodeIgniter\Model->insert()
+#8 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Home->register()
+#9 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#10 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/anonymous/Desktop/Projects/hotels.ng/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#12 /home/anonymous/Desktop/Projects/hotels.ng/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('...')
+#13 {main}
