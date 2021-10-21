@@ -19,13 +19,10 @@
 					<div class="search-form-wrapper">
 						<div class="tab-content" id="searchFormTab">
 							<div class="tab-pane fade show active hotel-search-form" id="hotel-search" role="tabpanel" aria-labelledby="hotel-search-tab">
-								<form id="search-hotel" method="GET" class="search-form hotel" action="">
+								<form id="search-hotel" method="GET" class="search-form hotel" action="/search">
 									<div class="search-form__basic">
 										<div class="search-form__address">
 											<i class="fal fa-city"></i>
-											<!-- <div class="form-control h-100 border-0" data-plugin="mapbox-geocoder" data-value="" data-placeholder="Location" data-lang="en">
-											</div>
-											<div class="map d-none"></div> -->
 											<input type="text" id="search-box" name="location" class="location" autocomplete="off" value="">
 											<input type="hidden" name="lng" value="">
 											<input type="hidden" name="address" value="">
@@ -218,17 +215,17 @@
 					<?php foreach ($response as $key => $rex) : ?>
 						<?php // http_build_query()
 										$es = [
-											'hotel_id'	=>	$rex['hotel_id'],
-											'data-hotel' => $rex['hotel_name'],
-											'data-city' => $rex['city'],
-											'data-country' => $rex['country_trans'],
-											'data-type' => $rex['accommodation_type_name'],
-											'ratings'	=> $rex['review_score'],
-											'checkin'	=> $rex['checkin']['from'],
-											'checkout'	=> $rex['checkout']['from'] . '-' . $rex['checkout']['until'],
+											'hotel_id'		=>	$rex['hotel_id'],
+											'data-hotel' 	=> 	$rex['hotel_name'],
+											'data-city' 	=> 	$rex['city'],
+											'data-country' 	=> 	$rex['country_trans'],
+											'data-type' 	=> 	$rex['accommodation_type_name'],
+											'ratings'		=> 	$rex['review_score'],
+											'checkin'		=> 	$rex['checkin'],
+											'checkout'		=> 	$rex['checkout'],
 										];
-										$es = '?'.http_build_query($es);
-										$final_url = route_to('hotels.view'). $es;
+										$es = '?' . http_build_query($es);
+										$final_url = route_to('hotels.view') . $es;
 										// $final_url = "https://google.com";
 						?>
 						<a href="<?= $final_url ?>">
@@ -237,11 +234,14 @@
 									<div class="hotel-item__thumbnail">
 
 										<div class="add-wishlist-wrapper">
-											<a href="#gmz-login-popup" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"><i class="fal fa-heart"></i></a>
+											<a href='#gmz-login-popup' id="wishModal" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"></a>
+											<a onclick="addWishlist($(this).data('hotel_id'))" class="add-wishlist gmz-box-popup" data-hotel_id="<?= $rex['hotel_id'] ?>" data-effect="mfp-zoom-in">
+												<i class="fal fa-heart"></i>
+											</a>
 										</div>
 
 										<a href="<?= $final_url ?>">
-											<img class="hotel_img" src="<?= str_replace('max1280x900', '358x238', $rex['max_photo_url']) ?>" alt="<?= $rex['hotel_name'] ?>" width="358px" height="238px">
+											<img class="hotel_img" src="<?= str_replace('max1280x900', '358x238', $rex['hotel_thumbnail']) ?>" alt="<?= $rex['hotel_name'] ?>" width="358px" height="238px">
 										</a>
 										<a class="hotel-item__type" href="#!">
 											Hotels
@@ -251,43 +251,35 @@
 										<span class="hotel-item__label"><?= $rex['accommodation_type_name'] ?></span>
 										<div class="hotel-item__rating">
 											<div class="star-rating">
-												<?php $i = 0; $stars = ($rex['review_score'] / 2) ?>
-												<?php while ($stars <= 5) : ?>
+												<?php $i = 0;
+												$stars = ($rex['review_score'] / 2) ?>
+												<?php while ($stars < 5 && $rex['review_score'] != null) : ?>
 													<i class="fa fa-star"></i>
-												<?php $stars++; endwhile ?>
+												<?php $stars++;
+												endwhile ?>
 											</div>
 										</div>
-										<h3 class="hotel-item__title"><a href="<?= $final_url ?>"></a></h3>
+										<h3 class="hotel-item__title"><a href="<?= $final_url ?>"><?= $rex['hotel_name'] ?></a></h3>
 										<p class=" hotel-item__location"><i class="fas fa-map-marker-alt mr-2"></i><?= $rex['city'] . ' ' . $rex['country_trans'] ?> </p>
-												<div class="d-flex justify-content-between align-items-center">
-													<div class="hotel-item__price">
-														<span class="_retail"><?= $rex['currencycode'] . number_format($rex['min_total_price'], 2) ?></span><span class="_unit">night</span>
-													</div>
-													<a class="btn btn-primary hotel-item__view-detail" href="<?= $final_url ?>">View Detail </a>
-												</div>
+										<div class="d-flex justify-content-between align-items-center">
+											<div class="hotel-item__price">
+												<span class="_retail"><?= COUNTRY_CURRENCY. number_format(convertedCurrency($rex['min_total_price'], $rex['currencycode']), 2) ?></span>
+												<span class="_unit">night</span>
+											</div>
+											<a class="btn btn-primary hotel-item__view-detail" href="<?= $final_url ?>">View Detail </a>
+										</div>
 									</div>
 								</div>
 							</div>
 						</a>
-				<?php endforeach; endif ?>
+				<?php endforeach;
+								endif ?>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<?= $pager->simpleLinks() ?>
+				</div>
 			</div>
 		</div>
 	</section>
 </div>
-<script>
-	function viewHotel(q) {
-		let hotelName = $('q').data('hotelName');
-		let uri = $('q').data('uri');
-		let city = $('q').data('city');
-		let country = $('q').data('country');
-		let type = $('q').data('type');
-		let uri = $('q').data('hotelName');
-	}
-
-	function setCookie(c_name, value, exdays = 365) {
-		var exdate = new Date();
-		exdate.setDate(exdate.getDate() + exdays);
-		var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-		document.cookie = c_name + "=" + c_value;
-	}
-</script>

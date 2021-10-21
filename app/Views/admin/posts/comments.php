@@ -73,7 +73,7 @@
                                             <td class="text-center">
                                                 <div class="dropdown">
                                                     <a class="dropdown-toggle text-center" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        ...
+                                                        <span class="h3">...</span>
                                                     </a>
                                                     <?php $comment_id = $comment['id'] ?>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 35px, 0px); top: 0px; left: 0px; will-change: transform;">

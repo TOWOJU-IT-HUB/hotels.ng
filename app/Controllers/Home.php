@@ -24,17 +24,10 @@ class Home extends BaseController
             'children_ages'=> '5'
         ];
 
-        $data = []; 
-        $endpoint = $endpoint.http_build_query($q);
-        $rex = curl_get($endpoint, $data);
-        // echo "<pre>";
-        // print_r($rex);
-        if(isset($rex['primary_count']) && $rex['primary_count'] > 0){
-            $data['response'] = $rex['result'];
-            $data['rex'] = $rex['result'];
-        } else {
-            $data['response'] = [];
-        }
+        $data = [
+			'response'	=>	$this->hotels->paginate(9),
+			'pager' 	=> 	$this->hotels->pager,
+		]; 
         echo view('parts/header', $data);
         echo view('welcome_message');
         echo view('parts/footer');
@@ -164,5 +157,17 @@ class Home extends BaseController
 	{
 		session_destroy();
 		return redirect('home');
+	}
+
+	function test(){
+		$data[] = null;
+		$data['new'] = [];
+		// $amount = 10000;
+		// $a = convertedCurrency($amount, 'INR');
+		// echo "<pre>";
+		// print_r($a);
+		// return view('test', $data);
+		
+		return country_currency();
 	}
 }

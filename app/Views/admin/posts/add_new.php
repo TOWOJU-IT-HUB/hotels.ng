@@ -10,30 +10,6 @@
 
             <div class="container-fluid">
                 <div class="page-title-box">
-
-                    <div class="row align-items-center ">
-                        <div class="col-md-8">
-                            <div class="page-title-box">
-                                <h4 class="page-title">Form Summernote</h4>
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Zegva</a>
-                                    </li>
-                                    <li class="breadcrumb-item">
-                                        <a href="javascript:void(0);">Forms</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">Form Summernote</li>
-                                </ol>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="float-right d-none d-md-block app-datepicker">
-                                <input type="text" class="form-control" data-date-format="MM dd, yyyy" readonly="readonly" id="datepicker">
-                                <i class="mdi mdi-chevron-down mdi-drop"></i>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- end page-title -->
 
@@ -41,9 +17,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-
-                                <h4 class="mt-0 header-title">Examples</h4>
-                                <p class="sub-title">Super simple wysiwyg editor on bootstrap</p>
                                 <?= form_open() ?>
                                 <div class="form-group">
                                     <label class="text-muted">Post Title</label>
@@ -54,7 +27,7 @@
                                     <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
                                         <span class="bootstrap-touchspin-prefix input-group-prepend">
                                             <span class="input-group-text"><?= base_url().'/post/' ?></span>
-                                        </span><input type="text" name="slug" value="<?= "new-post-" . uniqid() ?>" class="form-control">
+                                        </span><input type="text" name="slug" value="<?= "new-post-" . uniqid('article') ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">

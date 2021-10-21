@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="text-muted">Slider</label>
-                                                <input type="file" name="site_favico" class="form-control">
+                                                <input type="file" name="slider" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label class="text-muted">Site Logo</label>

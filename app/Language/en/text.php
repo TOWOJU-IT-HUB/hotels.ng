@@ -108,4 +108,7 @@ return [
     'email_settings'    =>  "E-mail settings",
     'advance_settings'  =>  "Advance settings",
     'logout'            =>  "Logout",
+    'next'              =>  "Next",
+    'prev'              =>  "Prev",
+    'previous'          =>  "Previous",
 ];

@@ -103,7 +103,7 @@
                             <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"><?= lang('text.close') ?></span>
                             </button>
-                            <button type="button" id="addCategory" class="btn btn-info"><?= lang('text.save') ?></button>
+                            <button type="submit" id="addCategory" class="btn btn-info"><?= lang('text.save') ?></button>
                         </div>
                         <?= form_close() ?>
                     </div>

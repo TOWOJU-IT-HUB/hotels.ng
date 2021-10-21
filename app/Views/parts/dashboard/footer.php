@@ -1,7 +1,6 @@
 </div>
 <!-- END wrapper -->
 <!-- jQuery  -->
-<script src="<?= base_url('dashboard/js/jquery.min.js') ?>"></script>
 <script src="<?= base_url('dashboard/js/bootstrap.bundle.min.js') ?>"></script>
 <script src="<?= base_url('dashboard/js/metismenu.min.js') ?>"></script>
 <script src="<?= base_url('dashboard/js/jquery.slimscroll.js') ?>"></script>
@@ -32,18 +31,54 @@
 <script src="<?= base_url('dashboard/datatables/responsive.bootstrap4.min.js') ?>"></script>
 <script src="<?= base_url('dashboard/plugins/ace.js') ?>"></script>
 <script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+
+
+
+
+
+
 <script>
-    var editor = CodeMirror.fromTextArea(document.getElementById('ace_editor'), {
-        lineNumbers: true,
-        styleActiveLine: true,
-        matchBrackets: true,
-        mode: "htmlmixed",
-        lineWrapping: true,
-        autofocus: true,
-        // theme: darcular,
+    $(document).ready(function() {
+        $('#memListTable').DataTable({
+            // Processing indicator
+            "processing": true,
+            // DataTables server-side processing mode
+            "serverSide": true,
+            // Initial no order.
+            "order": [],
+            // Load data from an Ajax source
+            "ajax": {
+                "url": "<?php echo base_url('admin/test'); ?>",
+                "type": "POST"
+            },
+            //Set column definition initialisation properties
+            "columnDefs": [{
+                "targets": [0],
+                "orderable": false
+            }]
+        });
     });
 </script>
 
+
+
+
+
+
+<?php $uri = service('uri');
+if ($uri->getSegment(2) == 'settings') : ?>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById('ace_editor'), {
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true,
+            mode: "css",
+            lineWrapping: true,
+            autofocus: true,
+            // theme: darcular,
+        });
+    </script>
+<?php endif ?>
 <script>
     $('#theModal').on('show.bs.modal', function(e) {
         var button = $(e.relatedTarget);

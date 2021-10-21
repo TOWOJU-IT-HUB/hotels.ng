@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="storage/2021/02/01/favicon-1612164546.png" />
     <title> <?= lang('text.site_title') ?> </title>
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="description" content="iBooking - " />
+    <meta name="description" content="<?= conf['site_title'] ?> - " />
     <meta property="og:locale" content="en" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="<?= lang('text.site_title') ?>" />
@@ -440,13 +440,13 @@
                                     <a href="<?= route_to('admin.dashboard') ?>"><i class="gmz-icon"></i>Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('dashboard/settings') ?>"><i class="gmz-icon"></i>Settings</a>
+                                    <a href="<?= base_url('admin/settings') ?>"><i class="gmz-icon"></i>Settings</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('dashboard/profile') ?>"><i class="gmz-icon"></i>Your Profile</a>
+                                    <a href="<?= base_url('admin/profile') ?>"><i class="gmz-icon"></i>Your Profile</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('dashboard/wishlist') ?>"><i class="gmz-icon"></i>Wishlist</a>
+                                    <a href="<?= base_url('admin/wishlist') ?>"><i class="gmz-icon"></i>Wishlist</a>
                                 </li>
                                 <li class="logout">
                                     <a href="<?= base_url('logout') ?>"><i class="gmz-icon"></i>Logout</a>

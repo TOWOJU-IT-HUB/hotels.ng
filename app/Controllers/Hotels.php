@@ -15,7 +15,7 @@ class Hotels extends BaseController
     /**
      * Return Hotel's Search
      */
-    public function getHotels()
+    public function getHotel()
     {    
         $endpoint = "search?";
         $q = [
@@ -56,7 +56,7 @@ class Hotels extends BaseController
      * Get Single Hotel info
      * @q = query
      */
-    public function getHotel()
+    public function getHotels()
     {
         $endpoint = "search?";
         $q = [
@@ -64,17 +64,10 @@ class Hotels extends BaseController
             'hotel_id'=> 1,
         ];
 
-        $data = []; 
-        $endpoint = $endpoint.http_build_query($q);
-        $rex = curl_get($endpoint, $data);
-        // echo "<pre>";
-        // print_r($rex);
-        if(isset($rex['primary_count']) && $rex['primary_count'] > 0){
-            $data['response'] = $rex['result'];
-            $data['rex'] = $rex['result'];
-        } else {
-            $data['response'] = [];
-        }
+        $data = [
+            'response'  =>  $this->hotels->findAll(12),
+        ]; 
+        
         echo view('parts/header', $data);
         echo view('welcome_message');
         echo view('parts/footer');    
@@ -201,11 +194,11 @@ class Hotels extends BaseController
     {
         $data = [];
         $hotel_id = $_GET['hotel_id'];
-        $data['description'] = $this->getDescription($hotel_id);
-        $data['reviews'] = $this->getReviews($hotel_id);
-        $data['facilities'] = $this->getFacilities($hotel_id);
-        $data['images'] = $this->hotelImage($hotel_id);
-        $data['map'] = $this->getMap($hotel_id);
+        $data['description'] = $this->hotels->where('hotel_id', $hotel_id)->first();
+        $data['reviews'] = $this->hotel_reviews->where('hotel_id', $hotel_id)->findAll();
+        $data['facilities'] = $this->hotel_facilities->where('hotel_id', $hotel_id)->findAll();
+        $data['images'] = $this->hotels_images->where('hotel_id', $hotel_id)->findAll();
+        $data['map'] = $this->hotels->where('hotel_id', $hotel_id)->findAll();
 
         // echo "<hr>".$data['description']['description']."<pre>";
         // return print_r($data);

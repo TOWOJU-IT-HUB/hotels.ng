@@ -1,0 +1,163 @@
+CRITICAL - 2021-10-16 21:41:18 --> There is no data to update.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(846): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(NULL, Array)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(25): CodeIgniter\Model->update()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:42:31 --> There is no data to update.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(846): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(NULL, Array)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(25): CodeIgniter\Model->update()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:44:29 --> There is no data to update.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(846): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(NULL, Array)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(26): CodeIgniter\Model->update()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:45:45 --> There is no data to update.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(846): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(NULL, Array)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(26): CodeIgniter\Model->update()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:45:52 --> There is no data to update.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(846): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(NULL, Array)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(26): CodeIgniter\Model->update()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:45:54 --> There is no data to update.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(846): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(646): CodeIgniter\BaseModel->update(NULL, Array)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(26): CodeIgniter\Model->update()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:46:10 --> Allowed fields must be specified for model: App\Models\DestinationsID
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(1134): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Dest...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(713): CodeIgniter\BaseModel->doProtectFields(Array)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(35): CodeIgniter\Model->insert(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#9 {main}
+CRITICAL - 2021-10-16 21:47:32 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(35): CodeIgniter\Model->insert(Array)
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:47:59 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(35): CodeIgniter\Model->insert(Array)
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:50:12 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(35): CodeIgniter\Model->insert(Array)
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:53:12 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, true)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(37): CodeIgniter\Model->insert(Array)
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-16 21:57:52 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(39): CodeIgniter\BaseModel->save(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#9 {main}
+CRITICAL - 2021-10-16 21:59:57 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(39): CodeIgniter\BaseModel->save(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#9 {main}
+CRITICAL - 2021-10-16 22:01:18 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(36): CodeIgniter\BaseModel->save(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#9 {main}
+CRITICAL - 2021-10-16 22:01:52 --> syntax error, unexpected '}'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Router\Router.php(160): CodeIgniter\Router\Router->autoRoute('cron/get_city_l...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(702): CodeIgniter\Router\Router->handle('cron/get_city_l...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(358): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-10-16 22:02:35 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(36): CodeIgniter\BaseModel->save(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#9 {main}

@@ -27,33 +27,66 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="form-row">
-                                <div class="col mb-2">
-                                    <div class="filter-action pl-2" id="menu_post_type" data-active="apartment">
-                                        <a href="#!" id="post_type_all" class="mr-2"><?= lang('text.all') ?></a>
-                                        <a href="#!" id="post_type_apartment" class="mr-2 text-primary font-weight-bold"><?= lang('text.apartment') ?></a>
-                                        <a href="#!" id="post_type_space" class="mr-2"><?= lang('text.space') ?></a>
-                                        <a href="#!" id="post_type_car" class="mr-2"><?= lang('text.car') ?></a>
-                                        <a href="#!" id="post_type_hotel" class="mr-2"><?= lang('text.hotel') ?></a>
-                                        <a href="#!" id="post_type_beauty" class="mr-2"><?= lang('text.beauty') ?></a>
-                                        <a href="#!" id="post_type_tour" class="mr-2"><?= lang('text.tour') ?></a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <?php $k=1; while($k < 10): ?>
-                        <div class="col-sm-4 col-xl-3  col-lg-3">
-                            <div class="card text-white pl-3" style="min-height: 250px">
-                                <div class="card-body">
-                                    //
+                    <?php foreach ($response as $key => $rex) : ?>
+                    <?php // http_build_query()
+						$es = [
+							'hotel_id'		=>	$rex['hotel_id'],
+							'data-hotel' 	=> 	$rex['hotel_name'],
+							'data-city' 	=> 	$rex['city'],
+							'data-country' 	=> 	$rex['country_trans'],
+							'data-type' 	=> 	$rex['accommodation_type_name'],
+							'ratings'		=> 	$rex['review_score'],
+							'checkin'		=> 	$rex['checkin'],
+							'checkout'		=> 	$rex['checkout'],
+						];
+						$es = '?' . http_build_query($es);
+						$final_url = route_to('hotels.view') . $es;
+						// $final_url = "https://google.com";
+						?>
+						<a href="<?= $final_url ?>">
+                            <div class="col-sm-4 col-xl-3  col-lg-3">
+                                <div class="card text-white pl-3" style="min-height: 250px">
+                                    <div class="card-body">
+                                        <div class="hotel-item hotel-item--grid" data-plugin="matchHeight">
+                                            <div class="hotel-item__thumbnail">
+                                                <a href="<?= $final_url ?>">
+                                                    <img class="hotel_img" src="<?= $rex['hotel_thumbnail'] ?>" alt="<?= $rex['hotel_name'] ?>" width="230px" height="200px">
+                                                </a>
+                                                <a class="hotel-item__type" href="#!">
+                                                    Hotels
+                                                </a>
+                                            </div>
+                                            <div class="hotel-item__details">
+                                                <span class="hotel-item__label"><?= $rex['accommodation_type_name'] ?></span>
+                                                <div class="hotel-item__rating">
+                                                    <div class="star-rating">
+                                                        <?php $i = 0;
+                                                        $stars = ($rex['review_score'] / 2) ?>
+                                                        <?php while ($stars < 5 && $rex['review_score'] != null) : ?>
+                                                            <i class="fa fa-star"></i>
+                                                        <?php $stars++;
+                                                        endwhile ?>
+                                                    </div>
+                                                </div>
+                                                <h5 class="hotel-item__title"><a href="<?= $final_url ?>"><?= $rex['hotel_name'] ?></a></h5>
+                                                <p class=" hotel-item__location"><i class="fas fa-map-marker-alt mr-2"></i><?= $rex['city'] . ' ' . $rex['country_trans'] ?> </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="hotel-item__price">
+                                                        <span class="_retail"><?= $rex['currency'] . number_format($rex['price'], 2) ?></span><span class="_unit">night</span>
+                                                    </div>
+                                                    <a class="btn btn-primary hotel-item__view-detail" href="<?= $final_url ?>">View Detail </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php $k++; endwhile ?>
+                        </a>
+                        <?php endforeach ?>
                     </div>
                     <!-- end col -->
                 </div>

@@ -1,0 +1,215 @@
+CRITICAL - 2021-10-17 04:42:39 --> syntax error, unexpected '}'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Router\Router.php(160): CodeIgniter\Router\Router->autoRoute('cron/get_city_l...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(702): CodeIgniter\Router\Router->handle('cron/get_city_l...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(358): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-10-17 04:43:04 --> syntax error, unexpected '}'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Router\Router.php(160): CodeIgniter\Router\Router->autoRoute('cron/get_city_l...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(702): CodeIgniter\Router\Router->handle('cron/get_city_l...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(358): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+ERROR - 2021-10-17 06:42:55 --> Duplicate entry '-1997013' for key 'dest_id'
+CRITICAL - 2021-10-17 06:42:55 --> Duplicate entry '-1997013' for key 'dest_id'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('INSERT INTO `de...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `de...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `de...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('INSERT INTO `de...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(38): CodeIgniter\BaseModel->save(Array)
+#9 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#12 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#15 {main}
+ERROR - 2021-10-17 06:45:29 --> Duplicate entry '-2092174' for key 'dest_id'
+CRITICAL - 2021-10-17 06:45:29 --> Duplicate entry '-2092174' for key 'dest_id'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('INSERT INTO `de...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `de...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `de...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('INSERT INTO `de...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(38): CodeIgniter\BaseModel->save(Array)
+#9 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#12 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#15 {main}
+CRITICAL - 2021-10-17 06:48:12 --> Invalid argument supplied for foreach()
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\towoj\\...', 36, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 06:49:05 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(38): CodeIgniter\BaseModel->save(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-17 06:50:37 --> count(): Parameter must be an array or an object that implements Countable
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'count(): Parame...', 'C:\\Users\\towoj\\...', 36, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(36): count(0)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-17 06:51:54 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(39): CodeIgniter\BaseModel->save(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-17 06:53:06 --> Undefined offset: 0
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\Users\\towoj\\...', 36, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 06:53:40 --> Undefined offset: 0
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\Users\\towoj\\...', 37, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 06:54:16 --> Undefined offset: 0
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\Users\\towoj\\...', 37, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 06:55:06 --> There is no data to insert.
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(718): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#3 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(38): CodeIgniter\BaseModel->save(Array)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-17 07:00:41 --> Undefined index: t_meta
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 36, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 07:01:40 --> Undefined offset: 0
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(36): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\Users\\towoj\\...', 36, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 07:02:26 --> Undefined offset: 0
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\Users\\towoj\\...', 37, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 07:04:01 --> Undefined offset: 0
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(38): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\Users\\towoj\\...', 38, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+ERROR - 2021-10-17 07:05:35 --> Duplicate entry '-2092174' for key 'dest_id'
+CRITICAL - 2021-10-17 07:05:35 --> Duplicate entry '-2092174' for key 'dest_id'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('INSERT INTO `de...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `de...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `de...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('INSERT INTO `de...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(620): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(58): CodeIgniter\BaseModel->save(Array)
+#9 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#12 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#14 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#15 {main}
+CRITICAL - 2021-10-17 07:06:07 --> Undefined index: t_meta
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 37, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 07:07:30 --> Illegal offset type
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Illegal offset ...', 'C:\\Users\\towoj\\...', 37, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-10-17 07:09:21 --> Undefined index: t_meta
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 37, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Cron.php(11): App\Controllers\Cron->get_city_list()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Cron->index()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cron))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}

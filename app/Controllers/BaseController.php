@@ -18,10 +18,17 @@ use \App\Models\Notifications;
 use \App\Models\PartnersEarnings;
 use \App\Models\Partners; 
 use \App\Models\Categories; 
-use \App\Models\Apartments; 
+use \App\Models\Apartments;
+use App\Models\CityList;
 use \App\Models\Gateways; 
 use \App\Models\Comments; 
-use \App\Models\Coupons; 
+use \App\Models\Coupons;
+use App\Models\DestinationsID;
+use App\Models\HotelsFacilities;
+use App\Models\HotelsImages;
+use App\Models\HotelsModel;
+use App\Models\HotelsReview;
+use App\Models\Wishlist;
 
 /**
  * Class BaseController  
@@ -64,6 +71,7 @@ class BaseController extends Controller
         // E.g.: $this->session = \Config\Services::session();
 
         $session = \Config\Services::session();
+        $this->db = \Config\Database::connect();
         $language = \Config\Services::language();
         $language->setLocale($session->lang);
 
@@ -82,15 +90,26 @@ class BaseController extends Controller
         $this->notifications    = new Notifications();
         $this->apartments       = new Apartments();
         $this->p_earnings       = new PartnersEarnings();
+        $this->dest             = new DestinationsID();
+        $this->hotels           = new HotelsModel();
         $this->users            = $this->user = new Users();
+        $this->city_list        = $this->cities = new CityList();
+        $this->hotel_reviews    = new HotelsReview();
+        $this->hotel_facilities = new HotelsFacilities();
+        $this->hotels_images    = new HotelsImages();
+        $this->wishlist         = new Wishlist();
+
+
+
         $settings               = $this->settings->find(1);
-        $this->_id              = session()->get('id');
+        $this->_id              = $this->user_id = session()->get('id');
 
         #--------------------------------------------
         #   Constants from the settings ::DB 
         #--------------------------------------------
         defined('conf') || define('conf', $settings);
-        defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', "USD");
-        // defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
+        // defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', "USD");
+        defined('RAPID_API_KEY')    || define('RAPID_API_KEY', conf['rapid_api_key']);
+        defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
     }
 }

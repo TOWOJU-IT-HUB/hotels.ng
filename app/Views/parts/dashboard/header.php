@@ -9,6 +9,8 @@
     <meta content="towojuads" name="author" />
     <link rel="shortcut icon" href="<?= base_url('dashboard/images/favicon.ico') ?>">
     <link href="<?= base_url('dashboard/plugins/bootstrap-datepicker.min.css') ?>" rel="stylesheet">
+    <!-- Dropzone css -->
+    <link href="<?= base_url('dashboard/plugins/dropzone/dist/dropzone.css') ?>" rel="stylesheet" type="text/css">
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="<?= base_url('dashboard/plugins/morris.css') ?>">
     <link href="<?= base_url('dashboard/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css">
@@ -18,14 +20,13 @@
     <!-- DataTables -->
     <link href="<?= base_url('dashboard/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet" type="text/css" />
     <link href="<?= base_url('dashboard/datatables/buttons.bootstrap4.min.css') ?>" rel="stylesheet" type="text/css" />
-    <!-- Dropzone css -->
-    <link href="<?= base_url('dashboard/plugins/dropzone/dist/dropzone.css') ?>" rel="stylesheet" type="text/css">
     <!-- Sweetalert css -->
     <link href="<?= base_url('dashboard/plugins/sweetalert2.css') ?>" rel="stylesheet" type="text/css">
     <!-- Responsive datatable examples -->
     <link href="<?= base_url('dashboard/datatables/responsive.bootstrap4.min.css') ?>" rel="stylesheet" type="text/css" />
     <link href="http://codemirror.net/lib/codemirror.css" rel="stylesheet" type="text/css">
     <link href="https://codemirror.net/theme/darcula.css" rel="stylesheet" type="text/css">
+    <script src="<?= base_url('dashboard/js/jquery.min.js') ?>"></script>
 </head>
 <body>
     <!-- Begin page -->

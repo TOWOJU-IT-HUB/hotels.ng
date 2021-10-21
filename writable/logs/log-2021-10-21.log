@@ -1,0 +1,98 @@
+CRITICAL - 2021-10-21 04:58:50 --> file_get_contents(): php_network_getaddresses: getaddrinfo failed: No such host is known. 
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\Users\\towoj\\...', 1300, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1300): file_get_contents('https://ipapi.c...', false)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(113): country_currency()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-10-21 04:59:16 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1276): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 1276, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Views\welcome_message.php(269): convertedCurrency('2351.9999943674', 'INR')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('welcome_message', Array, true)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(32): view('welcome_message')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->index()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}
+CRITICAL - 2021-10-21 05:05:33 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1276): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 1276, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Views\welcome_message.php(269): convertedCurrency('2351.9999943674', 'INR')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('welcome_message', Array, true)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(32): view('welcome_message')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->index()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}
+CRITICAL - 2021-10-21 05:16:04 --> Undefined variable: new
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\test.php(120): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 120, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(167): view('test')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->test()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-21 05:16:30 --> Undefined variable: new
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\test.php(120): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 120, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(169): view('test')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->test()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-21 05:16:53 --> Undefined variable: new
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\test.php(120): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 120, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(169): view('test')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->test()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-21 05:16:59 --> Undefined variable: new
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\test.php(120): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 120, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1093): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(169): view('test')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->test()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-10-21 07:55:29 --> Trying to get property 'currency' of non-object
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(171): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\Users\\towoj\\...', 171, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->test()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-10-21 09:31:38 --> Maximum execution time of 60 seconds exceeded
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-10-21 09:32:38 --> Maximum execution time of 60 seconds exceeded
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

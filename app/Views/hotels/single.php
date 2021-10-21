@@ -3,7 +3,7 @@
     <div class="gmz-carousel-with-lightbox" data-count="5">
       <?php foreach ($images as $image) : ?>
         <a href="<?= $image['url_max'] ?>">
-          <img src="<?= str_replace('1440x1440', '393x327', $image['url_1440']) ?>" alt="home slider" />
+          <img src="<?= str_replace('1440x1440', '393x327', $image['img_url']) ?>" alt="home slider" />
         </a>
       <?php endforeach ?>
     </div>
@@ -19,37 +19,53 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 pb-5">
-        <div class="hotel-star">
+
+        <div class="row hotel-star">
           <div class="star-rating">
-            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+            <?php if($description['review_score'] == null){
+              $ans = $score = 0;
+            } else {
+              $ans = $score = ($description['review_score']) / 2;
+            }
+            ?>
+            <?php while ($score <= 5 && $score != 0) : ?>
+              <i class="fa fa-star text-warning"></i>
+            <?php $score++; endwhile ?>
+            <?php $ans = 5 - $ans ?>
+            <?= str_repeat('<i class="fa fa-star"></i>', $ans) ?>
           </div>
         </div>
+
+
         <div class="row">
-          <h1 class="post-title">
-            <div class="add-wishlist-wrapper">
-              <a href="#gmz-login-popup" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"><i class="fal fa-heart"></i></a>
+          <h3 class="row col post-title">
+            <div class="text-left">
+              <a href="#gmz-login-popup" class="mr-2" data-effect="mfp-zoom-in">
+                <i class="fal fa-heart"></i>
+              </a>
             </div>
-            <?= $_GET['data-hotel'] ?>
-          </h1>
+            <?= $description['hotel_name'] ?>
+          </h3>
         </div>
+
         <p class="location">
-          <i class="fal fa-map-marker-alt"></i> <?= $_GET['data-city'] . ', ' . $_GET['data-country'] ?>
+          <i class="fal fa-map-marker-alt mr-1"></i> <?= $description['address'] ?>
         </p>
 
-        <div class="meta">
+        <div class="meta mb-4">
           <ul>
             <li>
-              <span class="value"><?= $_GET['data-type'] ?></span>
+              <span class="value"><?= $description['accommodation_type_name'] ?></span>
               <span class="label">Type</span>
             </li>
 
             <li>
-              <span class="value"><?= $_GET['checkin'] ?></span>
+              <span class="value"><?= $description['checkin'] ?></span>
               <span class="label">Checkin</span>
             </li>
 
             <li>
-              <span class="value"><?= $_GET['checkout'] ?></span>
+              <span class="value"><?= $description['checkout'] ?></span>
               <span class="label">Checkout</span>
             </li>
 
@@ -64,16 +80,17 @@
             </li>
           </ul>
           <div>
-            <small><span class="text-danger">*</span> Min day before booking</small>
+            <small><span class="text-primary" style="font-size: 12px;">M.D.D.B* means </span> Min day before booking</small>
           </div>
           <div>
-            <small><span class="text-danger">**</span> Min day stay</small>
+            <small><span class="text-info" style="font-size: 12px;">M.D Stay** means </span> Min day stay</small>
           </div>
         </div>
+
         <section class="description">
           <h2 class="section-title">Detail</h2>
           <div class="section-content">
-            <p>
+            <p style="text-align: justify">
               <?= $description['description'] ?>
             </p>
           </div>
@@ -96,12 +113,7 @@
                   <input type="hidden" name="post_hashing" value="e4e0d9bfe7556bc0a0b7e6009e92d0a3" />
                   <div class="gmz-loader">
                     <div class="loader-inner">
-                      <div class="
-                          spinner-grow
-                          text-info
-                          align-self-center
-                          loader-lg
-                        "></div>
+                      <div class="spinner-grow text-info  align-self-center loader-lg "></div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -147,8 +159,9 @@
         <section class="map">
           <h2 class="section-title">Hotel On Map</h2>
           <div class="section-content">
-            <div class="map-single" data-lat="<?= $map['geo_info']['city_centre']['latitude'] ?>" data-lng="<?= $map['geo_info']['city_centre']['longitude'] ?>"></div>
-            <img src="<?= $map['map_preview_url'] ?>" </div>
+            <div class="map-single" data-lat="<?= $description['latitude'] ?>" data-lng="<?= $description['longitude'] ?>"></div>
+            <img src="<?= $description['map_preview_url'] ?>">
+          </div>
         </section>
 
         <div class="gmz-comment-list mt-4" id="review-section">
@@ -156,7 +169,7 @@
             Reviews By Customers
           </h3>
           <ul class="comment-list">
-            <?php foreach ($reviews['result'] as $review) : ?>
+            <?php foreach ($reviews as $review) : ?>
               <li id="comment-25" class="comment comment-home odd alt thread-odd thread-alt depth-1">
                 <div id="div-comment-25" class="article comment  clearfix" inline_comment="comment">
                   <div class="comment-item-head">
@@ -165,7 +178,7 @@
                         <img alt="" src="//via.placeholder.com/1200x900" class="avatar avatar-50 photo avatar-default" height="50" width="50">
                       </div>
                       <div class="media-body">
-                        <h4 class="media-heading"> <? $review['author']['name'] ?> </h4>
+                        <h4 class="media-heading"> <? $review['author'] ?> </h4>
                         <div class="date"><?= $review['date'] ?></div>
                       </div>
                     </div>
@@ -558,3 +571,29 @@
     </div>
   </section> -->
 </div>
+<style>
+  .meta ul li {
+    list-style: none;
+    float: none;
+    margin-right: 20px;
+    font-size: 16px;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    min-width: 90px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+
+  .meta ul li .value {
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  .meta ul li .label {
+    display: block;
+    font-size: 13px;
+    color: gray;
+  }
+</style>
