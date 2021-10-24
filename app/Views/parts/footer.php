@@ -116,7 +116,7 @@
     <div class="footer-bottom pt-30 pb-30">
         <div class="container">
             <div class="copyright text-center">
-                © <?= date('Y') ?> Joel Studi0 - All rights reserved.
+                © <?= date('Y') ?> Joel Studi0 & <a target="_blank" href="https://towoju.com">TOWOJU I.T HUB</a> - All rights reserved.
             </div>
             <ul class="social-footer">
                 <li>
