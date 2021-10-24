@@ -29,6 +29,7 @@ use App\Models\HotelsImages;
 use App\Models\HotelsModel;
 use App\Models\HotelsReview;
 use App\Models\Wishlist;
+use App\Models\Withdrawal;
 
 /**
  * Class BaseController  
@@ -98,6 +99,7 @@ class BaseController extends Controller
         $this->hotel_facilities = new HotelsFacilities();
         $this->hotels_images    = new HotelsImages();
         $this->wishlist         = new Wishlist();
+        $this->withdrawal       = new Withdrawal();
 
 
 

@@ -31,8 +31,13 @@ class Admin extends BaseController
             $lastname = $r->getPost('lastname');
             $firstname = $r->getPost('firstname');
             foreach ($_POST as $k => $v) {
+                $fileName = $_FILES['profile_image']['name'].'-'.$this->user_id;
+                $filePath = "uploads/profile_image/".$_FILES['profile_image']['name'].'-'.$this->user_id;
                 $q[$k] = $v;
                 $q['fullname']  =   xx_clean($lastname . ' ' . $firstname);
+                if(move_uploaded_file($_FILES['profile_image']['tmp_name'], $filePath)){
+                    $q['profile_image'] = $fileName;
+                }
             }
             if ($this->users->where('id', $this->_id)->set(array_filter($q))->update()) {
                 return redirect()->back()->with('success', 'Updated successfully');
@@ -145,9 +150,9 @@ class Admin extends BaseController
     {
         $data = [];
         if ($user != null) {
-            $data['withdrawal'] = "";
+            $data['withdrawals'] = $this->withdrawal->where('user_id', $user)->join('users', 'users.id=withdrawal.user_id')->findAll();
         } else {
-            $data['withdrawal'] = "";
+            $data['withdrawals'] = $this->withdrawal->join('users', 'users.id=withdrawal.user_id')->findAll();
         }
         echo view('parts/dashboard/header', $data);
         echo view('admin/withdrawal');
@@ -170,7 +175,9 @@ class Admin extends BaseController
     }
     public function add_post()
     {
-        $data = [];
+        $data = [
+            'categories' =>  $this->categories->findAll(),
+        ];
         if ($this->request->getMethod() == 'post') {
             // receive post data and pass to xx_clean
             $q['title']      = xx_clean($this->request->getPost('title'));
@@ -213,6 +220,26 @@ class Admin extends BaseController
         $data = [
             'categories' =>  $this->categories->findAll(),
         ];
+        $r = $this->request;
+        if ($r->getMethod() == 'post') {
+            foreach ($_POST as $k => $v) {
+                $q[$k]  =   $v;
+            }
+            if($this->categories->insert($q)){
+                return redirect()->back()->with('success', 'Category created successfully');
+            } else {
+                return redirect()->back()->with('error', 'Unable to create Category.');
+            }
+        }
+        
+        if($action == 'delete'){
+            if($this->categories->delete($post_id)){
+                return redirect()->back()->with('success', 'Category deleted successfully');
+            } else {
+                return redirect()->back()->with('error', 'Unable to delete Category.');
+            }
+        }
+
         echo view('parts/dashboard/header', $data);
         echo view('admin/posts/category');
         echo view('parts/dashboard/footer');

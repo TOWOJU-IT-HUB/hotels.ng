@@ -14,7 +14,9 @@ class Orders extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = true;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id', 'user_id', 'hotel_id', 'services', 'quantity', 'booking_from', 'booking_to', 'total', 'status', 'date', 'no_infact', 'no_adult', 'no_children', 'payment_method', 'payment_status', 'base_price', 'sub_total', 'tax', 'total_paid', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields        = [
+        'id', 'user_id', 'hotel_id', 'services', 'quantity', 'booking_from', 'booking_to', 'total', 'status', 'date', 'no_infact', 'no_adult', 'no_children', 'payment_method', 'payment_status', 'base_price', 'sub_total', 'tax', 'total_paid', 'created_at', 'updated_at', 'deleted_at'
+    ];
 
     // Dates
     protected $useTimestamps        = true;

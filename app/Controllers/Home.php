@@ -32,6 +32,46 @@ class Home extends BaseController
         echo view('welcome_message');
         echo view('parts/footer');
     }
+    public function search()
+    {
+        // get hotels from booking.
+        $endpoint = "search?";
+        $q = [
+            'locale'=> 'en-us',
+            'room_number'=> 1,
+            'checkout_date'=> '2021-11-26',
+            'order_by'=> 'distance',
+            'units'=> 'metric',
+            'adults_number'=> 2,
+            'filter_by_currency'=> 'NGN',
+            'checkin_date'=> '2021-11-25',
+            'dest_type'=> 'city',
+            'dest_id'=> '-1997013',
+            'children_number'=> 2,
+            'page_number'=> 0,
+            'children_ages'=> '5'
+        ];
+		$r = $this->request;
+		// $checkin = explode(" - ", $r->getGet('checkInOut'));
+		// echo $query['checkout'] = $checkin[0]."<hr>";
+		// echo $query['checkin'] = $checkin[1]."<hr>";
+		// var_dump($r->getGet());
+		echo "<pre>";
+
+		$query['city'] = $r->getGet('location');
+		// $query['country_trans'] = $r->getGet('location');
+
+		$search = $this->hotels->like(array_filter($query))->paginate(90);
+        $data = [
+			'response'	=>	$this->hotels->like(array_filter($query))->paginate(9),
+			'pager' 	=> 	$this->hotels->pager,
+		]; 
+
+		print_r($search);
+        // echo view('parts/header', $data);
+        // echo view('welcome_message');
+        // echo view('parts/footer');
+    }
     
 	public function login()
 	{
@@ -78,6 +118,7 @@ class Home extends BaseController
 				'email'			=>	$user['email'],
 				'role'          =>  $user['role'],
 				'isLoggedIn'	=>	true,
+				'profile_image'	=>	$user['profile_image'],
 			];
 
 		session()->set($data);
@@ -151,6 +192,18 @@ class Home extends BaseController
             session_destroy();
             return redirect()->to(base_url('/'));
         }
+	}
+
+	public function withdrawal($id = null)
+	{
+		$data['inf'] = $this->withdrawal->find($id);
+		$data['userInfo'] = $this->users->find($data['inf'] ['user_id']);
+		return view('admin/withdrawal_info', $data);
+	}
+
+	function edit_category($_id)
+	{
+		//
 	}
 
 	public function logout()

@@ -58,7 +58,7 @@
                 ?>
                 <?php foreach ($social as $icon) : ?>
                     <a target="_blank" href="<?= $icon['social_url'] ?>">
-                        <i class="<?= $icon['social_icon'] ?>"></i>
+                        <i class="fa fa-<?= $icon['social_icon'] ?>"></i>
                     </a>
                 <?php endforeach ?>
             </div>
@@ -429,7 +429,7 @@
                     <li class="user-logged">
                         <div class="user-info">
                             <a href="javascript:void(0);">
-                                <img src="http://ibookingtest.booteam.co/storage/2021/01/30/myavatar-1-1612019822-100x100.png" alt="avatar">
+                                <img src="<?= base_url('uploads/profile_image/' . $_SESSION['profile_image']) ?>" alt="avatar">
                                 <span><?= $_SESSION['fullname'] ?></span>
                                 <i class="far fa-chevron-down"></i>
                             </a>

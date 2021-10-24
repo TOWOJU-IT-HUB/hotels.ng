@@ -14,7 +14,9 @@ class Categories extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = true;
     protected $protectFields        = true;
-    protected $allowedFields        = [];
+    protected $allowedFields        = [
+        'id',	'title',	'description',	'status',	'created_at',	'updated_at',	'deleted_at',
+    ];
 
     // Dates
     protected $useTimestamps        = true;

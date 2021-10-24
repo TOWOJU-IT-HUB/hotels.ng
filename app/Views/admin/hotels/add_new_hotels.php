@@ -20,6 +20,7 @@
                                     <div class="tabby">
                                         <div class="gmz-field form-group col-12 gmz-field-text  gmz-field-has-translation " id="gmz-field-post_title-wrapper">
                                             <label for="gmz-field-post_title">Title</label>
+                                            <input type="hidden" name="hotel_id" value="<?= uniqid() ?>">
                                             <input type="text" name="hotel_name" class="form-control  gmz-validation  " id="gmz-field-post_title" value="New hotel <?= uniqid() ?>">
                                         </div>
                                         <div class="w-100"></div>
@@ -95,7 +96,10 @@
                                     <div class="tabby">
                                         <div class="form-group">
                                             <label for="images">Image Upload</label>
-                                            <input type="file" name="hotel_images[]" class="form-control" multiple>
+                                            <input type="file" name="hotel_images[]" class="form-control" id="hotel_images " multiple />
+                                        </div>
+                                        <div class="imgGallery">
+                                            <!-- image preview -->
                                         </div>
                                     </div>
                                 </div>
@@ -119,8 +123,13 @@
         <!-- content -->
         <style>
             /* Hide all steps by default: */
-            .tab {
+            .tabby {
                 display: none;
+            }
+
+            .imgGallery img {
+                padding: 8px;
+                max-width: 100px;
             }
         </style>
         <script>
@@ -147,7 +156,6 @@
 
             function nextPrev(n) {
                 var x = document.getElementsByClassName("tabby");
-                if (n == 1 && !validateForm()) return false;
                 x[currentTab].style.display = "none";
                 // alert(x.length);
                 currentTab = currentTab + n;
@@ -182,7 +190,29 @@
                 });
             });
 
-            function validateForm() {
-                return true;
-            }
+
+            $(function() {
+                // Multiple images preview with JavaScript
+                var multiImgPreview = function(input, imgPreviewPlaceholder) {
+
+                    if (input.files) {
+                        var filesAmount = input.files.length;
+
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+                            }
+
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    }
+
+                };
+
+                $('#hotel_images').on('change', function() {
+                    multiImgPreview(this, 'div.imgGallery');
+                });
+            });
         </script>

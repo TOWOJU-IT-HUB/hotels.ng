@@ -94,7 +94,7 @@
                     <li class="dropdown notification-list list-inline-item">
                         <div class="dropdown notification-list nav-pro-img">
                             <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="<?= route_to('admin.profile') ?>" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="<?= base_url() ?>/dashboard/images/users/user-1.jpg" alt="user" class="rounded-circle">
+                                <img src="<?= base_url('uploads/profile_image/' . $_SESSION['profile_image']) ?>" alt="user" class="rounded-circle">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                 <!-- item-->
@@ -181,15 +181,18 @@
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-office-building"></i><span> <?= lang('text.hotel') ?> <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="<?= route_to('admin.all_hotels') ?>"> <?= lang('text.all_hotels') ?> </a></li>
+                                <?php /*
                                 <li><a href="<?= route_to('admin.add_new_hotels') ?>"> <?= lang('text.add_new_hotels') ?> </a></li>
                                 <li><a href="<?= route_to('admin.property_type') ?>"> <?= lang('text.property_type') ?> </a></li>
                                 <li><a href="<?= route_to('admin.facilities') ?>"> <?= lang('text.facilities') ?> </a></li>
                                 <li><a href="<?= route_to('admin.hotel_services') ?>"> <?= lang('text.hotel_services') ?> </a></li>
                                 <li><a href="<?= route_to('admin.room_facilities') ?>"> <?= lang('text.room_facilities') ?> </a></li>
                                 <li><a href="<?= route_to('admin.reviews') ?>"> <?= lang('text.reviews') ?> </a></li>
+                                 */ ?>
                                 <li><a href="<?= route_to('admin.orders') ?>"> <?= lang('text.orders') ?> </a></li>
                             </ul>
                         </li>
+                        <?php /*
                         <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-hospital-building"></i><span> <?= lang('text.apartments') ?> <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
@@ -200,7 +203,7 @@
                                 <li><a href="<?= route_to('admin.reviews') ?>"> <?= lang('text.reviews') ?> </a></li>
                                 <li><a href="<?= route_to('admin.orders') ?>"> <?= lang('text.orders') ?> </a></li>
                             </ul>
-                        </li>
+                        </li> */ ?>
                         <li class="menu-title"><?= lang('text.system') ?></li>
                         <li>
                             <a href="<?= route_to('general_settings') ?>" class="waves-effect"><i class="fas fa-cog"></i><span> <?= lang('text.settings') ?> </span></a>

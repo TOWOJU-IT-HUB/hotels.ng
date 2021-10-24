@@ -31,61 +31,38 @@
                     </div>
 
                     <div class="row">
-                    <?php foreach ($response as $key => $rex) : ?>
-                    <?php // http_build_query()
-						$es = [
-							'hotel_id'		=>	$rex['hotel_id'],
-							'data-hotel' 	=> 	$rex['hotel_name'],
-							'data-city' 	=> 	$rex['city'],
-							'data-country' 	=> 	$rex['country_trans'],
-							'data-type' 	=> 	$rex['accommodation_type_name'],
-							'ratings'		=> 	$rex['review_score'],
-							'checkin'		=> 	$rex['checkin'],
-							'checkout'		=> 	$rex['checkout'],
-						];
-						$es = '?' . http_build_query($es);
-						$final_url = route_to('hotels.view') . $es;
-						// $final_url = "https://google.com";
-						?>
-						<a href="<?= $final_url ?>">
-                            <div class="col-sm-4 col-xl-3  col-lg-3">
-                                <div class="card text-white pl-3" style="min-height: 250px">
+                        <?php foreach ($response as $key => $rex) : ?>
+                            <?php // http_build_query()
+                            $es = [
+                                'hotel_id'        =>    $rex['hotel_id'],
+                                'data-hotel'     =>     $rex['hotel_name'],
+                                'data-city'     =>     $rex['city'],
+                                'data-country'     =>     $rex['country_trans'],
+                                'data-type'     =>     $rex['accommodation_type_name'],
+                                'ratings'        =>     $rex['review_score'],
+                                'checkin'        =>     $rex['checkin'],
+                                'checkout'        =>     $rex['checkout'],
+                            ];
+                            $es = '?' . http_build_query($es);
+                            $final_url = route_to('hotels.view') . $es;
+                            // $final_url = "https://google.com";
+                            ?>
+                            <div class="col-md-6 col-xl-3">
+
+                                <!-- Simple card -->
+                                <div class="card">
+                                    <a target="_blank" href="<?= $final_url ?>">
+                                        <img class="card-img-top img-fluid" src="<?= $rex['hotel_thumbnail'] ?>" alt="<?= $rex['hotel_name'] ?>">
+                                    </a>
                                     <div class="card-body">
-                                        <div class="hotel-item hotel-item--grid" data-plugin="matchHeight">
-                                            <div class="hotel-item__thumbnail">
-                                                <a href="<?= $final_url ?>">
-                                                    <img class="hotel_img" src="<?= $rex['hotel_thumbnail'] ?>" alt="<?= $rex['hotel_name'] ?>" width="230px" height="200px">
-                                                </a>
-                                                <a class="hotel-item__type" href="#!">
-                                                    Hotels
-                                                </a>
-                                            </div>
-                                            <div class="hotel-item__details">
-                                                <span class="hotel-item__label"><?= $rex['accommodation_type_name'] ?></span>
-                                                <div class="hotel-item__rating">
-                                                    <div class="star-rating">
-                                                        <?php $i = 0;
-                                                        $stars = ($rex['review_score'] / 2) ?>
-                                                        <?php while ($stars < 5 && $rex['review_score'] != null) : ?>
-                                                            <i class="fa fa-star"></i>
-                                                        <?php $stars++;
-                                                        endwhile ?>
-                                                    </div>
-                                                </div>
-                                                <h5 class="hotel-item__title"><a href="<?= $final_url ?>"><?= $rex['hotel_name'] ?></a></h5>
-                                                <p class=" hotel-item__location"><i class="fas fa-map-marker-alt mr-2"></i><?= $rex['city'] . ' ' . $rex['country_trans'] ?> </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="hotel-item__price">
-                                                        <span class="_retail"><?= $rex['currency'] . number_format($rex['price'], 2) ?></span><span class="_unit">night</span>
-                                                    </div>
-                                                    <a class="btn btn-primary hotel-item__view-detail" href="<?= $final_url ?>">View Detail </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <h4 class="card-title font-16 mt-0"><?= $rex['hotel_name'] ?></h4>
+                                        <p class="card-text text-danger h4"><?= COUNTRY_CURRENCY . number_format(convertedCurrency($rex['price'], $rex['currency']), 2) ?></p>
+                                        <p class="card-text"><i class="fas fa-map-marker-alt mr-2"></i> <?= $rex['city'] .', '.$rex['country_trans'] ?>.</p>
+                                        <a target="_blank" href="<?= $final_url ?>" class="btn btn-outline-info waves-effect waves-light">View Detail </a>
                                     </div>
                                 </div>
+
                             </div>
-                        </a>
                         <?php endforeach ?>
                     </div>
                     <!-- end col -->

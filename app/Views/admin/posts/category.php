@@ -46,21 +46,17 @@
                                             <td>
                                                 <h5 class="mt-3 font-14"><?= $cat['title'] ?></h5>
                                             </td>
-                                            <td>
-                                                <?= $cat['categories'] ?>
-                                            </td>
-                                            <td><?= $cat['tags'] ?></td>
                                             <td><?= $cat['status'] ?></td>
 
                                             <td class="text-center">
                                                 <div class="dropdown">
                                                     <a class="dropdown-toggle text-center" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        ...
+                                                        <span class="h3">...</span>
                                                     </a>
                                                     <?php $cat_id = $cat['id'] ?>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 35px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                        <a class="dropdown-item" href="<?= route_to('cat_edit') . $cat_id ?>"><?= lang('text.edit') ?></a>
-                                                        <a class="dropdown-item" href="<?= route_to('admin.post_category') . '/delete/' . $cat_id ?>"><?= lang('text.delete') ?></a>
+                                                        <a class="dropdown-item" data-remote="<?= base_url("home/edit_category/$cat_id") ?>" data-target="#theModal" data-toggle="modal" href=""><?= lang('text.edit') ?></a>
+                                                        <a class="dropdown-item" href="<?= base_url('admin/post_category') . '/delete/' . $cat_id ?>"><?= lang('text.delete') ?></a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -111,4 +107,16 @@
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
+        </div>
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="theModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="https://c.tenor.com/gJLmlIn6EvEAAAAC/loading-gif.gif" alt="Loading">
+                    </div>
+                </div>
+            </div>
         </div>

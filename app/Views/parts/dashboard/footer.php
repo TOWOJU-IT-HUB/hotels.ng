@@ -32,7 +32,11 @@
 <script src="<?= base_url('dashboard/plugins/ace.js') ?>"></script>
 <script src="https://codemirror.net/mode/javascript/javascript.js"></script>
 
-
+<style>
+    .dropdown-toggle::after {
+        display: none;
+    }
+</style>
 
 
 

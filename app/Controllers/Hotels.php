@@ -195,7 +195,7 @@ class Hotels extends BaseController
         $data = [];
         $hotel_id = $_GET['hotel_id'];
         $data['description'] = $this->hotels->where('hotel_id', $hotel_id)->first();
-        $data['reviews'] = $this->hotel_reviews->where('hotel_id', $hotel_id)->findAll();
+        $data['reviews'] = $this->hotel_reviews->where('hotel_id', $hotel_id)->findAll(10);
         $data['facilities'] = $this->hotel_facilities->where('hotel_id', $hotel_id)->findAll();
         $data['images'] = $this->hotels_images->where('hotel_id', $hotel_id)->findAll();
         $data['map'] = $this->hotels->where('hotel_id', $hotel_id)->findAll();
