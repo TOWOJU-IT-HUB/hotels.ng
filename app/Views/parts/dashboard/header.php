@@ -151,6 +151,7 @@
                                 <i class="fas fa-heart"></i> <span> <?= lang('text.wishlist') ?> </span>
                             </a>
                         </li>
+                        <?php if(session()->get('role') == 'admin'): ?>
                         <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-graph-bar"></i><span> <?= lang('text.earnings_report') ?> <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
@@ -218,9 +219,10 @@
                                 <li><a href="<?= route_to('admin.partner_request') ?>"> <?= lang('text.partner_request') ?> </a></li>
                             </ul>
                         </li>
+                        <?php /*
                         <li>
                             <a href="<?= route_to('admin.media') ?>" class="waves-effect"><i class="dripicons-photo"></i><span> <?= lang('text.media') ?> </span></a>
-                        </li>
+                        </li> */ ?>
                         <li>
                             <a href="<?= route_to('admin.coupons') ?>" class="waves-effect"><i class="dripicons-ticket"></i><span> <?= lang('text.coupons') ?> </span></a>
                         </li>
@@ -231,6 +233,7 @@
                                 <li><a href="<?= route_to('admin.seo') ?>"><?= lang('text.seo') ?></a></li>
                             </ul>
                         </li>
+                        <?php endif ?>
                     </ul>
                 </div>
                 <!-- Sidebar -->

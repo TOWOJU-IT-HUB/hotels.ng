@@ -48,7 +48,7 @@
                                             <td><?= $user['email'] ?></td>
                                             <td><?= $user['address'] ?></td>
                                             <td class="text-center strong">
-                                                ...
+                                                <h3>...</h3>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>
