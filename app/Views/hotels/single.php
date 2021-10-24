@@ -22,7 +22,7 @@
 
         <div class="row hotel-star">
           <div class="star-rating">
-            <?php if($description['review_score'] == null){
+            <?php if ($description['review_score'] == null) {
               $ans = $score = 0;
             } else {
               $ans = $score = ($description['review_score']) / 2;
@@ -30,7 +30,8 @@
             ?>
             <?php while ($score <= 5 && $score != 0) : ?>
               <i class="fa fa-star text-warning"></i>
-            <?php $score++; endwhile ?>
+            <?php $score++;
+            endwhile ?>
             <?php $ans = 5 - $ans ?>
             <?= str_repeat('<i class="fa fa-star"></i>', $ans) ?>
           </div>
@@ -252,21 +253,28 @@
       </div>
 
       <!-- // Right SideBar starts here -->
-        <div class="col-lg-4">
-          <div class="siderbar-single">
-            <div class="hotel-logo">
-              <img src="../storage/2021/02/01/logo-1-1612164312.png" class="img-fluid" alt="hotel logo" />
-            </div>
+      <div class="col-lg-4">
+        <div class="siderbar-single">
+          <div class="hotel-logo">
+            <img src="<?= base_url() . '/uploads/logo/' . conf['site_logo'] ?>" class="img-fluid" alt="hotel logo" />
+          </div>
+          
 
-
-            <section class="feature">
+          <link rel="stylesheet" href="//cdn.onlinewebfonts.com/svg_info/packs/web/fd/1133/icon.css" type="text/css" />
+          <section class="feature">
+            <li class="list-group-item">
               <h2 class="section-title">Hotel Services</h2>
               <div class="section-content">
-                
+                <?php foreach ($facilities as $v) : ?>
+                  <i title="<?= $v['facility_name'] ?>" class="fas fa-<?= strtolower($v['facility_name']) ?> fa-2x"></i>
+                  <i class="i_<?= strtolower($v['facility_name']) ?> fa-2x"></i>
+                  <?= $v['facility_name'] . ' | ' ?>
+                <?php endforeach ?>
               </div>
-            </section>
+            </li>
+          </section>
 
-            <section class="feature nearby-location">
+          <!-- <section class="feature nearby-location">
               <h2 class="section-title">What&#039;s Nearby</h2>
               <div class="section-content">
                 <ul>
@@ -361,9 +369,9 @@
                   </li>
                 </ul>
               </div>
-            </section>
-          </div>
+            </section> -->
         </div>
+      </div>
       <!-- // Right SideBar ends here -->
 
     </div>
