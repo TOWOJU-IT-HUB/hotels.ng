@@ -95,6 +95,7 @@ return [
     'description'   =>  'Description',
     'title'         =>  'Title',
     'tags'          =>  'Tags',
+    'url'           =>  'URL',
     'draft'         =>  'Draft',
     'delete'        =>  'Delete',
     'published'     =>  'Published',
@@ -113,4 +114,5 @@ return [
     'next'              =>  "Next",
     'prev'              =>  "Prev",
     'previous'          =>  "Previous",
+    'location'          =>  "Location",
 ];

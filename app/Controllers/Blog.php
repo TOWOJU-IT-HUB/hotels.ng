@@ -7,21 +7,24 @@ use App\Controllers\BaseController;
 class Blog extends BaseController
 {
     public function index()
-    {
-        $model = $this->blog;;
-    
+    {  
         $data = [
-            'news'  => $model->getNews(),
+            'news'  => $this->blog->where('status', 'published')->getNews(),
             'title' => 'News archive',
         ];
     
         echo view('parts/header', $data);
-        echo view('admin/posts/view', $data);
-        echo view('parts/footer', $data);
+        echo view('admin/posts/view');
+        echo view('parts/footer');
     }
 
     public function post($slug=null)
     {
-        return $data['news'] = $this->blog->getNews($slug);
+        $data['news']   = $this->blog->getNews($slug);
+		$data['title']  = $data['news']['title'];
+    
+        echo view('parts/header', $data);
+        echo view('blog_post');
+        echo view('parts/footer');
     }
 }

@@ -8,7 +8,7 @@
     </li>
 </ul>
 <div class="tab-content mt-4 text-left" id="myTabContent">
-    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="profile-tab">
         <div class="table-responsive">
             <table class="table">
                 <tbody>

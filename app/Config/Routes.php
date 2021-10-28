@@ -27,7 +27,7 @@ $routes->setAutoRoute(true);
  * --------------------------------------------------------------------
  * Route Definitions
  * --------------------------------------------------------------------
- */
+ */ 
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
@@ -35,6 +35,7 @@ $routes->get('/', 'Home::index', ['as' => 'home']);
 $routes->get('lang/{locale}', 'Language::index', ['as', 'lang']);
 $routes->match(['get', 'post'], 'post', 	'Blog::post', 	['as' => 'blog.view']);
 $routes->match(['get', 'post'], 'search', 	'Home::search', 	['as' => 'search']);
+$routes->match(['get', 'post'], 'add_order','Home::add_order', 	['as' => 'add_order']);
 
 #----------------------------------------------------------------------
 # Authentication Routes
@@ -44,6 +45,7 @@ $routes->match(['post'], 'login', 	                'Home::login', 	        ['as'
 $routes->match(['get', 'post'], 'register', 	    'Home::register', 	    ['as' => 'register']);
 $routes->match(['get', 'post'], 'password_reset', 	'Home::password_reset', ['as' => 'password_reset']);
 $routes->match(['get', 'post'], 'do_login',         'Home::do_login', 	    ['as' => 'check']);
+$routes->match(['get', 'post'], 'contact-us',       'Home::contact_us',     ['as' => 'contact_us']);
 $routes->match(['get', 'post'], 'logout',	        'Home::logout',         ['as' => 'logout']);
 
 #----------------------------------------------------------------------
@@ -97,6 +99,7 @@ $routes->group('admin', ['filter' => 'login'], function ($routes) {
 
 	// hotels
 	$routes->match(['get', 'post'], 'all_hotels',				'Admin::all_hotels', 			['as' => 'admin.all_hotels']);
+	$routes->match(['get', 'post'], 'all_orders',				'Admin::all_orders', 			['as' => 'admin.all_orders']);
 	$routes->match(['get', 'post'], 'add_new_hotels',			'Admin::add_new_hotels', 		['as' => 'admin.add_new_hotels']);
 	$routes->match(['get', 'post'], 'all_apartments',			'Admin::all_apartments', 		['as' => 'admin.all_apartments']);
 	$routes->match(['get', 'post'], 'property_type',			'Admin::property_type', 		['as' => 'admin.property_type']);

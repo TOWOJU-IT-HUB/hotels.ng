@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="storage/2021/02/01/favicon-1612164546.png" />
-    <title> <?= lang('text.site_title') ?> </title>
+    <title> <?= lang('text.site_title') ?> <?php if (isset($title)) {
+                                                echo ' :: ' . $title;
+                                            } ?> </title>
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="description" content="<?= conf['site_title'] ?> - " />
     <meta property="og:locale" content="en" />
@@ -45,6 +47,7 @@
             --primary-hover: hsl(175, 69%, 40%);
         }
     </style>
+    <script src="<?= base_url() ?>/html/assets/vendor/jquery-3.5.1.min.js"></script>
 </head>
 
 <body class="body">
@@ -66,11 +69,19 @@
         <div class="top-bar__right">
             <div class="select-language dropdown">
                 <select class="dropdown-toggle" onchange="setLang(this.value)">
-                    <option disabled > Select Language </option>
-                    <option <?php if(session()->get('lang') == 'en'){ echo "selected"; } ?> value="<?= base_url('lang/en') ?>"> English </option>
-                    <option <?php if(session()->get('lang') == 'es'){ echo "selected"; } ?> value="<?= base_url('lang/es') ?>"> Spanish </option>
-                    <option <?php if(session()->get('lang') == 'fr'){ echo "selected"; } ?> value="<?= base_url('lang/fr') ?>"> French </option>
-                    <option <?php if(session()->get('lang') == 'in'){ echo "selected"; } ?> value="<?= base_url('lang/in') ?>"> Hindi </option>
+                    <option disabled> Select Language </option>
+                    <option <?php if (session()->get('lang') == 'en') {
+                                echo "selected";
+                            } ?> value="<?= base_url('lang/en') ?>"> English </option>
+                    <option <?php if (session()->get('lang') == 'es') {
+                                echo "selected";
+                            } ?> value="<?= base_url('lang/es') ?>"> Spanish </option>
+                    <option <?php if (session()->get('lang') == 'fr') {
+                                echo "selected";
+                            } ?> value="<?= base_url('lang/fr') ?>"> French </option>
+                    <option <?php if (session()->get('lang') == 'in') {
+                                echo "selected";
+                            } ?> value="<?= base_url('lang/in') ?>"> Hindi </option>
                 </select>
             </div>
             <div class="select-language dropdown">
@@ -118,7 +129,7 @@
                         <div id="password-field" class="field-wrapper input mb-2">
                             <div class="d-flex justify-content-between">
                                 <label for="password"><?= lang('text.password') ?></label>
-                                <a href="#gmz-reset-popup" class="forgot-pass-link gmz-box-popup" data-effect="mfp-zoom-in"> <?= lang('text.forgot').' '.lang('text.password') ?>?</a>
+                                <a href="#gmz-reset-popup" class="forgot-pass-link gmz-box-popup" data-effect="mfp-zoom-in"> <?= lang('text.forgot') . ' ' . lang('text.password') ?>?</a>
                             </div>
                             <i class="fal fa-lock"></i>
                             <input id="password" name="password" type="password" class="form-control gmz-validation" data-validation="required" placeholder="Your <?= lang('text.password') ?>">
@@ -222,11 +233,11 @@
                             </div>
                         </div>
 
-                        <div class="division">
+                        <!-- <div class="division">
                             <span>OR</span>
-                        </div>
+                        </div> -->
 
-                        <div class="social">
+                        <!-- <div class="social">
                             <a href="https://www.facebook.com/v3.3/dialog/oauth?client_id=350904019789211&amp;redirect_uri=https%3A%2F%2Fibooking.booteam.co%2Fcallback%2Ffacebook&amp;scope=<?= lang('text.email') ?>&amp;response_type=code&amp;state=BLWPid0hDujFblN3sNnyitXx0dOwU4yZCmvUAHJW" class="btn social-fb">
                                 <i class="fab fa-facebook-f"></i>
                                 <span class="brand-name">Facebook</span>
@@ -235,7 +246,7 @@
                                 <i class="fab fa-google"></i>
                                 <span class="brand-name">Google</span>
                             </a>
-                        </div>
+                        </div> -->
 
                         <p class="signup-link">Already have an account? <a href="#gmz-login-popup" class="gmz-box-popup" data-effect="mfp-zoom-in"><?= lang('text.login') ?></a></p>
 

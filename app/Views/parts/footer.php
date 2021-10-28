@@ -2,6 +2,12 @@
 <!-- ============================================================== -->
 <!-- End Right content here -->
 <!-- ============================================================== -->
+<?php
+    $db      = \Config\Database::connect();
+    $menu3 = $db->query("SELECT * FROM menus WHERE location=3 ")->getResultArray();
+    $menu2 = $db->query("SELECT * FROM menus WHERE location=2 ")->getResultArray();
+    $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
+?>
 <footer class="site-footer pt-60 pb-40">
     <div class="footer-top">
         <div class="container">
@@ -10,6 +16,14 @@
                     <div class="widget widget-nav">
                         <h4 class="widget__title"><?= lang('text.company') ?></h4>
                         <ul class="menu">
+                            
+                            <?php foreach($menu1 as $m1): ?>
+                            <li class="menu-item menu-item-1 ">
+                                <a href="<?= $m1['url'] ?>"><?= $m1['title'] ?></a>
+                            </li>
+                            <?php endforeach ?>
+
+                            <?php /*
                             <li class="menu-item menu-item-1 ">
                                 <a href="<?= route_to('contact_us') ?>"><?= lang('text.contact_us') ?></a>
                             </li>
@@ -27,7 +41,7 @@
                             </li>
                             <li class="menu-item menu-item-6 ">
                                 <a href="<?= route_to('visit') ?>"><?= lang('text.meet_the_team') ?></a>
-                            </li>
+                            </li> */ ?>
                         </ul>
                     </div>
                 </div>
@@ -35,24 +49,11 @@
                     <div class="widget widget-nav">
                         <h4 class="widget__title">SUPPORT</h4>
                         <ul class="menu">
+                            <?php foreach($menu2 as $m2): ?>
                             <li class="menu-item menu-item-1 ">
-                                <a href="#">Account</a>
+                                <a href="<?= $m2['url'] ?>"><?= $m2['title'] ?></a>
                             </li>
-                            <li class="menu-item menu-item-2 ">
-                                <a href="#">About Us</a>
-                            </li>
-                            <li class="menu-item menu-item-3 ">
-                                <a href="#">Legal</a>
-                            </li>
-                            <li class="menu-item menu-item-4 ">
-                                <a href="#">Contact</a>
-                            </li>
-                            <li class="menu-item menu-item-5 ">
-                                <a href="#">Affiliate Program</a>
-                            </li>
-                            <li class="menu-item menu-item-6 ">
-                                <a href="#">Privacy Policy</a>
-                            </li>
+                            <?php endforeach ?>
                         </ul>
                     </div>
                 </div>
@@ -60,24 +61,11 @@
                     <div class="widget widget-nav">
                         <h4 class="widget__title">TOP CITIES</h4>
                         <ul class="menu">
+                            <?php foreach($menu3 as $m3): ?>
                             <li class="menu-item menu-item-1 ">
-                                <a href="#">Chicago</a>
+                                <a href="<?= $m3['url'] ?>"><?= $m3['title'] ?></a>
                             </li>
-                            <li class="menu-item menu-item-2 ">
-                                <a href="#">New York</a>
-                            </li>
-                            <li class="menu-item menu-item-3 ">
-                                <a href="#">San Francisco</a>
-                            </li>
-                            <li class="menu-item menu-item-4 ">
-                                <a href="#">California</a>
-                            </li>
-                            <li class="menu-item menu-item-5 ">
-                                <a href="#">Ohio</a>
-                            </li>
-                            <li class="menu-item menu-item-6 ">
-                                <a href="#">Alaska</a>
-                            </li>
+                            <?php endforeach ?>
                         </ul>
                     </div>
                 </div>
@@ -105,8 +93,7 @@
                         <div class="mb-4"></div>
                         <div class="promo d-flex align-items-center">
                             <?php
-                            $db      = \Config\Database::connect();
-                            $social = $db->query("SELECT * FROM social")->getResultArray();
+                                $social = $db->query("SELECT * FROM social")->getResultArray();
                             ?>
                             <?php foreach ($social as $icon) : ?>
                                 <a target="_blank" href="<?= $icon['social_url'] ?>">
@@ -122,12 +109,11 @@
     <div class="footer-bottom pt-30 pb-30">
         <div class="container">
             <div class="copyright text-center">
-                © <?= date('Y') ?> Joel Studi0 & <a target="_blank" href="https://towoju.com">TOWOJU I.T HUB</a> - All rights reserved.
+                Designed By Joel Studi0 & <a target="_blank" href="https://towoju.com"><span class="text-white"> TOWOJU I.T HUB</span></a> - © <?= date('Y'); echo ' '. conf['site_title'] ?> All rights reserved.
             </div>
         </div>
     </div>
 </footer>
-<script src="<?= base_url() ?>/html/assets/vendor/jquery-3.5.1.min.js"></script>
 <script src="<?= base_url() ?>/html/assets/vendor/bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url() ?>/html/assets/vendor/slick-1.8.1/slick.min.js"></script>
 <script src="<?= base_url() ?>/vendors/glow-cookies/glowCookies.js"></script>

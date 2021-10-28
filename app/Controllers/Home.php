@@ -7,26 +7,12 @@ class Home extends BaseController
     public function index()
     {
         // get hotels from booking.
-        $endpoint = "search?";
-        $q = [
-            'locale'=> 'en-us',
-            'room_number'=> 1,
-            'checkout_date'=> '2021-11-26',
-            'order_by'=> 'distance',
-            'units'=> 'metric',
-            'adults_number'=> 2,
-            'filter_by_currency'=> 'NGN',
-            'checkin_date'=> '2021-11-25',
-            'dest_type'=> 'city',
-            'dest_id'=> '-1997013',
-            'children_number'=> 2,
-            'page_number'=> 0,
-            'children_ages'=> '5'
-        ];
-
         $data = [
 			'response'	=>	$this->hotels->paginate(9),
 			'pager' 	=> 	$this->hotels->pager,
+			'menu1'		=>	$this->menu->where('location', '1')->findAll(),
+			'menu2'		=>	$this->menu->where('location', '2')->findAll(),
+			'menu3'		=>	$this->menu->where('location', '3')->findAll(),
 		]; 
         echo view('parts/header', $data);
         echo view('welcome_message');
@@ -52,12 +38,6 @@ class Home extends BaseController
             'children_ages'=> '5'
         ];
 		$r = $this->request;
-		// $checkin = explode(" - ", $r->getGet('checkInOut'));
-		// echo $query['checkout'] = $checkin[0]."<hr>";
-		// echo $query['checkin'] = $checkin[1]."<hr>";
-		// var_dump($r->getGet());
-		echo "<pre>";
-
 		$query['city'] = $r->getGet('location');
 		// $query['country_trans'] = $r->getGet('location');
 
@@ -66,11 +46,12 @@ class Home extends BaseController
 			'response'	=>	$this->hotels->like(array_filter($query))->paginate(9),
 			'pager' 	=> 	$this->hotels->pager,
 		]; 
+		// echo "<pre>";
 
-		print_r($search);
-        // echo view('parts/header', $data);
-        // echo view('welcome_message');
-        // echo view('parts/footer');
+		// print_r($search);
+        echo view('parts/header', $data);
+        echo view('search');
+        echo view('parts/footer');
     }
     
 	public function login()
@@ -161,15 +142,21 @@ class Home extends BaseController
 					$user = $model->where('email', $email)->first();
 					$this->setUserSession($user);
 				}
+				return json_encode(['success' => 'Registration Successful.']);
 				
 			}
 		}
-		// return view('customers/register', $data);
+		return redirect('/');
 	}
 	
-	public function page()
+	public function page($slug)
 	{
-		return view('customers/dashboard');
+		$data['page'] = $this->pages->where('slug', $slug)->first();
+		$data['title']= $data['page']['title'];
+		
+		echo view('parts/header', $data);
+		echo view('blog_post');
+		echo view('parts/footer');
 	}
 	
 	public function error()
@@ -204,6 +191,74 @@ class Home extends BaseController
 	function edit_category($_id)
 	{
 		//
+	}
+
+	function contact_us()
+	{
+		$data['inf'] = $this->settings->find(1);
+		echo view('parts/header', $data);
+		echo view('contact');
+		echo view('parts/footer');
+	}
+
+	function add_order()
+	{
+		// receive post request and insert data into ::DB
+		$r = $this->request;
+		if($r->getMethod() == 'post')
+		{
+			foreach ($_POST as $k => $v) {
+				$q[$k] = $v;
+			}
+			if($this->orders->insert($q)){
+				return json_encode(['success' => "Success Booking request sent successfully"]);
+			} else {
+				return json_encode(['error' => "Unable to process your booking request at this time."]);
+			}
+		}
+	}
+
+	function invoice($inv_id){
+		$order = $this->orders->find($inv_id);
+		$hotel = $this->hotels->find($order['hotel_id']);
+
+		$return_url = "";
+		$cancel_url = "";
+		$notify_url = "";
+
+		$q['cmd']		=	"_xclick";
+		$q['ctxn_idmd']	=	"txn_id";
+		$q['cmd']		=	"txn_type";
+		$q['no_note']	=	"1";
+		$q['lc']		=	"USA";
+		$q['bn']		=	"PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest";
+		$q['item_number']	=	"123456";
+		$q['first_name']	=	"_xclick";
+		$q['last_name']	=	"_xclick";
+		$q['payer_email']	=	"_xclick";
+
+		$data['business'] = conf['email'];
+
+		// Set the PayPal return addresses.
+		$data['return'] = stripslashes($return_url);
+		$data['cancel_return'] = stripslashes($cancel_url);
+		$data['notify_url'] = stripslashes($notify_url);
+
+		// Set the details about the product being purchased, including the amount
+		// and currency so that these aren't overridden by the form data.
+		$data['item_name'] = "Hotel Booking Payment for ".$hotel['hotel_name'];
+		$data['amount'] = $order['price'];
+		$data['currency_code'] = $hotel['currencycode'];
+
+		// Add any custom fields for the query string.
+		//$data['custom'] = USERID;
+
+		// Build the query string from the data.
+		$queryString = http_build_query($data);
+
+		// Redirect to paypal IPN
+		header('location:' . $paypalUrl . '?' . $queryString);
+		exit();
 	}
 
 	public function logout()

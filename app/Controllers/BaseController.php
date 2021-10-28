@@ -28,6 +28,7 @@ use App\Models\HotelsFacilities;
 use App\Models\HotelsImages;
 use App\Models\HotelsModel;
 use App\Models\HotelsReview;
+use App\Models\Menu;
 use App\Models\Wishlist;
 use App\Models\Withdrawal;
 
@@ -82,6 +83,7 @@ class BaseController extends Controller
         $this->settings         = new Settings();
         $this->orders           = new Orders();
         $this->blog             = new Blog();
+        $this->menu             = new Menu();
         $this->page             = new Pages();
         $this->partners         = new Partners();
         $this->comments         = new Comments();

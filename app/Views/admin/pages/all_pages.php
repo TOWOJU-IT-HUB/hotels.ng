@@ -49,6 +49,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
+                                        <th>URL</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -60,13 +61,9 @@
                                         <tr>
                                             <td class="text-muted">#<?= $i++ ?></td>
                                             <td>
-                                                <div class="media">
-                                                    <img class="d-flex align-self-start rounded mr-3" src="https://themesdesign.in/zegva/layouts/vertical/assets/images/users/user-5.jpg" alt="" height="64">
-                                                    <div class="media-body">
-                                                        <h5 class="mt-3 font-14"><?= $page['title'] ?></h5>
-                                                    </div>
-                                                </div>
+                                                <h5 class="mt-3 font-14"><?= $page['title'] ?></h5>
                                             </td>
+                                            <td><?= base_url('page/'.$page['slug']) ?></td>
                                             <td><?= $page['status'] ?></td>
                                             <td class="text-center">
                                                 <div class="dropdown">

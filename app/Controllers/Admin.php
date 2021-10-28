@@ -66,6 +66,13 @@ class Admin extends BaseController
             session()->remove('orders_type');
         }
         $where = [];
+
+        if(session()->get('id') != null){
+            $where = [
+                'user_id' => session()->get('id'),
+            ];
+        }
+
         if (session()->get('orders_type') != null && !isset($_GET)) {
             $order_type = session()->get('orders_type');
             $data['orders']    =  $this->orders->where('services', $order_type)->findAll();
@@ -81,15 +88,53 @@ class Admin extends BaseController
             }
             $data['orders']    =  $this->orders->where($where)->findAll();
         } else {
-            $data['orders']    =  $this->orders->findAll();
+            if(session()->get('id') !== null){
+                $data['orders']    =  $this->orders->where($where)->findAll();
+            } else {
+                $data['orders']    =  $this->orders->findAll();
+            }
         }
         echo view('parts/dashboard/header', $data);
         echo view('admin/myorders');
         echo view('parts/dashboard/footer');
     }
+    public function all_orders($type = null)
+    {
+        if (isset($type) && $type != null) {
+            session()->set(['orders_type' => $type]);
+        } else {
+            session()->remove('orders_type');
+        }
+        $where = [];
+
+        if (session()->get('orders_type') != null && !isset($_GET)) {
+            $order_type = session()->get('orders_type');
+            $data['orders']    =  $this->orders->where('services', $order_type)->findAll();
+        } elseif (isset($_GET) && session()->get('orders_type') != null) {
+            foreach ($_GET as $key => $val) {
+                $where = array($key => $val);
+            }
+            $order_type = session()->get('orders_type');
+            $data['orders']    =  $this->orders->where('services', $order_type)->where($where)->findAll();
+        } elseif (isset($_GET)) {
+            foreach ($_GET as $key => $val) {
+                $where = array($key => $val);
+            }
+            $data['orders']    =  $this->orders->where($where)->findAll();
+        } else {
+            if(session()->get('id') !== null){
+                $data['orders']    =  $this->orders->where($where)->findAll();
+            } else {
+                $data['orders']    =  $this->orders->findAll();
+            }
+        }
+        echo view('parts/dashboard/header', $data);
+        echo view('admin/hotels/orders');
+        echo view('parts/dashboard/footer');
+    }
     public function order($order_id)
     {
-        $data['order']    =  $this->orders->find($order_id);
+        $data['order']    =  $this->orders->where('orders.id', $order_id)->join('hotels', 'hotels.hotel_id=orders.hotel_id')->join('users', 'users.id=orders.user_id')->first();
         $data['slug']    =  $order_id;
         // echo view('parts/dashboard/header', $data);
         echo view('admin/order', $data);
@@ -382,7 +427,7 @@ class Admin extends BaseController
             if ($this->hotels->where('hotel_id', $hotel_id)->delete()) {
                 return redirect()->back()->with('success', "Hotel deleted successfully");
             } else {
-                return redirect()->back()->with('error', "unable to delete page");
+                return redirect()->back()->with('error', "unable to delete hotel");
             }
         }
         echo view('parts/dashboard/header', $data);
@@ -672,9 +717,34 @@ class Admin extends BaseController
         echo view('admin/coupons');
         echo view('parts/dashboard/footer');
     }
-    public function menu()
+    public function menu($action=null, $menu_id=null)
     {
-        //
+        $data = [
+            'title' =>  "Menu's",
+            'menus' =>  $this->menu->findAll()
+        ];
+        if ($action == 'delete') {
+            if ($this->menu->where('id', $menu_id)->delete()) {
+                return redirect()->back()->with('success', "Menu deleted successfully");
+            } else {
+                return redirect()->back()->with('error', "Unable to delete Menu");
+            }
+        }
+        if ($this->request->getMethod() == 'post') {
+            # code...
+            $r = $this->request;
+            foreach ($_POST as $k => $v) {
+                $q[$k] = $v;
+            }
+            if ($this->menu->insert($q)) {
+                return redirect()->back()->with('success', 'Menu created successfully');
+            } else {
+                return redirect()->back()->with('error', 'Unable to create menu.');
+            }
+        }
+        echo view('parts/dashboard/header', $data);
+        echo view('admin/menu');
+        echo view('parts/dashboard/footer');
     }
     public function seo()
     {

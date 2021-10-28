@@ -28,7 +28,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-row">
+                            <!-- <div class="form-row">
                                 <div class="col mb-2">
                                     <div class="filter-action pl-2" id="menu_post_type" data-active="apartment">
                                         <a href="#!" id="post_type_all" class="mr-2">All</a>
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> -->
                             <hr>
 
                             <table class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

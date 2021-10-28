@@ -67,6 +67,7 @@
                             <a class="dropdown-item" href="<?= base_url('lang').'/in' ?>"><img src="<?= base_url() ?>/dashboard/images/flags/india_flag.jpg" alt="" height="16" /> <span class=""> Hindu </span></a>
                         </div>
                     </li>
+                    
                     <!-- notification -->
                     <li class="dropdown notification-list list-inline-item">
                         <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="<?= route_to('admin.notifications') ?>" role="button" aria-haspopup="false" aria-expanded="false">
@@ -91,6 +92,7 @@
                             </a>
                         </div>
                     </li>
+                    
                     <li class="dropdown notification-list list-inline-item">
                         <div class="dropdown notification-list nav-pro-img">
                             <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="<?= route_to('admin.profile') ?>" role="button" aria-haspopup="false" aria-expanded="false">
@@ -98,12 +100,12 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                 <!-- item-->
-                                <a class="dropdown-item" href="<?= route_to('admin.profile') ?>"><i class="mdi mdi-account-circle"></i> <?= lang('text.profile') ?></a>
-                                <a class="dropdown-item" href="<?= route_to('admin.profile') ?>"><i class="mdi mdi-wallet"></i> <?= lang('text.my_wallet') ?></a>
-                                <a class="dropdown-item d-block" href="<?= route_to('admin.profile') ?>"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i> Settings</a>
-                                <a class="dropdown-item" href="<?= route_to('admin.profile') ?>"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
+                                <a class="dropdown-item" href="<?= route_to('admin.profile') ?>">
+                                    <img src="<?= base_url('uploads/profile_image/' . $_SESSION['profile_image']) ?>" alt="user" width="30px" height="30px" class="rounded-circle mr-2">
+                                    <?= session()->get('fullname') ?>
+                                </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-danger" href="<?= route_to('admin.profile') ?>"><i class="mdi mdi-power text-danger"></i> <?= lang('text.logout') ?></a>
+                                <a class="dropdown-item text-danger" href="<?= route_to('logout') ?>"><i class="mdi mdi-power text-danger"></i> <?= lang('text.logout') ?></a>
                             </div>
                         </div>
                     </li>
@@ -151,7 +153,7 @@
                                 <i class="fas fa-heart"></i> <span> <?= lang('text.wishlist') ?> </span>
                             </a>
                         </li>
-                        <?php if(session()->get('role') == 'admin'): ?>
+                        <?php if(session()->get('role') === 'admin'): ?>
                         <li>
                             <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-graph-bar"></i><span> <?= lang('text.earnings_report') ?> <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
@@ -190,7 +192,7 @@
                                 <li><a href="<?= route_to('admin.room_facilities') ?>"> <?= lang('text.room_facilities') ?> </a></li>
                                 <li><a href="<?= route_to('admin.reviews') ?>"> <?= lang('text.reviews') ?> </a></li>
                                  */ ?>
-                                <li><a href="<?= route_to('admin.orders') ?>"> <?= lang('text.orders') ?> </a></li>
+                                <li><a href="<?= route_to('admin.all_orders') ?>"> All <?= lang('text.orders') ?> </a></li>
                             </ul>
                         </li>
                         <?php /*

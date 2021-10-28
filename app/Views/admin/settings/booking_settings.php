@@ -76,17 +76,22 @@
 
                                     <div class="tab-content mt-4" id="myTabContent">
                                         <?php foreach ($gateway as $pay) : ?>
-                                            <div class="tab-pane" id="<?= strtolower(trim($pay['name'])) ?>" role="tabpanel" aria-labelledby="<?= strtolower(trim($pay['name'])) ?>-tab">
+                                            <div class="tab-panel active" id="<?= strtolower(trim($pay['name'])) ?>" role="tabpanel" aria-labelledby="<?= strtolower(trim($pay['name'])) ?>-tab">
                                                 <!-- // Tab one. for settings -->
                                                 <div class="col-10">
                                                     <div class="m-3"></div>
                                                     <div class="form-group">
-                                                        <label class="text-muted">Secret Key</label>
-                                                        <input type="text" name="<?= strtolower(trim($pay['name'])) ?>_secret_key" value="<?= $pay['secret_key'] ?>" class="form-control">
+                                                        <label class="text-muted">PayPal Email</label>
+                                                        <input type="text" name="paypal_email" value="<?= conf['paypal_email'] ?>" placeholder="example@gmail.com" class="form-control">
                                                     </div>
                                                     <div class="form-group">
+                                                        <label class="text-muted">Rapid API Key</label>
+                                                        <input type="text" name="rapid_api_key" value="<?= conf['rapid_api_key'] ?>" placeholder="example@gmail.com" class="form-control">
+                                                    </div>
+                                                    <?php /*
+                                                    <div class="form-group">
                                                         <label class="text-muted">Public Key</label>
-                                                        <input type="text" name="<?= strtolower(trim($pay['name'])) ?>_public_key" value="<?= $pay['public_key'] ?>" class="form-control">
+                                                        <input type="text" name="public_key" value="<?= $pay['public_key'] ?>" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="text-muted">Extra Key 1</label>
@@ -100,6 +105,7 @@
                                                         <label class="text-muted">Logo</label>
                                                         <input type="file" name="<?= strtolower(trim($pay['name'])) ?>_logo" class="form-control">
                                                     </div>
+                                                    */ ?>
 
                                                 </div>
                                             </div>
