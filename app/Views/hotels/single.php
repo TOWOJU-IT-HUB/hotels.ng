@@ -499,11 +499,7 @@
           <h2 class="section-title">Hotel On Map</h2>
           <div class="section-content">
             <div class="map-single"></div>
-            <?php if ($description['map_preview_url'] != null) : ?>
-              <img src="<?= $description['map_preview_url'] ?>">
-            <?php else : ?>
               <iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?= $description['latitude'] ?>,<?= $description['longitude'] ?>&hl=es;z=14&amp;output=embed"></iframe>
-            <?php endif ?>
           </div>
         </section>
 

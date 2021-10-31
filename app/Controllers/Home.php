@@ -226,7 +226,7 @@ class Home extends BaseController
 				'returnUrl' => PAYPAL_RETURN_URL,
 				'cancelUrl' => PAYPAL_CANCEL_URL,
 			))->send();
-	 
+
 			if ($response->isRedirect()) {
 				$response->redirect(); // this will automatically forward the customer
 			} else {
@@ -234,7 +234,7 @@ class Home extends BaseController
 				// echo $response->getMessage();
 				var_dump($response);
 			}
-		} catch(Exception $e) {
+		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
 		exit;
@@ -298,17 +298,25 @@ class Home extends BaseController
 
 	function complete()
 	{
-		if (isset($_GET['term'])) {
-			$query = "SELECT * FROM users WHERE name LIKE '{$_GET['term']}%' LIMIT 25";
-			$result = $this->db->query($query)->getResultArray();
-			foreach ($result as $k => $v) {
-				$data['message'][] = array(
-                    'label' => $k['city'],
-                    'value' => $k['city']
-                );
+		$r = $this->request;
+		if ($r->isAJAX()) {			
+			if (isset($_GET['term'])) {
+
+				$query = "SELECT * FROM citylists WHERE city LIKE '{$_GET['term']}%' LIMIT 25";
+				$result = $this->db->query($query)->getResultArray();
+	
+				if (!empty($result)) {
+					foreach($result as $user) {
+						$res[] = $user['city'];
+					}
+				} else {
+					$res = array();
+				}
+				//return json res
+				echo json_encode($res);
 			}
-			//return json res
-			echo json_encode($res);
+		} else {
+			die("Undefined Route");
 		}
 	}
 }

@@ -3,10 +3,10 @@
 <!-- End Right content here -->
 <!-- ============================================================== -->
 <?php
-    $db      = \Config\Database::connect();
-    $menu3 = $db->query("SELECT * FROM menus WHERE location=3 ")->getResultArray();
-    $menu2 = $db->query("SELECT * FROM menus WHERE location=2 ")->getResultArray();
-    $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
+$db      = \Config\Database::connect();
+$menu3 = $db->query("SELECT * FROM menus WHERE location=3 ")->getResultArray();
+$menu2 = $db->query("SELECT * FROM menus WHERE location=2 ")->getResultArray();
+$menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
 ?>
 <footer class="site-footer pt-60 pb-40">
     <div class="footer-top">
@@ -16,11 +16,11 @@
                     <div class="widget widget-nav">
                         <h4 class="widget__title"><?= lang('text.company') ?></h4>
                         <ul class="menu">
-                            
-                            <?php foreach($menu1 as $m1): ?>
-                            <li class="menu-item menu-item-1 ">
-                                <a href="<?= $m1['url'] ?>"><?= $m1['title'] ?></a>
-                            </li>
+
+                            <?php foreach ($menu1 as $m1) : ?>
+                                <li class="menu-item menu-item-1 ">
+                                    <a href="<?= $m1['url'] ?>"><?= $m1['title'] ?></a>
+                                </li>
                             <?php endforeach ?>
 
                             <?php /*
@@ -49,10 +49,10 @@
                     <div class="widget widget-nav">
                         <h4 class="widget__title">SUPPORT</h4>
                         <ul class="menu">
-                            <?php foreach($menu2 as $m2): ?>
-                            <li class="menu-item menu-item-1 ">
-                                <a href="<?= $m2['url'] ?>"><?= $m2['title'] ?></a>
-                            </li>
+                            <?php foreach ($menu2 as $m2) : ?>
+                                <li class="menu-item menu-item-1 ">
+                                    <a href="<?= $m2['url'] ?>"><?= $m2['title'] ?></a>
+                                </li>
                             <?php endforeach ?>
                         </ul>
                     </div>
@@ -61,10 +61,10 @@
                     <div class="widget widget-nav">
                         <h4 class="widget__title">TOP CITIES</h4>
                         <ul class="menu">
-                            <?php foreach($menu3 as $m3): ?>
-                            <li class="menu-item menu-item-1 ">
-                                <a href="<?= $m3['url'] ?>"><?= $m3['title'] ?></a>
-                            </li>
+                            <?php foreach ($menu3 as $m3) : ?>
+                                <li class="menu-item menu-item-1 ">
+                                    <a href="<?= $m3['url'] ?>"><?= $m3['title'] ?></a>
+                                </li>
                             <?php endforeach ?>
                         </ul>
                     </div>
@@ -93,11 +93,11 @@
                         <div class="mb-4"></div>
                         <div class="promo d-flex align-items-center">
                             <?php
-                                $social = $db->query("SELECT * FROM social")->getResultArray();
+                            $social = $db->query("SELECT * FROM social")->getResultArray();
                             ?>
                             <?php foreach ($social as $icon) : ?>
                                 <a target="_blank" href="<?= $icon['social_url'] ?>">
-                                    <i class="fa fa-<?= $icon['social_icon'] ?>"></i>
+                                    <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>
                                 </a>
                             <?php endforeach ?>
                         </div>
@@ -109,7 +109,8 @@
     <div class="footer-bottom pt-30 pb-30">
         <div class="container">
             <div class="copyright text-center">
-                Designed By Joel Studi0 & <a target="_blank" href="https://towoju.com"><span class="text-white"> TOWOJU I.T HUB</span></a> - © <?= date('Y'); echo ' '. conf['site_title'] ?> All rights reserved.
+                Designed By Joel Studi0 & <a target="_blank" href="https://towoju.com"><span class="text-white"> TOWOJU I.T HUB</span></a> - © <?= date('Y');
+                                                                                                                                                echo ' ' . conf['site_title'] ?> All rights reserved.
             </div>
         </div>
     </div>
@@ -130,8 +131,25 @@
 <script src="<?= base_url() ?>/html/assets/js/custom6782.js?v=1.0.3.2"></script>
 <!-- Sweet-Alert  -->
 <script src="<?= base_url('dashboard/plugins/sweetalert2.min.js') ?>"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    $('.carousel').carousel({
+        interval: 2000
+    })
+</script>
 <!-- Ajax function for inine login -->
 <script>
+    // auto complete search //
+    $(function() {
+        $("#search").autocomplete({
+            source: '<?= base_url('home/complete') ?>',
+            headers: {
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest"
+            }
+        });
+    });
+
     $(".gmz-message").hide();
     let uri = "<?= route_to('login.check') ?>";
     $(document).ready(function() {
@@ -231,6 +249,9 @@
         $("#suggesstion-box").hide();
     }
 </script>
+<!-- jQuery UI -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
     var gmz_gdpr_params = {
         enable: "on",

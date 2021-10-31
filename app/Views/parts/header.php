@@ -40,9 +40,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/vendors/toastr/toastr.min.css">
     <!-- Sweetalert css -->
     <link href="<?= base_url('dashboard/plugins/sweetalert2.css') ?>" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/js/all.min.js" integrity="sha512-RrtwICYYs1c9DkysKFweSRfI6iYytLSichNOU6bXlHiHN3HBLceySBmuOZBqVmfsTHTuSDoTq50eQDuwDjaHcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --primary: hsl(175, 69%, 38%);
@@ -63,10 +61,13 @@
                 ?>
                 <?php foreach ($social as $icon) : ?>
                     <a target="_blank" href="<?= $icon['social_url'] ?>">
-                       <span class="p-1 bg-primary mr-2"> <i class="fas fa-<?= $icon['social_icon'] ?>"></i> </span>
+                       <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>
                     </a>
                 <?php endforeach ?>
             </div>
+        </div>
+        <div class="text-center">
+            <a href="mailto:<?= conf['site_email'] ?>"><span><i class="fa fa-envelope"></i> <?= conf['site_email'] ?></span></a>
         </div>
         <div class="top-bar__right">
             <div class="select-language dropdown">

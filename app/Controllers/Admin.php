@@ -789,7 +789,8 @@ class Admin extends BaseController
         echo view('parts/dashboard/footer');
     }
 
-    public function test(){
+    public function test()
+    {
         $data = $row = array();
         
         // Fetch member's records
