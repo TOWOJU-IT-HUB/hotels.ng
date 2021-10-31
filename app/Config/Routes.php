@@ -34,7 +34,9 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index', ['as' => 'home']);
 $routes->get('lang/{locale}', 'Language::index', ['as', 'lang']);
 $routes->match(['get', 'post'], 'post', 	'Blog::post', 	['as' => 'blog.view']);
+$routes->match(['get', 'post'], 'blog', 	'Blog::index', 	['as' => 'blog']);
 $routes->match(['get', 'post'], 'search', 	'Home::search', 	['as' => 'search']);
+$routes->match(['get', 'post'], 'add_order','Home::add_order', 	['as' => 'add_order']);
 $routes->match(['get', 'post'], 'add_order','Home::add_order', 	['as' => 'add_order']);
 
 #----------------------------------------------------------------------

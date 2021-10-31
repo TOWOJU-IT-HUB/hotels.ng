@@ -9,7 +9,8 @@ class Blog extends BaseController
     public function index()
     {  
         $data = [
-            'news'  => $this->blog->where('status', 'published')->getNews(),
+            'news'  => $this->blog->where('status', 'published')->paginate(12),
+            'pager' => $this->blog->pager,
             'title' => 'News archive',
         ];
     

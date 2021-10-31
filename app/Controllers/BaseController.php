@@ -31,6 +31,11 @@ use App\Models\HotelsReview;
 use App\Models\Menu;
 use App\Models\Wishlist;
 use App\Models\Withdrawal;
+use Omnipay\PayPal as PayPal;
+
+
+#-------------------------
+// use Omnipay\
 
 /**
  * Class BaseController  
@@ -72,9 +77,10 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
 
-        $session = \Config\Services::session();
-        $this->db = \Config\Database::connect();
-        $language = \Config\Services::language();
+        $session        = \Config\Services::session();
+        $this->db       = \Config\Database::connect();
+        $language       = \Config\Services::language();
+        $this->paypal 	= \Config\Services::paypal();
         $language->setLocale($session->lang);
 
         #--------------------------------------------
@@ -102,6 +108,7 @@ class BaseController extends Controller
         $this->hotels_images    = new HotelsImages();
         $this->wishlist         = new Wishlist();
         $this->withdrawal       = new Withdrawal();
+        // $this->paypal           = $this->PaypalExpress();
 
 
 
@@ -112,8 +119,64 @@ class BaseController extends Controller
         #   Constants from the settings ::DB 
         #--------------------------------------------
         defined('conf') || define('conf', $settings);
-        // defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', "USD");
+        defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', "USD");
         defined('RAPID_API_KEY')    || define('RAPID_API_KEY', conf['rapid_api_key']);
-        defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
+        // defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
+        
+        define('CLIENT_ID', conf['paypal_client_id']);
+        define('CLIENT_SECRET', conf['paypal_client_secret']);
+        
+        define('PAYPAL_RETURN_URL', base_url('success'));
+        define('PAYPAL_CANCEL_URL', base_url('cancel'));
+        define('PAYPAL_CURRENCY', 'USD'); // set your currency here
+        
+        $this->gateway = $this->paypal;
+        $this->gateway->setClientId(CLIENT_ID);
+        $this->gateway->setSecret(CLIENT_SECRET);
+        $this->gateway->setTestMode(true); //set it to 'false' when go live
     }
+}
+
+class PaypalExpress{ 
+    public $paypalEnv       = 'production'; // PAYPAL_SANDBOX?'sandbox' : 'production' 
+    public $paypalURL       = 'https://api.paypal.com/v1/';  //PAYPAL_SANDBOX?'https://api.sandbox.paypal.com/v1/':'https://api.paypal.com/v1/'; 
+    public $paypalClientID  = "Ac3USf803MQxxrQg3_f8xR4NDfse0zHETobbxdNNFFYSfO-hC_6LUAHdN4yqdwTfI8ztlgXDNWe2jvT_"; // PAYPAL_API_CLIENT_ID; 
+    private $paypalSecret   = "EERhZCbms8sWu88UzHX-9ovbxRd-HXVas6IqQbRVEMeRZmbDEhFsf77uyMF4sQYTzLMXXHhS4b8wLasF"; // PAYPAL_API_SECRET; 
+     
+    public function validate($paymentID, $paymentToken, $payerID, $productID){ 
+        $ch = curl_init(); 
+        curl_setopt($ch, CURLOPT_URL, $this->paypalURL.'oauth2/token'); 
+        curl_setopt($ch, CURLOPT_HEADER, false); 
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+        curl_setopt($ch, CURLOPT_POST, true); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+        curl_setopt($ch, CURLOPT_USERPWD, $this->paypalClientID.":".$this->paypalSecret); 
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=client_credentials"); 
+        $response = curl_exec($ch); 
+        curl_close($ch); 
+         
+        if(empty($response)){ 
+            return false; 
+        }else{ 
+            $jsonData = json_decode($response); 
+            $curl = curl_init($this->paypalURL.'payments/payment/'.$paymentID); 
+            curl_setopt($curl, CURLOPT_POST, false); 
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); 
+            curl_setopt($curl, CURLOPT_HEADER, false); 
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); 
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array( 
+                'Authorization: Bearer ' . $jsonData->access_token, 
+                'Accept: application/json', 
+                'Content-Type: application/xml' 
+            )); 
+            $response = curl_exec($curl); 
+            curl_close($curl); 
+             
+            // Transaction data 
+            $result = json_decode($response); 
+             
+            return $result; 
+        } 
+     
+    } 
 }

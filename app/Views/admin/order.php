@@ -11,20 +11,21 @@
     <div class="tab-content mt-4 text-left" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <!-- // Tab one. for settings -->
-            <?php 
-                $tax_total_price = (conf['tax'] / $order['min_total_price']) * 100;
+            <?php
+            $tax_total_price = (conf['tax'] / $order['min_total_price']) * 100;
             ?>
             <div class="ml-3">
                 <div class="table-responsive">
                     <table class="table">
                         <tbody>
-                            <tr><a href="<?= route_to('hotels.view') . $order['hotel_id'] ; ?>">
-                                <div class="media">
-                                    <img class="d-flex align-self-start rounded mr-3" src="<?= $order['hotel_thumbnail'] ?>" alt="" height="64">
-                                    <div class="media-body">
-                                        <h5 class="mt-3 font-14"><?= $order['hotel_name'] ?></h5>
+                            <tr><a href="<?= route_to('hotels.view') . $order['hotel_id']; ?>">
+                                    <div class="media">
+                                        <img class="d-flex align-self-start rounded mr-3" src="<?= $order['hotel_thumbnail'] ?>" alt="" height="64">
+                                        <div class="media-body">
+                                            <h5 class="mt-3 font-14"><?= $order['hotel_name'] ?></h5>
+                                        </div>
                                     </div>
-                                </div></a>
+                                </a>
                             </tr>
                             <tr>
                                 <th scope="col">CheckIn</th>
@@ -44,7 +45,9 @@
                             </tr>
                             <tr>
                                 <th scope="col">Room Details</th>
-                                <td><p><?= $order['total_rooms'] ?> Room(s) </p> <?= $order['currencycode'] .$order['no_adult'] * $order['min_total_price'] ?></td>
+                                <td>
+                                    <p><?= $order['total_rooms'] ?> Room(s) </p> <?= $order['currencycode'] . $order['no_adult'] * $order['min_total_price'] ?>
+                                </td>
                             </tr>
                             <!-- <hr> -->
                             <tr>
@@ -53,15 +56,24 @@
                             </tr>
                             <tr>
                                 <th scope="col">Sub Total</th>
-                                <td><?= $order['currencycode'] .number_format($order['min_total_price'], 2) ?></td>
+                                <td><?= $order['currencycode'] . number_format($order['min_total_price'], 2) ?></td>
                             </tr>
                             <tr>
                                 <th scope="col">Tax</th>
-                                <td><?= conf['tax'] ?> ==> <?= $order['currencycode'] .number_format($tax_total_price, 2) ?> </td>
+                                <td><?= conf['tax'] ?> ==> <?= $order['currencycode'] . number_format($tax_total_price, 2) ?> </td>
                             </tr>
                             <tr style="background-color: #eee;">
                                 <th scope="col">Total Amount</th>
-                                <td><?= $order['currencycode'] .number_format($order['min_total_price']+$tax_total_price, 2) ?></td>
+                                <td><?= $order['currencycode'] . number_format($order['min_total_price'] + $tax_total_price, 2) ?></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td>
+                                    <a href="<?= base_url('admin/grabActive/' . $order['hotel_id'] . '/' . $order['id']) ?>">
+                                        <button class="btn btn-primary btn-bg" type="button">
+                                            Approve Booking
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

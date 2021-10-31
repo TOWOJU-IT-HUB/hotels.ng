@@ -86,7 +86,15 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="text-muted">Rapid API Key</label>
-                                                        <input type="text" name="rapid_api_key" value="<?= conf['rapid_api_key'] ?>" placeholder="example@gmail.com" class="form-control">
+                                                        <input type="text" name="rapid_api_key" value="<?= conf['rapid_api_key'] ?>" placeholder="xHkeljwkekeX" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-muted">PayPal Client ID</label>
+                                                        <input type="text" name="paypal_client_id" value="<?= $pay['paypal_client_id'] ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-muted">PayPal Client Secrect</label>
+                                                        <input type="text" name="paypal_client_secret" value="<?= $pay['paypal_client_secret'] ?>" class="form-control">
                                                     </div>
                                                     <?php /*
                                                     <div class="form-group">

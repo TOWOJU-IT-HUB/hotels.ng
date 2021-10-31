@@ -29,4 +29,13 @@ class Services extends BaseService
      *     return new \CodeIgniter\Example();
      * }
      */
+
+    public static function paypal($getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('paypal');
+        }
+
+        return new \Omnipay\PayPal\RestGateway();
+    }
 }

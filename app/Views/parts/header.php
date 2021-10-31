@@ -40,7 +40,9 @@
     <link rel="stylesheet" href="<?= base_url() ?>/vendors/toastr/toastr.min.css">
     <!-- Sweetalert css -->
     <link href="<?= base_url('dashboard/plugins/sweetalert2.css') ?>" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/js/all.min.js" integrity="sha512-RrtwICYYs1c9DkysKFweSRfI6iYytLSichNOU6bXlHiHN3HBLceySBmuOZBqVmfsTHTuSDoTq50eQDuwDjaHcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <style>
         :root {
             --primary: hsl(175, 69%, 38%);
@@ -61,7 +63,7 @@
                 ?>
                 <?php foreach ($social as $icon) : ?>
                     <a target="_blank" href="<?= $icon['social_url'] ?>">
-                        <i class="fa fa-<?= $icon['social_icon'] ?>"></i>
+                       <span class="p-1 bg-primary mr-2"> <i class="fas fa-<?= $icon['social_icon'] ?>"></i> </span>
                     </a>
                 <?php endforeach ?>
             </div>
@@ -87,12 +89,8 @@
             <div class="select-language dropdown">
 
                 <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    USD </button>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="indexea53.html?currency=VND">
-                        VND </a>
-                </div>
+                    <?= COUNTRY_CURRENCY ?> 
+                </button>
             </div>
         </div>
     </div>
@@ -309,107 +307,11 @@
                 <li class="menu-item menu-item-1 ">
                     <a href="<?= base_url() ?>"><?= lang('text.home') ?></a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Services</a>
-                    <ul role="menu" class="sub-menu">
-                        <li class="menu-item-has-children">
-                            <a href="hotel.html">Hotel</a>
-                            <ul role="menu" class="sub-menu">
-                                <li class="menu-item menu-item-4 ">
-                                    <a href="hotel-search.html">Hotel Search Page</a>
-                                </li>
-                                <li class="menu-item menu-item-5 ">
-                                    <a href="hotel/riu-plaza-miami-beach.html">Hotel Single</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="apartment.html">Apartment</a>
-                            <ul role="menu" class="sub-menu">
-                                <li class="menu-item menu-item-7 ">
-                                    <a href="apartment-search.html">Apartment Search Page</a>
-                                </li>
-                                <li class="menu-item menu-item-8 ">
-                                    <a href="apartment/hector-cave-house.html">Apartment Single</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="car.html">Car</a>
-                            <ul role="menu" class="sub-menu">
-                                <li class="menu-item menu-item-10 ">
-                                    <a href="car-search.html">Car Search Page</a>
-                                </li>
-                                <li class="menu-item menu-item-11 ">
-                                    <a href="car/vinfast-lux-a20.html">Car Single</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="space.html">Space</a>
-                            <ul role="menu" class="sub-menu">
-                                <li class="menu-item menu-item-13 ">
-                                    <a href="space-search.html">Space Search Page</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Space Single</a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li class="menu-item menu-item-15 ">
-                                            <a href="space/gregory-place.html">Dy Day</a>
-                                        </li>
-                                        <li class="menu-item menu-item-16 ">
-                                            <a href="space/turtle-ridge.html">By Hour</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="beauty-services.html">Beauty</a>
-                            <ul role="menu" class="sub-menu">
-                                <li class="menu-item menu-item-18 ">
-                                    <a href="beauty-search.html">Beauty Search Page</a>
-                                </li>
-                                <li class="menu-item menu-item-19 ">
-                                    <a href="beauty-service/hair-dye-highlight-for-women.html">Beauty Single</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="tour.html">Tour</a>
-                            <ul role="menu" class="sub-menu">
-                                <li class="menu-item menu-item-21 ">
-                                    <a href="tour-search.html">Tour Search Page</a>
-                                </li>
-                                <li class="menu-item menu-item-22 ">
-                                    <a href="tour/american-parks-trail-end-rapid-city.html">Tour Single</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
                 <li class="menu-item menu-item-23 ">
                     <a href="<?= route_to('blog') ?>"><?= lang('text.blog') ?></a>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#"><?= lang('text.other_pages') ?></a>
-                    <ul role="menu" class="sub-menu">
-                        <li class="menu-item menu-item-25 ">
-                            <a href="post/a-seaside-reset-in-laguna-beach-1.html">Post Single</a>
-                        </li>
-                        <li class="menu-item menu-item-26 ">
-                            <a href="404.html">404 Page</a>
-                        </li>
-                        <li class="menu-item menu-item-27 ">
-                            <a href="category/it-has-roots.html">Category</a>
-                        </li>
-                        <li class="menu-item menu-item-28 ">
-                            <a href="become-a-partner.html">Become a Partner</a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="menu-item menu-item-29 ">
-                    <a href="<?= route_to('contact') ?>"><?= lang('text.contact_us') ?></a>
+                    <a href="<?= route_to('contact_us') ?>"><?= lang('text.contact_us') ?></a>
                 </li>
             </ul>
         </div>

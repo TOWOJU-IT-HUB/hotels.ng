@@ -41,8 +41,9 @@ class Autoload extends AutoloadConfig
      * @var array<string, string>
      */
     public $psr4 = [
-        APP_NAMESPACE => APPPATH, // For custom app namespace
-        'Config'      => APPPATH . 'Config',
+        APP_NAMESPACE       => APPPATH, // For custom app namespace
+        'Config'            => APPPATH . 'Config',
+        'Omnipay\PayPal'    => ROOTPATH .'vendor\omnipay\paypal\src',
     ];
 
     /**
@@ -64,7 +65,9 @@ class Autoload extends AutoloadConfig
      *
      * @var array<string, string>
      */
-    public $classmap = [];
+    public $classmap = [
+        'PaypalExpress'  =>  "App\Libraries\PaypalExpress.php",
+    ];
 
     /**
      * -------------------------------------------------------------------

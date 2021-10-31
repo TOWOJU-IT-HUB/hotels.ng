@@ -142,57 +142,8 @@
 											</div>
 										</div>
 
-										<button class="btn search-form__more" type="button"><i class="fal fa-search-plus"></i></button>
 										<button class="btn btn-primary search-form__search" type="submit"><i class="fal fa-search"></i>Search
 										</button>
-									</div>
-
-									<div class="search-form__advanced bg-white">
-										<div class="container">
-											<div class="row">
-												<div class="col-md-6 mb-2">
-													<div class="search-form__label">Price</div>
-													<input type="text" class="price-range-slider" name="price_range" value="" data-min="150.00" data-max="500.00" data-form="150.00" data-to="500.00" data-prefix="$" data-postfix="" />
-
-												</div>
-												<div class="col-md-6 gmz-checkbox-wrapper mb-2">
-													<div class="search-form__label">Property Types</div>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="property_types[]" value="68">Lodges</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="property_types[]" value="67">Resorts</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="property_types[]" value="66">Motels</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="property_types[]" value="65">Villas</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="property_types[]" value="64">Homestays</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="property_types[]" value="63">Hotels</label>
-													<input type="hidden" name="property_type" value="" />
-												</div>
-
-												<div class="col-md-6 gmz-checkbox-wrapper">
-													<div class="search-form__label">Facilities</div>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_facilitiess[]" value="76">Parking</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_facilitiess[]" value="75">Internet – Wifi</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_facilitiess[]" value="74">Television</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_facilitiess[]" value="73">Fitness Center</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_facilitiess[]" value="72">Heater</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_facilitiess[]" value="71">Airport Transport</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_facilitiess[]" value="69">Air Conditioning</label>
-													<input type="hidden" name="hotel_facilities" value="" />
-												</div>
-
-												<div class="col-md-6 gmz-checkbox-wrapper">
-													<div class="search-form__label">Services</div>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="85">Massages</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="84">Ironing service</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="83">Flower arrangement</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="82">Excursions and guided tours</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="81">Dry cleaning</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="80">Doctor on call</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="79">Courier services</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="78">Catering services</label>
-													<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="hotel_servicess[]" value="77">Car rental services</label>
-													<input type="hidden" name="hotel_services" value="" />
-												</div>
-											</div>
-										</div>
 									</div>
 								</form>
 							</div>

@@ -814,4 +814,16 @@ class Admin extends BaseController
         // Output to JSON format
         echo json_encode($output);
     }
+
+    public function grabActive($hotel_id,$pay_id)
+    {
+        // generate invoice and send to user.
+        $order = $this->orders->find($pay_id);
+        $hotel = $this->hotels->find($hotel_id);
+        // send invoice with payment url to user //
+        $to = $order['email'];
+        $msg = "Below is the URL to your invoice payment.";
+        mail($to, "Invoice From WEOTRIP.com", $msg);
+        return true;
+    }
 }
