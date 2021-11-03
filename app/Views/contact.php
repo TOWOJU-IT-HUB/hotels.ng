@@ -34,7 +34,7 @@
                 <div class="col-lg-5 card card-body pl-3 pr-3 pt-5 pb-5 m-2">
                     <div class="become-form">
                         <h2 class="title pb-3">Contact Us</h2>
-                        <form class="gmz-form-action" action="http://ibooking.booteam.co/contact-us" method="POST">
+                        <?= form_open() ?>
                             <div class="gmz-loader ">
                                 <div class="loader-inner">
                                     <div class="spinner-grow text-info align-self-center loader-lg"></div>

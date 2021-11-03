@@ -49,7 +49,7 @@
               </a>
             </div>
             <?= $description['hotel_name'] ?>
-            <button class="btn btn-xl btn-info ml-5" data-toggle="modal" data-target="#hotelBookingModal">Book Now</button>
+            <!-- <button class="btn btn-xl btn-info ml-5" data-toggle="modal" data-target="#hotelBookingModal">Book Now</button> -->
           </h3>
         </div>
 
@@ -101,71 +101,10 @@
           </div>
         </section>
 
-        <div class="modal fade hotel-enquiry-modal" id="hotelEnquiryModal" tabindex="-1" aria-labelledby="hotelEnquiryModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <form class="gmz-form-action enquiry-form-single" action="https://ibooking.booteam.co/hotel-send-enquiry" method="POST">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="#hotelEnquiryModalLabel">
-                    ENQUIRY/BOOKING FORM
-                  </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <input type="hidden" name="hotel_id" value="<?= $_GET['hotel_id'] ?>" />
-                  <div class="gmz-loader">
-                    <div class="loader-inner">
-                      <div class="spinner-grow text-info  align-self-center loader-lg "></div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="full-name">Full Name<span class="required">*</span>
-                    </label>
-                    <input type="text" name="full_name" class="form-control gmz-validation" data-validation="required" id="full-name" />
-                  </div>
-
-                  <div class="search-form__from date-group">
-                    <i class="fal fa-calendar-alt"></i>
-                    <span class="check-in-render" data-date-format="DD/MM/YYYY">
-                      Check In
-                    </span>
-                  </div>
-                  <div class="search-form__to date-group">
-                    <i class="fal fa-calendar-alt"></i>
-                    <span class="check-out-render" data-date-format="DD/MM/YYYY">
-                      Check Out
-                    </span>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="email">Email<span class="required">*</span></label>
-                    <input type="text" name="email" class="form-control gmz-validation" data-validation="required" id="email" />
-                  </div>
-                  <div class="form-group">
-                    <label for="content">Message<span class="required">*</span>
-                    </label>
-                    <textarea name="content" rows="4" class="form-control gmz-validation" data-validation="required" id="content"></textarea>
-                  </div>
-                  <div class="gmz-message"></div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    CLOSE
-                  </button>
-                  <button type="submit" class="btn btn-primary">
-                    SUBMIT REQUEST
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
         <div class="modal fade room-detail-modal" id="hotelBookingModal" tabindex="-1" aria-labelledby="gmz-room-detail-modalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form class="gmz-form-action enquiry-form-single" action="<?= route_to('add_order') ?>" id="bookingModal" method="POST">
+              <form class="" action="<?= route_to('add_order') ?>" id="bookingModalo" method="POST">
                 <div class="modal-header">
                   <h5 class="modal-title" id="#hotelEnquiryModalLabel">
                     BOOKING FORM
@@ -482,30 +421,144 @@
           </div>
         </div>
         <hr>
-
-        <div class="p-1">
+        <!-- 
+        <div class="p-1 mb-3">
           <h2 class="section-title d-flex align-items-center justify-content-between">
-            <button class="btn btn-xl btn-info" data-toggle="modal" data-target="#hotelEnquiryModal">Book Now</button>
+            <span class="" data-toggle="modal" data-target="#hotelEnquiryModal"></span>
             <div>
               <a href="javascript:void(0)" class="btn btn-primary" data-toggle="modal" data-target="#hotelEnquiryModal">
                 Send Enquiry/Book
               </a>
             </div>
           </h2>
+        </div> -->
+
+        <div class="section-content">
+          <h2 class="section-title d-flex align-items-center justify-content-between">
+            Room Availability
+            <div>
+              <a href="javascript:void(0)" class="btn btn-primary" data-toggle="modal" data-target="#hotelEnquiryModal">
+                Send Enquiry
+              </a>
+            </div>
+          </h2>
+          <div id="room-render-wrapper" class="room-render-wrapper" style="background-color: #dfdfdf; padding: 15px;">
+            <div class="search-form-wrapper">
+              <div class="tab-content" id="searchFormTab">
+                <div class="tab-pane fade show active hotel-search-form" id="hotel-search" role="tabpanel" aria-labelledby="hotel-search-tab">
+                  <form id="check_avail" class="search-form hotel">
+                    <div class="search-form__basic">
+
+                      <input type="text" class="input-hidden check-in-out-field align-self-end" <?php /* name="checkInOut" */ ?> value="" data-same-date="false">
+                      <input type="text" class="input-hidden check-in-field" required name="checkIn" value="">
+                      <input type="text" class="input-hidden check-out-field" required name="checkOut" value="">
+                      <input type="hidden" required name="hotel_id" value="<?= $_GET['hotel_id'] ?>">
+                      <div class="search-form__from date-group">
+                        <i class="fal fa-calendar-alt"></i>
+                        <span class="check-in-render" data-date-format="DD/MM/YYYY">
+                          Check In
+                        </span>
+                      </div>
+                      <div class="search-form__to date-group">
+                        <i class="fal fa-calendar-alt"></i>
+                        <span class="check-out-render" data-date-format="DD/MM/YYYY">
+                          Check Out
+                        </span>
+                      </div>
+
+                      <div class="search-form__guest hotel">
+                        <div class="dropdown">
+                          <div class="dropdown-toggle" id="dropdownGuestButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fal fa-users"></i>
+                            <span class="guest-render">
+                              1 Adult
+                            </span>
+                          </div>
+                          <div class="dropdown-menu" aria-labelledby="dropdownGuestButton">
+                            <div class="item d-flex align-items-center justify-content-between">
+                              <div class="label">Adults</div>
+                              <div class="value">
+                                <select class="form-control" name="adult">
+                                  <option value="1" selected>1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="item d-flex align-items-center justify-content-between">
+                              <div class="label">Children</div>
+                              <div class="value">
+                                <select class="form-control" name="children">
+                                  <option value="0" selected>0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                </select>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <button class="btn btn-primary search-form__search" id="check_avail" type="submit"> CHECK AVAILABILITY </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card-body" id="icheck_avail">
+          </div>
         </div>
-        <hr>
+        <hr class="pb-5">
 
         <section class="map">
-          <h2 class="section-title">Hotel On Map</h2>
+          <h2 class="section-title pb-2">Hotel On Map</h2>
           <div class="section-content">
             <div class="map-single"></div>
-              <iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?= $description['latitude'] ?>,<?= $description['longitude'] ?>&hl=es;z=14&amp;output=embed"></iframe>
+            <iframe width="100%" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?= $description['latitude'] ?>,<?= $description['longitude'] ?>&hl=es;z=14&amp;output=embed"></iframe>
           </div>
         </section>
 
         <div class="gmz-comment-list mt-4" id="review-section">
           <h3 class="comment-count mt-2">
-            Last 10 Reviews By Customers
+            Last 5 Reviews By Customers
           </h3>
           <ul class="comment-list">
             <?php foreach ($reviews as $review) : ?>
@@ -537,7 +590,7 @@
 
         <div class="post-comment parent-form" id="gmz-comment-section">
           <div class="comment-form-wrapper">
-            <form action="https://ibooking.booteam.co/add-comment" class="comment-form form-sm gmz-form-action form-add-post-comment" method="post" data-reload-time="1000">
+            <form action="" class="comment-form form-sm gmz-form-action form-add-post-comment" method="post" data-reload-time="1000">
               <h3 class="comment-title">Leave a Review</h3>
               <p class="notice">
                 Your email address will not be published. Required fields are
@@ -612,232 +665,28 @@
               </div>
             </li>
           </section>
-
-          <!-- <section class="feature nearby-location">
-              <h2 class="section-title">What&#039;s Nearby</h2>
-              <div class="section-content">
-                <ul>
-                  <li>
-                    <span class="addr">Brickell City Centre</span>
-                    <span class="dist">0.2 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">HistoryMiami</span>
-                    <span class="dist">0.9 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Miami Art Museum</span>
-                    <span class="dist">0.9 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Miami-Dade County Courthouse</span>
-                    <span class="dist">0.9 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Historical Museum of South Florida</span>
-                    <span class="dist">1 km</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <section class="feature nearby-location">
-              <h2 class="section-title">Top attractions</h2>
-              <div class="section-content">
-                <ul>
-                  <li>
-                    <span class="addr">American Airlines Arena</span>
-                    <span class="dist">1.7 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Port of Miami</span>
-                    <span class="dist">2 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Marlins Park</span>
-                    <span class="dist">3 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Crandon Marina</span>
-                    <span class="dist">5.8 km</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <section class="feature nearby-location">
-              <h2 class="section-title">Restaurants &amp; Cafes</h2>
-              <div class="section-content">
-                <ul>
-                  <li>
-                    <span class="addr">Restaurant KOMODO Restaurant &amp; Lounge</span>
-                    <span class="dist">0.2 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Cafe/Bar Barú Latin Bar</span>
-                    <span class="dist">0.2 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Cafe/Bar Fado Irish Pub</span>
-                    <span class="dist">0.2 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Cafe/Bar Perricone&#039;s Marketplace &amp; Café</span>
-                    <span class="dist">0.3 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Restaurant Pubbelly Sushi Brickell</span>
-                    <span class="dist">0.1 km</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <section class="feature nearby-location">
-              <h2 class="section-title">Closest Airports</h2>
-              <div class="section-content">
-                <ul>
-                  <li>
-                    <span class="addr">Miami Seaplane Base</span>
-                    <span class="dist">2.3 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Miami International Airport</span>
-                    <span class="dist">9.1 km</span>
-                  </li>
-                  <li>
-                    <span class="addr">Fort Lauderdale-Hollywood International Airport</span>
-                    <span class="dist">34.3 km</span>
-                  </li>
-                </ul>
-              </div>
-            </section> -->
         </div>
       </div>
       <!-- // Right SideBar ends here -->
 
     </div>
   </div>
-  <!-- <section class="list-hotel list-hotel--grid py-40 bg-gray-100 mb-0 nearby">
-    <div class="container">
-      <h2 class="section-title mb-20">Hotels Near By</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="hotel-item hotel-item--grid" data-plugin="matchHeight">
-            <div class="hotel-item__thumbnail">
-              <div class="add-wishlist-wrapper">
-                <a href="#gmz-login-popup" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"><i class="fal fa-heart"></i></a>
-              </div>
-
-              <a href="riu-plaza-miami-beach.html">
-                <img src="../storage/2021/01/31/2019-02-11-11-31-19-045132-ebu122-take-02-342-of-586-edit-1612103564-360x240.jpg" alt="Riu Plaza Miami Beach" />
-              </a>
-              <a class="hotel-item__type" href="../hotel-search5021.html?property_type=65">
-                Villas
-              </a>
-            </div>
-            <div class="hotel-item__details">
-              <span class="hotel-item__label">Featured</span>
-              <div class="hotel-item__rating">
-                <div class="star-rating">
-                  <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                </div>
-              </div>
-              <h3 class="hotel-item__title">
-                <a href="riu-plaza-miami-beach.html">Riu Plaza Miami Beach</a>
-              </h3>
-              <p class="hotel-item__location">
-                <i class="fas fa-map-marker-alt mr-2"></i>Miami Beach, United
-                States of America
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="hotel-item__price">
-                  <span class="_retail">$500.00</span><span class="_unit">night</span>
-                </div>
-                <a class="btn btn-primary hotel-item__view-detail" href="riu-plaza-miami-beach.html">View Detail
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="hotel-item hotel-item--grid" data-plugin="matchHeight">
-            <div class="hotel-item__thumbnail">
-              <div class="add-wishlist-wrapper">
-                <a href="#gmz-login-popup" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"><i class="fal fa-heart"></i></a>
-              </div>
-
-              <a href="fontainebleau-miami-beach.html">
-                <img src="../storage/2021/03/24/256492322-1616578250-360x240.jpg" alt="Fontainebleau Miami Beach" />
-              </a>
-              <a class="hotel-item__type" href="../hotel-search864d.html?property_type=63">
-                Hotels
-              </a>
-            </div>
-            <div class="hotel-item__details">
-              <span class="hotel-item__label">Featured</span>
-              <div class="hotel-item__rating">
-                <div class="star-rating">
-                  <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                </div>
-              </div>
-              <h3 class="hotel-item__title">
-                <a href="fontainebleau-miami-beach.html">Fontainebleau Miami Beach</a>
-              </h3>
-              <p class="hotel-item__location">
-                <i class="fas fa-map-marker-alt mr-2"></i>Miami Beach, United
-                States of America
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="hotel-item__price">
-                  <span class="_retail">$300.00</span><span class="_unit">night</span>
-                </div>
-                <a class="btn btn-primary hotel-item__view-detail" href="fontainebleau-miami-beach.html">View Detail
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="hotel-item hotel-item--grid" data-plugin="matchHeight">
-            <div class="hotel-item__thumbnail">
-              <div class="add-wishlist-wrapper">
-                <a href="#gmz-login-popup" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"><i class="fal fa-heart"></i></a>
-              </div>
-
-              <a href="grand-beach-hotel.html">
-                <img src="../storage/2021/01/31/sca999-take-01-40-1612103702-360x240.jpg" alt="Grand Beach Hotel" />
-              </a>
-              <a class="hotel-item__type" href="../hotel-search864d.html?property_type=63">
-                Hotels
-              </a>
-            </div>
-            <div class="hotel-item__details">
-              <span class="hotel-item__label">Featured</span>
-              <div class="hotel-item__rating">
-                <div class="star-rating">
-                  <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                </div>
-              </div>
-              <h3 class="hotel-item__title">
-                <a href="grand-beach-hotel.html">Grand Beach Hotel</a>
-              </h3>
-              <p class="hotel-item__location">
-                <i class="fas fa-map-marker-alt mr-2"></i>Miami, United States
-                of America
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="hotel-item__price">
-                  <span class="_retail">$250.00</span><span class="_unit">night</span>
-                </div>
-                <a class="btn btn-primary hotel-item__view-detail" href="grand-beach-hotel.html">View Detail
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 </div>
 <style>
+  .single-hotel .site-content .search-form {
+    position: relative;
+    background: #dfdfdf;
+    padding: 15px;
+  }
+
+  .single-hotel .site-content .search-form .input-hidden {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+  }
+
   .meta ul li {
     list-style: none;
     float: none;
@@ -864,40 +713,51 @@
   }
 </style>
 <script>
-  $('#bookingModal').click(function(e) {
-    e.preventDefault();
-    $('#hotelBookingModal').modal();
-  });
-
   $(function() {
-kj
-    $('#bookingModal').submit(function() {
+    $('#check_avail').on('submit', function(e) {
+      e.preventDefault();
+      $('.gmz-loader').show();
+      $(".myroomlists").remove();
       $.ajax({
-        type: "POST",
-        url: "<?= route_to('add_order') ?>",
-        data: $('form.tagForm').serialize(),
+        type: 'POST',
+        url: '<?= base_url('home/availability'); ?>',
+        data: $('#check_avail').serialize(),
+        dataType: 'json', // 
         success: function(response) {
-          alert(response['response']);
           $('.gmz-loader').hide();
+          // let data = data.data;
+          var a = response.data[0];
+          var price = "<?= COUNTRY_CURRENCY. number_format($description['min_total_price'], 2) ?>";
+          var room = a.rooms;
+            var counter = 1;
+          jQuery.each(a.rooms, function(index, item) {
+            var photo = a.rooms[index].photos;
+            var hotel_name = "<?= $description['hotel_name'] ?> #" +counter;
+            // alert(Object.keys(photo).length);
+            if(Object.keys(photo).length != 0){
+              photo = photo[0].url_original;
+            } else {
+              photo = "<?= str_replace('max1280x900', '640X200', $description['hotel_thumbnail']) ?>";
+            }
+            $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="'+photo+'" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> '+ hotel_name +' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">'+a.rooms[index].description+'</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">'+ price +'</span></div><button class="text-center btn btn-xl btn-info ml-5" data-toggle="modal" data-target="#hotelBookingModal">Book Now</button></div></div></div></div></div>');
+            counter++;
+          });
         },
-        error: function() {
-          alert('Error');
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
           $('.gmz-loader').hide();
+          alert("some error");
         }
       });
-      return false;
     });
   });
 </script>
+
 <?php
 function get_times($default = '19:00', $interval = '+30 minutes')
 {
-
   $output = '';
-
   $current = strtotime('00:00');
   $end = strtotime('23:59');
-
   while ($current <= $end) {
     $time = date('H:i', $current);
     $sel = ($time == $default) ? ' selected' : '';
@@ -905,7 +765,6 @@ function get_times($default = '19:00', $interval = '+30 minutes')
     $output .= "<option value=\"{$time}\"{$sel}>" . date('h.i A', $current) . '</option>';
     $current = strtotime($interval, $current);
   }
-
   return $output;
 }
 ?>

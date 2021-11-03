@@ -1,0 +1,81 @@
+CRITICAL - 2021-11-01 04:03:20 --> Undefined variable: q
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(224): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 224, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->add_order()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-01 04:03:22 --> Undefined variable: q
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(224): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 224, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->add_order()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-01 07:06:34 --> The transactionReference parameter is required
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\paypal\src\Message\RestCaptureRequest.php(44): Omnipay\Common\Message\AbstractRequest->validate('transactionRefe...', 'amount')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\common\src\Common\Message\AbstractRequest.php(686): Omnipay\PayPal\Message\RestCaptureRequest->getData()
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(316): Omnipay\Common\Message\AbstractRequest->send()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->check_paypal()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-11-01 07:06:59 --> The transactionReference parameter is required
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\paypal\src\Message\RestCaptureRequest.php(44): Omnipay\Common\Message\AbstractRequest->validate('transactionRefe...', 'amount')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\common\src\Common\Message\AbstractRequest.php(686): Omnipay\PayPal\Message\RestCaptureRequest->getData()
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(316): Omnipay\Common\Message\AbstractRequest->send()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->check_paypal()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-11-01 07:07:23 --> The amount parameter is required
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\paypal\src\Message\RestCaptureRequest.php(44): Omnipay\Common\Message\AbstractRequest->validate('transactionRefe...', 'amount')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\common\src\Common\Message\AbstractRequest.php(686): Omnipay\PayPal\Message\RestCaptureRequest->getData()
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(317): Omnipay\Common\Message\AbstractRequest->send()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->check_paypal()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-11-01 07:09:05 --> The agreementId parameter is required
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\paypal\src\Message\RestSearchTransactionRequest.php(174): Omnipay\Common\Message\AbstractRequest->validate('agreementId', 'startDate', 'endDate')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\common\src\Common\Message\AbstractRequest.php(686): Omnipay\PayPal\Message\RestSearchTransactionRequest->getData()
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(317): Omnipay\Common\Message\AbstractRequest->send()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->check_paypal()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-11-01 07:09:16 --> The startDate parameter is required
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\paypal\src\Message\RestSearchTransactionRequest.php(174): Omnipay\Common\Message\AbstractRequest->validate('agreementId', 'startDate', 'endDate')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\omnipay\common\src\Common\Message\AbstractRequest.php(686): Omnipay\PayPal\Message\RestSearchTransactionRequest->getData()
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(317): Omnipay\Common\Message\AbstractRequest->send()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->check_paypal()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-11-01 07:15:10 --> Object of class Omnipay\PayPal\Message\RestAuthorizeResponse could not be converted to string
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->invoice('1', 'pay')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#5 {main}
+CRITICAL - 2021-11-01 17:10:12 --> Undefined index: pay_id
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(331): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 331, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->check_paypal()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}

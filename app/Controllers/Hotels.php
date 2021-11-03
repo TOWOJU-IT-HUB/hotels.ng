@@ -209,6 +209,23 @@ class Hotels extends BaseController
 
     public function check()
     {
-        //
+        $data = [
+            'response'  =>  $this->hotels->findAll(12),
+        ];     
+        $endpoint = "room-list?";
+        $r = $this->request;
+        $q = [
+            'locale'=> 'en-us',
+            'checkout_date' => $r->checkin,
+            'adults_number_by_rooms'    => $r->checkin,
+            'checkin_date'  => $r->checkout,
+            'units' => 'metric',
+            'hotel_id'  => $r->hotel_id,
+            'currency'  => COUNTRY_CURRENCY,
+        ];
+
+        $endpoint = $endpoint.http_build_query($q);
+        $rex = curl_get($endpoint, $data);
+        return json_encode(['data' => $rex]);
     }
 }

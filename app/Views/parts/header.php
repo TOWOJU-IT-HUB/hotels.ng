@@ -61,7 +61,7 @@
                 ?>
                 <?php foreach ($social as $icon) : ?>
                     <a target="_blank" href="<?= $icon['social_url'] ?>">
-                       <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>
+                        <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>
                     </a>
                 <?php endforeach ?>
             </div>
@@ -90,7 +90,7 @@
             <div class="select-language dropdown">
 
                 <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?= COUNTRY_CURRENCY ?> 
+                    <?= COUNTRY_CURRENCY ?>
                 </button>
             </div>
         </div>
@@ -308,6 +308,29 @@
                 <li class="menu-item menu-item-1 ">
                     <a href="<?= base_url() ?>"><?= lang('text.home') ?></a>
                 </li>
+                <li class="menu-item-has-children">
+                    <a href="#">Services</a>
+                    <ul role="menu" class="sub-menu">
+                        <li class="menu-item-has-children">
+                            <a href="<?= base_url() ?>/search?room_type=hotel">Hotel</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= base_url() ?>/search?room_type=apartment">Apartment</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= base_url() ?>/search?room_type=car">Car</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= base_url() ?>/search?room_type=space">Space</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= base_url() ?>/search?room_type=beauty-services">Beauty</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= base_url() ?>/search?room_type=tour">Tour</a>
+                        </li>
+                    </ul> <span class="arrow-pc"><i class="far fa-chevron-down"></i></span>
+                </li>
                 <li class="menu-item menu-item-23 ">
                     <a href="<?= route_to('blog') ?>"><?= lang('text.blog') ?></a>
                 </li>
@@ -319,7 +342,7 @@
         <div class="user-navigation">
             <?php if (session()->get('isLoggedIn') != true) : ?>
                 <ul>
-                    <!-- <li class="become-partner"><a href="become-a-partner.html" class="btn btn-sm btn-primary">Become A Partner</a></li> -->
+                    <li class="become-partner"><a href="become-a-partner.html" class="btn btn-sm btn-primary">Become A Partner</a></li>
                     <li><a href="#gmz-login-popup" class="btn btn-sm btn-dark gmz-box-popup" data-effect="mfp-zoom-in"><i class="fal fa-sign-in pr-2"></i><?= lang('text.signin') ?></a></li>
                 </ul>
             <?php else : ?>

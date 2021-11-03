@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Controllers;
+use CodeIgniter\API\ResponseTrait;
 
 class Home extends BaseController
 {
+	use ResponseTrait;
+
 	public function index()
 	{
 		// get hotels from booking.
@@ -39,6 +42,8 @@ class Home extends BaseController
 		];
 		$r = $this->request;
 		$query['city'] = $r->getGet('location');
+		$query['accommodation_type_name'] = $r->getGet('room_type');
+
 		// $query['country_trans'] = $r->getGet('location');
 
 		$search = $this->hotels->like(array_filter($query))->paginate(90);
@@ -196,8 +201,45 @@ class Home extends BaseController
 	function contact_us()
 	{
 		$data['inf'] = $this->settings->find(1);
+		$r = $this->request;
+		if ($r->getMethod() == 'post') {
+			$msg 		= $r->getPost('email'). "\n \n";
+			$full_name 	= $r->getPost('full_name'). "\n \n";
+			$subject 	= $r->getPost('subject'). "\n \n";
+			$content 	= $r->getPost('content'). "\n \n";
+
+			$send_msg = $msg.$full_name.$subject.$content;
+
+			$adminEmail = conf['contact_us_email'];
+			if(mail($adminEmail, "Contact Us Form", $send_msg)) {
+                return redirect()->back()->with('success', "Request sent successfully");
+            } else {
+                return redirect()->back()->with('error', "Unable to submit your Contact request");
+            }
+
+		}
 		echo view('parts/header', $data);
 		echo view('contact');
+		echo view('parts/footer');
+	}
+
+	function partner()
+	{
+		$data['inf'] = $this->settings->find(1);
+		$r = $this->request;
+		if($r->getMethod() == 'post')
+		{
+			foreach ($_POST as $k => $v) {
+				$q[$k] = $v;
+			}
+			if($this->partners->insert($q)) {
+                return redirect()->back()->with('success', "Request sent successfully");
+            } else {
+                return redirect()->back()->with('error', "Unable to submit your Partnership request");
+            }
+		}
+		echo view('parts/header', $data);
+		echo view('partner');
 		echo view('parts/footer');
 	}
 
@@ -208,73 +250,60 @@ class Home extends BaseController
 		if ($r->getMethod() == 'post') {
 			foreach ($_POST as $k => $v) {
 				$q[$k] = $v;
+				$q['booking_from'] =  ($r->getPost('checkin'));
+				$q['booking_to'] =  ($r->getPost('checkout'));
 			}
-			if ($this->orders->insert($q)) {
-				return json_encode(['success' => "Success Booking request sent successfully"]);
+			if ($_d = $this->orders->insert($q)) {
+				return redirect()->to(base_url("home/invoice/$_d"))->with('success', "Booking Success please pay 10% of your booking fee.");
 			} else {
 				return json_encode(['error' => "Unable to process your booking request at this time."]);
 			}
+		} else {
+			die('Unknown Request');
 		}
 	}
 
-	function invoice($inv_id)
+	public function invoice($inv_id, $action = null)
 	{
-		try {
-			$response = $this->gateway->purchase(array(
-				'amount' => 1000,
-				'currency' => PAYPAL_CURRENCY,
-				'returnUrl' => PAYPAL_RETURN_URL,
-				'cancelUrl' => PAYPAL_CANCEL_URL,
-			))->send();
+		$info = $this->orders->find($inv_id);
+		$hotel = $this->hotels->where('hotel_id', $info['hotel_id'])->first();
+		$total = $hotel['min_total_price'] - $info['total_paid'];
+		$portion = 10;
+		$percentage = ($portion / 100) * $total; // 20
+		$amount = base64_encode($percentage);
+		if ($action == 'pay') {
+			try {
+				$response = [];
+				$response = $this->gateway->purchase(array(
+					'amount' => round($percentage, 2), //intval($hotel['min_total_price']),
+					'currency' => "USD", // $hotel['currencycode'],
+					'returnUrl' => base_url("home/check_paypal?pay_id=$inv_id&am=$amount"),
+					'cancelUrl' => base_url('/'),
+				))->send();
+				// echo "<pre>";
+				// print_r($response);
+				// exit;
 
-			if ($response->isRedirect()) {
-				$response->redirect(); // this will automatically forward the customer
-			} else {
-				// not successful
-				// echo $response->getMessage();
-				var_dump($response);
+				if ($response->isRedirect()) {
+					$response->redirect(); // this will automatically forward the customer
+				} else {
+					// not successful
+					die('Can not process payment at the moment please contact the support, <hr> Reason: ' . $response->getMessage());
+				}
+			} catch (Exception $e) {
+				echo $e->getMessage();
+				die('can not process payment at the moment please contact the support');
 			}
-		} catch (Exception $e) {
-			echo $e->getMessage();
+			exit;
 		}
-		exit;
-		// $return_url = "http://example.com/payment-successful.html";
-		// $cancel_url = "http://example.com/payment-successful.html";
-		// $notify_url = "http://example.com/payment-successful.html";
-
-		$post_data = [
-			"purchase_units" => [
-				'application_context' => [
-					"cancel_url" => "https://example.com/cancel",
-					"return_url" => "https://example.com/return",
-				],
-				"intent"	=> "CAPTURE",
-				'amount' => [
-					'currency_code' => 'USD',
-					'value' => '100.00',
-				],
-			],
+		$data = [
+			'info'	=>	$info,
+			'hotel'	=>	$hotel,
+			'_id'	=>	$inv_id,
+			'amount' => $percentage,
 		];
 
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_URL, 'https://api-m.sandbox.paypal.com/v2/checkout/orders');
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data));
-
-		$headers = array();
-		$headers[] = 'Content-Type: application/json';
-		$headers[] = 'Authorization: Bearer Access-Token';
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-		$result = curl_exec($ch);
-		if (curl_errno($ch)) {
-			echo 'Error:' . curl_error($ch);
-		}
-		curl_close($ch);
-
-		return view('test');
+		echo view('invoice', $data);
 	}
 
 	public function logout()
@@ -299,14 +328,14 @@ class Home extends BaseController
 	function complete()
 	{
 		$r = $this->request;
-		if ($r->isAJAX()) {			
+		if ($r->isAJAX()) {
 			if (isset($_GET['term'])) {
 
 				$query = "SELECT * FROM citylists WHERE city LIKE '{$_GET['term']}%' LIMIT 25";
 				$result = $this->db->query($query)->getResultArray();
-	
+
 				if (!empty($result)) {
-					foreach($result as $user) {
+					foreach ($result as $user) {
 						$res[] = $user['city'];
 					}
 				} else {
@@ -318,5 +347,51 @@ class Home extends BaseController
 		} else {
 			die("Undefined Route");
 		}
+	}
+
+	public function check_paypal()
+	{
+		// if(!isset($_SERVER['HTTP_REFERER'])){
+		// 	// redirect them to your desired location
+		// 	http_response_code(404);
+		// 	header('Location: '.base_url());
+		// 	return redirect()->to(base_url())->with('error', 'Unknown Request');
+		// }
+		$pay_id = $this->request->getGet('pay_id');
+		$info = $this->orders->find($pay_id);
+		$paid = $info['total_paid'];
+		$amount = base64_decode($this->request->getGet('am'));
+		if(isset($pay_id)){
+			$this->orders->where('id', $pay_id)->set(['total_paid' => ($paid+$amount)])->update();
+			return redirect()->to(base_url())->with('success', 'Payment of 10% Fee Successful, we would get intouch via email');
+		}
+	}
+
+	public function availability()
+	{
+		// header('Content-Type: application/json; charset=utf-8');
+		$checkin 	= $_POST['checkIn'];
+		$checkout 	= $_POST['checkOut'];
+		$adult 		= $_POST['adult'];
+		$children 	= $_POST['children'];
+		$data = [
+            'response'  =>  $this->hotels->findAll(12),
+        ];     
+        $endpoint = "room-list?";
+        $r = $this->request; 
+        $q = [
+            'locale'=> 'en-us',
+            'checkout_date' => $checkout,
+            'adults_number_by_rooms'    => $adult,
+            'checkin_date'  => $checkin,
+            'units' => 'metric',
+            'hotel_id'  => $r->getPost('hotel_id'),
+            'currency'  => COUNTRY_CURRENCY,
+			// 'children_number_by_rooms' => $children,
+        ];
+
+        $endpoint = $endpoint.http_build_query($q);
+        $rex = curl_get($endpoint, $data);
+        return json_encode(['data' => $rex], JSON_PRETTY_PRINT);
 	}
 }

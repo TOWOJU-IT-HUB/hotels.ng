@@ -38,9 +38,6 @@
     }
 </style>
 
-
-
-
 <script>
     $(document).ready(function() {
         $('#memListTable').DataTable({
@@ -63,11 +60,6 @@
         });
     });
 </script>
-
-
-
-
-
 
 <?php $uri = service('uri');
 if ($uri->getSegment(2) == 'settings') : ?>

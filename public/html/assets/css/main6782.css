@@ -4937,7 +4937,7 @@ img {
         -webkit-transform: rotate(-25deg);
                 transform: rotate(-25deg); }
 
-@media (max-width: 991px) {
+@media (max-width: 700px) {
   .search-form-wrapper {
     background: #fff;
     padding: 25px;

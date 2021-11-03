@@ -1,4 +1,16 @@
 <div class="site-content">
+	<style>
+		.hotel_img {
+			max-width: 358px;
+			max-height: 238px;
+		}
+
+		@media (max-width: 800px) {
+			.ism {
+				min-height: 700px;
+			}
+		}
+	</style>
 	<section class="hero-slider" style="min-height: 350px">
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<!-- <div class="container-fluid no-gutters p-0"> -->
@@ -9,15 +21,15 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="d-block w-100" src="<?= base_url() ?>/storage/2021/slider04.jpg" alt="First slide">
+					<img class="d-block w-100 ism" src="<?= base_url() ?>/storage/2021/slider04.jpg" alt="First slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" src="<?= base_url() ?>/storage/2021/slider02.jpg" alt="Second slide">
+					<img class="d-block w-100 ism" src="<?= base_url() ?>/storage/2021/slider02.jpg" alt="Second slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" src="<?= base_url() ?>/storage/2021/slider03.jpg" alt="Third slide">
+					<img class="d-block w-100 ism" src="<?= base_url() ?>/storage/2021/slider03.jpg" alt="Third slide">
 				</div>
-				
+
 				<div class="search-center">
 					<div class="container">
 						<p class="search-center__title">Browse Through our Catalogue of Hotels All Around The World</p>
@@ -50,7 +62,7 @@
 											</div>
 											<div class="search-form__from date-group">
 												<i class="fal fa-hospital"></i>
-												<select class="none" name="number_room">
+												<select class="location" name="room_type">
 													<option value="Hotel" selected>Hotel</option>
 													<option value="Apartment">Apartment</option>
 													<option value="Resorts">Resorts</option>
@@ -178,25 +190,19 @@
 	</section>
 	<section class="list-hotel list-hotel--grid py-40 bg-gray-100">
 		<div class="container">
-			<style>
-				.hotel_img {
-					max-width: 358px;
-					max-height: 238px;
-				}
-			</style>
 			<h2 class="section-title mb-20">List Of Hotels</h2>
 			<div class="row"> <?php if (!empty($response)) : ?>
 					<?php foreach ($response as $key => $rex) : ?>
 						<?php // http_build_query()
 										$es = [
 											'hotel_id'		=>	$rex['hotel_id'],
-											'data-hotel' 	=> 	$rex['hotel_name'],
-											'data-city' 	=> 	$rex['city'],
-											'data-country' 	=> 	$rex['country_trans'],
-											'data-type' 	=> 	$rex['accommodation_type_name'],
-											'ratings'		=> 	$rex['review_score'],
-											'checkin'		=> 	$rex['checkin'],
-											'checkout'		=> 	$rex['checkout'],
+											// 'data-hotel' 	=> 	$rex['hotel_name'],
+											// 'data-city' 	=> 	$rex['city'],
+											// 'data-country' 	=> 	$rex['country_trans'],
+											// 'data-type' 	=> 	$rex['accommodation_type_name'],
+											// 'ratings'		=> 	$rex['review_score'],
+											// 'checkin'		=> 	$rex['checkin'],
+											// 'checkout'		=> 	$rex['checkout'],
 										];
 										$es = '?' . http_build_query($es);
 										$final_url = route_to('hotels.view') . $es;
