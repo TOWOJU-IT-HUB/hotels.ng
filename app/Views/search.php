@@ -13,17 +13,13 @@
                         <?php // http_build_query()
                                         $es = [
                                             'hotel_id'        =>    $rex['hotel_id'],
-                                            // 'data-hotel' 	=> 	$rex['hotel_name'],
-                                            // 'data-city' 	=> 	$rex['city'],
-                                            // 'data-country' 	=> 	$rex['country_trans'],
-                                            // 'data-type' 	=> 	$rex['accommodation_type_name'],
-                                            // 'ratings'		=> 	$rex['review_score'],
-                                            // 'checkin'		=> 	$rex['checkin'],
-                                            // 'checkout'		=> 	$rex['checkout'],
                                         ];
                                         $es = '?' . http_build_query($es);
                                         $final_url = route_to('hotels.view') . $es;
                                         // $final_url = "https://google.com";
+                            $_SESSION['checkin'] = $_GET['checkIn'];
+                            $_SESSION['checkout'] = $_GET['checkOut'];
+                            $_SESSION['adult'] = $_GET['adult'];
                         ?>
                         <a href="<?= $final_url ?>">
                             <div class="col-lg-4 col-md-4 col-sm-12">

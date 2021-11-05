@@ -342,7 +342,7 @@
         <div class="user-navigation">
             <?php if (session()->get('isLoggedIn') != true) : ?>
                 <ul>
-                    <li class="become-partner"><a href="become-a-partner.html" class="btn btn-sm btn-primary">Become A Partner</a></li>
+                    <li class="become-partner"><a href="<?= base_url('home/partner') ?>" class="btn btn-sm btn-primary">Become A Partner</a></li>
                     <li><a href="#gmz-login-popup" class="btn btn-sm btn-dark gmz-box-popup" data-effect="mfp-zoom-in"><i class="fal fa-sign-in pr-2"></i><?= lang('text.signin') ?></a></li>
                 </ul>
             <?php else : ?>

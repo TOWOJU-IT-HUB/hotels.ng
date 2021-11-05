@@ -450,19 +450,19 @@
                     <div class="search-form__basic">
 
                       <input type="text" class="input-hidden check-in-out-field align-self-end" <?php /* name="checkInOut" */ ?> value="" data-same-date="false">
-                      <input type="text" class="input-hidden check-in-field" required name="checkIn" value="">
-                      <input type="text" class="input-hidden check-out-field" required name="checkOut" value="">
+                      <input type="text" class="input-hidden check-in-field" required name="checkIn" value="<?php if(isset($_SESSION['checkin'])){ echo $_SESSION['checkin']; } ?>">
+                      <input type="text" class="input-hidden check-out-field" required name="checkOut" value="<?php if(isset($_SESSION['checkout'])){ echo $_SESSION['checkout']; } ?>">
                       <input type="hidden" required name="hotel_id" value="<?= $_GET['hotel_id'] ?>">
                       <div class="search-form__from date-group">
                         <i class="fal fa-calendar-alt"></i>
                         <span class="check-in-render" data-date-format="DD/MM/YYYY">
-                          Check In
+                          <?php if(isset($_SESSION['checkin'])){ echo $_SESSION['checkin']; } else { echo "Check In"; } ?>
                         </span>
                       </div>
                       <div class="search-form__to date-group">
                         <i class="fal fa-calendar-alt"></i>
                         <span class="check-out-render" data-date-format="DD/MM/YYYY">
-                          Check Out
+                        <?php if(isset($_SESSION['checkout'])){ echo $_SESSION['checkout']; } else { echo "Check Out"; } ?>
                         </span>
                       </div>
 
@@ -471,7 +471,7 @@
                           <div class="dropdown-toggle" id="dropdownGuestButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fal fa-users"></i>
                             <span class="guest-render">
-                              1 Adult
+                              <?php if(isset($_SESSION['adult'])){ echo $_SESSION['adult'].' Adult'; } else { echo "1 Adult"; } ?>
                             </span>
                           </div>
                           <div class="dropdown-menu" aria-labelledby="dropdownGuestButton">
@@ -479,7 +479,12 @@
                               <div class="label">Adults</div>
                               <div class="value">
                                 <select class="form-control" name="adult">
-                                  <option value="1" selected>1</option>
+                                  <?php if(isset($_GET['adult'])){ 
+                                    echo '<option selected value="'.$_GET['adult'].'">'.$_GET['adult'].'</option>'; 
+                                  } else {
+                                    echo '<option value="1" selected>1</option>';
+                                  } ?>
+                                  
                                   <option value="2">2</option>
                                   <option value="3">3</option>
                                   <option value="4">4</option>
@@ -668,7 +673,7 @@
         </div>
       </div>
       <!-- // Right SideBar ends here -->
-
+      <button hidden class="text-center btn btn-xl btn-info ml-5" data-toggle="modal" id="hotelBookingModal" data-target="#hotelBookingModal">Book Now</button>
     </div>
   </div>
 </div>
@@ -727,7 +732,7 @@
           $('.gmz-loader').hide();
           // let data = data.data;
           var a = response.data[0];
-          var price = "<?= COUNTRY_CURRENCY. number_format($description['min_total_price'], 2) ?>";
+          var price = "<?= COUNTRY_CURRENCY. number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>";
           var room = a.rooms;
             var counter = 1;
           jQuery.each(a.rooms, function(index, item) {
@@ -739,7 +744,7 @@
             } else {
               photo = "<?= str_replace('max1280x900', '640X200', $description['hotel_thumbnail']) ?>";
             }
-            $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="'+photo+'" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> '+ hotel_name +' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">'+a.rooms[index].description+'</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">'+ price +'</span></div><button class="text-center btn btn-xl btn-info ml-5" data-toggle="modal" data-target="#hotelBookingModal">Book Now</button></div></div></div></div></div>');
+            $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="'+photo+'" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> '+ hotel_name +' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">'+a.rooms[index].description+'</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">'+ price +'</span></div><button onclick="initBooking($(this).data('+"'hotel_id'"+'))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $_GET['hotel_id'] ?>">Book Now</button></div></div></div></div></div>');
             counter++;
           });
         },

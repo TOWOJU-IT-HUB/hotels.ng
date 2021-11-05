@@ -319,7 +319,59 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
             });
         }
     }
+
+    function initBooking(d) {
+        loginStatus = "<?= session()->get('id') ?>";
+        let hotel_id = $("a:focus").attr('data-hotel_id'); //$('d').data('hotel_id');
+        if (!loginStatus) {
+            swal({
+                title: 'Please Login!',
+                text: "Please Login to Book this property",
+                type: 'error',
+            })
+        } else {
+            $('#hotelBookingModal').toggle();
+        }
+    }
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+    (function() {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/61844cb76bb0760a49412e2e/1fjmcnbov';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+<a href="https://api.whatsapp.com/send?phone=+447404603011&text=Hello, I will love some help on your website www.weotrip.com." class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
+<style>
+    .float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        left: 20px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+    }
+
+    .my-float {
+        margin-top: 16px;
+    }
+</style>
 </body>
 
 </html>
