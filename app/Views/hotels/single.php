@@ -20,10 +20,10 @@
     </div>
   </div>
   <div class="container">
-    <div class="row">
+    <div class="row mt-2">
       <div class="col-lg-8 pb-5">
 
-        <div class="row hotel-star">
+        <div class="row ml-2 hotel-star">
           <div class="star-rating">
             <?php if ($description['review_score'] == null) {
               $ans = $score = 0;
@@ -41,19 +41,21 @@
         </div>
 
 
-        <div class="row">
+        <div class="row ml-2">
           <h3 class="row col post-title">
             <div class="text-left">
-              <a href="#gmz-login-popup" class="mr-2" data-effect="mfp-zoom-in">
+              <!-- <a href="#gmz-login-popup" class="mr-2" data-effect="mfp-zoom-in">
                 <i class="fal fa-heart"></i>
-              </a>
+              </a> -->
             </div>
             <?= $description['hotel_name'] ?>
-            <!-- <button class="btn btn-xl btn-info ml-5" data-toggle="modal" data-target="#hotelBookingModal">Book Now</button> -->
           </h3>
+          <div class="text-right">
+            <span class="float-right h2 mr-4"><?= country_symbol() . number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>/<span class="h6">night</span></span>
+          </div>
         </div>
 
-        <p class="location">
+        <p class="location ml-2">
           <i class="fal fa-map-marker-alt mr-1"></i> <?= $description['address'] ?>
         </p>
 
@@ -100,338 +102,7 @@
             </p>
           </div>
         </section>
-
-        <div class="modal fade room-detail-modal" id="hotelBookingModal" tabindex="-1" aria-labelledby="gmz-room-detail-modalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <form class="" action="<?= route_to('add_order') ?>" id="bookingModalo" method="POST">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="#hotelEnquiryModalLabel">
-                    BOOKING FORM
-                  </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <p></p>
-                <div class="modal-body">
-                  <input type="hidden" name="hotel_id" value="<?= $_GET['hotel_id'] ?>" />
-                  <div class="gmz-loader">
-                    <div class="loader-inner">
-                      <div class="spinner-grow text-info  align-self-center loader-lg "></div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="full-name">Are you Travelling for Business<span class="required">*</span></label>
-                    <select name="business" class="form-control gmz-validation" id="business">
-                      <option selected disabled>Yes/No</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </select>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">FirstName<span class="required">*</span>
-                        </label>
-                        <input type="text" name="firstname" class="form-control gmz-validation" data-validation="required" id="first-name" />
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">LastName<span class="required">*</span>
-                        </label>
-                        <input type="text" name="lastname" class="form-control gmz-validation" data-validation="required" id="last-name" />
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">Country<span class="required">*</span>
-                        </label>
-                        <select class="form-control" name="country">
-                          <option value="null">-- Please Select --</option>
-                          <option value="afghan">Afghan</option>
-                          <option value="albanian">Albanian</option>
-                          <option value="algerian">Algerian</option>
-                          <option value="american">American</option>
-                          <option value="andorran">Andorran</option>
-                          <option value="angolan">Angolan</option>
-                          <option value="antiguans">Antiguans</option>
-                          <option value="argentinean">Argentinean</option>
-                          <option value="armenian">Armenian</option>
-                          <option value="australian">Australian</option>
-                          <option value="austrian">Austrian</option>
-                          <option value="azerbaijani">Azerbaijani</option>
-                          <option value="bahamian">Bahamian</option>
-                          <option value="bahraini">Bahraini</option>
-                          <option value="bangladeshi">Bangladeshi</option>
-                          <option value="barbadian">Barbadian</option>
-                          <option value="barbudans">Barbudans</option>
-                          <option value="batswana">Batswana</option>
-                          <option value="belarusian">Belarusian</option>
-                          <option value="belgian">Belgian</option>
-                          <option value="belizean">Belizean</option>
-                          <option value="beninese">Beninese</option>
-                          <option value="bhutanese">Bhutanese</option>
-                          <option value="bolivian">Bolivian</option>
-                          <option value="bosnian">Bosnian</option>
-                          <option value="brazilian">Brazilian</option>
-                          <option value="british">British</option>
-                          <option value="bruneian">Bruneian</option>
-                          <option value="bulgarian">Bulgarian</option>
-                          <option value="burkinabe">Burkinabe</option>
-                          <option value="burmese">Burmese</option>
-                          <option value="burundian">Burundian</option>
-                          <option value="cambodian">Cambodian</option>
-                          <option value="cameroonian">Cameroonian</option>
-                          <option value="canadian">Canadian</option>
-                          <option value="cape verdean">Cape Verdean</option>
-                          <option value="central african">Central African</option>
-                          <option value="chadian">Chadian</option>
-                          <option value="chilean">Chilean</option>
-                          <option value="chinese">Chinese</option>
-                          <option value="colombian">Colombian</option>
-                          <option value="comoran">Comoran</option>
-                          <option value="congolese">Congolese</option>
-                          <option value="costa rican">Costa Rican</option>
-                          <option value="croatian">Croatian</option>
-                          <option value="cuban">Cuban</option>
-                          <option value="cypriot">Cypriot</option>
-                          <option value="czech">Czech</option>
-                          <option value="danish">Danish</option>
-                          <option value="djibouti">Djibouti</option>
-                          <option value="dominican">Dominican</option>
-                          <option value="dutch">Dutch</option>
-                          <option value="east timorese">East Timorese</option>
-                          <option value="ecuadorean">Ecuadorean</option>
-                          <option value="egyptian">Egyptian</option>
-                          <option value="emirian">Emirian</option>
-                          <option value="equatorial guinean">Equatorial Guinean</option>
-                          <option value="eritrean">Eritrean</option>
-                          <option value="estonian">Estonian</option>
-                          <option value="ethiopian">Ethiopian</option>
-                          <option value="fijian">Fijian</option>
-                          <option value="filipino">Filipino</option>
-                          <option value="finnish">Finnish</option>
-                          <option value="french">French</option>
-                          <option value="gabonese">Gabonese</option>
-                          <option value="gambian">Gambian</option>
-                          <option value="georgian">Georgian</option>
-                          <option value="german">German</option>
-                          <option value="ghanaian">Ghanaian</option>
-                          <option value="greek">Greek</option>
-                          <option value="grenadian">Grenadian</option>
-                          <option value="guatemalan">Guatemalan</option>
-                          <option value="guinea-bissauan">Guinea-Bissauan</option>
-                          <option value="guinean">Guinean</option>
-                          <option value="guyanese">Guyanese</option>
-                          <option value="haitian">Haitian</option>
-                          <option value="herzegovinian">Herzegovinian</option>
-                          <option value="honduran">Honduran</option>
-                          <option value="hungarian">Hungarian</option>
-                          <option value="icelander">Icelander</option>
-                          <option value="indian">Indian</option>
-                          <option value="indonesian">Indonesian</option>
-                          <option value="iranian">Iranian</option>
-                          <option value="iraqi">Iraqi</option>
-                          <option value="irish">Irish</option>
-                          <option value="israeli">Israeli</option>
-                          <option value="italian">Italian</option>
-                          <option value="ivorian">Ivorian</option>
-                          <option value="jamaican">Jamaican</option>
-                          <option value="japanese">Japanese</option>
-                          <option value="jordanian">Jordanian</option>
-                          <option value="kazakhstani">Kazakhstani</option>
-                          <option value="kenyan">Kenyan</option>
-                          <option value="kittian and nevisian">Kittian and Nevisian</option>
-                          <option value="kuwaiti">Kuwaiti</option>
-                          <option value="kyrgyz">Kyrgyz</option>
-                          <option value="laotian">Laotian</option>
-                          <option value="latvian">Latvian</option>
-                          <option value="lebanese">Lebanese</option>
-                          <option value="liberian">Liberian</option>
-                          <option value="libyan">Libyan</option>
-                          <option value="liechtensteiner">Liechtensteiner</option>
-                          <option value="lithuanian">Lithuanian</option>
-                          <option value="luxembourger">Luxembourger</option>
-                          <option value="macedonian">Macedonian</option>
-                          <option value="malagasy">Malagasy</option>
-                          <option value="malawian">Malawian</option>
-                          <option value="malaysian">Malaysian</option>
-                          <option value="maldivan">Maldivan</option>
-                          <option value="malian">Malian</option>
-                          <option value="maltese">Maltese</option>
-                          <option value="marshallese">Marshallese</option>
-                          <option value="mauritanian">Mauritanian</option>
-                          <option value="mauritian">Mauritian</option>
-                          <option value="mexican">Mexican</option>
-                          <option value="micronesian">Micronesian</option>
-                          <option value="moldovan">Moldovan</option>
-                          <option value="monacan">Monacan</option>
-                          <option value="mongolian">Mongolian</option>
-                          <option value="moroccan">Moroccan</option>
-                          <option value="mosotho">Mosotho</option>
-                          <option value="motswana">Motswana</option>
-                          <option value="mozambican">Mozambican</option>
-                          <option value="namibian">Namibian</option>
-                          <option value="nauruan">Nauruan</option>
-                          <option value="nepalese">Nepalese</option>
-                          <option value="new zealander">New Zealander</option>
-                          <option value="ni-vanuatu">Ni-Vanuatu</option>
-                          <option value="nicaraguan">Nicaraguan</option>
-                          <option value="nigerien">Nigerien</option>
-                          <option value="north korean">North Korean</option>
-                          <option value="northern irish">Northern Irish</option>
-                          <option value="norwegian">Norwegian</option>
-                          <option value="omani">Omani</option>
-                          <option value="pakistani">Pakistani</option>
-                          <option value="palauan">Palauan</option>
-                          <option value="panamanian">Panamanian</option>
-                          <option value="papua new guinean">Papua New Guinean</option>
-                          <option value="paraguayan">Paraguayan</option>
-                          <option value="peruvian">Peruvian</option>
-                          <option value="polish">Polish</option>
-                          <option value="portuguese">Portuguese</option>
-                          <option value="qatari">Qatari</option>
-                          <option value="romanian">Romanian</option>
-                          <option value="russian">Russian</option>
-                          <option value="rwandan">Rwandan</option>
-                          <option value="saint lucian">Saint Lucian</option>
-                          <option value="salvadoran">Salvadoran</option>
-                          <option value="samoan">Samoan</option>
-                          <option value="san marinese">San Marinese</option>
-                          <option value="sao tomean">Sao Tomean</option>
-                          <option value="saudi">Saudi</option>
-                          <option value="scottish">Scottish</option>
-                          <option value="senegalese">Senegalese</option>
-                          <option value="serbian">Serbian</option>
-                          <option value="seychellois">Seychellois</option>
-                          <option value="sierra leonean">Sierra Leonean</option>
-                          <option value="singaporean">Singaporean</option>
-                          <option value="slovakian">Slovakian</option>
-                          <option value="slovenian">Slovenian</option>
-                          <option value="solomon islander">Solomon Islander</option>
-                          <option value="somali">Somali</option>
-                          <option value="south african">South African</option>
-                          <option value="south korean">South Korean</option>
-                          <option value="spanish">Spanish</option>
-                          <option value="sri lankan">Sri Lankan</option>
-                          <option value="sudanese">Sudanese</option>
-                          <option value="surinamer">Surinamer</option>
-                          <option value="swazi">Swazi</option>
-                          <option value="swedish">Swedish</option>
-                          <option value="swiss">Swiss</option>
-                          <option value="syrian">Syrian</option>
-                          <option value="taiwanese">Taiwanese</option>
-                          <option value="tajik">Tajik</option>
-                          <option value="tanzanian">Tanzanian</option>
-                          <option value="thai">Thai</option>
-                          <option value="togolese">Togolese</option>
-                          <option value="tongan">Tongan</option>
-                          <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option>
-                          <option value="tunisian">Tunisian</option>
-                          <option value="turkish">Turkish</option>
-                          <option value="tuvaluan">Tuvaluan</option>
-                          <option value="ugandan">Ugandan</option>
-                          <option value="ukrainian">Ukrainian</option>
-                          <option value="uruguayan">Uruguayan</option>
-                          <option value="uzbekistani">Uzbekistani</option>
-                          <option value="venezuelan">Venezuelan</option>
-                          <option value="vietnamese">Vietnamese</option>
-                          <option value="welsh">Welsh</option>
-                          <option value="yemenite">Yemenite</option>
-                          <option value="zambian">Zambian</option>
-                          <option value="zimbabwean">Zimbabwean</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">Phone Number<span class="required">*</span>
-                        </label>
-                        <input type="tel" name="number" class="form-control gmz-validation" data-validation="required" id="phone" />
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">Checkin Date<span class="required">*</span>
-                        </label>
-                        <input type="date" name="checkin" class="form-control gmz-validation" data-validation="required" id="checkin" />
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">Checkout Date<span class="required">*</span>
-                        </label>
-                        <input type="date" name="checkout" class="form-control gmz-validation" data-validation="required" id="checkout" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">Checkin Time<span class="required">*</span>
-                        </label>
-                        <select name="checkin_time" required class="form-control">
-                          <?php echo get_times(); ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <div class="form-group">
-                        <label for="full-name">Checkout Time<span class="required">*</span>
-                        </label>
-                        <select name="checkout_time" required class="form-control">
-                          <?php echo get_times(); ?>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="email">Email<span class="required">*</span></label>
-                    <input type="text" name="email" class="form-control gmz-validation" required data-validation="required" id="email" />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    CLOSE
-                  </button>
-                  <button type="submit" class="btn btn-primary">
-                    SUBMIT REQUEST
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
         <hr>
-        <!-- 
-        <div class="p-1 mb-3">
-          <h2 class="section-title d-flex align-items-center justify-content-between">
-            <span class="" data-toggle="modal" data-target="#hotelEnquiryModal"></span>
-            <div>
-              <a href="javascript:void(0)" class="btn btn-primary" data-toggle="modal" data-target="#hotelEnquiryModal">
-                Send Enquiry/Book
-              </a>
-            </div>
-          </h2>
-        </div> -->
 
         <div class="section-content">
           <h2 class="section-title d-flex align-items-center justify-content-between">
@@ -450,19 +121,31 @@
                     <div class="search-form__basic">
 
                       <input type="text" class="input-hidden check-in-out-field align-self-end" <?php /* name="checkInOut" */ ?> value="" data-same-date="false">
-                      <input type="text" class="input-hidden check-in-field" required name="checkIn" value="<?php if(isset($_SESSION['checkin'])){ echo $_SESSION['checkin']; } ?>">
-                      <input type="text" class="input-hidden check-out-field" required name="checkOut" value="<?php if(isset($_SESSION['checkout'])){ echo $_SESSION['checkout']; } ?>">
+                      <input type="text" class="input-hidden check-in-field" required name="checkIn" value="<?php if (isset($_SESSION['checkin'])) {
+                                                                                                              echo $_SESSION['checkin'];
+                                                                                                            } ?>">
+                      <input type="text" class="input-hidden check-out-field" required name="checkOut" value="<?php if (isset($_SESSION['checkout'])) {
+                                                                                                                echo $_SESSION['checkout'];
+                                                                                                              } ?>">
                       <input type="hidden" required name="hotel_id" value="<?= $_GET['hotel_id'] ?>">
                       <div class="search-form__from date-group">
                         <i class="fal fa-calendar-alt"></i>
                         <span class="check-in-render" data-date-format="DD/MM/YYYY">
-                          <?php if(isset($_SESSION['checkin'])){ echo $_SESSION['checkin']; } else { echo "Check In"; } ?>
+                          <?php if (isset($_SESSION['checkin'])) {
+                            echo $_SESSION['checkin'];
+                          } else {
+                            echo "Check In";
+                          } ?>
                         </span>
                       </div>
                       <div class="search-form__to date-group">
                         <i class="fal fa-calendar-alt"></i>
                         <span class="check-out-render" data-date-format="DD/MM/YYYY">
-                        <?php if(isset($_SESSION['checkout'])){ echo $_SESSION['checkout']; } else { echo "Check Out"; } ?>
+                          <?php if (isset($_SESSION['checkout'])) {
+                            echo $_SESSION['checkout'];
+                          } else {
+                            echo "Check Out";
+                          } ?>
                         </span>
                       </div>
 
@@ -471,7 +154,11 @@
                           <div class="dropdown-toggle" id="dropdownGuestButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fal fa-users"></i>
                             <span class="guest-render">
-                              <?php if(isset($_SESSION['adult'])){ echo $_SESSION['adult'].' Adult'; } else { echo "1 Adult"; } ?>
+                              <?php if (isset($_SESSION['adult'])) {
+                                echo $_SESSION['adult'] . ' Adult';
+                              } else {
+                                echo "1 Adult";
+                              } ?>
                             </span>
                           </div>
                           <div class="dropdown-menu" aria-labelledby="dropdownGuestButton">
@@ -479,12 +166,12 @@
                               <div class="label">Adults</div>
                               <div class="value">
                                 <select class="form-control" name="adult">
-                                  <?php if(isset($_GET['adult'])){ 
-                                    echo '<option selected value="'.$_GET['adult'].'">'.$_GET['adult'].'</option>'; 
+                                  <?php if (isset($_GET['adult'])) {
+                                    echo '<option selected value="' . $_GET['adult'] . '">' . $_GET['adult'] . '</option>';
                                   } else {
                                     echo '<option value="1" selected>1</option>';
                                   } ?>
-                                  
+
                                   <option value="2">2</option>
                                   <option value="3">3</option>
                                   <option value="4">4</option>
@@ -541,7 +228,7 @@
                         </div>
                       </div>
 
-                      <button class="btn btn-primary search-form__search" id="check_avail" type="submit"> CHECK AVAILABILITY </button>
+                      <button class="btn btn-primary search-form__search" id="check_avail_now" type="submit"> CHECK AVAILABILITY </button>
                     </div>
                   </form>
                 </div>
@@ -722,7 +409,7 @@
     $('#check_avail').on('submit', function(e) {
       e.preventDefault();
       $('.gmz-loader').show();
-      $(".myroomlists").remove();
+      $(".room-item--list").remove();
       $.ajax({
         type: 'POST',
         url: '<?= base_url('home/availability'); ?>',
@@ -732,44 +419,36 @@
           $('.gmz-loader').hide();
           // let data = data.data;
           var a = response.data[0];
-          var price = "<?= COUNTRY_CURRENCY. number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>";
+          var price = "<?= COUNTRY_CURRENCY . number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>";
           var room = a.rooms;
-            var counter = 1;
+          var counter = 1;
           jQuery.each(a.rooms, function(index, item) {
             var photo = a.rooms[index].photos;
-            var hotel_name = "<?= $description['hotel_name'] ?> #" +counter;
+            var hotel_name = "<?= $description['hotel_name'] ?> #" + counter;
             // alert(Object.keys(photo).length);
-            if(Object.keys(photo).length != 0){
+            if (Object.keys(photo).length != 0) {
               photo = photo[0].url_original;
             } else {
               photo = "<?= str_replace('max1280x900', '640X200', $description['hotel_thumbnail']) ?>";
             }
-            $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="'+photo+'" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> '+ hotel_name +' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">'+a.rooms[index].description+'</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">'+ price +'</span></div><button onclick="initBooking($(this).data('+"'hotel_id'"+'))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $_GET['hotel_id'] ?>">Book Now</button></div></div></div></div></div>');
+            $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="' + photo + '" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> ' + hotel_name + ' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">' + a.rooms[index].description + '</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">' + price + '</span></div><button onclick="initBooking($(this).data(' + "'hotel_id'" + '))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $_GET['hotel_id'] ?>">Book Now</button></div></div></div></div></div>');
             counter++;
           });
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
           $('.gmz-loader').hide();
-          alert("some error");
+          // alert("some error");
         }
       });
     });
   });
+    setTimeout(function() {
+      $('#check_avail').submit();
+    }, 5000);
+  
 </script>
 
 <?php
-function get_times($default = '19:00', $interval = '+30 minutes')
-{
-  $output = '';
-  $current = strtotime('00:00');
-  $end = strtotime('23:59');
-  while ($current <= $end) {
-    $time = date('H:i', $current);
-    $sel = ($time == $default) ? ' selected' : '';
-
-    $output .= "<option value=\"{$time}\"{$sel}>" . date('h.i A', $current) . '</option>';
-    $current = strtotime($interval, $current);
-  }
-  return $output;
-}
+$arr = ['checkin', 'checkout', 'adult'];
+session()->remove($arr);
 ?>

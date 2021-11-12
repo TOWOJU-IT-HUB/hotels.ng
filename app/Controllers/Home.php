@@ -16,39 +16,81 @@ class Home extends BaseController
 			'menu1'		=>	$this->menu->where('location', '1')->findAll(),
 			'menu2'		=>	$this->menu->where('location', '2')->findAll(),
 			'menu3'		=>	$this->menu->where('location', '3')->findAll(),
+
+			'by_country'		=>	$this->hotels->where('country_trans', user_country())->orderBy('RAND()')->groupBy('city')->findAll(6),
+			'_country'			=>	$this->hotels->orderBy('min_total_price', 'ASC')->orderBy('RAND()')->groupBy('country_trans')->findAll(6),
+			'dest_we_love'		=>	$this->hotels->orderBy('RAND()')->distinct()->findAll(16),
+			'cities'			=>	$this->hotels->orderBy('RAND()')->findAll(16),
+			'agent' 			=>	$this->request->getUserAgent(),
 		];
 		echo view('parts/header', $data);
 		echo view('welcome_message');
 		echo view('parts/footer');
 	}
-	public function search()
+
+	public function home()
 	{
 		// get hotels from booking.
-		$endpoint = "search?";
-		$q = [
-			'locale' => 'en-us',
-			'room_number' => 1,
-			'checkout_date' => '2021-11-26',
-			'order_by' => 'distance',
-			'units' => 'metric',
-			'adults_number' => 2,
-			'filter_by_currency' => 'NGN',
-			'checkin_date' => '2021-11-25',
-			'dest_type' => 'city',
-			'dest_id' => '-1997013',
-			'children_number' => 2,
-			'page_number' => 0,
-			'children_ages' => '5'
-		];
-		$r = $this->request;
-		$query['city'] = $r->getGet('location');
-		$query['accommodation_type_name'] = $r->getGet('room_type');
-
-		// $query['country_trans'] = $r->getGet('location');
-
-		$search = $this->hotels->like(array_filter($query))->paginate(90);
 		$data = [
-			'response'	=>	$this->hotels->like(array_filter($query))->paginate(9),
+			'response'	=>	$this->hotels->paginate(9),
+			'pager' 	=> 	$this->hotels->pager,
+			'menu1'		=>	$this->menu->where('location', '1')->findAll(),
+			'menu2'		=>	$this->menu->where('location', '2')->findAll(),
+			'menu3'		=>	$this->menu->where('location', '3')->findAll(),
+		];
+		echo view('parts/header', $data);
+		echo view('home');
+		echo view('parts/footer');
+	}
+
+	function countData()
+	{
+		$city = $_GET['city'];
+		return $this->hotels->where('city', $city)->countAllResults();
+	}
+
+	public function search()
+	{
+		
+		$r = $this->request;
+
+		
+		if (!empty($_GET['location'])) {
+			$city = $r->getGet('location');
+			$this->hotels->where('city', $city);
+		}
+		
+		
+		if (!empty($_GET['country'])) {
+			$this->hotels->where('city', $city);
+		}
+
+		if (!empty($_GET['country'])) {
+			$this->hotels->Where('country_trans',$r->getGet('country'));
+		}
+	
+		if(!empty($r->getGet('room_type'))){
+			$this->hotels->where('accommodation_type_name', $_GET['room_type'][0]);
+			if(is_array($r->getGet('room_type'))){
+				$arr = explode(",", implode($r->getGet('room_type')));
+				// $this->hotels->where('accommodation_type_name', $_GET['room_type'][0]);
+				foreach($arr as $room_type){
+					$arr = $this->hotels->orwhere('accommodation_type_name', $room_type);
+				}
+			} else {
+				$this->hotels->where('accommodation_type_name', $r->getGet('room_type'));
+			}
+		}
+
+		if(!empty($r->getGet('price_range'))){
+			$pricy = explode(";", $r->getGet('price_range'));
+			$min_price = $pricy[0];
+			$max_price = $pricy[1];
+			$this->hotels->where(" `min_total_price` >= $min_price AND `min_total_price` <= $max_price");
+		}
+		
+		$data = [
+			'response'	=>	$this->hotels->paginate(9), //$search,
 			'pager' 	=> 	$this->hotels->pager,
 		];
 		// echo "<pre>";
@@ -76,23 +118,24 @@ class Home extends BaseController
 
 			if (!$this->validate($rules, $errors)) {
 				$d_resx = $data['validation'] = $this->validator;
-				return json_encode(['error' => 'Invalid Login']);
+				// return redirect()->back()->with('error', 'Login failed.');
+
 			} else {
 				//Confirm user credentials and Start a Session//
 				$model = $this->user;
 				$user = $model->where('email', $this->request->getVar('email'))->first();
 				$this->setUserSession($user);
 				session()->setFlashdata('success', 'Login Successful...');
-				if (session()->get('role') == 'admin') {
-					$uri = base_url(route_to('admin.dashboard'));
-				} elseif (session()->get('role') == 'user') {
-					$uri = base_url(route_to('dashboard'));
-				}
+				// if (session()->get('role') == 'admin') {
+				// 	$uri = base_url(route_to('admin.dashboard'));
+				// } elseif (session()->get('role') == 'user') {
+				// 	$uri = base_url(route_to('dashboard'));
+				// }
 				return json_encode(['success' => 'Login Successful.']);
-				// return redirect()->to(route_to('dashboard'));
+				// return redirect()->to(base_url('admin/dashboard'))->with('success', 'Login Successful.');
 			}
 		}
-		// return view('login', $data);
+		return view('login', $data);
 	}
 
 	private function setUserSession($user)
@@ -117,6 +160,10 @@ class Home extends BaseController
 
 		if ($this->request->getMethod() == 'post') {
 
+            if($_REQUEST['password'] !== $_REQUEST['confpass']){
+				return redirect()->back()->with('error', 'Password doesn\'t match.');
+			}
+
 			// Receive all user input and process it to the ::DB
 			$rules = [
 				'firstname'	=> 'required|min_length[3]',
@@ -127,8 +174,6 @@ class Home extends BaseController
 
 			if (!$this->validate($rules)) {
 				$data['validation'] = $this->validator;
-				print_r($data['validation']);
-				exit;
 			} else {
 
 				//save user details into DB//
@@ -136,10 +181,14 @@ class Home extends BaseController
 				$firstname = xx_clean($this->request->getPost('firstname'));
 				$lastname = xx_clean($this->request->getPost('lastname'));
 				$email = xx_clean($this->request->getPost('email'), 'email');
+				$phone = xx_clean($this->request->getPost('phone'), 'int');
 				$newdata = [
 					// 'idz'	=>	1,
 					'fullname' 		=>  $firstname . ' ' . $lastname,
+					'firstname' 	=>  $firstname,
+					'lastname' 		=>  $lastname,
 					'email' 		=>  $email,
+					'phone' 		=>  $phone,
 					'role'			=>	'customer',
 					'password' 		=>  $this->request->getPost('password'),
 				];
@@ -147,11 +196,16 @@ class Home extends BaseController
 				if ($model->insert($newdata)) {
 					$user = $model->where('email', $email)->first();
 					$this->setUserSession($user);
+					// return json_encode(['success' => 'Registration Successful.']);
+					return redirect()->back()->with('success', 'Registration Successful.');
 				}
-				return json_encode(['success' => 'Registration Successful.']);
 			}
 		}
-		return redirect('/');
+		else {
+			return redirect()->to(base_url());
+		}
+
+			return redirect()->to(base_url());
 	}
 
 	public function page($slug)
@@ -243,9 +297,15 @@ class Home extends BaseController
 		echo view('parts/footer');
 	}
 
-	function add_order()
+	function add_order($hotel_id=null)
 	{
+		if (session()->get('id') === null) {
+			return redirect()->back()->with('error', "Please Login to continue.");
+		} 
 		// receive post request and insert data into ::DB
+		$data = [
+			'hotel_id'	=> $hotel_id,
+		];
 		$r = $this->request;
 		if ($r->getMethod() == 'post') {
 			foreach ($_POST as $k => $v) {
@@ -258,9 +318,11 @@ class Home extends BaseController
 			} else {
 				return json_encode(['error' => "Unable to process your booking request at this time."]);
 			}
-		} else {
-			die('Unknown Request');
-		}
+		} 
+		
+		echo view('parts/header', $data);
+		echo view('hotels/book_hotel');
+		echo view('parts/footer');
 	}
 
 	public function invoice($inv_id, $action = null)
@@ -276,7 +338,7 @@ class Home extends BaseController
 				$response = [];
 				$response = $this->gateway->purchase(array(
 					'amount' => round($percentage, 2), //intval($hotel['min_total_price']),
-					'currency' => "USD", // $hotel['currencycode'],
+					'currency' => $hotel['currencycode'],
 					'returnUrl' => base_url("home/check_paypal?pay_id=$inv_id&am=$amount"),
 					'cancelUrl' => base_url('/'),
 				))->send();
@@ -393,5 +455,10 @@ class Home extends BaseController
         $endpoint = $endpoint.http_build_query($q);
         $rex = curl_get($endpoint, $data);
         return json_encode(['data' => $rex], JSON_PRETTY_PRINT);
+	}
+
+	public function book_now($hotel_id)
+	{
+		echo $hotel_id;
 	}
 }

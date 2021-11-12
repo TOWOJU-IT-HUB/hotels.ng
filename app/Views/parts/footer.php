@@ -265,6 +265,18 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
         button_accept_text: "",
         button_reject_text: "",
     };
+    
+    function cheki_password()
+    {
+        var passconf = $('#passconf').val();
+        var password = $('#rpassword').val();
+        if (password !== passconf)  {
+            $("#cheki").html("Password doesn't match");
+            $("#cheki").show().addClass('error'); 
+        } else {
+            $("#cheki").hide();
+        }
+    }
 </script>
 <?php if (session()->get('error')) : ?>
     <script>
@@ -330,7 +342,7 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                 type: 'error',
             })
         } else {
-            $('#hotelBookingModal').toggle();
+            window.location.href="<?= base_url('home/add_order/') ?>"+'/'+d;
         }
     }
 </script>

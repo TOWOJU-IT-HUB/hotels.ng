@@ -46,6 +46,9 @@
             --primary: hsl(175, 69%, 38%);
             --primary-hover: hsl(175, 69%, 40%);
         }
+        .fa-chevron-right{
+            display: none;
+        }
     </style>
     <script src="<?= base_url() ?>/html/assets/vendor/jquery-3.5.1.min.js"></script>
 </head>
@@ -67,7 +70,8 @@
             </div>
         </div>
         <div class="text-center">
-            <a href="mailto:<?= conf['site_email'] ?>"><span><i class="fa fa-envelope"></i> <?= conf['site_email'] ?></span></a>
+            <a class="ml-3" href="mailto:<?= conf['site_email'] ?>"><span><i class="fa fa-envelope"></i> <?= conf['site_email'] ?></span></a>
+           <a class="ml-3" href="tel:<?= conf['contact_us_phone'] ?>"><span><i class="fa fa-phone"></i> <?= conf['contact_us_phone'] ?></span></a>
         </div>
         <div class="top-bar__right">
             <div class="select-language dropdown">
@@ -151,14 +155,14 @@
                         </div>
 
                         <div class="social">
-                            <a href="https://www.facebook.com/v3.3/dialog/oauth?client_id=350904019789211&amp;redirect_uri=https%3A%2F%2Fibooking.booteam.co%2Fcallback%2Ffacebook&amp;scope=<?= lang('text.email') ?>&amp;response_type=code&amp;state=BLWPid0hDujFblN3sNnyitXx0dOwU4yZCmvUAHJW" class="btn social-fb">
+                            <!-- <a href="https://www.facebook.com/v3.3/dialog/oauth?client_id=350904019789211&amp;redirect_uri=https%3A%2F%2Fibooking.booteam.co%2Fcallback%2Ffacebook&amp;scope=<?= lang('text.email') ?>&amp;response_type=code&amp;state=BLWPid0hDujFblN3sNnyitXx0dOwU4yZCmvUAHJW" class="btn social-fb">
                                 <i class="fab fa-facebook-f"></i>
                                 <span class="brand-name">Facebook</span>
                             </a>
                             <a href="https://accounts.google.com/o/oauth2/auth?client_id=128137590149-amt2931rd2vvesapim1siaks1dnns810.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fibooking.booteam.co%2Fcallback%2Fgoogle&amp;scope=openid+profile+<?= lang('text.email') ?>&amp;response_type=code&amp;state=vbv7twKEKyFLUAUKyWpsI91HrWtOhy4ulrtzica2" class="btn social-github">
                                 <i class="fab fa-google"></i>
                                 <span class="brand-name">Google</span>
-                            </a>
+                            </a> -->
                         </div>
                         <p class="signup-link">Not registered ? <a href="#gmz-register-popup" class="gmz-box-popup" data-effect="mfp-zoom-in">Create an account</a></p>
                     </div>
@@ -171,7 +175,7 @@
         <div class="popup-inner">
             <h4 class="popup-title">Sign Up</h4>
             <div class="popup-content">
-                <form class="text-left gmz-form-action account-form" action="<?= route_to('register') ?>" method="POST">
+                <?= form_open('home/register') ?>
                     <div class="gmz-loader ">
                         <div class="loader-inner">
                             <div class="spinner-grow text-info align-self-center loader-lg"></div>
@@ -183,41 +187,64 @@
                                 <div id="first_name-field" class="field-wrapper input">
                                     <label for="first_name"><?= lang('text.firstname') ?></label>
                                     <i class="fal fa-user-alt"></i>
-                                    <input id="firstname" name="firstname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.firstname') ?>">
+                                    <input required id="firstname" name="firstname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.firstname') ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div id="last_name-field" class="field-wrapper input">
                                     <label for="last_name"><?= lang('text.lastname') ?></label>
                                     <i class="fal fa-user-alt"></i>
-                                    <input id="lastname" name="lastname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.lastname') ?>">
+                                    <input required id="lastname" name="lastname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.lastname') ?>">
                                 </div>
                             </div>
                         </div>
+                        
+                        <div id="phone_number-field" class="field-wrapper input">
+                            <label for="phone">Phone Number</label>
+                            <i class="fal fa-phone"></i>
+                            <input name="phone" type="tel" value="" required class="form-control gmz-validation" data-validation="required" placeholder="Phone Number">
+                        </div>
+
 
                         <div id="<?= lang('text.email') ?>-field" class="field-wrapper input">
                             <label for="r<?= lang('text.email') ?>"><?= lang('text.email') ?></label>
                             <i class="fal fa-at"></i>
-                            <input id="r<?= lang('text.email') ?>" name="email" type="text" value="" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.email') ?>">
+                            <input required id="r<?= lang('text.email') ?>" name="email" type="text" value="" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.email') ?>">
                         </div>
 
-                        <div id="password-field" class="field-wrapper input mb-2">
-                            <div class="d-flex justify-content-between">
-                                <label for="rpassword"><?= lang('text.password') ?></label>
-                                <a href="#gmz-reset-popup" class="forgot-pass-link gmz-box-popup" data-effect="mfp-zoom-in"><?= lang('forgot') ?> <?= lang('text.password') ?>?</a>
-                            </div>
-                            <i class="fal fa-lock"></i>
-                            <input id="rpassword" name="password" type="password" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.password') ?>">
-                            <div class="view-password">
-                                <i class="fal fa-eye view"></i>
-                                <i class="fal fa-eye-slash not-view"></i>
+                        <div class="row">
+                        <div class="col-6">
+                            <div id="password-field" class="field-wrapper input mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <label for="rpassword"><?= lang('text.password') ?></label>
+                                </div>
+                                <i class="fal fa-lock"></i>
+                                <input required onkeyup="cheki_password()" id="rpassword" name="password" type="password" minlength="8" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.password') ?>">
+                                <div class="view-password">
+                                    <i class="fal fa-eye view"></i>
+                                    <i class="fal fa-eye-slash not-view"></i>
+                                </div>
                             </div>
                         </div>
-
+                        <div class="col-6">
+                            <div id="password-field" class="field-wrapper input mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <label for="rpassword"><?= "Confirm ".lang('text.password') ?></label>
+                                </div>
+                                <i class="fal fa-lock"></i>
+                                <input required onkeyup="cheki_password()" id="passconf" name="confpass" type="password" minlength="8" class="form-control gmz-validation" data-validation="required" placeholder="Confirm Password">
+                                <div class="view-password">
+                                    <i class="fal fa-eye view"></i>
+                                    <i class="fal fa-eye-slash not-view"></i>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div id="cheki" class="gmz-message alert alert-info m-3"></div>
                         <div class="field-wrapper terms_condition">
                             <div class="n-chk">
                                 <label class="new-control new-checkbox checkbox-primary">
-                                    <input type="checkbox" name="agree_field" value="1" id="agree-term" class="new-control-input gmz-validation" data-validation="required">
+                                    <input required type="checkbox" name="agree_field" value="1" id="agree-term" class="new-control-input gmz-validation" data-validation="required">
                                     <span class="new-control-indicator"></span><span>I agree to the <a href="<?= route_to('tos') ?>"> terms and conditions </a></span>
                                 </label>
                             </div>
@@ -312,22 +339,22 @@
                     <a href="#">Services</a>
                     <ul role="menu" class="sub-menu">
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url() ?>/search?room_type=hotel">Hotel</a>
+                            <a href="<?= base_url() ?>/search?room_type%5B%5D=hotel">Hotel</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url() ?>/search?room_type=apartment">Apartment</a>
+                            <a href="<?= base_url() ?>/search?room_type%5B%5D=apartment">Apartment</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url() ?>/search?room_type=car">Car</a>
+                            <a href="<?= base_url() ?>/search?room_type%5B%5D=Motels">Motels</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url() ?>/search?room_type=space">Space</a>
+                            <a href="<?= base_url() ?>/search?room_type%5B%5D=Hostel">Hostel</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url() ?>/search?room_type=beauty-services">Beauty</a>
+                            <a href="<?= base_url() ?>/search?room_type%5B%5D=Resorts">Resorts</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url() ?>/search?room_type=tour">Tour</a>
+                            <a href="<?= base_url() ?>/search?room_type%5B%5D=Villa">Villa</a>
                         </li>
                     </ul> <span class="arrow-pc"><i class="far fa-chevron-down"></i></span>
                 </li>
