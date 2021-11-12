@@ -1,5 +1,5 @@
 <?php
-$db      = \Config\Database::connect();
+$db  = \Config\Database::connect();
 $ads = $db->query("SELECT * FROM ads")->getResultArray();
 ?>
 <div class="site-content">
