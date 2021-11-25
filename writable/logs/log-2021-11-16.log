@@ -1,0 +1,211 @@
+ERROR - 2021-11-16 12:19:32 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2021-11-16 12:19:32 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-16 12:28:58 --> Maximum execution time of 60 seconds exceeded
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+ERROR - 2021-11-16 12:38:23 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2021-11-16 12:38:23 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+ERROR - 2021-11-16 12:38:44 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2021-11-16 12:38:44 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+ERROR - 2021-11-16 13:32:07 --> Error connecting to the database: Unknown database 'hotels'
+CRITICAL - 2021-11-16 13:32:07 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'hotels'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+ERROR - 2021-11-16 13:55:13 --> Error connecting to the database: Unknown database 'hotels'
+CRITICAL - 2021-11-16 13:55:13 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'hotels'
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(570): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+ERROR - 2021-11-16 13:57:24 --> Table 'hotels.settings' doesn't exist in engine
+CRITICAL - 2021-11-16 13:57:24 --> Table 'hotels.settings' doesn't exist in engine
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+ERROR - 2021-11-16 14:04:48 --> Table 'hotels.settings' doesn't exist in engine
+CRITICAL - 2021-11-16 14:04:48 --> Table 'hotels.settings' doesn't exist in engine
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+ERROR - 2021-11-16 14:05:55 --> Table 'hotels.settings' doesn't exist in engine
+CRITICAL - 2021-11-16 14:05:55 --> Table 'hotels.settings' doesn't exist in engine
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+ERROR - 2021-11-16 14:06:20 --> Table 'hotels.settings' doesn't exist in engine
+CRITICAL - 2021-11-16 14:06:20 --> Call to a member function getFirstRow() on bool
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-11-16 14:06:45 --> Class 'PHPMailer\PHPMailer\Exception' not found
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(264): include_once()
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('PHPMailer\\PHPMa...')
+#3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('PHPMailer\\PHPMa...')
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\phpmailer\phpmailer\src\PHPMailer.php(3151): spl_autoload_call('PHPMailer\\PHPMa...')
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(169): PHPMailer\PHPMailer\PHPMailer->addAttachment('/var/tmp/file.t...')
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(370): App\Controllers\BaseController->send_mail()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->test()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+CRITICAL - 2021-11-16 14:57:16 --> Maximum execution time of 60 seconds exceeded
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+ERROR - 2021-11-16 15:29:48 --> Table 'hotels.settings' doesn't exist in engine
+CRITICAL - 2021-11-16 15:29:48 --> Table 'hotels.settings' doesn't exist in engine
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+ERROR - 2021-11-16 15:30:44 --> Table 'hotels.settings' doesn't exist in engine
+CRITICAL - 2021-11-16 15:30:44 --> Table 'hotels.settings' doesn't exist in engine
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1428): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(523): CodeIgniter\Model->doFind(true, 1)
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(119): CodeIgniter\BaseModel->find(1)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(780): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(390): CodeIgniter\CodeIgniter->createController()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+ERROR - 2021-11-16 15:30:51 --> Table 'hotels.hotels' doesn't exist in engine
+CRITICAL - 2021-11-16 15:30:51 --> Table 'hotels.hotels' doesn't exist in engine
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT COUNT(*)...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1512): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(1080): CodeIgniter\Model->countAllResults(false)
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(14): CodeIgniter\BaseModel->paginate(9)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->index()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}
+ERROR - 2021-11-16 15:30:59 --> Table 'hotels.hotels' doesn't exist in engine
+CRITICAL - 2021-11-16 15:30:59 --> Table 'hotels.hotels' doesn't exist in engine
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(280): mysqli->query('SELECT COUNT(*)...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(663): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseConnection.php(591): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1512): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\BaseModel.php(1080): CodeIgniter\Model->countAllResults(false)
+#6 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(14): CodeIgniter\BaseModel->paginate(9)
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->index()
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#12 {main}

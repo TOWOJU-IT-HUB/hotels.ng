@@ -1,0 +1,703 @@
+CRITICAL - 2021-11-19 01:24:30 --> Undefined index: fullname
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\test.php(129): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 129, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(181): view('test', Array)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(126): App\Controllers\BaseController->send_mail('fivermail201@gm...', 'New Login on WE...', 'Someone just lo...')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->login()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}
+CRITICAL - 2021-11-19 01:35:34 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:37:36 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:37:52 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:38:15 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:38:40 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:38:48 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:41:12 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:43:15 --> Undefined variable: images
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\blog_post.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 11, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('blog_post', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(28): view('blog_post')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('new-post-6164bd...')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 01:43:18 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:47:47 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:49:06 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:49:55 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:50:13 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:50:32 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:51:10 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 01:55:54 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:05:11 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:05:55 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:06:10 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:06:23 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:06:32 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:08:05 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:08:46 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:09:01 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:09:14 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:11:52 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:12:04 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:12:42 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:15:40 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:15:53 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:16:05 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:16:53 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:16:59 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:17:42 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:18:56 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:19:02 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:19:19 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:23:55 --> Undefined index: fullname
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\test.php(129): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 129, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(181): view('test', Array)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(126): App\Controllers\BaseController->send_mail('fivermail201@gm...', 'New Login on WE...', 'Someone just lo...')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->login()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}
+CRITICAL - 2021-11-19 02:26:26 --> Undefined index: lastname
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\test.php(129): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 129, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\BaseController.php(181): view('test', Array)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(126): App\Controllers\BaseController->send_mail('fivermail201@gm...', 'New Login on WE...', 'Someone just lo...')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->login()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}
+CRITICAL - 2021-11-19 02:57:00 --> Undefined index: files
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:58:26 --> Undefined index: files
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:58:48 --> Undefined index: name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 02:59:19 --> basename() expects parameter 1 to be string, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'basename() expe...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): basename(Array)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-11-19 02:59:43 --> Undefined index: name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:00:00 --> Undefined index: temp_name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:00:07 --> Undefined index: temp_name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:00:17 --> Undefined index: name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(505): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 505, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:04:14 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:11:59 --> Undefined variable: targetDir
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(508): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 508, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:25:51 --> Undefined variable: r
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(482): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 482, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:26:10 --> basename() expects parameter 1 to be string, array given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'basename() expe...', 'C:\\Users\\towoj\\...', 506, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(506): basename(Array)
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-11-19 03:26:32 --> Array to string conversion
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(507): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\Users\\towoj\\...', 507, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 03:33:20 --> move_uploaded_file(uploads/hotel_images/http://localhost:8080/uploads/hotel_images/61976f1d20b0d0c6e9a279c2e127ab200f46cefbd1831): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'move_uploaded_f...', 'C:\\Users\\towoj\\...', 509, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(509): move_uploaded_file('C:\\xampp\\tmp\\ph...', 'uploads/hotel_i...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_new_hotels()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#7 {main}
+CRITICAL - 2021-11-19 03:34:30 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\hotels\single.php(28): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 28, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('hotels/single', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Hotels.php(206): view('hotels/single')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Hotels->viewHotel()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hotels))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 03:46:34 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\hotels\single.php(28): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 28, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('hotels/single', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Hotels.php(206): view('hotels/single')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Hotels->viewHotel()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hotels))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 04:03:13 --> Undefined property: App\Controllers\Admin::$rooms
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(575): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\towoj\\...', 575, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_rooms()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 04:16:16 --> Undefined property: App\Controllers\Admin::$rooms
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(575): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\towoj\\...', 575, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_rooms()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 05:48:56 --> Undefined variable: v
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\manage-rooms.php(62): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 62, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ma...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(590): view('admin/hotels/ma...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->manage_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 06:05:54 --> Undefined index: hotel_id
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\manage-rooms.php(18): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 18, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ma...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(590): view('admin/hotels/ma...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->manage_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 06:12:02 --> Undefined variable: _hotel_id
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\manage-rooms.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 27, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ma...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(590): view('admin/hotels/ma...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->manage_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 06:52:44 --> Undefined variable: hotels
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\rooms.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\towoj\\...', 64, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ro...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(567): view('admin/hotels/ro...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:04:41 --> Undefined index: hotel_name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\add-rooms.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 20, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ad...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(590): view('admin/hotels/ad...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:04:54 --> Undefined index: hotel_name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\add-rooms.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 20, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ad...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(590): view('admin/hotels/ad...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:07:21 --> Undefined index: hotel_name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\add-rooms.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 20, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ad...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(590): view('admin/hotels/ad...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->add_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:07:58 --> Undefined index: status
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\rooms.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 61, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ro...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(567): view('admin/hotels/ro...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:09:04 --> Undefined index: room_id
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\rooms.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 68, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ro...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(567): view('admin/hotels/ro...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:09:06 --> Undefined index: room_id
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\rooms.php(68): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 68, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ro...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(567): view('admin/hotels/ro...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:11:38 --> Undefined index: room_name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\manage-rooms.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 20, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ma...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(614): view('admin/hotels/ma...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->manage_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 07:12:36 --> Too few arguments to function CodeIgniter\HTTP\RedirectResponse::with(), 1 passed in C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php on line 598 and exactly 2 expected
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(598): CodeIgniter\HTTP\RedirectResponse->with('Please select a...')
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->manage_rooms()
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 07:19:31 --> syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF)
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ma...', Array, true)
+#2 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(617): view('admin/hotels/ma...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->manage_rooms()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#8 {main}
+CRITICAL - 2021-11-19 07:20:53 --> Undefined index: room_name
+#0 C:\Users\towoj\Documents\hotels.ng\app\Views\admin\hotels\manage-rooms.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 20, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('admin/hotels/ma...', Array, true)
+#4 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Admin.php(617): view('admin/hotels/ma...')
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Admin->manage_rooms()
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#10 {main}
+CRITICAL - 2021-11-19 10:13:15 --> Trying to access array offset on value of type null
+#0 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Blog.php(25): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\towoj\\...', 25, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Blog->post('storage', '2021', '02', '01', 'favicon-1612164...')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Blog))
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#6 {main}
+CRITICAL - 2021-11-19 12:21:49 --> Undefined index: 
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1324): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 1324, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Views\hotels\single.php(54): convertedCurrency('333', 'USD')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('hotels/single', Array, true)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Hotels.php(207): view('hotels/single')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Hotels->viewHotel()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hotels))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}
+CRITICAL - 2021-11-19 12:21:54 --> Undefined index: 
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1324): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 1324, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Views\hotels\single.php(54): convertedCurrency('333', 'USD')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('hotels/single', Array, true)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Hotels.php(207): view('hotels/single')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Hotels->viewHotel()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hotels))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}
+CRITICAL - 2021-11-19 12:22:03 --> Undefined index: 
+#0 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1324): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\towoj\\...', 1324, Array)
+#1 C:\Users\towoj\Documents\hotels.ng\app\Views\welcome_message.php(366): convertedCurrency('2351.9999943674', 'INR')
+#2 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(214): include('C:\\Users\\towoj\\...')
+#3 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Common.php(1102): CodeIgniter\View\View->render('welcome_message', Array, true)
+#5 C:\Users\towoj\Documents\hotels.ng\app\Controllers\Home.php(28): view('welcome_message')
+#6 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(802): App\Controllers\Home->index()
+#7 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\towoj\Documents\hotels.ng\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\towoj\Documents\hotels.ng\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\towoj\\...')
+#11 {main}

@@ -71,8 +71,8 @@
                                         <input type="password" name="f1-repeat-password" placeholder="Repeat password..." class="f1-repeat-password form-control" id="f1-repeat-password">
                                     </div>
                                     <div class="f1-buttons">
-                                        <button type="button" class="btn btn-previous">Previous</button>
-                                        <button type="button" class="btn btn-next">Next</button>
+                                        <button type="button" class="btn btn-previous">Previous</button></button>t
+<span class="icon-spinner"><i class="fa fa-spinner load-animate"></i></span> </button>
                                     </div>
                                 </fieldset>
 
@@ -87,8 +87,8 @@
                                         <input type="text" name="f1-answer" placeholder="Answer..." class="f1-answer form-control" id="f1-answer">
                                     </div>
                                     <div class="f1-buttons">
-                                        <button type="button" class="btn btn-previous">Previous</button>
-                                        <button type="button" class="btn btn-next">Next</button>
+                                        <button type="button" class="btn btn-previous">Previous</button></button>t
+<span class="icon-spinner"><i class="fa fa-spinner load-animate"></i></span> </button>
                                     </div>
                                 </fieldset>
 
@@ -107,8 +107,8 @@
                                         <input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
                                     </div>
                                     <div class="f1-buttons">
-                                        <button type="button" class="btn btn-previous">Previous</button>
-                                        <button type="submit" class="btn btn-submit">Submit</button>
+                                        <button type="button" class="btn btn-previous">Previous</button></button>ubmit
+<span class="icon-spinner"><i class="fa fa-spinner load-animate"></i></span> </button>
                                     </div>
                                 </fieldset>
                                 <?= form_close() ?>

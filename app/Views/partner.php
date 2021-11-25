@@ -86,10 +86,18 @@
                                 <label for="email">Email</label>
                                 <input type="text" name="email" class="form-control gmz-validation" data-validation="required" id="email">
                             </div>
-                            <div class="form-group">
-                                <label for="subject">Password<span class="required">*</span> </label>
-                                <input type="text" name="password" class="form-control gmz-validation" data-validation="required" id="password">
+
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label for="subject">Password<span class="required">*</span> </label>
+                                    <input type="text" name="password" class="form-control gmz-validation" data-validation="required" id="password">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="email">Phone Number</label>
+                                    <input type="number" name="phone" class="form-control gmz-validation" data-validation="required" id="phone">
+                                </div>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="content">Address<span class="required">*</span> </label>
                                 <textarea name="address" rows="3" class="form-control " id="address"></textarea>

@@ -7,8 +7,8 @@
                     max-height: 238px;
                 }
             </style>
-            <h2 class="section-title mb-5">Search Reasult.</h2>
-            <?php $hey = $_GET['room_type']; ?>
+            <h2 class="section-title mb-5">Search Result. <?php $gee = []; if(isset($_GET['price_range'])){ $gee = explode(';', $_GET['price_range']); } ?></h2>
+            <?php $hey = []; if(isset($_GET['room_type'])){ $hey = $_GET['room_type']; } ?>
 
             <div class="search-form-wrapper">
                 <div class="tab-content mb-5 mt-3" id="searchFormTab">
@@ -151,12 +151,11 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="search-form__label">Price</div>
-                                            <input type="text" class="price-range-slider" name="price_range" value="" data-min="0.00" data-max="10800.00" data-form="250.00" data-to="8000.00" data-prefix="" data-postfix="" />
+                                            <input type="text" class="price-range-slider" name="price_range" value="" data-min="0.00" data-max="10800.00" data-from="<?php if(isset($_GET['price_range'])){ echo $gee[0]; } ?>" data-to="<?php if(isset($_GET['price_range'])){ echo $gee[1]; } ?>" data-prefix="" data-postfix="" />
 
                                         </div>
                                         <div class="col-md-6 gmz-checkbox-wrapper">
                                             <div class="search-form__label">Types</div>
-                                            <?php $hey = [] ?>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Hotel',     $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Hotel">Hotel</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Apartment', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Apartment">Apartment</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Resorts',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Resorts">Resorts</label>
@@ -196,27 +195,27 @@
                                 $_SESSION['adult'] = $_GET['adult'];
                             }
                         ?>
-                        <a href="<?= $final_url ?>">
+                        <a target="_blank" href="<?= $final_url ?>">
                             <div class="col-lg-4 col-md-4 col-sm-12">
                                 <div class="hotel-item hotel-item--grid" data-plugin="matchHeight">
                                     <div class="hotel-item__thumbnail">
 
                                         <div class="add-wishlist-wrapper">
-                                            <a href='#gmz-login-popup' id="wishModal" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"></a>
+                                            <a target="_blank" href='#gmz-login-popup' id="wishModal" class="add-wishlist gmz-box-popup" data-effect="mfp-zoom-in"></a>
                                             <a onclick="addWishlist($(this).data('hotel_id'))" class="add-wishlist gmz-box-popup" data-hotel_id="<?= $rex['hotel_id'] ?>" data-effect="mfp-zoom-in">
                                                 <i class="fal fa-heart"></i>
                                             </a>
                                         </div>
 
-                                        <a href="<?= $final_url ?>">
+                                        <a target="_blank" href="<?= $final_url ?>">
                                             <img class="hotel_img" src="<?= str_replace('max1280x900', '358x238', $rex['hotel_thumbnail']) ?>" alt="<?= $rex['hotel_name'] ?>" width="358px" height="238px">
                                         </a>
                                         <a class="hotel-item__type" href="#!">
-                                            <?= $rex['accommodation_type_name'] ?>
+                                            <?= ucwords($rex['accommodation_type_name']) ?>
                                         </a>
                                     </div>
                                     <div class="hotel-item__details">
-                                        <span class="hotel-item__label"><?= $rex['accommodation_type_name'] ?></span>
+                                        <span class="hotel-item__label"><?= ucwords($rex['accommodation_type_name']) ?></span>
                                         <div class="hotel-item__rating">
                                             <div class="star-rating">
                                                 <?php $i = 0;
@@ -227,8 +226,8 @@
                                                 endwhile ?>
                                             </div>
                                         </div>
-                                        <h3 class="hotel-item__title"><a href="<?= $final_url ?>"><?= $rex['hotel_name'] ?></a></h3>
-                                        <p class=" hotel-item__location"><i class="fas fa-map-marker-alt mr-2"></i><?= $rex['city'] . ' ' . $rex['country_trans'] ?> </p>
+                                        <h3 class="hotel-item__title"><a target="_blank" href="<?= $final_url ?>"><?= ucwords($rex['hotel_name']) ?></a></h3>
+                                        <p class=" hotel-item__location"><i class="fas fa-map-marker-alt mr-2"></i><?= ucwords($rex['city'] . ', ' . $rex['country_trans']) ?> </p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="hotel-item__price">
                                                 <span class="_retail"><?= COUNTRY_CURRENCY . number_format(convertedCurrency($rex['min_total_price'], $rex['currencycode']), 2) ?></span>

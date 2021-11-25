@@ -12,7 +12,9 @@ class Admin extends BaseController
     }
     public function dashboard()
     {
-        $data = [];
+        $data = [
+            'total_orders'  =>  $this->orders->where('user_id', $this->_id)->countAllResults(),
+        ];
         echo view('parts/dashboard/header', $data);
         echo view('admin/dashboard');
         echo view('parts/dashboard/footer');
@@ -31,11 +33,11 @@ class Admin extends BaseController
             $lastname = $r->getPost('lastname');
             $firstname = $r->getPost('firstname');
             foreach ($_POST as $k => $v) {
-                $fileName = $_FILES['profile_image']['name'].'-'.$this->user_id;
-                $filePath = "uploads/profile_image/".$_FILES['profile_image']['name'].'-'.$this->user_id;
+                $fileName = $_FILES['profile_image']['name'] . '-' . $this->user_id;
+                $filePath = "uploads/profile_image/" . $_FILES['profile_image']['name'] . '-' . $this->user_id;
                 $q[$k] = $v;
                 $q['fullname']  =   xx_clean($lastname . ' ' . $firstname);
-                if(move_uploaded_file($_FILES['profile_image']['tmp_name'], $filePath)){
+                if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $filePath)) {
                     $q['profile_image'] = $fileName;
                 }
             }
@@ -67,7 +69,7 @@ class Admin extends BaseController
         }
         $where = [];
 
-        if(session()->get('id') != null){
+        if (session()->get('id') != null) {
             $where = [
                 'user_id' => session()->get('id'),
             ];
@@ -88,7 +90,7 @@ class Admin extends BaseController
             }
             $data['orders']    =  $this->orders->where($where)->findAll();
         } else {
-            if(session()->get('id') !== null){
+            if (session()->get('id') !== null) {
                 $data['orders']    =  $this->orders->where($where)->findAll();
             } else {
                 $data['orders']    =  $this->orders->findAll();
@@ -106,6 +108,9 @@ class Admin extends BaseController
             session()->remove('orders_type');
         }
         $where = [];
+        if (curr_user['role'] != 'admin') {
+            $where = ['partner_id', $this->_id];
+        }
 
         if (session()->get('orders_type') != null && !isset($_GET)) {
             $order_type = session()->get('orders_type');
@@ -122,7 +127,7 @@ class Admin extends BaseController
             }
             $data['orders']    =  $this->orders->where($where)->findAll();
         } else {
-            if(session()->get('id') !== null){
+            if (session()->get('id') !== null) {
                 $data['orders']    =  $this->orders->where($where)->findAll();
             } else {
                 $data['orders']    =  $this->orders->findAll();
@@ -149,13 +154,13 @@ class Admin extends BaseController
 
         $r = $this->request;
         if ($r->getMethod() == 'post') {
-            $hotel_id= $r->getPost('hotel_id');
+            $hotel_id = $r->getPost('hotel_id');
             $count = $this->wishlist->where('hotel_id', $hotel_id)->where('user_id', $this->user_id)->countAllResults();
-            if ($count < 1) { 
+            if ($count < 1) {
                 $select_hotel = $this->hotels->where('hotel_id', $hotel_id)->first();
                 $q['hotel_id']      =   $hotel_id;
                 $q['user_id']       =   $this->user_id;
-                $q['review_score']  =   $select_hotel['review_score']/2;
+                $q['review_score']  =   $select_hotel['review_score'] / 2;
                 $q['hotel_name']    =   $select_hotel['hotel_name'];
                 $q['address']       =   $select_hotel['address'];
                 $q['currency']      =   $select_hotel['currencycode'];
@@ -164,7 +169,7 @@ class Admin extends BaseController
                 $q['country_trans'] =   $select_hotel['country_trans'];
                 $q['checkout']      =   $select_hotel['checkout'];
                 $q['checkin']       =   $select_hotel['checkin'];
-                $q['hotel_thumbnail']=  str_replace('max1280x900', '200x150', $select_hotel['hotel_thumbnail']);
+                $q['hotel_thumbnail'] =  str_replace('max1280x900', '200x150', $select_hotel['hotel_thumbnail']);
                 $q['accommodation_type_name']   =   $select_hotel['accommodation_type_name'];
                 $this->wishlist->insert($q);
 
@@ -232,7 +237,14 @@ class Admin extends BaseController
             $q['categories'] = xx_clean($this->request->getPost('categories'));
             $q['tags']       = xx_clean($this->request->getPost('tags'));
             $q['status']     = xx_clean($this->request->getPost('status'));
-            $q['image']      = xx_clean($this->request->getPost('image'));
+
+            $fileName = $_FILES['image']['name'] . md5(time());
+            $filePath = "uploads/blog_images/" . $_FILES['image']['name'] . '-' . $this->user_id;
+
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $filePath)) {
+                $q['image'] = $fileName;
+            }
+
             if ($this->blog->insert($q)) {
                 return redirect()->back()->with('success', 'Post created successfully');
             } else {
@@ -270,15 +282,15 @@ class Admin extends BaseController
             foreach ($_POST as $k => $v) {
                 $q[$k]  =   $v;
             }
-            if($this->categories->insert($q)){
+            if ($this->categories->insert($q)) {
                 return redirect()->back()->with('success', 'Category created successfully');
             } else {
                 return redirect()->back()->with('error', 'Unable to create Category.');
             }
         }
-        
-        if($action == 'delete'){
-            if($this->categories->delete($post_id)){
+
+        if ($action == 'delete') {
+            if ($this->categories->delete($post_id)) {
                 return redirect()->back()->with('success', 'Category deleted successfully');
             } else {
                 return redirect()->back()->with('error', 'Unable to delete Category.');
@@ -289,7 +301,7 @@ class Admin extends BaseController
         echo view('admin/posts/category');
         echo view('parts/dashboard/footer');
     }
-    
+
     /**
      * Post comments
      */
@@ -395,31 +407,57 @@ class Admin extends BaseController
         echo view('admin/pages/add_new');
         echo view('parts/dashboard/footer');
     }
-    public function all_hotels($action=null,$hotel_id=null)
+    public function all_hotels($action = null, $hotel_id = null)
     {
         $data = [];
-        if($action == "published"){
+        if ($action == "published" && curr_user['role'] == 'admin') {
             $data = [
                 'hotels' =>  $this->hotels->where('status', 'published')->findAll(),
                 'pager'  =>  $this->hotels->pager,
             ];
-        } 
-        if($action == 'draft'){
+        }
+        if ($action == 'draft' && curr_user['role'] == 'admin') {
             $data = [
                 'hotels' =>  $this->hotels->where('status', 'draft')->findAll(),
                 'pager'  =>  $this->hotels->pager,
             ];
         }
-        if($action == 'pending'){
+        if ($action == 'pending' && curr_user['role'] == 'admin') {
             $data = [
                 'hotels' =>  $this->hotels->where('status', 'pending')->findAll(),
                 'pager'  =>  $this->hotels->pager,
             ];
         }
 
-        if ($action==null) {
+        if ($action == null  && curr_user['role'] == 'admin') {
             $data = [
                 'hotels' =>  $this->hotels->findAll(),
+                'pager'  =>  $this->hotels->pager,
+            ];
+        }
+
+        if ($action == "published") {
+            $data = [
+                'hotels' =>  $this->hotels->where('user_id', $this->_id)->where('status', 'published')->findAll(),
+                'pager'  =>  $this->hotels->pager,
+            ];
+        }
+        if ($action == 'draft') {
+            $data = [
+                'hotels' =>  $this->hotels->where('user_id', $this->_id)->where('status', 'draft')->findAll(),
+                'pager'  =>  $this->hotels->pager,
+            ];
+        }
+        if ($action == 'pending') {
+            $data = [
+                'hotels' =>  $this->hotels->where('user_id', $this->_id)->where('status', 'pending')->findAll(),
+                'pager'  =>  $this->hotels->pager,
+            ];
+        }
+
+        if ($action == null) {
+            $data = [
+                'hotels' =>  $this->hotels->where('user_id', $this->_id)->findAll(),
                 'pager'  =>  $this->hotels->pager,
             ];
         }
@@ -440,10 +478,13 @@ class Admin extends BaseController
             'pages' =>  $this->page->findAll(),
         ];
         if ($this->request->getMethod() == 'post') {
-            # code...
+
             $r = $this->request;
+
+            $hotel_id = $r->getPost('hotel_id');
             $q['url']                       =   $r->getPost('url');
             $q['hotel_id']                  =   $r->getPost('hotel_id');
+            $q['partner_id'] = $q['user_id'] =   $this->_id;
             $q['hotel_name']                =   $r->getPost('hotel_name');
             $q['description']               =   $r->getPost('description');
             $q['city']                      =   $r->getPost('city');
@@ -454,34 +495,56 @@ class Admin extends BaseController
             $q['checkout']                  =   $r->getPost('checkout');
             $q['currencycode']              =   $r->getPost('currencycode');
             $q['min_total_price']           =   $r->getPost('min_total_price');
-            $q['hotel_thumbnail']           =   $r->getPost('max_photo_url');
+
             $q['latitude']                  =   $r->getPost('latitude');
             $q['longitude']                 =   $r->getPost('longitude');
             $q['status']                    =   $r->getPost('status');
             $q['map_preview_url']           =   $r->getPost('map_preview_url');
 
+            if ($_FILES["max_photo_url"]) {
+                $targetDir = "uploads/hotel_images/";
+                $fileName = $hotel_id . md5(time());
+                $targetFilePath = $targetDir . $fileName;
 
-            $hotel_id = $r->getPost('hotel_id');
-            foreach ($r->getFiles('hotel_images') as $k => $v) {
-                $fileName = basename($_FILES['hotel_images']['name'][$k]); 
-                $targetDir = "uploads/"; 
-                $targetFilePath = $targetDir . $fileName; 
-                $allowTypes = array('jpg','png','jpeg','gif'); 
+                if (move_uploaded_file($_FILES["max_photo_url"]["tmp_name"], $targetFilePath)) {
+                    // Image db insert sql 
+                    $i['hotel_id'] = $hotel_id;
+                    $q['hotel_thumbnail']           =    base_url($targetDir . $fileName);
+                    $this->hotels_images->insert($i);
+                }
+            }
+
+
+            foreach ($_FILES['hotel_images']['name'] as $key => $val) {
+                $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+                // File upload path 
+                $fileName = basename($_FILES['hotel_images']['name'][$key]);
+                $targetDir = "uploads/hotel_images/";
+                $targetFilePath = $targetDir . $fileName;
+
                 // Check whether file type is valid 
-                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
-                if(in_array($fileType, $allowTypes)){ 
+                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+                if (in_array($fileType, $allowTypes)) {
                     // Upload file to server 
-                    if(move_uploaded_file($_FILES["files"]["tmp_name"][$k], $targetFilePath)){ 
+                    if (move_uploaded_file($_FILES["hotel_images"]["tmp_name"][$key], $targetFilePath)) {
+                        // Image db insert sql 
                         $i['hotel_id'] = $hotel_id;
-                        $i['url_max'] = base_url("uploads/$fileName");
-                        $i['img_url'] = base_url("uploads/$fileName");
+                        $i['url_max'] = base_url("uploads/hotel_images/$fileName");
+                        $i['img_url'] = base_url("uploads/hotel_images/$fileName");
                         $this->hotels_images->insert($i);
                     }
                 }
             }
 
+            foreach ($r->getPost('facilities') as $key => $facilities) {
+                $q['facilitytype_name'] = $facilities;
+                $q['facility_name']     = $facilities;
+                $q['hotel_id']          = $r->getPost('hotel_id');
+                $this->hotel_facilities->insert($q);
+            }
+
             if ($this->hotels->insert($q)) {
-                return json_encode(['status', 'hotel added successfylly']);
+                return  redirect()->to(route_to('admin.add_new_hotels'))->with('success', 'hotel added successfylly');
             } else {
                 return redirect()->back()->with('error', 'unable to create page.');
             }
@@ -491,6 +554,92 @@ class Admin extends BaseController
         // echo view('admin/hotels/add_new_hotel');
         echo view('parts/dashboard/footer');
     }
+
+    public function rooms()
+    {
+        $data = [];
+        if(curr_user['role'] != 'admin'){
+            $data['rooms'] = $this->rooms->where('partner_id', $this->_id)->findAll();
+        } else {
+            $data['rooms'] = $this->rooms->findAll();
+        }
+        echo view('parts/dashboard/header', $data);
+        echo view('admin/hotels/rooms');
+        echo view('parts/dashboard/footer');
+    }
+    
+
+    public function add_rooms()
+    {
+        $data = [
+            'rooms' => $this->rooms->where('partner_id', $this->_id)->findAll(),
+            'facilities' => ['a', 'b'],
+        ];
+        $r = $this->request;
+        if($r->getMethod() == 'post'){
+            foreach ($_POST as $k => $v) {
+                $q[$k] = $v;
+            }
+            if ($_FILES["room_image"]) {
+                $targetDir = "uploads/hotel_images/";
+                $fileName = $_FILES["room_image"]["name"].md5(time());
+                $targetFilePath = $targetDir . $fileName;
+
+                if (move_uploaded_file($_FILES["room_image"]["tmp_name"], $targetFilePath)) {
+                    $q['room_image']           =    base_url($targetDir . $fileName);
+                }
+            }
+            if ($this->rooms->insert($q)) {
+                return redirect()->back()->with('success', 'Room added successfully');
+            } else {
+                return redirect()->back()->with('error', 'Unable to add Room');
+            }
+        } 
+        echo view('parts/dashboard/header', $data);
+        echo view('admin/hotels/add-rooms');
+        echo view('parts/dashboard/footer');
+    }
+    
+
+    public function manage_rooms()
+    {
+        $r = $this->request;
+        if($r->getMethod() == 'post'){
+            foreach ($_POST as $k => $v) {
+                $q[$k] = $v;
+            }
+            $room_id = $r->getPost('id');
+            if ($_FILES["room_image"]) {
+                $targetDir = "uploads/hotel_images/";
+                $fileName = $_FILES["room_image"]["name"].md5(time());
+                $targetFilePath = $targetDir . $fileName;
+
+                if (move_uploaded_file($_FILES["room_image"]["tmp_name"], $targetFilePath)) {
+                    $q['room_image']           =    base_url($targetDir . $fileName);
+                }
+            }
+            if($this->rooms->where('id', $room_id)->set(array_filter($q))->update()) {
+                return redirect()->back()->with('success', 'Room updated successfully');
+            } else {
+                return redirect()->back()->with('error', 'Unable to update Room');
+            }
+        } 
+
+        if(!isset($_GET['room_id']) || empty($_GET['room_id'])){
+            return redirect()->to(route_to('admin.rooms'))->with('error',"Please select a valid Room");
+        }
+
+        $data = [
+            'rooms' => $this->rooms->where('partner_id', $this->_id)->where('id', $_GET['room_id'])->first(),
+            'facilities' => ['a', 'b'],
+        ];
+
+        echo view('parts/dashboard/header', $data);
+        echo view('admin/hotels/manage-rooms');
+        echo view('parts/dashboard/footer');
+    }
+    
+
     public function all_apartments($status = null, $post_id = null)
     {
         $data = [];
@@ -657,9 +806,9 @@ class Admin extends BaseController
                 $q[$k] = $v;
             }
             if ($this->settings->where('id', 1)->set($q)->update()) {
-                return redirect()->back()->with('success', 'Page created successfully');
+                return redirect()->back()->with('success', 'Settings Updated successfully');
             } else {
-                return redirect()->back()->with('error', 'unable to create page.');
+                return redirect()->back()->with('error', 'unable to update settings.');
             }
         }
         echo view('parts/dashboard/header', $data);
@@ -687,7 +836,7 @@ class Admin extends BaseController
         echo view("admin/settings/advance_settings");
         echo view('parts/dashboard/footer');
     }
-    public function coupons($action=null, $_id=null)
+    public function coupons($action = null, $_id = null)
     {
         $data = [
             'coupons' =>  $this->coupon->findAll(),
@@ -698,7 +847,7 @@ class Admin extends BaseController
             foreach ($_POST as $k => $v) {
                 $q[$k] = $v;
             }
-             $q['status'] = $r->getPost('status');
+            $q['status'] = $r->getPost('status');
             if ($this->coupon->insert(array_filter($q))) {
                 return redirect()->back()->with('success', 'Coupon created successfully');
             } else {
@@ -717,7 +866,7 @@ class Admin extends BaseController
         echo view('admin/coupons');
         echo view('parts/dashboard/footer');
     }
-    public function menu($action=null, $menu_id=null)
+    public function menu($action = null, $menu_id = null)
     {
         $data = [
             'title' =>  "Menu's",
@@ -779,9 +928,9 @@ class Admin extends BaseController
                 $q[$k] = $v;
             }
             if ($this->settings->where('id', 1)->set($q)->update()) {
-                return redirect()->back()->with('success', 'Page created successfully');
+                return redirect()->back()->with('success', 'import successful');
             } else {
-                return redirect()->back()->with('error', 'unable to create page.');
+                return redirect()->back()->with('error', 'failed to import data.');
             }
         }
         echo view('parts/dashboard/header', $data);
@@ -792,31 +941,31 @@ class Admin extends BaseController
     public function test()
     {
         $data = $row = array();
-        
+
         // Fetch member's records
         $memData = $this->db->query("SELECT * FROM hotels")->getResult();
         // var_dump($memData->created_at ); exit;
-        
+
         $i = 0;
-        foreach($memData as $member){
+        foreach ($memData as $member) {
             $i++;
-            $created = date( 'jS M Y', strtotime($member->created_at));
-            $status = ($member->status == 1)?'Active':'Inactive';
+            $created = date('jS M Y', strtotime($member->created_at));
+            $status = ($member->status == 1) ? 'Active' : 'Inactive';
             $data[] = array($i, $member->hotel_name, $member->accommodation_type_name, $member->min_total_price, $member->status, 'Action');
         }
-        
+
         $output = array(
             "draw" => 10,
             "recordsTotal" => $this->hotels->countAll(),
             // "recordsFiltered" => $this->hotels->countFiltered($_POST),
             "data" => $data,
         );
-        
+
         // Output to JSON format
         echo json_encode($output);
     }
 
-    public function grabActive($hotel_id,$pay_id)
+    public function grabActive($hotel_id, $pay_id)
     {
         // generate invoice and send to user.
         $order = $this->orders->find($pay_id);
@@ -824,7 +973,8 @@ class Admin extends BaseController
         // send invoice with payment url to user //
         $to = $order['email'];
         $msg = "Below is the URL to your invoice payment.";
-        mail($to, "Invoice From WEOTRIP.com", $msg);
+        $url = base_url('home/invoice/');
+        $this->send_mail($to, "Invoice From WEOTRIP", $msg, $url, "Make Payment Now");
         return true;
     }
 }

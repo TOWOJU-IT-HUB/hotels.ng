@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -16,12 +20,12 @@ use \App\Models\Orders;
 use \App\Models\Pages;
 use \App\Models\Notifications;
 use \App\Models\PartnersEarnings;
-use \App\Models\Partners; 
-use \App\Models\Categories; 
+use \App\Models\Partners;
+use \App\Models\Categories;
 use \App\Models\Apartments;
 use App\Models\CityList;
-use \App\Models\Gateways; 
-use \App\Models\Comments; 
+use \App\Models\Gateways;
+use \App\Models\Comments;
 use \App\Models\Coupons;
 use App\Models\DestinationsID;
 use App\Models\HotelsFacilities;
@@ -29,6 +33,8 @@ use App\Models\HotelsImages;
 use App\Models\HotelsModel;
 use App\Models\HotelsReview;
 use App\Models\Menu;
+use App\Models\PasswordReset;
+use App\Models\Rooms;
 use App\Models\Wishlist;
 use App\Models\Withdrawal;
 use Omnipay\PayPal as PayPal;
@@ -80,7 +86,7 @@ class BaseController extends Controller
         $session        = \Config\Services::session();
         $this->db       = \Config\Database::connect();
         $language       = \Config\Services::language();
-        $this->paypal 	= \Config\Services::paypal();
+        $this->paypal     = \Config\Services::paypal();
         $language->setLocale($session->lang);
 
         #--------------------------------------------
@@ -100,6 +106,7 @@ class BaseController extends Controller
         $this->apartments       = new Apartments();
         $this->p_earnings       = new PartnersEarnings();
         $this->dest             = new DestinationsID();
+        $this->rooms            = new Rooms();
         $this->hotels           = new HotelsModel();
         $this->users            = $this->user = new Users();
         $this->city_list        = $this->cities = new CityList();
@@ -108,31 +115,79 @@ class BaseController extends Controller
         $this->hotels_images    = new HotelsImages();
         $this->wishlist         = new Wishlist();
         $this->withdrawal       = new Withdrawal();
+        $this->password_reset   = new PasswordReset();
         // $this->paypal           = $this->PaypalExpress();
 
 
-
-        $settings               = $this->settings->find(1);
         $this->_id              = $this->user_id = session()->get('id');
 
-        #--------------------------------------------
-        #   Constants from the settings ::DB 
-        #--------------------------------------------
+        $settings               = $this->settings->find(1);
+        $curr_user              = $this->users->find($this->_id);
+
+        // #--------------------------------------------
+        // #   Constants from the settings ::DB 
+        // #--------------------------------------------
         defined('conf') || define('conf', $settings);
+        defined('curr_user') || define('curr_user', $curr_user);
+
         // defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', "USD");
         defined('RAPID_API_KEY')    || define('RAPID_API_KEY', conf['rapid_api_key']);
-        defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
         
+        defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
+
         define('CLIENT_ID', conf['paypal_client_id']);
         define('CLIENT_SECRET', conf['paypal_client_secret']);
-        
+
         define('PAYPAL_RETURN_URL', base_url('success'));
         define('PAYPAL_CANCEL_URL', base_url('cancel'));
-        // define('PAYPAL_CURRENCY', 'USD'); // set your currency here
-        
+        define('PAYPAL_CURRENCY', 'USD'); // set your currency here
+
         $this->gateway = $this->paypal;
         $this->gateway->setClientId(CLIENT_ID);
         $this->gateway->setSecret(CLIENT_SECRET);
         $this->gateway->setTestMode(true); //set it to 'false' when go live
+
+    }
+
+    public function send_mail($to, $subject, $msg, $psw_link=null, $action=null)
+    {
+        $mail = new PHPMailer(true);
+
+        try {
+            //Server settings
+            if(isset(curr_user['fullname'])){
+                $full_name = curr_user['fullname'];
+            } else {
+                $full_name = "WEOTRIP USER";
+            }
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'towoju.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = 'hi@towoju.com';                     //SMTP username
+            $mail->Password   = 'Adedayo201@';                               //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+            //Recipients
+            $mail->setFrom('hi@towoju.com', "WEOTRIP LLC");
+            $mail->addAddress($to, $full_name);  
+            $_data['msg'] = $msg;
+            if($psw_link != null){
+                $_data['psw_link']  =   $psw_link;
+                $_data['action']    =   $action;
+            }
+            //Content
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = $subject;
+            $mail->Body    = view('test', $_data);
+
+            if($mail->send()){
+                return true;
+            }
+        } catch (Exception $e) {
+            error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+        }
+        return true;
     }
 }

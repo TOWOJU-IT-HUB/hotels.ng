@@ -74,6 +74,34 @@ $routes->group('users', ['filter' => 'login'], function ($routes) {
 #----------------------------------------------------------------------
 #   Admin Routes 
 #----------------------------------------------------------------------
+
+$routes->group('admin', ['filter' => 'admin'], function ($routes) {
+
+	// Settings Routes
+	$routes->match(['get', 'post'], 'settings',					'Admin::general_settings',		['as' => 'general_settings']);
+	$routes->match(['get', 'post'], 'page_settings',			'Admin::page_settings',			['as' => 'page_settings']);
+	$routes->match(['get', 'post'], 'booking_settings',			'Admin::booking_settings',		['as' => 'booking_settings']);
+	$routes->match(['get', 'post'], 'services_settings',		'Admin::services_settings',		['as' => 'services_settings']);
+	$routes->match(['get', 'post'], 'reviews_settings',			'Admin::reviews_settings',		['as' => 'reviews_settings']);
+	$routes->match(['get', 'post'], 'apperance_settings',		'Admin::apperance_settings',	['as' => 'apperance_settings']);
+	$routes->match(['get', 'post'], 'email_settings',			'Admin::email_settings',		['as' => 'email_settings']);
+	$routes->match(['get', 'post'], 'advance_settings',			'Admin::advance_settings',		['as' => 'advance_settings']);
+	
+	// others
+	$routes->match(['get', 'post'], 'orders',					'Admin::orders', 				['as' => 'admin.orders']);
+	$routes->match(['get', 'post'], 'menu',						'Admin::menu', 					['as' => 'admin.menu']);
+	$routes->match(['get', 'post'], 'all_users',				'Admin::all_users', 			['as' => 'admin.all_users']);
+	$routes->match(['get', 'post'], 'partner_request',			'Admin::partner_request', 		['as' => 'admin.partner_request']);
+	$routes->match(['get', 'post'], 'media',					'Admin::media', 				['as' => 'admin.media']);
+	$routes->match(['get', 'post'], 'coupons',					'Admin::coupons', 				['as' => 'admin.coupons']);
+	$routes->match(['get', 'post'], 'import_data',				'Admin::import_data', 			['as' => 'admin.import_data']);
+	$routes->match(['get', 'post'], 'seo',						'Admin::seo', 					['as' => 'admin.seo']);
+	$routes->match(['get', 'post'], 'types',					'Admin::types', 				['as' => 'admin.types']);
+	$routes->match(['get', 'post'], 'amenities',				'Admin::amenities', 			['as' => 'admin.amenities']);
+
+});
+
+
 $routes->group('admin', ['filter' => 'login'], function ($routes) {
 	$routes->match(['get', 'post'], 'dashboard', 				'Admin::dashboard', 			['as' => 'admin.dashboard']);
 	$routes->match(['get', 'post'], 'profile', 					'Admin::profile', 				['as' => 'admin.profile']);
@@ -108,31 +136,8 @@ $routes->group('admin', ['filter' => 'login'], function ($routes) {
 	$routes->match(['get', 'post'], 'facilities',				'Admin::facilities', 			['as' => 'admin.facilities']);
 	$routes->match(['get', 'post'], 'hotel_services',			'Admin::hotel_services', 		['as' => 'admin.hotel_services']);
 	$routes->match(['get', 'post'], 'room_facilities',			'Admin::room_facilities', 		['as' => 'admin.room_facilities']);
-	$routes->match(['get', 'post'], 'reviews',					'Admin::reviews', 				['as' => 'admin.reviews']);
-
-
-	// Settings Routes
-	$routes->match(['get', 'post'], 'settings',					'Admin::general_settings',		['as' => 'general_settings']);
-	$routes->match(['get', 'post'], 'page_settings',			'Admin::page_settings',			['as' => 'page_settings']);
-	$routes->match(['get', 'post'], 'booking_settings',			'Admin::booking_settings',		['as' => 'booking_settings']);
-	$routes->match(['get', 'post'], 'services_settings',		'Admin::services_settings',		['as' => 'services_settings']);
-	$routes->match(['get', 'post'], 'reviews_settings',			'Admin::reviews_settings',		['as' => 'reviews_settings']);
-	$routes->match(['get', 'post'], 'apperance_settings',		'Admin::apperance_settings',	['as' => 'apperance_settings']);
-	$routes->match(['get', 'post'], 'email_settings',			'Admin::email_settings',		['as' => 'email_settings']);
-	$routes->match(['get', 'post'], 'advance_settings',			'Admin::advance_settings',		['as' => 'advance_settings']);
-	
-	// others
-	$routes->match(['get', 'post'], 'orders',					'Admin::orders', 				['as' => 'admin.orders']);
-	$routes->match(['get', 'post'], 'menu',						'Admin::menu', 					['as' => 'admin.menu']);
-	$routes->match(['get', 'post'], 'all_users',				'Admin::all_users', 			['as' => 'admin.all_users']);
-	$routes->match(['get', 'post'], 'partner_request',			'Admin::partner_request', 		['as' => 'admin.partner_request']);
-	$routes->match(['get', 'post'], 'media',					'Admin::media', 				['as' => 'admin.media']);
-	$routes->match(['get', 'post'], 'coupons',					'Admin::coupons', 				['as' => 'admin.coupons']);
-	$routes->match(['get', 'post'], 'import_data',				'Admin::import_data', 			['as' => 'admin.import_data']);
-	$routes->match(['get', 'post'], 'seo',						'Admin::seo', 					['as' => 'admin.seo']);
-	$routes->match(['get', 'post'], 'types',					'Admin::types', 				['as' => 'admin.types']);
-	$routes->match(['get', 'post'], 'amenities',				'Admin::amenities', 			['as' => 'admin.amenities']);
-
+	$routes->match(['get', 'post'], 'rooms',					'Admin::rooms', 				['as' => 'admin.rooms']);
+	$routes->match(['get', 'post'], 'manage-rooms',				'Admin::manage_rooms',			['as' => 'admin.manage_rooms']);
 });
 
 

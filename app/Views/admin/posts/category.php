@@ -98,8 +98,8 @@
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"><?= lang('text.close') ?></span>
-                            </button>
-                            <button type="submit" id="addCategory" class="btn btn-info"><?= lang('text.save') ?></button>
+                            </button></button>"><?= lang('text.save') ?>
+<span class="icon-spinner"><i class="fa fa-spinner load-animate"></i></span> </button>
                         </div>
                         <?= form_close() ?>
                     </div>

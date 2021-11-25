@@ -9,7 +9,7 @@ use CodeIgniter\Filters\Honeypot;
 
 // Authentication filters
 use \App\Filters\Login;
-use \App\Filters\Adminy;
+use \App\Filters\Admin;
 
 class Filters extends BaseConfig
 {
@@ -24,6 +24,7 @@ class Filters extends BaseConfig
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
         'login'	   => Login::class,
+        'admin'	   => Admin::class,
     ];
 
     /**

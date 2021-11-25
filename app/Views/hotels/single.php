@@ -5,7 +5,7 @@
   <section class="gallery">
     <div class="gmz-carousel-with-lightbox" data-count="5">
       <?php foreach ($images as $image) : ?>
-        <a href="<?= $image['url_max'] ?>">
+        <a target="_blank" href="<?= $image['url_max'] ?>">
           <img src="<?= str_replace('1440x1440', '393x327', $image['img_url']) ?>" alt="home slider" />
         </a>
       <?php endforeach ?>
@@ -14,7 +14,7 @@
   <div class="breadcrumb">
     <div class="container">
       <ul>
-        <li><a href="<?= route_to('home') ?>">Home</a></li>
+        <li><a target="_blank" href="<?= route_to('home') ?>">Home</a></li>
         <li><span><?= " " ?></span></li>
       </ul>
     </div>
@@ -44,7 +44,7 @@
         <div class="row ml-2">
           <h3 class="row col post-title">
             <div class="text-left">
-              <!-- <a href="#gmz-login-popup" class="mr-2" data-effect="mfp-zoom-in">
+              <!-- <a target="_blank" href="#gmz-login-popup" class="mr-2" data-effect="mfp-zoom-in">
                 <i class="fal fa-heart"></i>
               </a> -->
             </div>
@@ -108,7 +108,7 @@
           <h2 class="section-title d-flex align-items-center justify-content-between">
             Room Availability
             <div>
-              <a href="javascript:void(0)" class="btn btn-primary" data-toggle="modal" data-target="#hotelEnquiryModal">
+              <a target="_blank" href="javascript:void(0)" class="btn btn-primary" data-toggle="modal" data-target="#hotelEnquiryModal">
                 Send Enquiry
               </a>
             </div>
@@ -235,8 +235,40 @@
               </div>
             </div>
           </div>
-          <div class="card card-body" id="icheck_avail">
-          </div>
+          <?php if (isset($rooms) && !empty($rooms)) : ?>
+            <div class="card card-body" id="icheck_avail">
+              <?php foreach ($rooms as $room) : ?>
+                <div class="room-item room-item--list">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="room-item__thumbnail"><img src="<?= $room['room_image'] ?>" height="136px" alt="King Suite with Pool View"></div>
+                    </div>
+                    <div class="col-8">
+                      <div class="room-item__details">
+                        <div>
+                          <h3 class="room-item__title"> <?= $room['room_name'] ?> </h3>
+                          <div class="text-left">
+                            <div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size"><?= ucwords(str_replace(',', ', ',$room['facilities'])) ?></div>
+                          </div>
+                        </div>
+                        <div class="room-price-wrapper">
+                          <div class="price text-center"><span class="text-center"><?= COUNTRY_CURRENCY . number_format(convertedCurrency($room['price'], $room['currencycode'], COUNTRY_CURRENCY), 2) ?></span></div><a href="<?= base_url('home/add_order/'.$room['hotel_id']) ?>"><button onclick="initBooking($(this).data('<?= $room['hotel_id'] ?>'))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $room['hotel_id'] ?>">Book Now</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php if (empty($room)) {
+                  echo "No Available Rooms at the moment";
+                }
+              endforeach ?>
+            </div>
+          <?php else : ?>
+            <div class="card card-body" id="icheck_avail">
+            </div>
+          <?php endif ?>
+
+
         </div>
         <hr class="pb-5">
 
@@ -364,6 +396,56 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="modal fade hotel-enquiry-modal" id="hotelEnquiryModal" tabindex="-1" aria-labelledby="hotelEnquiryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="gmz-form-action enquiry-form-single" action="<?= base_url('home/enquiry') ?>" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="hotelEnquiryModalLabel">
+            ENQUIRY FORM
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"> 
+          <input type="hidden" name="hotel_id" value="<?= $description['hotel_id'] ?>" />
+          <input type="hidden" name="hotel_name" value="<?= $description['hotel_name'] ?>" />
+          <input type="hidden" name="_url" value="<?= base_url('hotel?hotel_id='.$description['hotel_id']) ?>" />
+          <div class="gmz-loader">
+            <div class="loader-inner">
+              <div class=" spinner-grow text-info align-self-center loader-lg"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="full-name">Full Name<span class="required">*</span>
+            </label>
+            <input type="text" name="full_name" class="form-control gmz-validation" data-validation="required" id="full-name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email<span class="required">*</span></label>
+            <input type="text" name="email" class="form-control gmz-validation" data-validation="required" id="email" />
+          </div>
+          <div class="form-group">
+            <label for="content">Message<span class="required">*</span>
+            </label>
+            <textarea name="content" rows="4" class="form-control gmz-validation" data-validation="required" id="content"></textarea>
+          </div>
+          <div class="gmz-message"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"> CLOSE </button>
+          <button type="submit" class="btn btn-primary"> SUBMIT REQUEST </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <style>
   .single-hotel .site-content .search-form {
     position: relative;
@@ -404,51 +486,98 @@
     color: gray;
   }
 </style>
-<script>
-  $(function() {
-    $('#check_avail').on('submit', function(e) {
-      e.preventDefault();
-      $('.gmz-loader').show();
-      $(".room-item--list").remove();
-      $.ajax({
-        type: 'POST',
-        url: '<?= base_url('home/availability'); ?>',
-        data: $('#check_avail').serialize(),
-        dataType: 'json', // 
-        success: function(response) {
-          $('.gmz-loader').hide();
-          // let data = data.data;
-          var a = response.data[0];
-          var price = "<?= COUNTRY_CURRENCY . number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>";
-          var room = a.rooms;
-          var counter = 1;
-          jQuery.each(a.rooms, function(index, item) {
-            var photo = a.rooms[index].photos;
-            var hotel_name = "<?= $description['hotel_name'] ?> #" + counter;
-            // alert(Object.keys(photo).length);
-            if (Object.keys(photo).length != 0) {
-              photo = photo[0].url_original;
-            } else {
-              photo = "<?= str_replace('max1280x900', '640X200', $description['hotel_thumbnail']) ?>";
-            }
-            $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="' + photo + '" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> ' + hotel_name + ' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">' + a.rooms[index].description + '</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">' + price + '</span></div><button onclick="initBooking($(this).data(' + "'hotel_id'" + '))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $_GET['hotel_id'] ?>">Book Now</button></div></div></div></div></div>');
-            counter++;
-          });
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-          $('.gmz-loader').hide();
-          // alert("some error");
-        }
-      });
-    });
-  });
-    setTimeout(function() {
-      $('#check_avail').submit();
-    }, 5000);
-  
-</script>
-
 <?php
 $arr = ['checkin', 'checkout', 'adult'];
 session()->remove($arr);
+if ($description['user_id'] == '0') : ?>
+  <script>
+    $(function() {
+      $('#check_avail').on('submit', function(e) {
+        e.preventDefault();
+        $('.gmz-loader').show();
+        $(".room-item--list").remove();
+        $.ajax({
+          type: 'POST',
+          url: '<?= base_url('home/availability'); ?>',
+          data: $('#check_avail').serialize(),
+          dataType: 'json', // 
+          success: function(response) {
+            $('.gmz-loader').hide();
+            // let data = data.data;
+            var a = response.data[0];
+            var price = "<?= COUNTRY_CURRENCY . number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>";
+            var room = a.rooms;
+            var counter = 1;
+            jQuery.each(a.rooms, function(index, item) {
+              var photo = a.rooms[index].photos;
+              var hotel_name = "<?= $description['hotel_name'] ?> #" + counter;
+              // alert(Object.keys(photo).length);
+              if (Object.keys(photo).length != 0) {
+                photo = photo[0].url_original;
+              } else {
+                photo = "<?= str_replace('max1280x900', '640X200', $description['hotel_thumbnail']) ?>";
+              }
+              $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="' + photo + '" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> ' + hotel_name + ' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">' + a.rooms[index].description + '</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">' + price + '</span></div><button onclick="initBooking($(this).data(' + "'hotel_id'" + '))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $_GET['hotel_id'] ?>">Book Now</button></div></div></div></div></div>');
+              counter++;
+            });
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+            $('.gmz-loader').hide();
+            // alert("some error");
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    setTimeout(function() {
+      $('#check_avail').submit();
+    }, 5000);
+  </script>
+<?php else : ?>
+  <script>
+    $(function() {
+      $('#check_avail').on('submit', function(e) {
+        e.preventDefault();
+        $('.gmz-loader').show();
+        setTimeout(function() {
+          $('#check_avail').submit();
+          $('.gmz-loader').hide();
+        }, 5000);
+        // $(".room-item--list").remove();
+        // $.ajax({
+        //   type: 'POST',
+        //   url: '<?= base_url('home/room_avialaility'); ?>',
+        //   data: $('#check_avail').serialize(),
+        //   dataType: 'json', // 
+        //   success: function(response) {
+        //     $('.gmz-loader').hide();
+        //     // let data = data.data;
+        //     var a = response.data[0];
+        //     var price = "<?= COUNTRY_CURRENCY . number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>";
+        //     var room = a.rooms;
+        //     var counter = 1;
+        //     jQuery.each(a.rooms, function(index, item) {
+        //       var photo = a.rooms[index].photos;
+        //       var hotel_name = "<?= $description['hotel_name'] ?> #" + counter;
+        //       // alert(Object.keys(photo).length);
+        //       if (Object.keys(photo).length != 0) {
+        //         photo = photo[0].url_original;
+        //       } else {
+        //         photo = "<?= str_replace('max1280x900', '640X200', $description['hotel_thumbnail']) ?>";
+        //       }
+        //       $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="' + photo + '" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> ' + hotel_name + ' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">' + a.rooms[index].description + '</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">' + price + '</span></div><button onclick="initBooking($(this).data(' + "'hotel_id'" + '))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $_GET['hotel_id'] ?>">Book Now</button></div></div></div></div></div>');
+        //       counter++;
+        //     });
+        //   },
+        //   error: function(XMLHttpRequest, textStatus, errorThrown) {
+        //     $('.gmz-loader').hide();
+        //     // alert("some error");
+        //   }
+        // });
+      });
+    });
+  </script>
+<?php endif ?>
+
 ?>

@@ -156,7 +156,7 @@
                         <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppppcmcvdam.png" alt="Pay with PayPal, PayPal Credit or any major credit card" />
                     </a>
                 </td>
-                <td><?= $hotel['currencycode'] . number_format($hotel['min_total_price'], 2) ?></td>
+                <td><?= $hotel['currencycode'] . number_format($hotel['min_total_price'], 2) ?> (<?= country_symbol() . number_format(convertedCurrency($hotel['min_total_price'], $hotel['currencycode'], COUNTRY_CURRENCY), 2) ?>)</td>
             </tr>
 
             <tr class="heading">
@@ -190,9 +190,9 @@
             </tr>
 
             <tr class="item">
-                <td style="font-weight: bold;">Total: <?= $hotel['currencycode'] . number_format($hotel['min_total_price'], 2) ?></td>
+                <td style="font-weight: bold;">Total: <?= $hotel['currencycode'] . number_format($hotel['min_total_price'], 2) ?> (<?= country_symbol() . number_format(convertedCurrency($hotel['min_total_price'], $hotel['currencycode'], COUNTRY_CURRENCY), 2) ?>)</td>
 
-                <td>Amount Due: <?= $hotel['currencycode'] . number_format($amount, 2) ?></td>
+                <td>Amount Due: <?= $hotel['currencycode'] . number_format($amount, 2) ?> (<?= country_symbol() . number_format(convertedCurrency($amount, $hotel['currencycode'], COUNTRY_CURRENCY), 2) ?>)</td>
             </tr>
             <tr class="item last">
                 <td></td>

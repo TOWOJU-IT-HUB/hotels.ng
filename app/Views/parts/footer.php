@@ -9,6 +9,36 @@ $menu2 = $db->query("SELECT * FROM menus WHERE location=2 ")->getResultArray();
 $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
 ?>
 <footer class="site-footer pt-60 pb-40">
+    <style>
+        .icon-spinner {
+            display: none;
+        }
+
+        .load-animate {
+            -animation: spin .7s infinite linear;
+            -webkit-animation: spin2 .7s infinite linear;
+        }
+
+        @-webkit-keyframes spin2 {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: scale(1) rotate(0deg);
+            }
+
+            to {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+    </style>
     <div class="footer-top">
         <div class="container">
             <div class="row">
@@ -74,7 +104,8 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                         <h4 class="widget__title">Language</h4>
                         <div class="select-language dropdown">
                             <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select Language </button>
+                                Select Language
+                                <span class="icon-spinner"><i class="fa fa-spinner load-animate"></i></span> </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="<?= base_url('lang/en') ?>">
                                     <span class="flag-icon flag-icon-us"></span>
@@ -115,6 +146,43 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
         </div>
     </div>
 </footer>
+<script>
+    // Google signIn
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url('home/social_login') ?>',
+            dataType: 'json',
+            data: {
+                email: profile.getEmail(),
+                password: "123456",
+                first_name: profile.getName(),
+                last_name: profile.getName(),
+            },
+            success: function(response) {
+                if (response.success) {
+                    $(".gmz-message").show();
+                    $(".gmz-message").html("Login successful");
+                    $("#login").prop("disabled", true);
+                    signOut();
+                    let uri = "<?= route_to('login.check') ?>";
+                    window.location = uri;
+                } else {
+                    $(".gmz-message").show();
+                    $(".gmz-message").html("Invalid Login details");
+                }
+            }
+        });
+    }
+
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function() {
+            console.log('User signed out.');
+        });
+    }
+</script>
 <script src="<?= base_url() ?>/html/assets/vendor/bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url() ?>/html/assets/vendor/slick-1.8.1/slick.min.js"></script>
 <script src="<?= base_url() ?>/vendors/glow-cookies/glowCookies.js"></script>
@@ -129,13 +197,105 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
 <script src="<?= base_url() ?>/admin/plugins/toast/jquery.toast.min.js"></script>
 <script src="<?= base_url() ?>/vendors/toastr/toastr.min.js"></script>
 <script src="<?= base_url() ?>/html/assets/js/custom6782.js?v=1.0.3.2"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- Sweet-Alert  -->
 <script src="<?= base_url('dashboard/plugins/sweetalert2.min.js') ?>"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
     $('.carousel').carousel({
         interval: 2000
     })
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '<?= conf['facebook_app_id'] ?>',
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true, // parse social plugins on this page
+            version: 'v3.2' // use graph api version 2.8
+        });
+
+        // Check whether the user already logged in
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                //display user data
+                getFbUserData();
+            }
+        });
+    };
+
+    // Load the JavaScript SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Facebook login with JavaScript SDK
+    function fbLogin() {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                // Get and display the user profile data
+                getFbUserData();
+            } else {
+                document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+            }
+        }, {
+            scope: 'public_profile,email'
+        });
+    }
+
+    // Fetch the user profile data from facebook
+    function getFbUserData() {
+        FB.api('/me', {
+                locale: 'en_US',
+                fields: 'id,first_name,last_name,email,link,gender,locale,picture'
+            },
+            function(response) {
+                var firstname = "";
+                var lastname = "";
+                // console.log(response);
+                var image = response.picture.data.url;
+                var email = response.email;
+                var firstname = response.first_name;
+                var lastname = response.last_name;
+                var id = response.id;
+                $.ajax({
+                    type: 'POST',
+                    url: '<?= base_url('home/social_login') ?>',
+                    dataType: 'json',
+                    data: {
+                        email: email,
+                        first_name: firstname,
+                        last_name: lastname,
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $(".gmz-message").show();
+                            $(".gmz-message").html("Login successful");
+                            $("#login").prop("disabled", true);
+                            fbLogout();
+                            let uri = "<?= route_to('login.check') ?>";
+                            window.location = uri;
+                        } else {
+                            $(".gmz-message").show();
+                            $(".gmz-message").html("Invalid Login details");
+                        }
+                    }
+                });
+            });
+    }
+
+    // Logout from facebook
+    function fbLogout() {
+        FB.logout(function() {
+            document.getElementById('fbLink').setAttribute("onclick", "fbLogin()");
+            document.getElementById('fbLink').innerHTML = '<img src="images/fb-login-btn.png"/>';
+            document.getElementById('userData').innerHTML = '';
+            document.getElementById('status').innerHTML = '<p>You have successfully logout from Facebook.</p>';
+        });
+    }
 </script>
 <!-- Ajax function for inine login -->
 <script>
@@ -154,6 +314,7 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
     let uri = "<?= route_to('login.check') ?>";
     $(document).ready(function() {
         $("#login").click(function() {
+            $(".gmz-loader").show();
             var email = $("#email").val();
             var password = $("#password").val();
             var csrfHash = $("input[name=csrf_name]").val();; // CSRF hash
@@ -265,14 +426,13 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
         button_accept_text: "",
         button_reject_text: "",
     };
-    
-    function cheki_password()
-    {
+
+    function cheki_password() {
         var passconf = $('#passconf').val();
         var password = $('#rpassword').val();
-        if (password !== passconf)  {
+        if (password !== passconf) {
             $("#cheki").html("Password doesn't match");
-            $("#cheki").show().addClass('error'); 
+            $("#cheki").show().addClass('error');
         } else {
             $("#cheki").hide();
         }
@@ -312,6 +472,7 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                 text: "Please Login to add item to wishlist",
                 type: 'error',
             })
+            // $('.gmz-box-popup').click();
         } else {
             var url = "<?= route_to('admin.wishlist') ?>";
             $.ajax({
@@ -336,13 +497,9 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
         loginStatus = "<?= session()->get('id') ?>";
         let hotel_id = $("a:focus").attr('data-hotel_id'); //$('d').data('hotel_id');
         if (!loginStatus) {
-            swal({
-                title: 'Please Login!',
-                text: "Please Login to Book this property",
-                type: 'error',
-            })
+            $('.gmz-box-popup').click();
         } else {
-            window.location.href="<?= base_url('home/add_order/') ?>"+'/'+d;
+            window.location.href = "<?= base_url('home/add_order/') ?>" + '/' + d;
         }
     }
 </script>

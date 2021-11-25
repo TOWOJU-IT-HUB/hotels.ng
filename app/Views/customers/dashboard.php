@@ -14,7 +14,7 @@
                                 <div class="page-title-box">
                                     <h4 class="page-title">Dashboard</h4>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active">Welcome back <?= session()->get('fullname') ?></li>
+                                        <li class="breadcrumb-item active">Welcome back <?= curr_user['fullname'] ?></li>
                                     </ol>
                                 </div>
                             </div>

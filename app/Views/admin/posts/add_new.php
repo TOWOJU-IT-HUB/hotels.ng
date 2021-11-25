@@ -82,9 +82,9 @@
                                 <div class="text-center">
                                     <div style="overflow:auto;">
                                         <div style="float:right;">
-                                            <button type="button" id="prevBtn" class="btn btn-info btn-md" onclick="nextPrev(-1)">Previous</button>
-                                            <button type="button" id="nextBtn" class="btn btn-info btn-md" onclick="nextPrev(1)">Next</button>
-                                            <button type="submit" id="submitBtn" class="btn btn-info btn-md"><?= lang('text.save') ?></button>
+                                            <button type="button" id="prevBtn" class="btn btn-info btn-md" onclick="nextPrev(-1)">Previous</button></button>btn btn-info btn-md" onclick="nextPrev(1)">Next</button>
+                                            <button type="submit" id="submitBtn" class="btn btn-info btn-md"><?= lang('text.save') ?>
+<span class="icon-spinner"><i class="fa fa-spinner load-animate"></i></span> </button>
                                         </div>
                                     </div>
                                 </div>

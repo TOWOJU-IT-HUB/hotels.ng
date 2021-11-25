@@ -44,6 +44,7 @@ class Autoload extends AutoloadConfig
         APP_NAMESPACE       => APPPATH, // For custom app namespace
         'Config'            => APPPATH . 'Config',
         'Omnipay\PayPal'    => ROOTPATH .'vendor\omnipay\paypal\src',
+        'PHPMailer\PHPMailer'  =>  ROOTPATH ."vendor\phpmailer\phpmailer\src",
     ];
 
     /**
@@ -67,6 +68,7 @@ class Autoload extends AutoloadConfig
      */
     public $classmap = [
         'PaypalExpress'  =>  "App\Libraries\PaypalExpress.php",
+        'Facebook' => APPPATH .'third_party/_insertFilenameHere_.php'
     ];
 
     /**

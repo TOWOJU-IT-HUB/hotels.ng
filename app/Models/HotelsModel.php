@@ -15,7 +15,7 @@ class HotelsModel extends Model
     protected $useSoftDeletes       = true;
     protected $protectFields        = true;
     protected $allowedFields        = [
-        'id',	'hotel_id',	'hotel_name', 'url', 'map_preview_url',	'city',	'description',	'country_trans',	'accommodation_type_name',	'review_score',	'checkin',	'checkout',	'currencycode',	'min_total_price',	'hotel_thumbnail',	'latitude',	'longitude',	'created_at',	'updated_at',	'deleted_at'	
+        'id',	'hotel_id', 'user_id',	'hotel_name', 'url', 'map_preview_url',	'city',	'description',	'country_trans',	'accommodation_type_name',	'review_score',	'checkin',	'checkout',	'currencycode',	'min_total_price',	'hotel_thumbnail',	'latitude',	'longitude',	'created_at',	'updated_at',	'deleted_at'	
     ];
 
     // Dates

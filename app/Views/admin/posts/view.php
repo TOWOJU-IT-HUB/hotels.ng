@@ -10,18 +10,19 @@
 			<h2 class="section-title mb-20">List Of Hotels</h2>
 			<div class="row"> <?php if (!empty($news)) : ?>
 					<?php foreach ($news as $key => $rex) : ?>
-						<a href="<?= $final_url = 'WE'; ?>">
+						<a href="<?= base_url('blog/post/'.$rex['slug']) ?>">
 							<div class="col-lg-4 col-md-4 col-sm-12">
 								<div class="hotel-item hotel-item--grid" data-plugin="matchHeight">
 									<div class="hotel-item__thumbnail">
-										<a href="<?= $final_url ?>">
-											<img class="hotel_img" src="<?= base_url($rex['image']) ?>" alt="<?= $rex['title'] ?>" width="358px" height="238px">
+										<a href="<?= base_url('blog/post/'.$rex['slug']) ?>">
+											<img class="hotel_img" src="<?= base_url("uploads/blog_images/".$rex['image']) ?>" alt="<?= $rex['title'] ?>" width="358px" height="238px">
 										</a>
 									</div>
+									<hr>
 									<div class="hotel-item__details">
-										<h3 class="hotel-item__title"><a href="<?= base_url('blog/post/'.$rex['slug']) ?>"><?= $rex['title'] ?></a></h3>
-										<div class="d-flex justify-content-between align-items-center">
-											<a class="btn btn-primary hotel-item__view-detail" href="<?= $final_url ?>">View Detail </a>
+										<h3 class="hotel-item__title text-left"><a href="<?= base_url('blog/post/'.$rex['slug']) ?>"><?= $rex['title'] ?></a></h3>
+										<div class="text-right">
+											<a class="btn btn-primary hotel-item__view-detail" href="<?= base_url('blog/post/'.$rex['slug']) ?>">View Detail </a>
 										</div>
 									</div>
 								</div>

@@ -14,7 +14,7 @@
                                 <div class="page-title-box">
                                     <p class="page-title">Dashboard</p>
                                     <!-- <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active">Welcome back <?= session()->get('fullname') ?></li>
+                                        <li class="breadcrumb-item active">Welcome back <?= curr_user['fullname'] ?></li>
                                     </ol> -->
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                             <i class="fab fa-opencart text-danger m-2 fa-2x p-2"></i>
                                         </div>
                                         <div class="col">
-                                            <h4 class="text-white pt-1 mb-0">7</h4>
+                                            <h4 class="text-white pt-1 mb-0"><?= $total_orders ?></h4>
                                             <p class="font-16">Total Orders</p>
                                         </div>
                                     </div>

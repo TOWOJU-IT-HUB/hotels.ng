@@ -32,6 +32,8 @@
 <script src="<?= base_url('dashboard/plugins/ace.js') ?>"></script>
 <script src="https://codemirror.net/mode/javascript/javascript.js"></script>
 
+<script src="https://www.jqueryscript.net/demo/bs-dropzone/dist/js/bs-dropzone.js"></script>
+
 <style>
     .dropdown-toggle::after {
         display: none;
@@ -39,6 +41,9 @@
 </style>
 
 <script>
+    $('#btn').click(function() {
+        $('.icon-spinner').show();
+    })
     $(document).ready(function() {
         $('#memListTable').DataTable({
             // Processing indicator
