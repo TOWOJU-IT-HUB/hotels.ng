@@ -356,13 +356,13 @@
 								} ?>">
 						<div class="tour-type__item" data-plugin="matchHeight" style="height: 238px; width:100%; margin:20px">
 							<div class="tour-type__thumbnail">
-								<a href="<?= base_url('home/search?country=' . $country['country_trans']) ?>">
+								<a href="<?= base_url('home/search?country[]=' . $country['country_trans']) ?>">
 									<img style="height: 238px; width:100%;" class="_image-tour" src="<?= $country['hotel_thumbnail'] ?>" alt="Activities">
 								</a>
 							</div>
 							<div class="tour-type__info">
-								<h3 class="tour-type__name h1 mb-5 float-left ml-3" style="font-weight: bolder; font-size: 24px"><a href="<?= base_url('home/search?country=' . $country['country_trans']) ?>"><?= $country['country_trans'] ?></a></h3>
-								<div class="tour-type__description mt-5" style="padding-top: 90px;"><a href="<?= base_url('home/search?country=' . $country['country_trans']) ?>">
+								<h3 class="tour-type__name h1 mb-5 float-left ml-3" style="font-weight: bolder; font-size: 24px"><a href="<?= base_url('home/search?country[]=' . $country['country_trans']) ?>"><?= $country['country_trans'] ?></a></h3>
+								<div class="tour-type__description mt-5" style="padding-top: 90px;"><a href="<?= base_url('home/search?country[]=' . $country['country_trans']) ?>">
 									<span class="btn bg-secondary text-white float-right mr-3">From: <?= COUNTRY_CURRENCY . number_format(convertedCurrency($country['min_total_price'], $country['currencycode']), 2) ?></span></a>
 								</div>
 							</div>

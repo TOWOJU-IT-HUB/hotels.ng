@@ -27,21 +27,11 @@
                             <a href="<?= route_to('general_settings') ?>" class="<?php if ($uri->getSegment(2) == "settings") {
                                                                                         echo 'active';
                                                                                     } ?>"> <?= lang('text.general_settings') ?> </a>
-                            <a href="<?= route_to('page_settings') ?>" class="<?php if ($uri->getSegment(2) == "page_settings") {
-                                                                                    echo 'active';
-                                                                                } ?>"> <?= lang('text.page_settings') ?> </a>
+                            
                             <a href="<?= route_to('booking_settings') ?>" class="<?php if ($uri->getSegment(2) == "booking_settings") {
                                                                                         echo 'active';
                                                                                     } ?>"> <?= lang('text.booking_settings') ?> </a>
-                            <a href="<?= route_to('services_settings') ?>" class="<?php if ($uri->getSegment(2) == "services_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.services_settings') ?> </a>
-                            <a href="<?= route_to('reviews_settings') ?>" class="<?php if ($uri->getSegment(2) == "reviews_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.reviews_settings') ?> </a>
-                            <a href="<?= route_to('apperance_settings') ?>" class="<?php if ($uri->getSegment(2) == "apperance_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.apperance_settings') ?> </a>
+                            
                             <a href="<?= route_to('email_settings') ?>" class="<?php if ($uri->getSegment(2) == "email_settings") {
                                                                                     echo 'active';
                                                                                 } ?>"> <?= lang('text.email_settings') ?> </a>
@@ -70,8 +60,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="text-muted">Mapbox Token</label>
-                                    <textarea name="mapbox" value="<?= conf['mapbox'] ?>" placeholder="hsbGp3eGUwMXZ5M3VvM2NteXIyam9nIn0.ysDAJn41bgYT21EJihW0Hw" class="form-control"></textarea>
+                                    <label class="text-muted">Email Host</label>
+                                    <input type="text" name="email_host"  readonly="readonly" onfocus="javascript: this.removeAttribute('readonly')" value="<?= conf['email_host'] ?>" placeholder="smtp.gmail.com" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-muted">Email Password</label>
@@ -110,7 +100,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="text-muted">Callback URL</label>
-                                                <input type="text" maxlength="100" placeholder="<?= base_url('callback/facebook') ?>" value="<?= conf['facebook_callback'] ?>" name="facebook_callback" class="form-control">
+                                                <input type="text" hidden maxlength="100" placeholder="<?= base_url('callback/facebook') ?>" value="<?= conf['facebook_callback'] ?>" name="facebook_callback" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +121,7 @@
 
                                             <div class="form-group">
                                                 <label class="text-muted">Callback Url</label>
-                                                <input type="text" maxlength="100" placeholder="<?= base_url('callback/google') ?>" value="<?= conf['google_callback'] ?>"  name="google_callback" class="form-control">
+                                                <input type="text" hidden maxlength="100" placeholder="<?= base_url('callback/google') ?>" value="<?= conf['google_callback'] ?>"  name="google_callback" class="form-control">
                                             </div>
                                         </div>
                                     </div>

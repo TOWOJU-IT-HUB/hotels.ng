@@ -66,6 +66,57 @@
     });
 </script>
 
+<script>
+            $('#withdrawal_accept').click(function(){
+                alert('accept was clicked');
+                $.ajax({
+                    type: 'GET',
+                    url: '<?= base_url("admin/accept") ?>',
+                    dataType: 'json',
+                    data: {
+                        amount: amount,
+                        user:user_id,
+                        req_id: req
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            swal({
+                                // title: 'sorry!',
+                                text: "Withdrawal successfully marked as PAID",
+                                type: 'success',
+                            });
+                        } else {                            
+                            swal({
+                                // title: 'sorry!',
+                                text: "Unable to mark withdrawal as cancelled",
+                                type: 'error',
+                            });
+                        }
+                    },
+                });
+            });
+            $('#withdrawal_cancel').click(function(){    
+                $.ajax({
+                    type: 'GET',
+                    url: '<?= base_url("admin/cancelled") ?>?req_id='req,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.success) {
+                            swal({
+                                text: "Withdrawal cancelled successfully",
+                                type: 'success',
+                            });
+                        } else {                            
+                            swal({
+                                // title: 'sorry!',
+                                text: "Error cancelling withdrawal request",
+                                type: 'error',
+                            })
+                        }
+                    }
+                });
+            });
+        </script>
 <?php $uri = service('uri');
 if ($uri->getSegment(2) == 'settings') : ?>
     <script>

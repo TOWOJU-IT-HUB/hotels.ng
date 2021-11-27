@@ -180,7 +180,7 @@
                             <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-graph-bar"></i><span> <?= lang('text.earnings_report') ?> <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                             <ul class="submenu">
                                 <li><a href="<?= route_to('admin.partners_earnings') ?>"> <?= lang('text.partners_earnings') ?> </a></li>
-                                <li><a href="<?= route_to('admin.analytics') ?>"> <?= lang('text.analytics') ?> </a></li>
+                                <!-- <li><a href="<?= route_to('admin.analytics') ?>"> <?= lang('text.analytics') ?> </a></li> -->
                                 <li><a href="<?= route_to('admin.withdrawal') ?>"> <?= lang('text.withdrawal') ?> </a></li>
                             </ul>
                         </li>

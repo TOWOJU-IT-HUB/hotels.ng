@@ -82,8 +82,8 @@
                                                     </a>
                                                     <?php $post_id = $post['id'] ?>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 35px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                        <a class="dropdown-item" href="<?= route_to('blog').$post_id ?>">View</a>
-                                                        <a class="dropdown-item" href="<?= route_to('post_edit').$post_id ?>">Edit</a>
+                                                        <a class="dropdown-item" href="<?= base_url('blog/post/'.$post['slug']) ?>">View</a>
+                                                        <a class="dropdown-item" href="<?= base_url('admin/edit_post/'.$post_id) ?>">Edit</a>
                                                         <a class="dropdown-item" href="<?= route_to('admin.all_posts').'/delete/'.$post_id ?>">Delete</a>
                                                     </div>
                                                 </div>

@@ -17,21 +17,12 @@
                             <a href="<?= route_to('general_settings') ?>" class="<?php if ($uri->getSegment(2) == "settings") {
                                                                                         echo 'active';
                                                                                     } ?>"> <?= lang('text.general_settings') ?> </a>
-                            <a href="<?= route_to('page_settings') ?>" class="<?php if ($uri->getSegment(2) == "page_settings") {
-                                                                                    echo 'active';
-                                                                                } ?>"> <?= lang('text.page_settings') ?> </a>
+                            
                             <a href="<?= route_to('booking_settings') ?>" class="<?php if ($uri->getSegment(2) == "booking_settings") {
                                                                                         echo 'active';
                                                                                     } ?>"> <?= lang('text.booking_settings') ?> </a>
-                            <a href="<?= route_to('services_settings') ?>" class="<?php if ($uri->getSegment(2) == "services_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.services_settings') ?> </a>
-                            <a href="<?= route_to('reviews_settings') ?>" class="<?php if ($uri->getSegment(2) == "reviews_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.reviews_settings') ?> </a>
-                            <a href="<?= route_to('apperance_settings') ?>" class="<?php if ($uri->getSegment(2) == "apperance_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.apperance_settings') ?> </a>
+                            
+                            
                             <a href="<?= route_to('email_settings') ?>" class="<?php if ($uri->getSegment(2) == "email_settings") {
                                                                                     echo 'active';
                                                                                 } ?>"> <?= lang('text.email_settings') ?> </a>

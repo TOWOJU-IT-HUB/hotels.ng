@@ -200,9 +200,10 @@ class Admin extends BaseController
     {
         $data = [];
         if ($user != null) {
-            $data['withdrawals'] = $this->withdrawal->where('user_id', $user)->join('users', 'users.id=withdrawal.user_id')->findAll();
+            $data['withdrawals'] = $this->db->query("SELECT w.id as w_id, w.*, u.fullname, u.email FROM withdrawal w JOIN users u ON w.user_id= u.id WHERE w.user_id=$user")->getResultArray();//$this->withdrawal->where('user_id', $user)->join('users', 'users.id=withdrawal.user_id')->findAll();
         } else {
-            $data['withdrawals'] = $this->withdrawal->join('users', 'users.id=withdrawal.user_id')->findAll();
+            $data['withdrawals'] = $this->db->query("SELECT w.id as w_id, w.*, u.fullname, u.email FROM withdrawal w JOIN users u ON w.user_id=u.id")->getResultArray(); //withdrawal->join('users', 'users.id=withdrawal.user_id')->findAll();
+            // print_r($data['withdrawals']); exit;
         }
         echo view('parts/dashboard/header', $data);
         echo view('admin/withdrawal');
@@ -231,15 +232,15 @@ class Admin extends BaseController
         if ($this->request->getMethod() == 'post') {
             // receive post data and pass to xx_clean
             $q['title']      = xx_clean($this->request->getPost('title'));
-            $q['body']       = xx_clean($this->request->getPost('body'));
+            $q['body']       = $this->request->getPost('body');
             $q['slug']       = xx_clean($this->request->getPost('slug')); //url_title($title.uniqid());
             $q['short_desc'] = xx_clean($this->request->getPost('short_desc'));
-            $q['categories'] = xx_clean($this->request->getPost('categories'));
+            $q['categories'] = $this->request->getPost('categories');
             $q['tags']       = xx_clean($this->request->getPost('tags'));
-            $q['status']     = xx_clean($this->request->getPost('status'));
+            $q['status']     =$this->request->getPost('status');
 
-            $fileName = $_FILES['image']['name'] . md5(time());
-            $filePath = "uploads/blog_images/" . $_FILES['image']['name'] . '-' . $this->user_id;
+            $fileName = md5(time()).$_FILES['image']['name'];
+            $filePath = "uploads/blog_images/" . $fileName;
 
             if (move_uploaded_file($_FILES['image']['tmp_name'], $filePath)) {
                 $q['image'] = $fileName;
@@ -257,8 +258,34 @@ class Admin extends BaseController
     }
     public function edit_post($post_id)
     {
-        $data = [];
+        $data = [
+            'categories' =>  $this->categories->findAll(),
+        ];
         $data['posts']  =   $this->blog->find($post_id);
+        if ($this->request->getMethod() == 'post') {
+            // receive post data and pass to xx_clean
+            $q['title']      = xx_clean($this->request->getPost('title'));
+            $_id      = xx_clean($this->request->getPost('post_id'));
+            $q['body']       = $this->request->getPost('body');
+            $q['slug']       = url_title($this->request->getPost('slug')); //url_title($title.uniqid());
+            $q['short_desc'] = xx_clean($this->request->getPost('short_desc'));
+            $q['categories'] = $this->request->getPost('categories');
+            $q['tags']       = xx_clean($this->request->getPost('tags'));
+            $q['status']     =$this->request->getPost('status');
+
+            $fileName = md5(time()).$_FILES['image']['name'];
+            $filePath = "uploads/blog_images/" . $fileName;
+
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $filePath)) {
+                $q['image'] = $fileName;
+            }
+
+            if ($this->blog->where('id', $_id)->set($q)->update()) {
+                return redirect()->back()->with('success', 'Post Updated successfully');
+            } else {
+                return redirect()->back()->with('error', 'Unable to updated post.');
+            }
+        }
         echo view('parts/dashboard/header', $data);
         echo view('admin/posts/edit_post');
         echo view('parts/dashboard/footer');
@@ -799,13 +826,13 @@ class Admin extends BaseController
         $data = [
             'settings' =>  $this->settings->find(1),
         ];
-        if ($this->request->getMethod() == 'post') {
+        if($this->request->getMethod() == 'post' && !empty($_POST)) {
             # code...
             $r = $this->request;
             foreach ($_POST as $k => $v) {
                 $q[$k] = $v;
             }
-            if ($this->settings->where('id', 1)->set($q)->update()) {
+            if ($this->settings->where('id', 1)->set(array_filter($q))->update()) {
                 return redirect()->back()->with('success', 'Settings Updated successfully');
             } else {
                 return redirect()->back()->with('error', 'unable to update settings.');
@@ -976,5 +1003,31 @@ class Admin extends BaseController
         $url = base_url('home/invoice/');
         $this->send_mail($to, "Invoice From WEOTRIP", $msg, $url, "Make Payment Now");
         return true;
+    }
+
+    public function cancelled()
+    {
+        $req_id = $_GET['req_id'];
+        if($this->withdrawal->where('id', $req_id)->set(['status' => 'rejected'])->update()){
+            return redirect()->back()->with('success', 'Withdrawal request cancelled successfully');
+        } else {
+            return redirect()->back()->with('error', 'Error cancelling withdrawal request');
+        }
+    }
+
+    public function accept()
+    {
+        $amount = $_GET['amount'];
+        $user_id = $_GET['user_id'];
+        $req_id = $_GET['req_id'];
+
+        $approved = $this->p_earnings->where('partner_id', $user_id)->set('balance', "balance-$amount")->update();
+        
+        if($approved){
+            $this->withdrawal->where('id', $req_id)->set(['status' => 'paid'])->update();
+            return redirect()->back()->with( 'success', 'Withdrawal request approved successfully');
+        } else {
+            return redirect()->back()->with('error', 'Unable to mark withdrawal as cancelled');
+        }
     }
 }

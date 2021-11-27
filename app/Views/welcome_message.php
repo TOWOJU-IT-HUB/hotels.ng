@@ -251,12 +251,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=hotels&country='.user_country()) ?>">
+							<a href="<?= base_url('home/search?room_type[]=hotels&country[]='.user_country()) ?>">
 								<img class="_image-tour" src="https://t-cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=" alt="Hotels">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=hotels&country='.user_country()) ?>">Hotels</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=hotels&country[]='.user_country()) ?>">Hotels</a></h3>
 							<div class="tour-type__description">
 
 							</div>
@@ -266,12 +266,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=Apartments&country='.user_country()) ?>">
+							<a href="<?= base_url('home/search?room_type[]=Apartments&country[]='.user_country()) ?>">
 								<img class="_image-tour" src="https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-apartments_300/9f60235dc09a3ac3f0a93adbc901c61ecd1ce72e.jpg" height="170px" alt="Apartments">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Apartments&country='.user_country()) ?>">Apartments</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Apartments&country[]='.user_country()) ?>">Apartments</a></h3>
 							<div class="tour-type__description">
 
 							</div>
@@ -281,12 +281,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=Resorts&country='.user_country()) ?>">
+							<a href="<?= base_url('home/search?room_type[]=Resorts&country[]='.user_country()) ?>">
 								<img class="_image-tour" src="https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_resorts/6f87c6143fbd51a0bb5d15ca3b9cf84211ab0884.jpg" height="170px" alt="Resorts">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Resorts&country='.user_country()) ?>">Resorts</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Resorts&country[]='.user_country()) ?>">Resorts</a></h3>
 							<div class="tour-type__description">
 
 							</div>
@@ -296,12 +296,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=Villas&country='.user_country()) ?>">
+							<a href="<?= base_url('home/search?room_type[]=Villas&country[]='.user_country()) ?>">
 								<img class="_image-tour" src="https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-villas_300/dd0d7f8202676306a661aa4f0cf1ffab31286211.jpg" height="170px" alt="Villas">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Villas&country='.user_country()) ?>">Villas</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Villas&country[]='.user_country()) ?>">Villas</a></h3>
 							<div class="tour-type__description">
 
 							</div>
@@ -311,12 +311,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=Motels&country='.user_country()) ?>">
+							<a href="<?= base_url('home/search?room_type[]=Motels&country[]='.user_country()) ?>">
 								<img class="_image-tour" src="https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_motels/9673cd1b55cbc1e1cdaeae09d87d16aa9d84d5f7.jpg" height="170px" alt="Motels">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Motels&country='.user_country()) ?>">Motels</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Motels&country[]='.user_country()) ?>">Motels</a></h3>
 							<div class="tour-type__description">
 
 							</div>
@@ -326,12 +326,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=Hostels&country='.user_country()) ?>">
+							<a href="<?= base_url('home/search?room_type[]=Hostels&country[]='.user_country()) ?>">
 								<img class="_image-tour" src="https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_bed_and_breakfast/a6a4a3f904284337c187771d94a4bb6169b168d7.jpg" height="170px" alt="Hostels">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Hostels&country='.user_country()) ?>">Hostels</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Hostels&country[]='.user_country()) ?>">Hostels</a></h3>
 							<div class="tour-type__description">
 
 							</div>
@@ -356,13 +356,13 @@
 								} ?>">
 						<div class="tour-type__item" data-plugin="matchHeight" style="height: 238px; width:100%; margin:20px">
 							<div class="tour-type__thumbnail">
-								<a href="<?= base_url('home/search?country=' . $country['country_trans']) ?>">
+								<a href="<?= base_url('home/search?country[]=' . $country['country_trans']) ?>">
 									<img style="height: 238px; width:100%;" class="_image-tour" src="<?= $country['hotel_thumbnail'] ?>" alt="Activities">
 								</a>
 							</div>
 							<div class="tour-type__info">
-								<h3 class="tour-type__name h1 mb-5 float-left ml-3" style="font-weight: bolder; font-size: 24px"><a href="<?= base_url('home/search?country=' . $country['country_trans']) ?>"><?= $country['country_trans'] ?></a></h3>
-								<div class="tour-type__description mt-5" style="padding-top: 90px;"><a href="<?= base_url('home/search?country=' . $country['country_trans']) ?>">
+								<h3 class="tour-type__name h1 mb-5 float-left ml-3" style="font-weight: bolder; font-size: 24px"><a href="<?= base_url('home/search?country[]=' . $country['country_trans']) ?>"><?= $country['country_trans'] ?></a></h3>
+								<div class="tour-type__description mt-5" style="padding-top: 90px;"><a href="<?= base_url('home/search?country[]=' . $country['country_trans']) ?>">
 									<span class="btn bg-secondary text-white float-right mr-3">From: <?= COUNTRY_CURRENCY . number_format(convertedCurrency($country['min_total_price'], $country['currencycode']), 2) ?></span></a>
 								</div>
 							</div>

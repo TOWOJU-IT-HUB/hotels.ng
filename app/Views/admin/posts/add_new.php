@@ -44,9 +44,8 @@
                                         <div class="gmz-field form-group  col-12 col-md-6 gmz-field-select" id="gmz-field-status-wrapper">
                                             <label for="gmz-field-status">Status</label>
                                             <select name="status" class="form-control" id="gmz-field-status">
-                                                <option value="publish">Publish</option>
+                                                <option value="published">Publish</option>
                                                 <option value="draft">Draft</option>
-                                                <option value="pending">Pending</option>
                                             </select>
                                         </div>
                                         <div class="gmz-field form-group  col-sm-6 col-12 gmz-field-select" id="gmz-field-property_type-wrapper">
@@ -59,20 +58,20 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group ">
+                                    <!-- <div class="form-group ">
                                         <label class="text-muted">Image</label>
                                         <div class="dropzone">
                                             <div class="fallback">
                                                 <input name="file" class="" type="file" multiple="multiple">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!-- // tab for Images Upload -->
-                                <div class="tabby">
+                                <div class="row">
                                     <div class="form-group">
                                         <label for="images">Image Upload</label>
-                                        <input type="file" name="post_images[]" class="form-control" id="hotel_images" multiple />
+                                        <input type="file" name="image" class="form-control" id="hotel_images" />
                                     </div>
                                     <div class="imgGallery">
                                         <!-- image preview -->
@@ -82,9 +81,8 @@
                                 <div class="text-center">
                                     <div style="overflow:auto;">
                                         <div style="float:right;">
-                                            <button type="button" id="prevBtn" class="btn btn-info btn-md" onclick="nextPrev(-1)">Previous</button></button>btn btn-info btn-md" onclick="nextPrev(1)">Next</button>
-                                            <button type="submit" id="submitBtn" class="btn btn-info btn-md"><?= lang('text.save') ?>
-<span class="icon-spinner"><i class="fa fa-spinner load-animate"></i></span> </button>
+                                            <button type="submit" id="submitBtn" style="min-width: 150px;" class="btn btn-info btn-block btn-md"><?= lang('text.save') ?>
+                                                <i class="fa fa-save load-animate"></i> </button>
                                         </div>
                                     </div>
                                 </div>

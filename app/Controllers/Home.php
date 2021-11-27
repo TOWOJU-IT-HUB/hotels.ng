@@ -63,13 +63,7 @@ class Home extends BaseController
 
 
 		if (!empty($r->getGet('room_type'))) {
-			$this->hotels->where('accommodation_type_name', $_GET['room_type'][0]);
-			if (is_array($r->getGet('room_type'))) {
-				$arr = explode(",", implode($r->getGet('room_type')));
-				foreach ($arr as $room_type) {
-					$arr = $this->hotels->orWhere('accommodation_type_name', $room_type);
-				}
-			}
+			$this->hotels->whereIn('accommodation_type_name', $r->getGet('room_type'));
 		}
 
 		if (!empty($r->getGet('price_range'))) {
@@ -80,7 +74,7 @@ class Home extends BaseController
 		}
 
 		if (!empty($_GET['country'])) {
-			$this->hotels->Where('country_trans', $r->getGet('country'));
+			$this->hotels->WhereIn('country_trans', $r->getGet('country'));
 		}
 
 		$data = [

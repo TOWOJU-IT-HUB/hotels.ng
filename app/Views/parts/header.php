@@ -47,12 +47,11 @@
             --primary: hsl(175, 69%, 38%);
             --primary-hover: hsl(175, 69%, 40%);
         }
-
-        .fa-chevron-right {
+        .fa-chevron-right{
             display: none;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="<?= base_url() ?>/html/assets/vendor/jquery-3.5.1.min.js"></script>
 </head>
 
 <body class="body">
@@ -73,7 +72,7 @@
         </div>
         <div class="text-center">
             <a class="ml-3" href="mailto:<?= conf['site_email'] ?>"><span><i class="fa fa-envelope"></i> <?= conf['site_email'] ?></span></a>
-            <a class="ml-3" href="tel:<?= conf['contact_us_phone'] ?>"><span><i class="fa fa-phone"></i> <?= conf['contact_us_phone'] ?></span></a>
+           <a class="ml-3" href="tel:<?= conf['contact_us_phone'] ?>"><span><i class="fa fa-phone"></i> <?= conf['contact_us_phone'] ?></span></a>
         </div>
         <div class="top-bar__right">
             <div class="select-language dropdown">
@@ -176,43 +175,43 @@
             <h4 class="popup-title">Sign Up</h4>
             <div class="popup-content">
                 <?= form_open('home/register') ?>
-                <div class="gmz-loader ">
-                    <div class="loader-inner">
-                        <div class="spinner-grow text-info align-self-center loader-lg"></div>
-                    </div>
-                </div>
-                <div class="form">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div id="first_name-field" class="field-wrapper input">
-                                <label for="first_name"><?= lang('text.firstname') ?></label>
-                                <i class="fal fa-user-alt"></i>
-                                <input required id="firstname" name="firstname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.firstname') ?>">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div id="last_name-field" class="field-wrapper input">
-                                <label for="last_name"><?= lang('text.lastname') ?></label>
-                                <i class="fal fa-user-alt"></i>
-                                <input required id="lastname" name="lastname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.lastname') ?>">
-                            </div>
+                    <div class="gmz-loader ">
+                        <div class="loader-inner">
+                            <div class="spinner-grow text-info align-self-center loader-lg"></div>
                         </div>
                     </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div id="first_name-field" class="field-wrapper input">
+                                    <label for="first_name"><?= lang('text.firstname') ?></label>
+                                    <i class="fal fa-user-alt"></i>
+                                    <input required id="firstname" name="firstname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.firstname') ?>">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div id="last_name-field" class="field-wrapper input">
+                                    <label for="last_name"><?= lang('text.lastname') ?></label>
+                                    <i class="fal fa-user-alt"></i>
+                                    <input required id="lastname" name="lastname" type="text" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.lastname') ?>">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="phone_number-field" class="field-wrapper input">
+                            <label for="phone">Phone Number</label>
+                            <i class="fal fa-phone"></i>
+                            <input name="phone" type="tel" value="" required class="form-control gmz-validation" data-validation="required" placeholder="Phone Number">
+                        </div>
 
-                    <div id="phone_number-field" class="field-wrapper input">
-                        <label for="phone">Phone Number</label>
-                        <i class="fal fa-phone"></i>
-                        <input name="phone" type="tel" value="" required class="form-control gmz-validation" data-validation="required" placeholder="Phone Number">
-                    </div>
 
+                        <div id="<?= lang('text.email') ?>-field" class="field-wrapper input">
+                            <label for="r<?= lang('text.email') ?>"><?= lang('text.email') ?></label>
+                            <i class="fal fa-at"></i>
+                            <input required id="r<?= lang('text.email') ?>" name="email" type="text" value="" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.email') ?>">
+                        </div>
 
-                    <div id="<?= lang('text.email') ?>-field" class="field-wrapper input">
-                        <label for="r<?= lang('text.email') ?>"><?= lang('text.email') ?></label>
-                        <i class="fal fa-at"></i>
-                        <input required id="r<?= lang('text.email') ?>" name="email" type="text" value="" class="form-control gmz-validation" data-validation="required" placeholder="<?= lang('text.email') ?>">
-                    </div>
-
-                    <div class="row">
+                        <div class="row">
                         <div class="col-6">
                             <div id="password-field" class="field-wrapper input mb-2">
                                 <div class="d-flex justify-content-between">
@@ -229,7 +228,7 @@
                         <div class="col-6">
                             <div id="password-field" class="field-wrapper input mb-2">
                                 <div class="d-flex justify-content-between">
-                                    <label for="rpassword"><?= "Confirm " . lang('text.password') ?></label>
+                                    <label for="rpassword"><?= "Confirm ".lang('text.password') ?></label>
                                 </div>
                                 <i class="fal fa-lock"></i>
                                 <input required onkeyup="cheki_password()" id="passconf" name="confpass" type="password" minlength="8" class="form-control gmz-validation" data-validation="required" placeholder="Confirm Password">
@@ -239,31 +238,31 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="cheki" class="gmz-message alert alert-info m-3"></div>
-                    <div class="field-wrapper terms_condition">
-                        <div class="n-chk">
-                            <label class="new-control new-checkbox checkbox-primary">
-                                <input required type="checkbox" name="agree_field" value="1" id="agree-term" class="new-control-input gmz-validation" data-validation="required">
-                                <span class="new-control-indicator"></span><span>I agree to the <a href="<?= route_to('tos') ?>"> terms and conditions </a></span>
-                            </label>
+                        </div>
+                        <div id="cheki" class="gmz-message alert alert-info m-3"></div>
+                        <div class="field-wrapper terms_condition">
+                            <div class="n-chk">
+                                <label class="new-control new-checkbox checkbox-primary">
+                                    <input required type="checkbox" name="agree_field" value="1" id="agree-term" class="new-control-input gmz-validation" data-validation="required">
+                                    <span class="new-control-indicator"></span><span>I agree to the <a href="<?= route_to('tos') ?>"> terms and conditions </a></span>
+                                </label>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="gmz-message"></div>
 
-                    <div class="gmz-message"></div>
-
-                    <div class="d-sm-flex justify-content-between">
-                        <div class="field-wrapper">
-                            <button type="submit" class="btn btn-primary" value=""><?= lang('text.register') ?></button>
+                        <div class="d-sm-flex justify-content-between">
+                            <div class="field-wrapper">
+                                <button type="submit" class="btn btn-primary" value=""><?= lang('text.register') ?></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- <div class="division">
+                        <!-- <div class="division">
                             <span>OR</span>
                         </div> -->
 
-                    <!-- <div class="social">
+                        <!-- <div class="social">
                             <a href="https://www.facebook.com/v3.3/dialog/oauth?client_id=350904019789211&amp;redirect_uri=https%3A%2F%2Fibooking.booteam.co%2Fcallback%2Ffacebook&amp;scope=<?= lang('text.email') ?>&amp;response_type=code&amp;state=BLWPid0hDujFblN3sNnyitXx0dOwU4yZCmvUAHJW" class="btn social-fb">
                                 <i class="fab fa-facebook-f"></i>
                                 <span class="brand-name">Facebook</span>
@@ -274,9 +273,9 @@
                             </a>
                         </div> -->
 
-                    <p class="signup-link">Already have an account? <a href="#gmz-login-popup" class="gmz-box-popup" data-effect="mfp-zoom-in"><?= lang('text.login') ?></a></p>
+                        <p class="signup-link">Already have an account? <a href="#gmz-login-popup" class="gmz-box-popup" data-effect="mfp-zoom-in"><?= lang('text.login') ?></a></p>
 
-                </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -320,7 +319,7 @@
     <!-- // Header Menu Starts here -->
     <header class="site-header">
         <div class="toggle-menu">
-            <i class="fas fa-bars"  onclick="toggleMenu()"></i>
+            <i class="fas fa-bars"></i>
         </div>
         <div class="site-branding">
             <h1>
@@ -331,10 +330,7 @@
         </div>
         <div class="site-navigation">
             <div class="menu-overlay"></div>
-            <ul id="menu-primary-1" class="main-menu" style="display: none;">
-                <li class="back-menu">
-                    <i class="far fa-long-arrow-left" onclick="toggleMenu()"></i>
-                </li>
+            <ul id="menu-primary-1" class="main-menu">
                 <li class="menu-item menu-item-1 ">
                     <a href="<?= base_url() ?>"><?= lang('text.home') ?></a>
                 </li>
@@ -342,22 +338,22 @@
                     <a href="#">Services</a>
                     <ul role="menu" class="sub-menu">
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=hotel&country=' . user_country()) ?>">Hotel</a>
+                            <a href="<?= base_url('/search?room_type[]=hotel&country[]='.user_country()) ?>">Hotel</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=apartment&country=' . user_country()) ?>">Apartment</a>
+                            <a href="<?= base_url('/search?room_type[]=apartment&country[]='.user_country()) ?>">Apartment</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=Motels&country=' . user_country()) ?>">Motels</a>
+                            <a href="<?= base_url('/search?room_type[]=Motels&country[]='.user_country()) ?>">Motels</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=Hostel&country=' . user_country()) ?>">Hostel</a>
+                            <a href="<?= base_url('/search?room_type[]=Hostel&country[]='.user_country()) ?>">Hostel</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=Resorts&country=' . user_country()) ?>">Resorts</a>
+                            <a href="<?= base_url('/search?room_type[]=Resorts&country[]='.user_country()) ?>">Resorts</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=Villa&country=' . user_country()) ?>">Villa</a>
+                            <a href="<?= base_url('/search?room_type[]=Villa&country[]='.user_country()) ?>">Villa</a>
                         </li>
                     </ul> <span class="arrow-pc"><i class="far fa-chevron-down"></i></span>
                 </li>
@@ -426,15 +422,3 @@
         </div>
     </header>
     <!-- // Header Menu ends here -->
-    <script>
-        function toggleMenu() {
-            var x = document.getElementById("menu-primary-1");
-            if (x.style.display === "none" || x.style.display == null) {
-                x.style.display = "block";
-                $('#menu-primary-1').addClass('show');
-            } else {
-                x.style.display = "none";
-                $('#menu-primary-1').removeClass('show');
-            }
-        }
-    </script>

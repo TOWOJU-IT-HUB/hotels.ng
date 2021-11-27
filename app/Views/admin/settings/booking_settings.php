@@ -17,21 +17,12 @@
                             <a href="<?= route_to('general_settings') ?>" class="<?php if ($uri->getSegment(2) == "settings") {
                                                                                         echo 'active';
                                                                                     } ?>"> <?= lang('text.general_settings') ?> </a>
-                            <a href="<?= route_to('page_settings') ?>" class="<?php if ($uri->getSegment(2) == "page_settings") {
-                                                                                    echo 'active';
-                                                                                } ?>"> <?= lang('text.page_settings') ?> </a>
+                            
                             <a href="<?= route_to('booking_settings') ?>" class="<?php if ($uri->getSegment(2) == "booking_settings") {
                                                                                         echo 'active';
                                                                                     } ?>"> <?= lang('text.booking_settings') ?> </a>
-                            <a href="<?= route_to('services_settings') ?>" class="<?php if ($uri->getSegment(2) == "services_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.services_settings') ?> </a>
-                            <a href="<?= route_to('reviews_settings') ?>" class="<?php if ($uri->getSegment(2) == "reviews_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.reviews_settings') ?> </a>
-                            <a href="<?= route_to('apperance_settings') ?>" class="<?php if ($uri->getSegment(2) == "apperance_settings") {
-                                                                                        echo 'active';
-                                                                                    } ?>"> <?= lang('text.apperance_settings') ?> </a>
+                            
+                            
                             <a href="<?= route_to('email_settings') ?>" class="<?php if ($uri->getSegment(2) == "email_settings") {
                                                                                     echo 'active';
                                                                                 } ?>"> <?= lang('text.email_settings') ?> </a>
@@ -49,7 +40,7 @@
                                 <div class="col-md-8">
                                     <?= form_open() ?>
 
-                                    <div class="m-3"></div>
+                                    <!-- <div class="m-3"></div>
                                     <div class="form-group">
                                         <label class="text-muted">Default Currency</label>
                                         <input type="text" name="site_title" value="<?= conf['site_currency'] ?>" class="form-control">
@@ -61,18 +52,18 @@
                                     <div class="form-group">
                                         <label class="text-muted">Commission (%)</label>
                                         <input type="file" name="site_logo" class="form-control">
-                                    </div>
+                                    </div> -->
 
 
                                     <div class="mt-4"></div>
 
-                                    <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                    <!-- <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                                         <?php foreach ($gateway as $pay) : ?>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="<?= strtolower(trim($pay['name'])) ?>-tab" data-toggle="tab" href="#<?= strtolower(trim($pay['name'])) ?>" role="tab" aria-controls="<?= strtolower(trim($pay['name'])) ?>" aria-selected="true"><?= ucwords(trim($pay['name'])) ?></a>
                                             </li>
                                         <?php endforeach ?>
-                                    </ul>
+                                    </ul> -->
 
                                     <div class="tab-content mt-4" id="myTabContent">
                                         <?php foreach ($gateway as $pay) : ?>
@@ -90,11 +81,11 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="text-muted">PayPal Client ID</label>
-                                                        <input type="text" name="paypal_client_id" value="<?= $pay['paypal_client_id'] ?>" class="form-control">
+                                                        <input type="text" name="paypal_client_id" value="<?= conf['paypal_client_id'] ?>" class="form-control">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="text-muted">PayPal Client Secrect</label>
-                                                        <input type="text" name="paypal_client_secret" value="<?= $pay['paypal_client_secret'] ?>" class="form-control">
+                                                        <input type="text" name="paypal_client_secret" value="<?= conf['paypal_client_secret'] ?>" class="form-control">
                                                     </div>
                                                     <?php /*
                                                     <div class="form-group">

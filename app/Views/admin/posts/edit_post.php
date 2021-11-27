@@ -1,62 +1,190 @@
     <!-- Summernote css -->
     <link href="<?= base_url('dashboard/plugins/summernote/summernote-bs4.css') ?>" rel="stylesheet" />
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="content-page">
-            <!-- Start content -->
-            <div class="content">
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
 
-                <div class="container-fluid">
-                    <div class="page-title-box">
-
-                        <div class="row align-items-center ">
-                            <div class="col-md-8">
-                                <div class="page-title-box">
-                                    <h4 class="page-title">Form Summernote</h4>
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item">
-                                            <a href="javascript:void(0);">Zegva</a>
-                                        </li>
-                                        <li class="breadcrumb-item">
-                                            <a href="javascript:void(0);">Forms</a>
-                                        </li>
-                                        <li class="breadcrumb-item active">Form Summernote</li>
-                                    </ol>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="float-right d-none d-md-block app-datepicker">
-                                    <input type="text" class="form-control" data-date-format="MM dd, yyyy" readonly="readonly" id="datepicker">
-                                    <i class="mdi mdi-chevron-down mdi-drop"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end page-title -->
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-
-                                    <h4 class="mt-0 header-title">Examples</h4>
-                                    <p class="sub-title">Super simple wysiwyg editor on bootstrap</p>
-
-                                    <div class="summernote">Hello Summernote</div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <!-- end row -->
-
+            <div class="container-fluid">
+                <div class="page-title-box">
                 </div>
-                <!-- container-fluid -->
+                <!-- end page-title -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <?= form_open_multipart() ?>
+                                <div class="tabby">
+                                    <div class="form-group">
+                                        <label class="text-muted">Post Title</label>
+                                        <input type="text" value="<?= $posts['title'] ?>" name="title" class="form-control" required>
+                                        <input type="hidden" name="post_id" value="<?= $posts['id'] ?>" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-muted">Permalink</label>
+                                        <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+                                            <span class="bootstrap-touchspin-prefix input-group-prepend">
+                                                <?php $xq = uniqid() ?>
+                                                <span class="input-group-text"><?= base_url() . '/post/' ?></span>
+                                            </span><input type="text" name="slug" value="<?= $posts['slug'] ?>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-muted">Post Content</label>
+                                        <textarea class="summernote" name="body" required id="summernote"> <?= $posts['body'] ?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="text-muted">Short Description</label>
+                                        <textarea class="form-control" rows="6" name="short_desc" required id="summernote"><?= $posts['short_desc'] ?></textarea>
+                                    </div>
+                                    <div class="row col-12">
+                                        <div class="gmz-field form-group  col-12 col-md-6 gmz-field-select" id="gmz-field-status-wrapper">
+                                            <label for="gmz-field-status">Status</label>
+                                            <select name="status" class="form-control" id="gmz-field-status">
+                                                <option value="published">Publish</option>
+                                                <option value="draft">Draft</option>
+                                            </select>
+                                        </div>
+                                        <div class="gmz-field form-group  col-sm-6 col-12 gmz-field-select" id="gmz-field-property_type-wrapper">
+                                            <label for="gmz-field-property_type">Post Category</label>
+                                            <select name="categories" class="form-control" id="gmz-field-property_type">
+                                                <option selected disabled>Select Post Category</option>
+                                                <?php foreach ($categories as $cat) : ?>
+                                                    <option value="<?= $cat['title'] ?>"><?= $cat['title'] ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- // tab for Images Upload -->
+                                <div class="mx-auto col-md-6">
+                                    <div class="form-group">
+                                        <label for="images">Image Upload</label>
+                                        <input type="file" name="image" class="form-control" id="hotel_images" />
+                                    </div>
+                                    <div class="imgGallery">
+                                        <!-- image preview -->
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="text-center">
+                                    <div style="overflow:auto;">
+                                        <div style="float:right;">
+                                            <button type="submit" id="submitBtn" style="min-width: 150px;" class="btn btn-info btn-block btn-md"><?= lang('text.save') ?>
+                                                <i class="fa fa-save load-animate"></i> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?= form_close() ?>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
 
             </div>
-            <!-- content -->
-            <!-- ../plugins/summernote/summernote-bs4.css -->
+            <!-- container-fluid -->
+
+        </div>
+        <!-- content -->
+        <style>
+            /* Hide all steps by default: */
+            .tabby {
+                display: none;
+            }
+
+            .imgGallery img {
+                padding: 8px;
+                max-width: 100px;
+            }
+        </style>
+        <script>
+            var currentTab = 0; // Current tab is set to be the first tab (0)
+            showTab(currentTab); // Display the current tab
+
+            function showTab(n) {
+                var x = document.getElementsByClassName("tabby");
+                x[n].style.display = "block";
+                if (n == 0) {
+                    document.getElementById("prevBtn").style.display = "none";
+                } else {
+                    document.getElementById("prevBtn").style.display = "inline";
+                }
+                if (n == (x.length - 1)) {
+                    $('#nextBtn').hide();
+                    $('#submitBtn').show();
+                } else {
+                    $('#nextBtn').show();
+                    $('#submitBtn').hide();
+                    document.getElementById("nextBtn").innerHTML = "<?= lang('text.next') ?>";
+                }
+            }
+
+            function nextPrev(n) {
+                var x = document.getElementsByClassName("tabby");
+                x[currentTab].style.display = "none";
+                // alert(x.length);
+                currentTab = currentTab + n;
+                if (currentTab >= x.length) {
+                    document.getElementById("regForm").submit();
+                    return false;
+                }
+                showTab(currentTab);
+            }
+
+            $(document).ready(function() {
+                var counter = 2;
+                $("#addButton").click(function() {
+                    if (counter > 100) {
+                        alert("Only 100 textboxes allow");
+                        return false;
+                    }
+                    var newTextBoxDiv = $(document.createElement('div'))
+                        .attr("id", 'TextBoxDiv' + counter);
+                    newTextBoxDiv.after().html('<label class="mt-3">Facility #' + counter + ' : </label>' +
+                        '<input type="text" name="facilities[]" class="form-control">');
+                    newTextBoxDiv.appendTo("#TextBoxesGroup");
+                    counter++;
+                });
+                $("#removeButton").click(function() {
+                    if (counter == 1) {
+                        alert("No more textbox to remove");
+                        return false;
+                    }
+                    counter--;
+                    $("#TextBoxDiv" + counter).remove();
+                });
+            });
+
+
+            $(function() {
+                // Multiple images preview with JavaScript
+                var multiImgPreview = function(input, imgPreviewPlaceholder) {
+
+                    if (input.files) {
+                        var filesAmount = input.files.length;
+
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+                            }
+
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    }
+
+                };
+
+                $('#hotel_images').on('change', function() {
+                    multiImgPreview(this, 'div.imgGallery');
+                });
+            });
+        </script>

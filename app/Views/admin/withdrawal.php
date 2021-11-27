@@ -52,25 +52,27 @@
                                             <td><?= $withdrawal['created_at'] ?></td>
                                             <td><?= $withdrawal['status'] ?></td>
                                             <td class="text-center">
-                                                <div class="btn-group"><?php $withdrawal = $withdrawal['id'] ?>
+                                                <?php $_amount = $withdrawal['amount']; $_uid = $withdrawal['user_id']   ?><?php $_withdrawal = $withdrawal['w_id'] ?>
+                                                <div class="btn-group">
 
-                                                    <button type="button" class="btn btn-warning gmz-open-modal" data-remote="<?= base_url("home/withdrawal/$withdrawal") ?>" data-target="#theModal" data-toggle="modal">
+                                                    <button type="button" class="btn btn-warning gmz-open-modal" data-remote="<?= base_url("home/withdrawal/$_uid") ?>" data-target="#theModal" data-toggle="modal">
                                                         Details
                                                     </button>
-
+                                                    <?php if( $withdrawal['status'] == 'pending'): ?>
                                                     <button type="button" class="btn btn-outline-warning btn-sm " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
                                                             <polyline points="6 9 12 15 18 9"></polyline>
                                                         </svg>
                                                     </button>
                                                     <div class="dropdown-menu" style="will-change: transform;">
-                                                        <a class="dropdown-item btnChangeStatus" onclick="accept()" href="javascript:void(0);" data-action="#" data-params="#" data-change-status="refunded">
+                                                        <a class="dropdown-item btnChangeStatus" href='<?= base_url("admin/accept?amount=$_amount&user_id=$_uid&req_id=$_withdrawal") ?>' data-action="#" data-params="#" data-change-status="refunded">
                                                             Accept
                                                         </a>
-                                                        <a class="dropdown-item btnChangeStatus" onclick="cancel()" href="javascript:void(0);" data-action="#" data-params="#" data-change-status="cancelled">
+                                                        <a class="dropdown-item btnChangeStatus" href='<?= base_url("admin/cancelled?req_id=$_withdrawal") ?>' data-action="#" data-params="#" data-change-status="cancelled">
                                                             Cancel
                                                         </a>
                                                     </div>
+                                                    <?php endif ?>
                                                 </div>
                                             </td>
                                         </tr>
@@ -110,12 +112,3 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            function accept(){
-                alert("You click accept withdrawal");
-            }
-            function cancel(){
-                alert("You click cancel withdrawal");
-            }
-        </script>
