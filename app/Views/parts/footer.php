@@ -309,6 +309,14 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
             }
         });
     });
+    // manually toggle
+    $(".toggle-menu").click(function(){
+        $(".cls").removeClass();
+        $(".t_menu").addClass('show');
+    });
+    $(".cls").click(function(){
+        $(".t_menu").removeClass('show');
+    });
 
     $(".gmz-message").hide();
     let uri = "<?= route_to('login.check') ?>";
@@ -335,12 +343,18 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                         if (response.success) {
                             $(".gmz-message").show();
                             $(".gmz-message").html("Login successful");
-                            $("#login").prop("disabled", true);
+                            $("#login").addClass("disabled");
                             window.location = uri;
                         } else {
+                            $(".gmz-loader").hide();
                             $(".gmz-message").show();
                             $(".gmz-message").html("Invalid Login details");
                         }
+                    },
+                    error: function(response) {
+                        $(".gmz-loader").hide();
+                        $(".gmz-message").show();
+                        $(".gmz-message").html("Invalid Login details");
                     }
                 });
             }
@@ -386,8 +400,8 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
 </script>
 <!-- //Javascript for location search and autocomplete -->
 <script>
-    // AJAX call for autocomplete 
     $(document).ready(function() {
+        // AJAX call for autocomplete 
         $("#search-box").keyup(function() {
             $.ajax({
                 type: "POST",
@@ -402,6 +416,10 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                     $("#search-box").css("background", "#FFF");
                 }
             });
+        });
+        // manually toggle
+        $(".toggle-menu").click(function(){
+            $(".t_menu").addClass('show');
         });
     });
     //To select country name

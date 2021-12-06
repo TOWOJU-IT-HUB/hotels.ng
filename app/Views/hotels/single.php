@@ -248,11 +248,11 @@
                         <div>
                           <h3 class="room-item__title"> <?= $room['room_name'] ?> </h3>
                           <div class="text-left">
-                            <div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size"><?= ucwords(str_replace(',', ', ',$room['facilities'])) ?></div>
+                            <div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size"><?= ucwords(str_replace(',', ', ', $room['facilities'])) ?></div>
                           </div>
                         </div>
                         <div class="room-price-wrapper">
-                          <div class="price text-center"><span class="text-center"><?= COUNTRY_CURRENCY . number_format(convertedCurrency($room['price'], $room['currencycode'], COUNTRY_CURRENCY), 2) ?></span></div><a href="<?= base_url('home/add_order/'.$room['hotel_id']) ?>"><button onclick="initBooking($(this).data('<?= $room['hotel_id'] ?>'))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $room['hotel_id'] ?>">Book Now</button></a>
+                          <div class="price text-center"><span class="text-center"><?= COUNTRY_CURRENCY . number_format(convertedCurrency($room['price'], $room['currencycode'], COUNTRY_CURRENCY), 2) ?></span></div><a href="<?= base_url('home/add_order/' . $room['hotel_id']) ?>"><button onclick="initBooking($(this).data('<?= $room['hotel_id'] ?>'))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $room['hotel_id'] ?>">Book Now</button></a>
                         </div>
                       </div>
                     </div>
@@ -293,17 +293,15 @@
                       <div class="media-left">
                         <img alt="" src="//via.placeholder.com/1200x900" class="avatar avatar-50 photo avatar-default" height="50" width="50">
                       </div>
-                      <div class="media-body">
-                        <h4 class="media-heading"> <? $review['author'] ?> </h4>
-                        <div class="date"><?= $review['date'] ?></div>
+                      <div class="media-body col-12">
+                        <h4 class="media-heading text-left"> <?= $review['author'] ?> </h4>
+                        <div class="date text-right"><?= $review['date'] ?></div>
                       </div>
                     </div>
                   </div>
                   <div class="comment-item-body">
                     <div class="comment-content">
-                      <p class="comment-title"><?= $review['title'] ?></p>
-                      <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star star-none"></i></div>
-                      <p class="text-dark"><?= $review['pros'] ?></p>
+                      <p class="comment-title"><?= $review['title'] ?></p><p class="text-dark"><?= $review['pros'] ?></p>
                     </div>
                   </div>
                 </div>
@@ -314,7 +312,7 @@
 
         <div class="post-comment parent-form" id="gmz-comment-section">
           <div class="comment-form-wrapper">
-            <form action="" class="comment-form form-sm gmz-form-action form-add-post-comment" method="post" data-reload-time="1000">
+            <form action="<?= base_url('home/reviews') ?>" method="post">
               <h3 class="comment-title">Leave a Review</h3>
               <p class="notice">
                 Your email address will not be published. Required fields are
@@ -325,38 +323,37 @@
                   <div class="spinner-grow text-info align-self-center loader-lg"></div>
                 </div>
               </div>
-              <input type="hidden" name="post_id" value="10" />
-              <input type="hidden" name="comment_id" value="0" />
-              <input type="hidden" name="comment_type" value="hotel" />
+              <input type="hidden" name="hotel_id" value="<?= $_GET['hotel_id'] ?>" />
               <div class="row">
                 <div class="form-group col-lg-12">
                   <div class="review-select-rate">
                     <span>Your rating</span>
                     <div class="fas-star">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
+                      <span class="star-rating">
+                        <input type="radio" name="rating" value="1"><i></i>
+                        <input type="radio" name="rating" value="2"><i></i>
+                        <input type="radio" name="rating" value="3"><i></i>
+                        <input type="radio" name="rating" value="4"><i></i>
+                        <input type="radio" name="rating" value="5"><i></i>
+                      </span>
                     </div>
-                    <input type="hidden" name="review_star" value="5" class="review_star" />
                   </div>
                 </div>
 
                 <div class="form-group col-lg-6">
-                  <input id="comment-name" type="text" name="comment_name" class="form-control gmz-validation" placeholder="Your name*" data-validation="required" />
+                  <input id="comment-name" type="text" name="author" class="form-control gmz-validation" placeholder="Your name*" data-validation="required" />
                 </div>
                 <div class="w-100"></div>
                 <div class="form-group col-lg-6">
-                  <input id="comment-email" type="email" name="comment_email" class="form-control gmz-validation" placeholder="Your email*" data-validation="required" />
+                  <input id="comment-email" type="email" name="email" class="form-control gmz-validation" placeholder="Your email*" data-validation="required" />
                 </div>
                 <div class="w-100"></div>
                 <div class="form-group col-lg-6">
-                  <input id="comment-title" type="text" name="comment_title" class="form-control gmz-validation" placeholder="Comment title*" data-validation="required" />
+                  <input id="comment-title" type="text" name="title" class="form-control gmz-validation" placeholder="Comment title*" data-validation="required" />
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <textarea id="comment-content" name="comment_content" placeholder="Comment*" class="form-control gmz-validation" data-validation="required" rows="4"></textarea>
+                  <textarea id="comment-content" name="pros" placeholder="Comment*" class="form-control gmz-validation" data-validation="required" rows="4"></textarea>
                 </div>
               </div>
               <div class="gmz-message"></div>
@@ -411,10 +408,10 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body"> 
+        <div class="modal-body">
           <input type="hidden" name="hotel_id" value="<?= $description['hotel_id'] ?>" />
           <input type="hidden" name="hotel_name" value="<?= $description['hotel_name'] ?>" />
-          <input type="hidden" name="_url" value="<?= base_url('hotel?hotel_id='.$description['hotel_id']) ?>" />
+          <input type="hidden" name="_url" value="<?= base_url('hotel?hotel_id=' . $description['hotel_id']) ?>" />
           <div class="gmz-loader">
             <div class="loader-inner">
               <div class=" spinner-grow text-info align-self-center loader-lg"></div>
@@ -535,49 +532,164 @@ if ($description['user_id'] == '0') : ?>
     }, 5000);
   </script>
 <?php else : ?>
-  <script>
-    $(function() {
-      $('#check_avail').on('submit', function(e) {
-        e.preventDefault();
-        $('.gmz-loader').show();
-        setTimeout(function() {
-          $('#check_avail').submit();
-          $('.gmz-loader').hide();
-        }, 5000);
-        // $(".room-item--list").remove();
-        // $.ajax({
-        //   type: 'POST',
-        //   url: '<?= base_url('home/room_avialaility'); ?>',
-        //   data: $('#check_avail').serialize(),
-        //   dataType: 'json', // 
-        //   success: function(response) {
-        //     $('.gmz-loader').hide();
-        //     // let data = data.data;
-        //     var a = response.data[0];
-        //     var price = "<?= COUNTRY_CURRENCY . number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>";
-        //     var room = a.rooms;
-        //     var counter = 1;
-        //     jQuery.each(a.rooms, function(index, item) {
-        //       var photo = a.rooms[index].photos;
-        //       var hotel_name = "<?= $description['hotel_name'] ?> #" + counter;
-        //       // alert(Object.keys(photo).length);
-        //       if (Object.keys(photo).length != 0) {
-        //         photo = photo[0].url_original;
-        //       } else {
-        //         photo = "<?= str_replace('max1280x900', '640X200', $description['hotel_thumbnail']) ?>";
-        //       }
-        //       $('#icheck_avail').append('<div class="room-item room-item--list"><div class="row"><div class="col-4"><div class="room-item__thumbnail"><img src="' + photo + '" height="136px" alt="King Suite with Pool View"></div></div><div class="col-8"><div class="room-item__details"><div><h3 class="room-item__title"> ' + hotel_name + ' </h3><div class="text-left"><div class="i-meta" data-toggle="tooltip" title="" data-original-title="Room Size">' + a.rooms[index].description + '</div> </div></div><div class="room-price-wrapper"> <div class="price text-center"><span class="text-center">' + price + '</span></div><button onclick="initBooking($(this).data(' + "'hotel_id'" + '))" class="text-center btn btn-xl btn-info ml-5" data-hotel_id="<?= $_GET['hotel_id'] ?>">Book Now</button></div></div></div></div></div>');
-        //       counter++;
-        //     });
-        //   },
-        //   error: function(XMLHttpRequest, textStatus, errorThrown) {
-        //     $('.gmz-loader').hide();
-        //     // alert("some error");
-        //   }
-        // });
-      });
-    });
-  </script>
+  
 <?php endif ?>
+<style>
+  .feedback {
+    width: 100%;
+    max-width: 780px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 15px;
+    box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.3);
+  }
 
-?>
+  .star-rating {
+    margin: 25px 0 0px;
+    font-size: 0;
+    white-space: nowrap;
+    display: inline-block;
+    width: 175px;
+    height: 35px;
+    overflow: hidden;
+    position: relative;
+    background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+    background-size: contain;
+  }
+
+  .star-rating i {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    z-index: 1;
+    background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+    background-size: contain;
+  }
+
+  .star-rating input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    opacity: 0;
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+    position: relative;
+  }
+
+  .star-rating input:hover+i,
+  .star-rating input:checked+i {
+    opacity: 1;
+  }
+
+  .star-rating i~i {
+    width: 40%;
+  }
+
+  .star-rating i~i~i {
+    width: 60%;
+  }
+
+  .star-rating i~i~i~i {
+    width: 80%;
+  }
+
+  .star-rating i~i~i~i~i {
+    width: 100%;
+  }
+
+  .choice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px;
+    display: block;
+  }
+
+  span.scale-rating {
+    margin: 5px 0 15px;
+    display: inline-block;
+
+    width: 100%;
+
+  }
+
+  span.scale-rating>label {
+    position: relative;
+    -webkit-appearance: none;
+    outline: 0 !important;
+    border: 1px solid grey;
+    height: 33px;
+    margin: 0 5px 0 0;
+    width: calc(10% - 7px);
+    float: left;
+    cursor: pointer;
+  }
+
+  span.scale-rating label {
+    position: relative;
+    -webkit-appearance: none;
+    outline: 0 !important;
+    height: 33px;
+
+    margin: 0 5px 0 0;
+    width: calc(10% - 7px);
+    float: left;
+    cursor: pointer;
+  }
+
+  span.scale-rating input[type=radio] {
+    position: absolute;
+    -webkit-appearance: none;
+    opacity: 0;
+    outline: 0 !important;
+    /*border-right: 1px solid grey;*/
+    height: 33px;
+
+    margin: 0 5px 0 0;
+
+    width: 100%;
+    float: left;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  span.scale-rating label:hover {
+    background: #fddf8d;
+  }
+
+  span.scale-rating input[type=radio]:last-child {
+    border-right: 0;
+  }
+
+  span.scale-rating label input[type=radio]:checked~label {
+    -webkit-appearance: none;
+
+    margin: 0;
+    background: #fddf8d;
+  }
+
+  span.scale-rating label:before {
+    content: attr(value);
+    top: 7px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 2;
+  }
+</style>
+<style>
+    .error {
+        display: none !important;
+    }
+</style>

@@ -116,7 +116,7 @@
         <div class="popup-inner">
             <h4 class="popup-title">Sign In</h4>
             <div class="popup-content">
-                <form class="text-left gmz-form-action account-form">
+                <?= form_open('home/login') ?>
                     <div class="gmz-loader ">
                         <div class="loader-inner">
                             <div class="spinner-grow text-info align-self-center loader-lg"></div>
@@ -147,7 +147,7 @@
 
                         <div class="d-sm-flex justify-content-between">
                             <div class="field-wrapper">
-                                <button type="button" id="login" class="login btn btn-info"><?= lang('text.login') ?></button>
+                                <button type="submit" id="login" class="login btn btn-info"><?= lang('text.login') ?></button>
                             </div>
                         </div>
 
@@ -329,8 +329,8 @@
             </h1>
         </div>
         <div class="site-navigation">
-            <div class="menu-overlay"></div>
-            <ul id="menu-primary-1" class="main-menu">
+            <div class="menu-overlay t_menu"></div>
+            <ul id="menu-primary-1" class="main-menu t_menu">
                 <li class="menu-item menu-item-1 ">
                     <a href="<?= base_url() ?>"><?= lang('text.home') ?></a>
                 </li>
@@ -338,10 +338,10 @@
                     <a href="#">Services</a>
                     <ul role="menu" class="sub-menu">
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=hotel&country[]='.user_country()) ?>">Hotel</a>
+                            <a href="<?= base_url('/search?room_type[]=Hotel&country[]='.user_country()) ?>">Hotel</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=apartment&country[]='.user_country()) ?>">Apartment</a>
+                            <a href="<?= base_url('/search?room_type[]=Apartment&country[]='.user_country()) ?>">Apartment</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="<?= base_url('/search?room_type[]=Motels&country[]='.user_country()) ?>">Motels</a>
@@ -383,7 +383,7 @@
                                 Notifications
                             </div>
                             <p class="text-muted">No Notifications found!</p>
-                            <a href="<?= base_url('dashboard/notifications') ?>" class="dropdown-item text-center notify-item notify-all">
+                            <a href="<?= base_url('admin/notifications') ?>" class="dropdown-item text-center notify-item notify-all">
                                 View All
                                 <i class="fi-arrow-right"></i>
                             </a>

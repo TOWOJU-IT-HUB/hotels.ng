@@ -151,43 +151,46 @@ class BaseController extends Controller
 
     public function send_mail($to, $subject, $msg, $psw_link=null, $action=null)
     {
-        $mail = new PHPMailer(true);
+        // if(!empty(conf['email_host'])){
+        //     $mail = new PHPMailer(true);
 
-        try {
-            //Server settings
-            if(isset(curr_user['fullname'])){
-                $full_name = curr_user['fullname'];
-            } else {
-                $full_name = "WEOTRIP USER";
-            }
-            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'towoju.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'hi@towoju.com';                     //SMTP username
-            $mail->Password   = 'Adedayo201@';                               //SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        //     try {
+        //         //Server settings
+        //         if(isset(curr_user['fullname'])){
+        //             $full_name = curr_user['fullname'];
+        //         } else {
+        //             $full_name = "WEOTRIP USER";
+        //         }
+        //         // $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Enable verbose debug output
+        //         $mail->isSMTP();  //Send using SMTP
+        //         $mail->Host       = conf['email_host']; //Set the SMTP server to send through
+        //         $mail->SMTPAuth   = true;  //Enable SMTP authentication
+        //         $mail->Username   = conf['email_username']; //SMTP username
+        //         $mail->Password   = conf['email_password'];    //'Adedayo201@';                               //SMTP password
+        //         $mail->SMTPSecure = conf['email_enc']; //PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        //         $mail->Port       = conf['email_port']; //465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-            //Recipients
-            $mail->setFrom('hi@towoju.com', "WEOTRIP LLC");
-            $mail->addAddress($to, $full_name);  
-            $_data['msg'] = $msg;
-            if($psw_link != null){
-                $_data['psw_link']  =   $psw_link;
-                $_data['action']    =   $action;
-            }
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = $subject;
-            $mail->Body    = view('test', $_data);
+        //         //Recipients
+        //         $mail->setFrom(conf['email_username'], "WEOTRIP LLC");
+        //         $mail->addAddress($to, $full_name);  
+        //         $_data['msg'] = $msg;
+        //         if($psw_link != null){
+        //             $_data['psw_link']  =   $psw_link;
+        //             $_data['action']    =   $action;
+        //         }
+        //         //Content
+        //         $mail->isHTML(true);                                  //Set email format to HTML
+        //         $mail->Subject = $subject;
+        //         $mail->Body    = view('test', $_data);
 
-            if($mail->send()){
-                return true;
-            }
-        } catch (Exception $e) {
-            error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
-        }
-        return true;
+        //         if($mail->send()){
+        //             return "Email sent successfully";
+        //         }
+        //     } catch (Exception $e) {
+        //         error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+        //         return "sorry we are unable to send your email";
+        //     }
+        // }
+        return "Email sending bypassed by configuration";
     }
 }

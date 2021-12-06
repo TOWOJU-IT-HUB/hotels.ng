@@ -198,7 +198,7 @@
 														<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="room_type[]" value="Cottage">Cottage</label>
 														<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="room_type[]" value="Glamping">Glamping</label>
 														<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="room_type[]" value="Vacations">Vacations</label>
-														<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="room_type[]" value="Hostels">Hostels</label>
+														<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="room_type[]" value="Hostel">Hostel</label>
 														<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="room_type[]" value="Farm Stay">Farm Stay</label>
 														<label class="checkbox-inline"><input type="checkbox" class="gmz-checkbox-item" name="room_type[]" value="Luxury Tents">Luxury Tents</label>
 														<!-- <input type="hidden" name="room_type[]" value="" /> -->
@@ -251,12 +251,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=hotels&country[]='.user_country()) ?>">
+							<a href="<?= base_url('home/search?room_type[]=Hotels&country[]='.user_country()) ?>">
 								<img class="_image-tour" src="https://t-cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=" alt="Hotels">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=hotels&country[]='.user_country()) ?>">Hotels</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Hotels&country[]='.user_country()) ?>">Hotels</a></h3>
 							<div class="tour-type__description">
 
 							</div>
@@ -326,12 +326,12 @@
 				<div class="col-lg-2 col-md-4 col-6">
 					<div class="tour-type__item" data-plugin="matchHeight">
 						<div class="tour-type__thumbnail">
-							<a href="<?= base_url('home/search?room_type[]=Hostels&country[]='.user_country()) ?>">
-								<img class="_image-tour" src="https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_bed_and_breakfast/a6a4a3f904284337c187771d94a4bb6169b168d7.jpg" height="170px" alt="Hostels">
+							<a href="<?= base_url('home/search?room_type[]=Hostel&country[]='.user_country()) ?>">
+								<img class="_image-tour" src="https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_bed_and_breakfast/a6a4a3f904284337c187771d94a4bb6169b168d7.jpg" height="170px" alt="Hostel">
 							</a>
 						</div>
 						<div class="tour-type__info">
-							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Hostels&country[]='.user_country()) ?>">Hostels</a></h3>
+							<h3 class="tour-type__name"><a href="<?= base_url('home/search?room_type[]=Hostel&country[]='.user_country()) ?>">Hostel</a></h3>
 							<div class="tour-type__description">
 
 							</div>

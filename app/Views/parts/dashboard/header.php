@@ -37,8 +37,8 @@
             <!-- LOGO -->
             <div class="topbar-left">
                 <a href="<?= route_to('admin.profile') ?>" class="logo">
-                    <img src="<?= base_url() ?>/dashboard/images/logo-light.png" class="logo-lg" alt="" height="22">
-                    <img src="<?= base_url() ?>/dashboard/images/logo-sm.png" class="logo-sm" alt="" height="24">
+                    <img src="<?= base_url() . '/uploads/logo/' . conf['site_logo'] ?>" class="logo-lg" alt="" height="50">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/W-circle.svg/1500px-W-circle.svg.png" class="logo-sm" alt="" height="50">
                 </a>
             </div>
             <!-- Search input -->
@@ -82,10 +82,6 @@
                             </h6>
                             <div class="slimscroll notification-item-list">
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                    <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
-                                    <p class="notify-details"><b>Your order is placed</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
-                                </a>
                             </div>
                             <!-- All-->
                             <a href="javascript:void(0);" class="dropdown-item text-center notify-all text-primary">

@@ -245,19 +245,33 @@ class Home extends BaseController
 	{
 		$data['inf'] = $this->settings->find(1);
 		$r = $this->request;
-		if ($r->getMethod() == 'post') {
-			$msg 		= $r->getPost('email') . "\n \n";
-			$full_name 	= $r->getPost('full_name') . "\n \n";
-			$subject 	= $r->getPost('subject') . "\n \n";
-			$content 	= $r->getPost('content') . "\n \n";
 
-			$send_msg = $msg . $full_name . $subject . $content;
+		$rules = [
+			'email' => 'required|valid_email',
+			'subject'	=>	'required',
+			'full_name' => 'required',
+			'content'	=>	'required'
+		];
 
-			$adminEmail = conf['contact_us_email'];
-			if (mail($adminEmail, "Contact Us Form", $send_msg)) {
-				return redirect()->back()->with('success', "Request sent successfully");
-			} else {
-				return redirect()->back()->with('error', "Unable to submit your Contact request");
+		if (!$this->validate($rules, $errors)) {
+			$d_resx = $data['validation'] = $this->validator;
+			return redirect()->back()->with('error', "All fields are required.");
+		} else {
+
+			if ($r->getMethod() == 'post') {
+				$msg 		= $r->getPost('email') . "\n \n";
+				$full_name 	= $r->getPost('full_name') . "\n \n";
+				$subject 	= $r->getPost('subject') . "\n \n";
+				$content 	= $r->getPost('content') . "\n \n";
+
+				$send_msg = $msg . $full_name . $subject . $content;
+
+				$adminEmail = conf['contact_us_email'];
+				if (mail($adminEmail, "Contact Us Form", $send_msg)) {
+					return redirect()->back()->with('success', "Request sent successfully");
+				} else {
+					return redirect()->back()->with('error', "Unable to submit your Contact request");
+				}
 			}
 		}
 		echo view('parts/header', $data);
@@ -401,9 +415,14 @@ class Home extends BaseController
 	}
 
 	function test()
-	{
-		// $this->send_mail("towojuads@gmail.com", "Test Email", "You have successfully logged In");
-		// return view('test');
+	{	
+		if(isset($_GET['email'])){
+			$email = $_GET['email'];
+			$send = $this->send_mail($email, "Test Email", "Your email is fully working please go ahead and save do something great.");
+			return $send;
+		} else {
+			die("Email not passed; ex: ?email=admin@example.com");
+		}
 	}
 
 	function complete()
@@ -595,6 +614,24 @@ class Home extends BaseController
 			if($this->send_mail(conf['site_email'], "Enquiry on Hotel: ", $msg)){
 				return redirect()->back()->with('success', "Enquiry sent successfully");
 			}
+		}
+	}
+
+	function reviews()
+	{
+		if ($this->request->getMethod() == 'post') {
+            # code...
+            $r = $this->request;
+            foreach ($_POST as $k => $v) {
+                $q[$k] = $v;
+            }
+            if ( $this->hotel_reviews->insert(array_filter($q))) {
+                return redirect()->back()->with('success', 'Review added successfully');
+            } else {
+                return redirect()->back()->with('error', 'unable to review.');
+            }
+        } else {
+			return redirect()->back();
 		}
 	}
 }

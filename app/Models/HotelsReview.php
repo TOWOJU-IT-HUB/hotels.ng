@@ -15,7 +15,7 @@ class HotelsReview extends Model
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
     protected $allowedFields        = [
-        'id',	'author', 'hotel_id',	'date',	'title',	'pros',	'created_at',	'updated_at',	'deleted_at'
+        'id',	'author', 'hotel_id',	'date',	'title','rating', 'email',	'pros',	'created_at',	'updated_at',	'deleted_at'
     ];
 
     // Dates

@@ -1,4 +1,6 @@
 <div class="site-content">
+    <?php $hey = []; if(isset($_GET['room_type'])){ $hey = $_GET['room_type']; } ?>
+    <?php $gee = []; if(isset($_GET['price_range'])){ $gee = explode(';', $_GET['price_range']); } ?>
     <section class="list-hotel list-hotel--grid py-40 bg-gray-100">
         <div class="container">
             <style>
@@ -7,8 +9,7 @@
                     max-height: 238px;
                 }
             </style>
-            <h2 class="section-title mb-5">Search Result. <?php $gee = []; if(isset($_GET['price_range'])){ $gee = explode(';', $_GET['price_range']); } ?></h2>
-            <?php $hey = []; if(isset($_GET['room_type'])){ $hey = $_GET['room_type']; } ?>
+            <h2 class="section-title mb-5">Search Result. </h2>
 
             <div class="search-form-wrapper">
                 <div class="tab-content mb-5 mt-3" id="searchFormTab">
@@ -159,14 +160,13 @@
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Hotel',     $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Hotel">Hotel</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Apartment', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Apartment">Apartment</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Resorts',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Resorts">Resorts</label>
-                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Resorts',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Resorts">Resorts</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Villas',    $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Villas">Villas</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Guest House',     $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Guest House">Guest House</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Motels',    $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Motels">Motels</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Cottage',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Cottage">Cottage</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Glamping',  $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Glamping">Glamping</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Vacations', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Vacations">Vacations</label>
-                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Hostels',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Hostels">Hostels</label>
+                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Hostel',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Hostel">Hostel</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Farm Stay',  $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Farm Stay">Farm Stay</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Luxury Tents', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Luxury Tents">Luxury Tents</label>
                                             <input type="hidden" name="room_type[]" value="" />

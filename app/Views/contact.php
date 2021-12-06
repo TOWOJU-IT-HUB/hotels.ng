@@ -43,20 +43,20 @@
                             <div class="row">
                                 <div class="form-group col-lg-6">
                                     <label for="full-name">Full Name<span class="required">*</span> </label>
-                                    <input type="text" name="full_name" class="form-control gmz-validation" data-validation="required" id="full-name">
+                                    <input type="text" name="full_name" required class="form-control gmz-validation" data-validation="required" id="full-name">
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="email">Email</label>
-                                    <input type="text" name="email" class="form-control gmz-validation" data-validation="required" id="email">
+                                    <input type="text" name="email" required class="form-control gmz-validation" data-validation="required" id="email">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Subject<span class="required">*</span> </label>
-                                <input type="text" name="subject" class="form-control gmz-validation" data-validation="required" id="subject">
+                                <input type="text" name="subject" required class="form-control gmz-validation" data-validation="required" id="subject">
                             </div>
                             <div class="form-group">
                                 <label for="content">Content<span class="required">*</span> </label>
-                                <textarea name="content" rows="3" class="form-control " id="content"></textarea>
+                                <textarea name="content" rows="3" required class="form-control" id="content"></textarea>
                             </div>
                             <div class="gmz-message"></div>
                             <button type="submit" class="btn btn-primary">SUBMIT REQUEST</button>
@@ -79,3 +79,8 @@
         <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"></iframe>
         </div>
 </div>
+<style>
+    .error {
+        display: none !important;
+    }
+</style>

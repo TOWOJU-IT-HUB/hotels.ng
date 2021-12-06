@@ -75,32 +75,32 @@
                             <div class="row">
                                 <div class="form-group col-lg-6">
                                     <label for="full-name">FirstName<span class="required">*</span> </label>
-                                    <input type="text" name="firstname" class="form-control gmz-validation" data-validation="required" id="firstname">
+                                    <input type="text" name="firstname" required class="form-control gmz-validation" data-validation="required" id="firstname">
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="email">LastName</label>
-                                    <input type="text" name="lastname" class="form-control gmz-validation" data-validation="required" id="lastname">
+                                    <input type="text" name="lastname" required class="form-control gmz-validation" data-validation="required" id="lastname">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" name="email" class="form-control gmz-validation" data-validation="required" id="email">
+                                <input type="text" name="email" required class="form-control gmz-validation" data-validation="required" id="email">
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-lg-6">
                                     <label for="subject">Password<span class="required">*</span> </label>
-                                    <input type="text" name="password" class="form-control gmz-validation" data-validation="required" id="password">
+                                    <input type="text" name="password" required class="form-control gmz-validation" data-validation="required" id="password">
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="email">Phone Number</label>
-                                    <input type="number" name="phone" class="form-control gmz-validation" data-validation="required" id="phone">
+                                    <input type="number" name="phone" required class="form-control gmz-validation" data-validation="required" id="phone">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="content">Address<span class="required">*</span> </label>
-                                <textarea name="address" rows="3" class="form-control " id="address"></textarea>
+                                <textarea name="address" rows="3" required class="form-control " id="address"></textarea>
                             </div>
                             <div class="gmz-message"></div>
                             <button type="submit" class="btn btn-primary">SUBMIT REQUEST</button>
