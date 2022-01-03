@@ -45,7 +45,6 @@
                             ];
                             $es = '?' . http_build_query($es);
                             $final_url = route_to('hotels.view') . $es;
-                            // $final_url = "https://google.com";
                             ?>
                             <div class="col-md-6 col-xl-3">
 
@@ -58,7 +57,8 @@
                                         <h4 class="card-title font-16 mt-0"><?= $rex['hotel_name'] ?></h4>
                                         <p class="card-text text-danger h4"><?= COUNTRY_CURRENCY . number_format(convertedCurrency($rex['price'], $rex['currency']), 2) ?></p>
                                         <p class="card-text"><i class="fas fa-map-marker-alt mr-2"></i> <?= $rex['city'] .', '.$rex['country_trans'] ?>.</p>
-                                        <a target="_blank" href="<?= $final_url ?>" class="btn btn-outline-info waves-effect waves-light">View Detail </a>
+                                        <a target="_blank" href="<?= $final_url ?>" class="btn btn-outline-info waves-effect waves-light text-left">View Detail </a>
+                                        <a href="<?= base_url('admin/wishlist').'?action=delete&id='.$rex['id'] ?>" class="btn btn-outline-info waves-effect waves-light float-right"><i class="fa fa-trash-o"></i> </a>
                                     </div>
                                 </div>
 

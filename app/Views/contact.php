@@ -34,6 +34,13 @@
                 <div class="col-lg-5 card card-body pl-3 pr-3 pt-5 pb-5 m-2">
                     <div class="become-form">
                         <h2 class="title pb-3">Contact Us</h2>
+                        <?php if(isset($validation) && !empty($validation)){ ?>
+                        
+                            <?php foreach($validation as $v){ ?>
+                                <p> <?= $v ?> </p>
+                            <?php } ?>
+                            
+                        <?php } ?>
                         <?= form_open() ?>
                             <div class="gmz-loader ">
                                 <div class="loader-inner">
@@ -47,7 +54,7 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="email">Email</label>
-                                    <input type="text" name="email" required class="form-control gmz-validation" data-validation="required" id="email">
+                                    <input type="email" name="email" required class="form-control gmz-validation" data-validation="required" id="email">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -76,7 +83,7 @@
         </div>
     </section>
     <div class="row">
-        <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"></iframe>
+        <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=51.512204828497794,-0.08400867198810423&hl=es;z=14&amp;output=embed"></iframe>
         </div>
 </div>
 <style>

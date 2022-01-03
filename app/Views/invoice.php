@@ -100,6 +100,8 @@
     </style>
     <!-- Sweetalert css -->
     <link href="<?= base_url('dashboard/plugins/sweetalert2.css') ?>" rel="stylesheet" type="text/css">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -152,9 +154,7 @@
 
             <tr class="details">
                 <td>
-                    <a href="<?= current_url() . '/pay' ?>">
-                        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppppcmcvdam.png" alt="Pay with PayPal, PayPal Credit or any major credit card" />
-                    </a>
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppppcmcvdam.png" alt="Pay with PayPal, PayPal Credit or any major credit card" />
                 </td>
                 <td><?= $hotel['currencycode'] . number_format($hotel['min_total_price'], 2) ?> (<?= country_symbol() . number_format(convertedCurrency($hotel['min_total_price'], $hotel['currencycode'], COUNTRY_CURRENCY), 2) ?>)</td>
             </tr>
@@ -189,40 +189,78 @@
                 <td style="font-weight: bold;"><?= $hotel['currencycode'] ?></td>
             </tr>
 
-            <tr class="item">
-                <td style="font-weight: bold;">Total: <?= $hotel['currencycode'] . number_format($hotel['min_total_price'], 2) ?> (<?= country_symbol() . number_format(convertedCurrency($hotel['min_total_price'], $hotel['currencycode'], COUNTRY_CURRENCY), 2) ?>)</td>
+            <tr class="item"> <?php $_curr = $hotel['currencycode']; $newPriceGBP = getDueAmount($_curr, $amount) ?>
+                <td style="font-weight: bold;">Total: <?= $_curr = $hotel['currencycode'] . number_format($hotel['min_total_price'], 2) ?> (<?= PAYPAL_CURRENCY . number_format($hotel['min_total_price'], 2) ?>)</td>
 
-                <td>Amount Due: <?= $hotel['currencycode'] . number_format($amount, 2) ?> (<?= country_symbol() . number_format(convertedCurrency($amount, $hotel['currencycode'], COUNTRY_CURRENCY), 2) ?>)</td>
+                <td>Amount Due: <?= $hotel['currencycode'] . number_format($amount, 2) ?> (<?= PAYPAL_CURRENCY ?><span id='f_amount'><?= number_format($newPriceGBP, 2) ?></span>)</td>
             </tr>
             <tr class="item last">
                 <td></td>
                 <td>
-                    <a href="<?= current_url() . '/pay' ?>">
-                        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
-                    </a>
+                    <div id="paypal-button-container"></div>
+                    <div id="paypal-button"></div>
                 </td>
             </tr>
         </table>
     </div>
-<!-- Sweet-Alert  -->
-<script src="<?= base_url('dashboard/plugins/sweetalert2.min.js') ?>"></script>
-<?php if (session()->get('error')) : ?>
     <script>
-        swal({
-            title: 'sorry!',
-            text: "<?= session()->get('error') ?>",
-            type: 'error',
-        })
+        let amount_due = $('#f_amount').text();
+        // alert(amount_due);
+        paypal.Button.render({
+            env: '<?php echo PAYPAL_ENV; ?>',
+            client: {
+                "<?= PAYPAL_ENV ?>" : "<?= CLIENT_ID ?>"
+            },
+            payment: function(data, actions) {
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: amount_due,
+                            currency: '<?php echo PAYPAL_CURRENCY ?>'
+                        }
+                    }]
+                });
+            },
+            onAuthorize: function(data, actions) {
+                return actions.payment.execute()
+                    .then(function() {
+                        window.location = "<?= base_url('home/check_paypal') ?>?pay_id=<?= $inv_id ?>&am=<?= $final_price ?>&paymentID=" +
+                            data.paymentID + "&payerID=" +
+                            data.payerID + "&token=" + data.paymentToken + "&pid=<?php echo $amount; ?>&currency=<?= $_curr ?>";
+                    });
+            }
+        }, '#paypal-button');
     </script>
-<?php elseif (session()->get('success')) : ?>
-    <script>
-        swal({
-            title: 'Good job!',
-            text: '<?= session()->get("success") ?>',
-            type: 'success',
-        })
-    </script>
-<?php endif ?>
+    <!-- Sweet-Alert  -->
+    <script src="<?= base_url('dashboard/plugins/sweetalert2.min.js') ?>"></script>
+    <?php if (session()->get('error')) : ?>
+        <script>
+            swal({
+                title: 'sorry!',
+                text: "<?= session()->get('error') ?>",
+                type: 'error',
+            })
+        </script>
+    <?php elseif (session()->get('success')) : ?>
+        <script>
+            swal({
+                title: 'Good job!',
+                text: '<?= session()->get("success") ?>'+'<br>Please Allow the paypal redirection to complete after payment.',
+                type: 'success',
+            })
+        </script>
+    <?php endif ?>
+<?php 
+
+    function getDueAmount($curr, $amount)
+    {
+        $result = file_get_contents("https://open.er-api.com/v6/latest/".$curr);
+        $result = json_decode($result, true);
+        $result = $amount * $result['rates']['GBP'];
+        return  $result;
+    }
+
+?>
 </body>
 
 </html>

@@ -91,6 +91,9 @@ class Home extends BaseController
 
 	public function login()
 	{
+	    if(session()->get('id') == true){
+	        return redirect()->to(base_url('admin/dashboard'));
+	    }
 		$data   =   [];
 		if ($this->request->getMethod() == 'post') {
 			$rules = [
@@ -106,23 +109,26 @@ class Home extends BaseController
 
 			if (!$this->validate($rules, $errors)) {
 				$d_resx = $data['validation'] = $this->validator;
-				return json_encode(['error' => 'Incorrect Login Data.']);
+				return redirect()->to(base_url('login'))->with('error', 'Incorrect Login Data.');
 			} else {
 				//Confirm user credentials and Start a Session//
 				$model = $this->user;
-				$user = $model->where('email', xx_clean($this->request->getVar('email'), 'email'))->first();
+				$_email = $this->request->getVar('email');
+				$user = $model->where('email', xx_clean($_email, 'email'))->first();
 				$this->setUserSession($user);
 				session()->setFlashdata('success', 'Login Successful...');
 				$user = $this->setUserSession($user);
 
 				$full_name = session()->get('fullname');
 
-				$this->send_mail(session()->get('email'), "New Login on WEOTRIP", "Someone just loged in to your WeoTrip account. If this wasn't you, please kindly login and change your password ASAP, or reach out to us via " . conf['site_email']);
+				mail($_email, "New Login on WEOTRIP", "Someone just loged in to your WeoTrip account. If this wasn't you, please kindly login and change your password ASAP, or reach out to us via " . conf['site_email']);
 
-				return json_encode(['success' => 'Login Successful.']);
+				return redirect()->back()->with('success', 'Login Successful.');
 			}
 		}
-		return view('login', $data);
+		echo view('parts/header', $data);
+        echo view('login');
+        echo view('parts/footer');
 	}
 
 	private function setUserSession($user)
@@ -160,7 +166,9 @@ class Home extends BaseController
 			];
 
 			if (!$this->validate($rules)) {
-				$data['validation'] = $this->validator;
+				$data['validation'] = $this->validator; // return array.
+				return view('register', $data); // won't work because it return an array
+				
 			} else {
 
 				//save user details into DB//
@@ -184,17 +192,14 @@ class Home extends BaseController
 				if ($model->insert($newdata)) {
 					$user = $model->where('email', $email)->first();
 					$user = $this->setUserSession($user);
-					$msg = "We can’t wait for you to start using WEOTRIP and seeing how we get you the best hotels booking at an affordable rates.
-					<br> <br>Simply go here www.weotrip.com to get started, or visit our Help Center www.weotrip.com/contact-us to resolve any issue you might have using our services.<br> <br>As always, our support team can be reached at " . conf['site_email'] . " if you ever get stuck.";
-					$this->send_mail($email,  "Registration Was Succesful", $msg);
+					$msg = "We can’t wait for you to start using WEOTRIP and seeing how we get you the best hotels booking at an affordable rates. \n \nSimply go here www.weotrip.com to get started, or visit our Help Center www.weotrip.com/contact-us to resolve any issue you might have using our services. \nAs always, our support team can be reached at " . conf['site_email'] . " if you ever get stuck.";
+					mail($email,  "Registration Was Succesful", $msg);
 					return redirect()->back()->with('success', 'Registration Successful.');
 				}
 			}
-		} else {
-			return redirect()->to(base_url());
-		}
-
-		return redirect()->to(base_url());
+		} 
+// 		return redirect()->to(base_url());
+        return view('register');
 	}
 
 	public function page($slug)
@@ -245,20 +250,20 @@ class Home extends BaseController
 	{
 		$data['inf'] = $this->settings->find(1);
 		$r = $this->request;
+		
+		if ($r->getMethod() == 'post') {
 
-		$rules = [
-			'email' => 'required|valid_email',
-			'subject'	=>	'required',
-			'full_name' => 'required',
-			'content'	=>	'required'
-		];
-
-		if (!$this->validate($rules, $errors)) {
-			$d_resx = $data['validation'] = $this->validator;
-			return redirect()->back()->with('error', "All fields are required.");
-		} else {
-
-			if ($r->getMethod() == 'post') {
+    		$rules = [
+    			'email' => 'required|valid_email',
+    			'subject'	=>	'required',
+    			'full_name' => 'required',
+    			'content'	=>	'required'
+    		];
+    
+    		if (!$this->validate($rules)) {
+    			$d_resx = $data['validation'] = $this->validator;
+    			return redirect()->back()->with('error', "Please check your input.");
+    		} else {
 				$msg 		= $r->getPost('email') . "\n \n";
 				$full_name 	= $r->getPost('full_name') . "\n \n";
 				$subject 	= $r->getPost('subject') . "\n \n";
@@ -274,6 +279,7 @@ class Home extends BaseController
 				}
 			}
 		}
+		
 		echo view('parts/header', $data);
 		echo view('contact');
 		echo view('parts/footer');
@@ -307,7 +313,6 @@ class Home extends BaseController
 					$email = xx_clean($this->request->getPost('email'), 'email');
 					$phone = xx_clean($this->request->getPost('phone'), 'int');
 					$newdata = [
-						// 'idz'	=>	1,
 						'fullname' 		=>  $firstname . ' ' . $lastname,
 						'firstname' 	=>  $firstname,
 						'lastname' 		=>  $lastname,
@@ -324,10 +329,13 @@ class Home extends BaseController
 						$msg = "We can’t wait for you to start using WEOTRIP and seeing how we get you the best hotels booking at an affordable rates.
 						<br> <br>Simply go here www.weotrip.com to get started, or visit our Help Center www.weotrip.com/contact-us to resolve any issue you might have using our services.<br> <br>As always, our support team can be reached at " . conf['site_email'] . " if you ever get stuck.";
 						$this->send_mail($email,  "Registration Was Succesful", $msg);
-						return redirect()->back()->with('success', 'Registration Successful.');
+						$model = $this->user;
+        				$_email = $this->request->getVar('email');
+        				$user = $model->where('email', xx_clean($_email, 'email'))->first();
+						return redirect()->to(base_url('admin/add_new_hotels'))->with('success', 'Registration Successful.');
 					}
 				}
-				return redirect()->back()->with('success', "Request sent successfully");
+				return redirect()->to(base_url('login'))->with('success', "Request sent successfully");
 			} else {
 				return redirect()->back()->with('error', "Unable to submit your Partnership request");
 			}
@@ -348,10 +356,31 @@ class Home extends BaseController
 		];
 		$r = $this->request;
 		if ($r->getMethod() == 'post') {
+		    $rules = [
+    			'email' => 'required|valid_email',
+    			'firstname'     => 'required',
+                'lastname'      => 'required',
+                'checkin'       => 'required',
+                'checkout'      => 'required',
+                'checkin_time'  => 'required',
+                'checkout_time' => 'required',
+                'country'       => 'required',
+                'number'        => 'required',
+				'quantity'		=> 'required'
+    		];
+    
+    		if (!$this->validate($rules)) {
+    			$d_resx = $data['validation'] = $this->validator;
+    			return redirect()->back()->with('error', "All fields are required.");
+    		}
 			foreach ($_POST as $k => $v) {
 				$q[$k] = $v;
+				$q['quantity']		=	$r->getPost('quantity');
 				$q['booking_from'] =  ($r->getPost('checkin'));
 				$q['booking_to'] =  ($r->getPost('checkout'));
+		        $q['user_id']   =  session()->get('id');
+		        $q['total'] =   $this->hotel_cost($r->getPost('hotel_id'));
+                $q['services']   =  $r->getPost('checkin')." -> ".$r->getPost('checkout');
 			}
 			if ($_d = $this->orders->insert($q)) {
 				return redirect()->to(base_url("home/invoice/$_d"))->with('success', "Booking Success please pay 10% of your booking fee.");
@@ -364,21 +393,34 @@ class Home extends BaseController
 		echo view('hotels/book_hotel');
 		echo view('parts/footer');
 	}
+	
+	/**
+	*   Find Hotel cost using hotel ID
+	*/
+	
+	function hotel_cost($hotel_id)
+	{
+	    $result = $this->hotels->where('hotel_id', $hotel_id)->first();
+	    $result = (0 + $result['min_total_price']);
+	    return $result;
+	}
 
 	public function invoice($inv_id, $action = null)
 	{
+	    if(session()->get('id') == false){ return redirect()->to(base_url('login')); }
 		$info = $this->orders->find($inv_id);
 		$hotel = $this->hotels->where('hotel_id', $info['hotel_id'])->first();
 		$total = $hotel['min_total_price'] - $info['total_paid'];
 		$portion = 10;
 		$percentage = ($portion / 100) * $total; // 20
 		$amount = base64_encode($percentage);
+		$final_price = round(convertedCurrency($percentage, COUNTRY_CURRENCY, PAYPAL_CURRENCY), 2);
 		if ($action == 'pay') {
 			try {
 				$response = [];
 				$response = $this->gateway->purchase(array(
-					'amount' => round($percentage, 2), //intval($hotel['min_total_price']),
-					'currency' => $hotel['currencycode'],
+					'amount' => $final_price, //intval($hotel['min_total_price']),
+					'currency' => PAYPAL_CURRENCY,
 					'returnUrl' => base_url("home/check_paypal?pay_id=$inv_id&am=$amount"),
 					'cancelUrl' => base_url('/'),
 				))->send();
@@ -392,7 +434,7 @@ class Home extends BaseController
 					// not successful
 					die('Can not process payment at the moment please contact the support, <hr> Reason: ' . $response->getMessage());
 				}
-			} catch (Exception $e) {
+			} catch (\Exception $e) {
 				echo $e->getMessage();
 				die('can not process payment at the moment please contact the support');
 			}
@@ -402,7 +444,9 @@ class Home extends BaseController
 			'info'	=>	$info,
 			'hotel'	=>	$hotel,
 			'_id'	=>	$inv_id,
+			'inv_id' => $inv_id,
 			'amount' => $percentage,
+			'final_price' => $final_price
 		];
 
 		echo view('invoice', $data);
@@ -425,6 +469,9 @@ class Home extends BaseController
 		}
 	}
 
+    /**
+     * For search location auto complete
+     */
 	function complete()
 	{
 		$r = $this->request;
@@ -451,22 +498,40 @@ class Home extends BaseController
 
 	public function check_paypal()
 	{
-		// if(!isset($_SERVER['HTTP_REFERER'])){
-		// 	// redirect them to your desired location
-		// 	http_response_code(404);
-		// 	header('Location: '.base_url());
-		// 	return redirect()->to(base_url())->with('error', 'Unknown Request');
-		// }
 		$pay_id = $this->request->getGet('pay_id');
-		$info = $this->orders->find($pay_id);
+		$info = $this->orders->find($pay_id); 
 		$paid = $info['total_paid'];
-		$amount = base64_decode($this->request->getGet('am'));
+		$amount = $this->request->getGet('pid');
+		$check_processed = $this->payment->where('token', $this->request->getGet('token'))->countAllResults();
+		if($check_processed > 0){
+			return redirect()->to(base_url('admin/myorders'))->with('error', 'Payment Proccessed Already.');
+		}
 		if (isset($pay_id)) {
-			$this->orders->where('id', $pay_id)->set(['total_paid' => ($paid + $amount)])->update();
-			return redirect()->to(base_url())->with('success', 'Payment of 10% Fee Successful, we would get intouch via email');
+		        $_data = [
+    		        'total_paid' => ($paid + $amount),
+    		        'currency' => preg_replace("/[^a-zA-Z0-9]+/", "", $_GET['currency'])
+		        ];
+			if($this->orders->where('id', $pay_id)->set($_data)->update()){
+		        $payment_data = [
+		            'token'     =>  $this->request->getGet('token'),
+		            'payment_id'=>  $this->request->getGet('paymentID'),
+		            'order_id'  =>  $this->request->getGet('pay_id')
+		        ];
+		        $orderId = $this->payment->insert($payment_data);
+		        
+		        $_hot['info'] = $info;
+		        $_hot['hotel'] = $this->hotels->find($info['hotel_id']);
+		        
+		        $orderMSG = view('inv', $_hot);
+		        $this->send_mail(session()->get('email'), "Payment on WEOTRIP", $orderMSG);
+    			return redirect()->to(base_url('admin/myorders'))->with('success', 'Payment of 10% Fee Successful, we would get in touch via email');
+			} else {
+    			return redirect()->to(base_url('admin/myorders'))->with('error', 'Payment of 10% Fee Successful, but we\'re unable to update your payment at the moment, please contact support');
+			}
 		}
 	}
 
+    // check room availablility //
 	public function availability()
 	{
 		// header('Content-Type: application/json; charset=utf-8');
@@ -474,6 +539,8 @@ class Home extends BaseController
 		$checkout 	= $_POST['checkOut'];
 		$adult 		= $_POST['adult'];
 		$children 	= $_POST['children'];
+		session()->set('checkin', $checkin);
+		session()->set('checkout', $checkout);
 		$data = [
 			'response'  =>  $this->hotels->findAll(12),
 		];
@@ -541,7 +608,7 @@ class Home extends BaseController
 				if ($model->insert($newdata)) {
 					$user = $model->where('email', $email)->first();
 					$this->setUserSession($user);
-					return json_encode(['success' => "Registration Successful You can now login with your email and $lastname as your password."]);
+					return json_encode(['success' => "Registration Successful. You can now login with your email and $lastname as your password."]);
 				}
 			}
 		}
@@ -565,11 +632,11 @@ class Home extends BaseController
 					'user_email' => $email,
 					'reset_hash' => $hash, 
 				];
-				$msg 	= "Hi $full_name,<br><br>Someone probably you have just request for a password reset on our website www.weotrip.com please use the below url to reset your password <br><br> $url or click Reset Password below";
+				$msg 	= "Hi $full_name,<br><br>Someone probably you have just request for a password reset on our website www.weotrip.com please use the below url to reset your password <br><br> <a href='{$url}'>$url</a> ";
 				$this->password_reset->insert($newdata);
-				$this->send_mail($r->getPost('email'), "Password Reset on WEOTRIP", $msg, $url, "Reset Password");
+				mail($email, "Password Reset on WEOTRIP", $msg);
 			}
-			return redirect()->to('/')->with("success", "Your password Reset URL should arrive in a minute");
+			return redirect()->to('/')->with("success", "Your password Reset URL should arrive in 5 minutes");
 		}
 	}
 
@@ -606,6 +673,17 @@ class Home extends BaseController
 	{
 		$r = $this->request;
 		if($r->getMethod() == 'post'){
+		    $rules = [
+    			'email'     => 'required|valid_email',
+    			'full_name' => 'required',
+    			'content'	=>	'required'
+    		];
+    
+    		if (!$this->validate($rules)) {
+    			$d_resx = $data['validation'] = $this->validator;
+    			return redirect()->back()->with('error', "All fields are required.");
+    		}
+    		
 			$name 	= $r->getPost('full_name');
 			$email 	= $r->getPost('email');
 			$body 	= $r->getPost('content');
@@ -621,6 +699,19 @@ class Home extends BaseController
 	{
 		if ($this->request->getMethod() == 'post') {
             # code...
+            $rules = [
+    			'email'     =>  'required|valid_email',
+    			'rating'    =>  'required',
+                'author'    =>  'required',
+                'email'     =>  'required',
+                'title'     =>  'required',
+                'pros'      =>  'required',
+    		];
+    
+    		if (!$this->validate($rules)) {
+    			$d_resx = $data['validation'] = $this->validator;
+    			return redirect()->back()->with('error', "All fields are required.");
+    		}
             $r = $this->request;
             foreach ($_POST as $k => $v) {
                 $q[$k] = $v;
@@ -634,4 +725,104 @@ class Home extends BaseController
 			return redirect()->back();
 		}
 	}
+	
+	function tee(){
+	    $ee = $this->p_earnings->where('partner_id',1)->selectSum('balance')->first();
+	    var_dump($ee);
+	}
+	
+	function getPaypalUri(){
+	    return "https://ipnpb.paypal.com/cgi-bin/webscr";
+	}
+	
+	public function verify_ipn()
+    {
+        if ( ! count($_POST)) {
+            throw new Exception("Missing POST Data");
+        }
+
+        $raw_post_data = file_get_contents('php://input');
+        file_put_contents(WRITEPATH.'cert/log_data.txt', $raw_post_data, FILE_APPEND);
+        $raw_post_array = explode('&', $raw_post_data);
+        $myPost = array();
+        foreach ($raw_post_array as $keyval) {
+            $keyval = explode('=', $keyval);
+            if (count($keyval) == 2) {
+                // Since we do not want the plus in the datetime string to be encoded to a space, we manually encode it.
+                if ($keyval[0] === 'payment_date') {
+                    if (substr_count($keyval[1], '+') === 1) {
+                        $keyval[1] = str_replace('+', '%2B', $keyval[1]);
+                    }
+                }
+                $myPost[$keyval[0]] = urldecode($keyval[1]);
+            }
+        }
+
+        // Build the body of the verification post request, adding the _notify-validate command.
+        $req = 'cmd=_notify-validate';
+        $get_magic_quotes_exists = false;
+        if (function_exists('get_magic_quotes_gpc')) {
+            $get_magic_quotes_exists = true;
+        }
+        foreach ($myPost as $key => $value) {
+            if ($get_magic_quotes_exists == true && get_magic_quotes_gpc() == 1) {
+                $value = urlencode(stripslashes($value));
+            } else {
+                $value = urlencode($value);
+            }
+            $req .= "&$key=$value";
+        }
+
+        // Post the data back to PayPal, using curl. Throw exceptions if errors occur.
+        $ch = curl_init($this->getPaypalUri());
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
+        curl_setopt($ch, CURLOPT_SSLVERSION, 6);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+
+        // This is often required if the server is missing a global cert bundle, or is using an outdated one.
+        if ($this->use_local_certs) {
+            curl_setopt($ch, CURLOPT_CAINFO, WRITEPATH . "/cert/cacert.pem");
+        }
+        curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'User-Agent: PHP-IPN-Verification-Script',
+            'Connection: Close',
+        ));
+        $res = curl_exec($ch);
+        if ( ! ($res)) {
+            $errno = curl_errno($ch);
+            $errstr = curl_error($ch);
+            curl_close($ch);
+            throw new Exception("cURL error: [$errno] $errstr");
+        }
+
+        $info = curl_getinfo($ch);
+        $http_code = $info['http_code'];
+        if ($http_code != 200) {
+            throw new Exception("PayPal responded with http code $http_code");
+        }
+
+        curl_close($ch);
+
+        // Check if PayPal verifies the IPN data, and if so, return true.
+        if ($res == self::VALID) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    function webhook()
+    {
+        //
+    }
+    
+    function test_ipn(){
+        echo "<form method='post' action='".base_url()."/home/verify_ipn'><input name='amount'><button type='submit'>submit</button>";
+    }
 }

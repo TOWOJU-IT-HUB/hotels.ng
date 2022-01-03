@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label for="full-name">FirstName<span class="required">*</span>
                                 </label>
-                                <input type="text" name="firstname" class="form-control gmz-validation" data-validation="required" id="first-name" />
+                                <input type="text" name="firstname" class="form-control gmz-validation" required value="<?= curr_user['firstname'] ?>" data-validation="required" id="first-name" />
                             </div>
                         </div>
 
@@ -41,9 +41,13 @@
                             <div class="form-group">
                                 <label for="full-name">LastName<span class="required">*</span>
                                 </label>
-                                <input type="text" name="lastname" class="form-control gmz-validation" data-validation="required" id="last-name" />
+                                <input type="text" name="lastname" class="form-control gmz-validation" required value="<?= curr_user['lastname'] ?>" data-validation="required" id="last-name" />
                             </div>
                         </div>
+                        <input type="hidden" name="no_adult" class="form-control gmz-validation" required value="<?php if(isset($_SESSION['adult'])){ echo $_SESSION['adult']; } else { echo  '1'; }?>">
+                        <input type="hidden" name="total_rooms" class="form-control gmz-validation" required value="<?php if(isset($_SESSION['room'])){ echo $_SESSION['room']; } else { echo  '1'; }?>">
+                        <input type="hidden" name="no_children" class="form-control gmz-validation" required value="<?php if(isset($_SESSION['children'])){ echo $_SESSION['children']; } else { echo  '0'; }?>">
+                        <input type="hidden" name="address" class="form-control gmz-validation" required value="<?=curr_user['address'] ?>">
 
                     </div>
 
@@ -52,8 +56,8 @@
                             <div class="form-group">
                                 <label for="full-name">Country<span class="required">*</span>
                                 </label>
-                                <select class="form-control" name="country">
-                                    <option value="null">-- Please Select --</option>
+                                <select class="form-control" required name="country">
+                                    <option selected disabled >-- Please Select --</option>
                                     <option value="afghan">Afghan</option>
                                     <option value="albanian">Albanian</option>
                                     <option value="algerian">Algerian</option>
@@ -254,7 +258,7 @@
                             <div class="form-group">
                                 <label for="full-name">Phone Number<span class="required">*</span>
                                 </label>
-                                <input type="tel" name="number" class="form-control gmz-validation" data-validation="required" id="phone" />
+                                <input type="tel" name="number" class="form-control gmz-validation" value="<?= curr_user['phone'] ?>" data-validation="required" id="phone" />
                             </div>
                         </div>
 
@@ -263,9 +267,9 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="full-name">Checkin Date<span class="required">*</span>
+                                <label for="full-name">Checkin Date <span class="required">*</span>
                                 </label>
-                                <input type="date" name="checkin" class="form-control gmz-validation" data-validation="required" id="checkin" />
+                                <input type="text" name="checkin" class="form-control" required id="checkin" />
                             </div>
                         </div>
 
@@ -273,7 +277,7 @@
                             <div class="form-group">
                                 <label for="full-name">Checkout Date<span class="required">*</span>
                                 </label>
-                                <input type="date" name="checkout" class="form-control gmz-validation" data-validation="required" id="checkout" />
+                                <input type="text" name="checkout" class="form-control" data-validation="required" id="checkout" />
                             </div>
                         </div>
                     </div>
@@ -302,11 +306,11 @@
 
                     <div class="form-group">
                         <label for="email">Email<span class="required">*</span></label>
-                        <input type="text" name="email" class="form-control gmz-validation" required data-validation="required" id="email" />
+                        <input type="email" name="email" required class="form-control gmz-validation" value="<?= curr_user['email'] ?>" required data-validation="required" id="email" />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <button type="button" onclick="window.history.back()" class="btn btn-secondary" data-dismiss="modal">
                         CLOSE
                     </button>
                     <button type="submit" class="btn btn-primary">
@@ -334,4 +338,38 @@ function get_times($default = '19:00', $interval = '+30 minutes')
     }
     return $output;
 }
+
+if(session()->get('checkout') == false){
+    $_c_date = date('d/M/Y',  strtotime("+2 day", strtotime(date('M d, Y'))));
+} else {
+    $_c_date = session()->get('checkout');
+}
+
+
+if(session()->get('checkin') == false){ 
+    $__date = date('d/M/Y');
+} else {
+    $__date = session()->get('checkin');
+}
 ?>
+
+<script>
+    $("#checkin").ready(function () {
+       var inpValue = "<?= $__date ?>";
+       $("#checkin").val(inpValue);
+       $("#checkin").datepicker({
+            minDate: 0,
+            maxDate: "+4Y",
+            dateFormat: "dd/M/yy"
+       });
+    })
+    $("#checkout").ready(function () {
+       var inpValue = "<?= $_c_date ?>";
+       $("#checkout").val(inpValue);
+       $("#checkout").datepicker({
+            minDate: 0,
+            maxDate: "+4Y",
+            dateFormat: "dd/M/yy"
+       });
+    })
+</script>

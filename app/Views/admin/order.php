@@ -3,10 +3,10 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Details</a>
-        </li>
+        </li><?php if(session()->get('role') == 'admin'): ?>
         <li class="nav-item">
             <a class="nav-link" id="cust-tab" data-toggle="tab" href="#cust" role="tab" aria-controls="cust" aria-selected="false">Customer</a>
-        </li>
+        </li><?php endif ?>
     </ul>
     <div class="tab-content mt-4 text-left" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -66,11 +66,12 @@
                                 <th scope="col">Total Amount</th>
                                 <td><?= $order['currencycode'] . number_format($order['min_total_price'] + $tax_total_price, 2) ?></td>
                             </tr>
+                            
                             <tr class="text-center">
                                 <td>
                                     <a href="<?= base_url('admin/grabActive/' . $order['hotel_id'] . '/' . $order['id']) ?>">
                                         <button class="btn btn-primary btn-bg" type="button">
-                                            Approve Booking
+                                            Send Invoice
                                         </button>
                                     </a>
                                 </td>
@@ -80,6 +81,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="tab-pane fade" id="cust" role="tabpanel" aria-labelledby="profile-tab">
             <!-- // tab 2 for custom css -->
             <div class="ml-3">

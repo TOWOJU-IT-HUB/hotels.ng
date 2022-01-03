@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="<?= session()->get('lang') ?>">
-
+<?php 
+/* Grab Currency list from ::DB */
+$db = db_connect();
+$curr_list = $db->query('SELECT * FROM currency')->getResultArray();
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,19 +63,19 @@
     <div id="top-bar-1" class="top-bar top-bar--1">
         <div class="top-bar__left">
             <div class="promo d-flex align-items-center">
-                <?php
+              <?php
                 $db      = \Config\Database::connect();
                 $social = $db->query("SELECT * FROM social")->getResultArray();
                 ?>
                 <?php foreach ($social as $icon) : ?>
                     <a target="_blank" href="<?= $icon['social_url'] ?>">
-                        <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>
+                        <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>&nbsp;&nbsp;
                     </a>
                 <?php endforeach ?>
             </div>
         </div>
         <div class="text-center">
-            <a class="ml-3" href="mailto:<?= conf['site_email'] ?>"><span><i class="fa fa-envelope"></i> <?= conf['site_email'] ?></span></a>
+            <a class="ml-3" href="mailto:<?= conf['site_email'] ?>"><span><i class="fa fa-envelope"></i> <?= conf['site_email'] ?></span></a>&nbsp;&nbsp;
            <a class="ml-3" href="tel:<?= conf['contact_us_phone'] ?>"><span><i class="fa fa-phone"></i> <?= conf['contact_us_phone'] ?></span></a>
         </div>
         <div class="top-bar__right">
@@ -93,10 +97,12 @@
                 </select>
             </div>
             <div class="select-language dropdown">
-
-                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?= COUNTRY_CURRENCY ?>
-                </button>
+                <select name="country_currency" onchange="changeCurrency(this.value)" class="dropdown-toggle">
+                    <option selected disabled>Select Currency</option>
+                    <?php foreach($curr_list as $cur): ?>
+                        <option <?php if(session()->get('currency') == $cur['code']){ echo "selected"; } ?> value="<?= base_url('language/currency/'.$cur['code']) ?>"><?= $cur['name'].' '.$cur['symbol_native'] ?></option>
+                    <?php endforeach ?>
+                </select>
             </div>
         </div>
     </div>
@@ -285,7 +291,7 @@
         <div class="popup-inner">
             <h4 class="popup-title"><?= lang('text.password_recovery') ?></h4>
             <div class="popup-content">
-                <form class="text-left gmz-form-action account-form" action="<?= route_to('password_reset') ?>" method="POST">
+                <form action="<?= route_to('password_reset') ?>" method="POST">
                     <div class="gmz-loader ">
                         <div class="loader-inner">
                             <div class="spinner-grow text-info align-self-center loader-lg"></div>
@@ -331,11 +337,15 @@
         <div class="site-navigation">
             <div class="menu-overlay t_menu"></div>
             <ul id="menu-primary-1" class="main-menu t_menu">
+                <li class="back-menu">
+                    <i class="far fa-long-arrow-left"></i>
+                </li>
+
                 <li class="menu-item menu-item-1 ">
                     <a href="<?= base_url() ?>"><?= lang('text.home') ?></a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Services</a>
+                    <a href="#" onclick="sub_menu()">Services</a>
                     <ul role="menu" class="sub-menu">
                         <li class="menu-item-has-children">
                             <a href="<?= base_url('/search?room_type[]=Hotel&country[]='.user_country()) ?>">Hotel</a>
@@ -344,13 +354,13 @@
                             <a href="<?= base_url('/search?room_type[]=Apartment&country[]='.user_country()) ?>">Apartment</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=Motels&country[]='.user_country()) ?>">Motels</a>
+                            <a href="<?= base_url('/search?room_type[]=Motel&country[]='.user_country()) ?>">Motels</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="<?= base_url('/search?room_type[]=Hostel&country[]='.user_country()) ?>">Hostel</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= base_url('/search?room_type[]=Resorts&country[]='.user_country()) ?>">Resorts</a>
+                            <a href="<?= base_url('/search?room_type[]=Resort&country[]='.user_country()) ?>">Resorts</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="<?= base_url('/search?room_type[]=Villa&country[]='.user_country()) ?>">Villa</a>
@@ -363,6 +373,9 @@
                 <li class="menu-item menu-item-29 ">
                     <a href="<?= route_to('contact_us') ?>"><?= lang('text.contact_us') ?></a>
                 </li>
+                <li class="menu-item menu-item-29 "><div class="d-lg-none d-xl-none d-xxl-none d-block">
+                    <a href="https://weotrip.com/home/partner"><button type="button" class="btn btn-primary"><b>Become a Partner</b></button></a>
+                </div></li>
             </ul>
         </div>
         <div class="user-navigation">
@@ -402,9 +415,11 @@
                                 <li>
                                     <a href="<?= route_to('admin.dashboard') ?>"><i class="gmz-icon"></i>Dashboard</a>
                                 </li>
+                                <?php if(session()->get('role') == 'admin'): ?>
                                 <li>
                                     <a href="<?= base_url('admin/settings') ?>"><i class="gmz-icon"></i>Settings</a>
                                 </li>
+                            <?php endif ?>
                                 <li>
                                     <a href="<?= base_url('admin/profile') ?>"><i class="gmz-icon"></i>Your Profile</a>
                                 </li>

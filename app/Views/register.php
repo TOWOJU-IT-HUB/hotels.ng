@@ -32,7 +32,12 @@
                         <div class="card-body">
                             <p class="h3 ml-3 text-center">Register</p>
                             <p class="m-3 pb-3 text-center">Already have an account? <a href="<?= base_url('login') ?>"> <span class=" text-primary"> Log in</span></a></p>
-                            <?= form_open() ?>
+                            <?= form_open('home/register') ?>
+                            <?php if(isset($validation)): ?>
+                            <div class="alert bg-danger mb-3">
+                                <?= service('validation')->listErrors() ?>
+                            </div>
+                            <?php endif ?>
                             <div class="row m-1">
                                 <div class="col-6">
                                     <div class="form-group">
@@ -55,10 +60,23 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-12">
+                                    <label for="phone">Phone Number</label>
+                                    <input class="form-control" type="number" required="" min-length="6" name="phone" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-12">
                                     <label for="password">Password</label>
                                     <input class="form-control" type="password" required="" name="password" placeholder="Password">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-12">
+                                    <label for="password">Password</label>
+                                    <input class="form-control" type="password" required="" name="confpass" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                        
                             <div class="col-12">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" required id="customCheck1">

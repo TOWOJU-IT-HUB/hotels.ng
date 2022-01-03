@@ -19,4 +19,10 @@ class Language extends BaseController
         $session->set('lang', $locale);
         return redirect()->back();
     }
+    
+    public function currency($currency='USD'){
+        $session = session();
+        $session->set('currency', $currency);
+        return redirect()->back();
+    }
 }

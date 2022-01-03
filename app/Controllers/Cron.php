@@ -11,7 +11,8 @@ class Cron extends BaseController
     public function index()
     {
         $rex = $this->get_city_list();
-        // print_r($rex);
+        // echo "<pre>";
+        // print_r($rex); exit;
     }
 
     public function get_city_list()
@@ -29,8 +30,10 @@ class Cron extends BaseController
 
             $endpoint = $endpoint . http_build_query($q);
             $rex = curl_get($endpoint, $data);
+            
             if ($rex === NULL || $rex === "") {
-                die('Error encountered');
+                error_log('Error encountered empty value received');
+                die();
             }
             foreach ($rex as $v) {
                 try {
@@ -55,8 +58,10 @@ class Cron extends BaseController
                     $k['lc']            =   $v['lc'];
 
                     $this->dest->save(array_filter($k));
-                    echo "Process completed";
-                    $this->getHotels($v['dest_id']);
+                    // var_dump($k); exit;
+                    if($_response = $this->getHotels($v['dest_id'])){
+                        // return $_response;
+                    }
                 } catch (\Throwable $th) {
                     //throw $th;
                 }
@@ -78,12 +83,12 @@ class Cron extends BaseController
         $q = [
             'locale' => 'en-us',
             'room_number' => 1,
-            'checkout_date' => '2021-11-26',
+            'checkout_date' => date('Y-m-d', strtotime(date('Y-m-d H:i:s') . ' +1 day')),
             'order_by' => 'distance',
             'units' => 'metric',
             'adults_number' => 2,
             'filter_by_currency' => 'USD',
-            'checkin_date' => '2021-11-25',
+            'checkin_date' => date('Y-m-d'),
             'dest_type' => 'city',
             'dest_id' => $dest_id,
             'children_number' => 2,
@@ -101,6 +106,7 @@ class Cron extends BaseController
                 // print_r($rex);
                 $q['url']                       =   $rex['url'];
                 $q['hotel_id']                  =   $rex['hotel_id'];
+                 $q['partner_id'] = $q['user_id'] =  0;
                 $q['hotel_name']                =   $rex['hotel_name'];
                 $q['city']                      =   $rex['city'];
                 $q['country_trans']             =   $rex['country_trans'];
@@ -242,5 +248,60 @@ class Cron extends BaseController
         $endpoint = $endpoint . http_build_query($q);
         $rex = curl_get($endpoint, $data);
         return $rex;
+    }
+
+
+
+    /**
+     * Update Hotel price list using destination ID
+     */
+
+    function updatePriceList()
+    {       
+        $destination_id = $this->dest->orderBy('price_updated', 'DESC')->findAll(1);
+        // print_r($destination_id); exit;
+        foreach ($destination_id as $key => $value) {
+            # code...
+            if(!empty($value)){
+                $dest_id = $value['dest_id'];
+                $price_updated = $value['price_updated'] + 1;
+                $endpoint = "search?";
+                $q = [
+                    'locale' => 'en-us',
+                    'room_number' => 1,
+                    'checkout_date' => date('Y-m-d', strtotime(date('Y-m-d H:i:s') . ' +1 day')),
+                    'order_by' => 'distance',
+                    'units' => 'metric',
+                    'adults_number' => 2,
+                    'filter_by_currency' => 'USD',
+                    'checkin_date' => date('Y-m-d'),
+                    'dest_type' => 'city',
+                    'dest_id' => $dest_id,
+                    'children_number' => 0,
+                    'page_number' => 0,
+                    'children_ages' => '5'
+                ];
+
+                $data = [];
+                echo '<pre>';
+                $endpoint = $endpoint . http_build_query($q);
+                $rex = curl_get($endpoint, $data);
+                if (isset($rex['primary_count']) && $rex['primary_count'] > 0) {
+                    $data['response'] = $rex['result'];
+                    $rex = $rex['result'];
+                    foreach($rex as $key => $rex) {
+                        // print_r($rex); exit;
+                        
+                        $hotel_id                       =   $rex['hotel_id'];                        
+                        $q['currencycode']              =   $rex['currencycode'];
+                        $q['min_total_price']           =   $rex['min_total_price'];
+                        $this->hotels->set($q)->where('hotel_id', $hotel_id)->update();
+                        // var_dump($q); exit;
+                    }
+                    $this->dest->where('dest_id', $dest_id)->set(['price_updated' => $price_updated])->update();
+                    echo "Update Completed";
+                }
+            }
+        }
     }
 }

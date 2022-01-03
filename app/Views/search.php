@@ -18,14 +18,14 @@
                             <div class="search-form__basic">
                                 <div class="search-form__address">
                                     <i class="fal fa-city"></i>
-                                    <input type="text" id="search" name="location" placeholder="City Name" class="location" autocomplete="off" value="<?php if(isset($_GET['location'])){ echo $_GET['location']; } ?>">
+                                    <input type="text" id="search" required name="location" placeholder="City Name" class="location" autocomplete="off" value="<?php if(isset($_GET['location'])){ echo $_GET['location']; } ?>">
                                     <input type="hidden" name="lng" value="">
                                     <input type="hidden" name="address" value="">
                                 </div>
 
-                                <input type="text" class="input-hidden check-in-out-field align-self-end" name="checkInOut" value="" data-same-date="false">
-                                <input type="text" class="input-hidden check-in-field" name="checkIn" value="<?php if(isset($_GET['checkIn'])){ echo $_GET['checkIn']; } ?>">
-                                <input type="text" class="input-hidden check-out-field" name="checkOut" value="<?php if(isset($_GET['checkOut'])){ echo $_GET['checkOut']; } ?>">
+                                <input type="text" class="input-hidden check-in-out-field align-self-end" required name="checkInOut" value="" data-same-date="false">
+                                <input type="text" class="input-hidden check-in-field" required name="checkIn" value="<?php if(isset($_GET['checkIn'])){ echo $_GET['checkIn']; } ?>">
+                                <input type="text" class="input-hidden check-out-field" required name="checkOut" value="<?php if(isset($_GET['checkOut'])){ echo $_GET['checkOut']; } ?>">
                                 <div class="search-form__from date-group">
                                     <i class="fal fa-calendar-alt"></i>
                                     <span class="check-in-render" data-date-format="DD/MM/YYYY">
@@ -44,7 +44,7 @@
                                         <div class="dropdown-toggle" id="dropdownGuestButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fal fa-user"></i>
                                             <span class="guest-render">
-                                                <span id="adults_num"> <?php if(isset($_GET['adult'])){ echo $_GET['adult']." Adults"; } else { echo "1 Adult"; } ?> </span> • <span id="childs_num"> <?php if(isset($_GET['children'])){ echo $_GET['children'] . ' Childrens'; } else { echo "0 Children"; } ?> </span> • <span id="rooms_num"> <?php if(isset($_GET['number_room'])){ echo $_GET['number_room'].' Rooms'; } else { echo "0 Rooms"; } ?> </span><span class="ml-3"></span>
+                                                <span id="adults_num"> <?php if(isset($_GET['adult'])){ echo $_GET['adult']." Adults"; } else { echo "1 Adult"; } ?> </span> • <span id="childs_num"> <?php if(isset($_GET['children'])){ echo $_GET['children'] . ' Childrens'; } else { echo "0 Children"; } ?> </span> • <span id="rooms_num"> <?php if(isset($_GET['number_room'])){ echo $_GET['number_room'].' Rooms'; } else { echo "1 Rooms"; } ?> </span><span class="ml-3"></span>
                                             </span>
                                         </div>
                                         <div class="dropdown-menu" aria-labelledby="dropdownGuestButton">
@@ -80,7 +80,7 @@
                                             <div class="item d-flex align-items-center justify-content-between">
                                                 <div class="label">Adults</div>
                                                 <div class="value">
-                                                    <select class="form-control" onchange="adults_num(this.value)" id="adult" name="adult">
+                                                    <select class="form-control" required onchange="adults_num(this.value)" id="adult" name="adult">
                                                     <?php if(isset($_GET['children'])){ echo '<option value="'.$_GET['adult'].'" selected>'.$_GET['adult'].'</option>'; } else { echo '<option value="1" selected>1</option>'; } ?>
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
@@ -111,7 +111,6 @@
                                                 <div class="value">
                                                     <select class="form-control" onchange="childs_num(this.value)" id="children" name="children">
                                                     <?php if(isset($_GET['children'])){ echo '<option value="'.$_GET['children'].'" selected>'.$_GET['children'].'</option>'; } else { echo '<option value="0" selected>0</option>'; } ?>
-                                                        <option value="0">0</option>                                                        
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
@@ -159,16 +158,16 @@
                                             <div class="search-form__label">Types</div>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Hotel',     $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Hotel">Hotel</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Apartment', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Apartment">Apartment</label>
-                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Resorts',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Resorts">Resorts</label>
-                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Villas',    $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Villas">Villas</label>
+                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Resort',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Resorts">Resorts</label>
+                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Villa',    $hey) || in_array('Villas',    $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Villas">Villa</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Guest House',     $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Guest House">Guest House</label>
-                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Motels',    $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Motels">Motels</label>
+                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Motel',    $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Motels">Motels</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Cottage',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Cottage">Cottage</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Glamping',  $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Glamping">Glamping</label>
-                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Vacations', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Vacations">Vacations</label>
+                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Vacation', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Vacations">Vacations</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Hostel',   $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Hostel">Hostel</label>
                                             <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Farm Stay',  $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Farm Stay">Farm Stay</label>
-                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Luxury Tents', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Luxury Tents">Luxury Tents</label>
+                                            <label class="checkbox-inline"><input type="checkbox" <?php if(in_array('Luxury Tent', $hey)) echo 'checked="checked"'; ?> class="gmz-checkbox-item" name="room_type[]" value="Luxury Tents">Luxury Tents</label>
                                             <input type="hidden" name="room_type[]" value="" />
                                         </div>
 
@@ -193,6 +192,12 @@
                             }
                             if (isset($_GET['adult'])) {
                                 $_SESSION['adult'] = $_GET['adult'];
+                            }
+                            if (isset($_GET['number_room'])) {
+                                $_SESSION['room'] = $_GET['number_room'];
+                            }
+                            if (isset($_GET['children'])) {
+                                $_SESSION['children'] = $_GET['children'];
                             }
                         ?>
                         <a target="_blank" href="<?= $final_url ?>">
@@ -233,7 +238,7 @@
                                                 <span class="_retail"><?= COUNTRY_CURRENCY . number_format(convertedCurrency($rex['min_total_price'], $rex['currencycode']), 2) ?></span>
                                                 <span class="_unit">night</span>
                                             </div>
-                                            <a class="btn btn-primary hotel-item__view-detail" href="<?= $final_url ?>">View Detail </a>
+                                            <a class="btn btn-primary" href="<?= $final_url ?>">View Detail </a>
                                         </div>
                                     </div>
                                 </div>
@@ -250,3 +255,19 @@
         </div>
     </section>
 </div>
+<script>
+	function rooms_num() {
+		var x = $("#number_room").val();
+		$("#rooms_num").html(x + ' Rooms  ');
+	}
+
+	function childs_num() {
+		var x = $("#children").val();
+		$("#childs_num").html(x + ' childrens  ');
+	}
+
+	function adults_num() {
+		var x = $("#adult").val();
+		$("#adults_num").html(x + ' Adults  ');
+	}
+</script>

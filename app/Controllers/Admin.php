@@ -14,6 +14,8 @@ class Admin extends BaseController
     {
         $data = [
             'total_orders'  =>  $this->orders->where('user_id', $this->_id)->countAllResults(),
+            'total_earnings'  =>  $this->p_earnings->where('partner_id', $this->_id)->selectSum('balance')->first(),
+            'total_hotels'  =>  $this->hotels->where('user_id', $this->_id)->countAllResults(),
         ];
         echo view('parts/dashboard/header', $data);
         echo view('admin/dashboard');
@@ -141,6 +143,7 @@ class Admin extends BaseController
     {
         $data['order']    =  $this->orders->where('orders.id', $order_id)->join('hotels', 'hotels.hotel_id=orders.hotel_id')->join('users', 'users.id=orders.user_id')->first();
         $data['slug']    =  $order_id;
+        // print_r($data['order']);
         // echo view('parts/dashboard/header', $data);
         echo view('admin/order', $data);
         // echo view('parts/dashboard/footer');
@@ -177,6 +180,14 @@ class Admin extends BaseController
             } else {
                 $this->wishlist->where('user_id', $user_id)->where('hotel_id', $hotel_id)->delete();
                 return json_encode(['status' => 'Item removed from wishlist']);
+            }
+        }
+        if ($r->getMethod() == 'get'){
+            if($r->getGet('action') == 'delete'){
+                $_del = $this->wishlist->where('id', $r->getGet('id'))->delete();
+                if($_del){
+                    return redirect()->back()->with('success', 'Hotel successfully removed from wishlist');
+                }
             }
         }
 
@@ -511,7 +522,7 @@ class Admin extends BaseController
             $hotel_id = $r->getPost('hotel_id');
             $q['url']                       =   $r->getPost('url');
             $q['hotel_id']                  =   $r->getPost('hotel_id');
-            $q['partner_id'] = $q['user_id'] =   $this->_id;
+            $q['partner_id'] = $q['user_id'] =  $this->_id;
             $q['hotel_name']                =   $r->getPost('hotel_name');
             $q['description']               =   $r->getPost('description');
             $q['city']                      =   $r->getPost('city');
@@ -1002,7 +1013,7 @@ class Admin extends BaseController
         $msg = "Below is the URL to your invoice payment.";
         $url = base_url('home/invoice/');
         $this->send_mail($to, "Invoice From WEOTRIP", $msg, $url, "Make Payment Now");
-        return true;
+        return redirect()->back()->with('success', 'Invoice sent successfully');
     }
 
     public function cancelled()
@@ -1029,5 +1040,16 @@ class Admin extends BaseController
         } else {
             return redirect()->back()->with('error', 'Unable to mark withdrawal as cancelled');
         }
+    }
+    
+    public function mark_as_paid($order_id)
+    {
+        $find = $this->orders->find($order_id);
+        $orderData = [
+            'status' => 'paid',
+            'total_paid' => $find['total'],
+        ];
+        $mark = $this->orders->where('id', $order_id)->set($orderData)->update();
+        return redirect()->back()->with('success', 'Order successfully marked as paid');
     }
 }

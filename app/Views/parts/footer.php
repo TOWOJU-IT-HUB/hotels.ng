@@ -53,25 +53,6 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                                 </li>
                             <?php endforeach ?>
 
-                            <?php /*
-                            <li class="menu-item menu-item-1 ">
-                                <a href="<?= route_to('contact_us') ?>"><?= lang('text.contact_us') ?></a>
-                            </li>
-                            <li class="menu-item menu-item-2 ">
-                                <a href="<?= route_to('become.partner') ?>"><?= lang('text.become_partner') ?></a>
-                            </li>
-                            <li class="menu-item menu-item-3 ">
-                                <a href="<?= route_to('blog') ?>"><?= lang('text.blog') ?></a>
-                            </li>
-                            <li class="menu-item menu-item-4 ">
-                                <a href="<?= route_to('rewards') ?>"><?= lang('text.rewards') ?></a>
-                            </li>
-                            <li class="menu-item menu-item-5 ">
-                                <a href="<?= route_to('career') ?>"><?= lang('text.work_with_us') ?></a>
-                            </li>
-                            <li class="menu-item menu-item-6 ">
-                                <a href="<?= route_to('visit') ?>"><?= lang('text.meet_the_team') ?></a>
-                            </li> */ ?>
                         </ul>
                     </div>
                 </div>
@@ -122,13 +103,14 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                             </div>
                         </div>
                         <div class="mb-4"></div>
+                        Follow Us <br><br>
                         <div class="promo d-flex align-items-center">
                             <?php
                             $social = $db->query("SELECT * FROM social")->getResultArray();
                             ?>
                             <?php foreach ($social as $icon) : ?>
                                 <a target="_blank" href="<?= $icon['social_url'] ?>">
-                                    <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>
+                                    <span class="mr-2"> <i class="fa fa-<?= $icon['social_icon'] ?>"></i> </span>&nbsp;&nbsp;&nbsp;&nbsp;
                                 </a>
                             <?php endforeach ?>
                         </div>
@@ -140,8 +122,8 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
     <div class="footer-bottom pt-30 pb-30">
         <div class="container">
             <div class="copyright text-center">
-                Designed By Joel Studi0 & <a target="_blank" href="https://towoju.com"><span class="text-white"> TOWOJU I.T HUB</span></a> - © <?= date('Y');
-                                                                                                                                                echo ' ' . conf['site_title'] ?> All rights reserved.
+                 Copyright © 2020–2021 weotrip.com™. <br> All rights reserved. 
+                 <br> <a target="_blank" href="https://weotrip.com"><span class="text-white"> weotrip.com is part of PLANMYTRIP Private Limited., the world leader in online booking for accommodation.</span></a> 
             </div>
         </div>
     </div>
@@ -278,10 +260,7 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
                             fbLogout();
                             let uri = "<?= route_to('login.check') ?>";
                             window.location = uri;
-                        } else {
-                            $(".gmz-message").show();
-                            $(".gmz-message").html("Invalid Login details");
-                        }
+                        } 
                     }
                 });
             });
@@ -309,97 +288,21 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
             }
         });
     });
-    // manually toggle
-    $(".toggle-menu").click(function(){
-        $(".cls").removeClass();
-        $(".t_menu").addClass('show');
-    });
-    $(".cls").click(function(){
-        $(".t_menu").removeClass('show');
-    });
 
     $(".gmz-message").hide();
-    let uri = "<?= route_to('login.check') ?>";
-    $(document).ready(function() {
-        $("#login").click(function() {
-            $(".gmz-loader").show();
-            var email = $("#email").val();
-            var password = $("#password").val();
-            var csrfHash = $("input[name=csrf_name]").val();; // CSRF hash
-            if (email.length == "" || password.length == "") {
-                $(".gmz-message").html("Email/Password is empty").fadeIn();
-                $(".gmz-message").addClass("error");
-                return false;
-            } else {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?= route_to('login') ?>',
-                    dataType: 'json',
-                    data: {
-                        email: email,
-                        password: password
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            $(".gmz-message").show();
-                            $(".gmz-message").html("Login successful");
-                            $("#login").addClass("disabled");
-                            window.location = uri;
-                        } else {
-                            $(".gmz-loader").hide();
-                            $(".gmz-message").show();
-                            $(".gmz-message").html("Invalid Login details");
-                        }
-                    },
-                    error: function(response) {
-                        $(".gmz-loader").hide();
-                        $(".gmz-message").show();
-                        $(".gmz-message").html("Invalid Login details");
-                    }
-                });
-            }
-        });
-        $("#email").focusout(function() {
-            $(".gmz-message").hide();
-            check_email();
-        });
-        $("#password").focusout(function() {
-            $(".gmz-message").hide();
-            check_password();
-        });
-        $("#password").keypress(function() {
-            check_password();
-        });
-
-        function check_email() {
-            $(".gmz-message").hide();
-            var pattern = new RegExp(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/);
-            if (pattern.test($("#email").val())) {
-                $(".gmz-message").hide();
-            } else {
-                $(".gmz-message").html("Invalid email address");
-                $(".gmz-message").show().addClass("error");
-            }
-        }
-
-        function check_password() {
-            $(".gmz-message").hide();
-            var password_length = $("#password").val().length;
-            if (password_length < 7) {
-                $(".gmz-message").html("Password should be at least 8 characters");
-                $(".gmz-message").show().addClass("error");
-            } else {
-                $(".gmz-message").hide();
-            }
-        }
-    });
 
     function setLang(params) {
+        window.location.href = params;
+    }
+    function changeCurrency(params) {
         window.location.href = params;
     }
 </script>
 <!-- //Javascript for location search and autocomplete -->
 <script>
+    function sub_menu(){
+        $('.sub-menu').toggle();
+    }
     $(document).ready(function() {
         // AJAX call for autocomplete 
         $("#search-box").keyup(function() {
@@ -419,7 +322,11 @@ $menu1 = $db->query("SELECT * FROM menus WHERE location=1 ")->getResultArray();
         });
         // manually toggle
         $(".toggle-menu").click(function(){
+            $(".cls").removeClass();
             $(".t_menu").addClass('show');
+        });
+        $(".back-menu").click(function(){
+            $(".t_menu").removeClass('show');
         });
     });
     //To select country name

@@ -51,7 +51,8 @@
             <?= $description['hotel_name'] ?>
           </h3>
           <div class="text-right">
-            <span class="float-right h2 mr-4"><?= country_symbol() . number_format(convertedCurrency($description['min_total_price'], $description['currencycode']), 2) ?>/<span class="h6">night</span></span>
+            <span class="float-right h2 mr-4">
+                <?= COUNTRY_CURRENCY . number_format(convertedCurrency($description['min_total_price'], $description['currencycode'], COUNTRY_CURRENCY), 2) ?>/<span class="h6">night</span></span>
           </div>
         </div>
 
@@ -154,24 +155,50 @@
                           <div class="dropdown-toggle" id="dropdownGuestButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fal fa-users"></i>
                             <span class="guest-render">
-                              <?php if (isset($_SESSION['adult'])) {
-                                echo $_SESSION['adult'] . ' Adult';
-                              } else {
-                                echo "1 Adult";
-                              } ?>
+                                <span id="adults_num"> <?php if(isset($_SESSION['adult'])){ echo $_SESSION['adult']." Adults"; } else { echo "1 Adult"; } ?> </span> • <span id="childs_num"> <?php if(isset($_SESSION['children'])){ echo $_SESSION['children'] . ' Childrens'; } else { echo "0 Children"; } ?> </span> • <span id="rooms_num"> <?php if(isset($_SESSION['room'])){ echo $_SESSION['room'].' Rooms'; } else { echo "1 Rooms"; } ?> </span><span class="ml-3"></span>
                             </span>
                           </div>
                           <div class="dropdown-menu" aria-labelledby="dropdownGuestButton">
+
+                            <div class="item d-flex align-items-center justify-content-between">
+                              <div class="label">Rooms</div>
+                              <div class="value">
+                                <select class="form-control" id="number_room" onchange="rooms_num()" name="room">
+                                  <?php if(isset($_SESSION['room'])){ echo '<option value="'.$_SESSION['room'].'" selected>'.$_SESSION['room'].'</option>'; } else { echo '<option value="1" selected>1</option>'; } ?>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                </select>
+                              </div>
+                            </div>
+
                             <div class="item d-flex align-items-center justify-content-between">
                               <div class="label">Adults</div>
                               <div class="value">
-                                <select class="form-control" name="adult">
-                                  <?php if (isset($_GET['adult'])) {
-                                    echo '<option selected value="' . $_GET['adult'] . '">' . $_GET['adult'] . '</option>';
+                                <select class="form-control" id="adult" onchange="adults_num()" name="adult">
+                                  <?php if (isset($_SESSION['adult'])) {
+                                    echo '<option selected value="' . $_SESSION['adult'] . '">' . $_SESSION['adult'] . '</option>';
                                   } else {
                                     echo '<option value="1" selected>1</option>';
                                   } ?>
-
+                                  <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
                                   <option value="4">4</option>
@@ -198,8 +225,9 @@
                             <div class="item d-flex align-items-center justify-content-between">
                               <div class="label">Children</div>
                               <div class="value">
-                                <select class="form-control" name="children">
-                                  <option value="0" selected>0</option>
+                                <select class="form-control" id="children" onchange="childs_num()" name="children">
+                                  <?php if(isset($_SESSION['children'])){ echo '<option value="'.$_SESSION['children'].'" selected>'.$_SESSION['children'].'</option>'; } else { echo '<option value="0" selected>0</option>'; } ?>
+                                  <option value="0">0</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -295,6 +323,11 @@
                       </div>
                       <div class="media-body col-12">
                         <h4 class="media-heading text-left"> <?= $review['author'] ?> </h4>
+                        <div class="row ml-2 hotel-star">
+                          <div class="text-center">
+                           <?= str_repeat('<i class="fa fa-star text-warning" aria-hidden="true"></i>', $review['rating']) ?>
+                          </div>
+                        </div>
                         <div class="date text-right"><?= $review['date'] ?></div>
                       </div>
                     </div>
@@ -330,7 +363,7 @@
                     <span>Your rating</span>
                     <div class="fas-star">
                       <span class="star-rating">
-                        <input type="radio" name="rating" value="1"><i></i>
+                        <input type="radio" name="rating" value="1" required><i></i>
                         <input type="radio" name="rating" value="2"><i></i>
                         <input type="radio" name="rating" value="3"><i></i>
                         <input type="radio" name="rating" value="4"><i></i>
@@ -341,19 +374,19 @@
                 </div>
 
                 <div class="form-group col-lg-6">
-                  <input id="comment-name" type="text" name="author" class="form-control gmz-validation" placeholder="Your name*" data-validation="required" />
+                  <input id="comment-name" type="text" required name="author" class="form-control gmz-validation" placeholder="Your name*" data-validation="required" />
                 </div>
                 <div class="w-100"></div>
                 <div class="form-group col-lg-6">
-                  <input id="comment-email" type="email" name="email" class="form-control gmz-validation" placeholder="Your email*" data-validation="required" />
+                  <input id="comment-email" type="email" required name="email" class="form-control gmz-validation" placeholder="Your email*" data-validation="required" />
                 </div>
                 <div class="w-100"></div>
                 <div class="form-group col-lg-6">
-                  <input id="comment-title" type="text" name="title" class="form-control gmz-validation" placeholder="Comment title*" data-validation="required" />
+                  <input id="comment-title" type="text" required name="title" class="form-control gmz-validation" placeholder="Comment title*" data-validation="required" />
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <textarea id="comment-content" name="pros" placeholder="Comment*" class="form-control gmz-validation" data-validation="required" rows="4"></textarea>
+                  <textarea id="comment-content" required name="pros" placeholder="Comment*" class="form-control gmz-validation" data-validation="required" rows="4"></textarea>
                 </div>
               </div>
               <div class="gmz-message"></div>
@@ -399,7 +432,7 @@
 <div class="modal fade hotel-enquiry-modal" id="hotelEnquiryModal" tabindex="-1" aria-labelledby="hotelEnquiryModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form class="gmz-form-action enquiry-form-single" action="<?= base_url('home/enquiry') ?>" method="POST">
+      <form action="<?= base_url('home/enquiry') ?>" method="POST">
         <div class="modal-header">
           <h5 class="modal-title" id="hotelEnquiryModalLabel">
             ENQUIRY FORM
@@ -420,16 +453,16 @@
           <div class="form-group">
             <label for="full-name">Full Name<span class="required">*</span>
             </label>
-            <input type="text" name="full_name" class="form-control gmz-validation" data-validation="required" id="full-name" />
+            <input type="text" name="full_name" required class="form-control gmz-validation" data-validation="required" id="full-name" />
           </div>
           <div class="form-group">
             <label for="email">Email<span class="required">*</span></label>
-            <input type="text" name="email" class="form-control gmz-validation" data-validation="required" id="email" />
+            <input type="email" name="email" required class="form-control gmz-validation" data-validation="required" id="email" />
           </div>
           <div class="form-group">
             <label for="content">Message<span class="required">*</span>
             </label>
-            <textarea name="content" rows="4" class="form-control gmz-validation" data-validation="required" id="content"></textarea>
+            <textarea name="content" rows="4" required class="form-control gmz-validation" data-validation="required" id="content"></textarea>
           </div>
           <div class="gmz-message"></div>
         </div>
@@ -693,3 +726,20 @@ if ($description['user_id'] == '0') : ?>
         display: none !important;
     }
 </style>
+
+<script>
+	function rooms_num() {
+		var x = $("#number_room").val();
+		$("#rooms_num").html(x + ' Rooms  ');
+	}
+
+	function childs_num() {
+		var x = $("#children").val();
+		$("#childs_num").html(x + ' childrens  ');
+	}
+
+	function adults_num() {
+		var x = $("#adult").val();
+		$("#adults_num").html(x + ' Adults  ');
+	}
+</script>

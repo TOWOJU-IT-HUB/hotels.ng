@@ -38,10 +38,11 @@ use App\Models\Rooms;
 use App\Models\Wishlist;
 use App\Models\Withdrawal;
 use Omnipay\PayPal as PayPal;
+use App\Models\TransactionId;
 
 
 #-------------------------
-// use Omnipay\
+// use Omnipay\ 
 
 /**
  * Class BaseController  
@@ -116,6 +117,7 @@ class BaseController extends Controller
         $this->wishlist         = new Wishlist();
         $this->withdrawal       = new Withdrawal();
         $this->password_reset   = new PasswordReset();
+        $this->payment          = new TransactionId();
         // $this->paypal           = $this->PaypalExpress();
 
 
@@ -127,70 +129,45 @@ class BaseController extends Controller
         // #--------------------------------------------
         // #   Constants from the settings ::DB 
         // #--------------------------------------------
+
+        if(session()->get('currency') == true){
+            defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', session()->get('currency'));
+        } else {
+            defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
+        }
         defined('conf') || define('conf', $settings);
         defined('curr_user') || define('curr_user', $curr_user);
-
-        // defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', "USD");
         defined('RAPID_API_KEY')    || define('RAPID_API_KEY', conf['rapid_api_key']);
-        
-        defined('COUNTRY_CURRENCY') || define('COUNTRY_CURRENCY', country_currency());
 
         define('CLIENT_ID', conf['paypal_client_id']);
         define('CLIENT_SECRET', conf['paypal_client_secret']);
 
         define('PAYPAL_RETURN_URL', base_url('success'));
         define('PAYPAL_CANCEL_URL', base_url('cancel'));
-        define('PAYPAL_CURRENCY', 'USD'); // set your currency here
+        define('PAYPAL_ENV', "production"); // production OR sandbox
+        define('PAYPAL_CURRENCY', 'GBP'); // set your currency here
 
         $this->gateway = $this->paypal;
         $this->gateway->setClientId(CLIENT_ID);
         $this->gateway->setSecret(CLIENT_SECRET);
-        $this->gateway->setTestMode(true); //set it to 'false' when go live
+        $this->gateway->setTestMode(false); //set it to 'false' when go live
 
     }
 
     public function send_mail($to, $subject, $msg, $psw_link=null, $action=null)
     {
-        // if(!empty(conf['email_host'])){
-        //     $mail = new PHPMailer(true);
-
-        //     try {
-        //         //Server settings
-        //         if(isset(curr_user['fullname'])){
-        //             $full_name = curr_user['fullname'];
-        //         } else {
-        //             $full_name = "WEOTRIP USER";
-        //         }
-        //         // $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Enable verbose debug output
-        //         $mail->isSMTP();  //Send using SMTP
-        //         $mail->Host       = conf['email_host']; //Set the SMTP server to send through
-        //         $mail->SMTPAuth   = true;  //Enable SMTP authentication
-        //         $mail->Username   = conf['email_username']; //SMTP username
-        //         $mail->Password   = conf['email_password'];    //'Adedayo201@';                               //SMTP password
-        //         $mail->SMTPSecure = conf['email_enc']; //PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        //         $mail->Port       = conf['email_port']; //465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-        //         //Recipients
-        //         $mail->setFrom(conf['email_username'], "WEOTRIP LLC");
-        //         $mail->addAddress($to, $full_name);  
-        //         $_data['msg'] = $msg;
-        //         if($psw_link != null){
-        //             $_data['psw_link']  =   $psw_link;
-        //             $_data['action']    =   $action;
-        //         }
-        //         //Content
-        //         $mail->isHTML(true);                                  //Set email format to HTML
-        //         $mail->Subject = $subject;
-        //         $mail->Body    = view('test', $_data);
-
-        //         if($mail->send()){
-        //             return "Email sent successfully";
-        //         }
-        //     } catch (Exception $e) {
-        //         error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
-        //         return "sorry we are unable to send your email";
-        //     }
-        // }
-        return "Email sending bypassed by configuration";
+        // To send HTML mail, the Content-type header must be set
+        $from = "support@weotrip.com";
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+         
+        // Create email headers
+        $headers .= 'From: '.$from."\r\n".
+            'Reply-To: '.$from."\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        mail($to, $subject, $msg, $headers);
+         
+        // Compose a simple HTML email message
+        return true; // "Email sending bypassed by configuration";
     }
 }

@@ -51,7 +51,7 @@
                                             <i class="fas fa-chart-line text-danger m-2 fa-2x p-2"></i>
                                         </div>
                                         <div class="col">
-                                            <h4 class="text-white pt-1 mb-0">7</h4>
+                                            <h4 class="text-white pt-1 mb-0"><?= number_format($total_earnings['balance'], 2) ?></h4>
                                             <p class="font-16">Total Earnings</p>
                                         </div>
                                     </div>
@@ -70,8 +70,8 @@
                                             <i class="fas fa-percentage text-dark fa-2x m-2 p-2"></i>
                                         </div>
                                         <div class="col">
-                                            <h4 class="text-white pt-1 mb-0">7</h4>
-                                            <p class="font-16">Total Commissions</p>
+                                            <h4 class="text-white pt-1 mb-0"><?= $total_hotels ?></h4>
+                                            <p class="font-16">My Hotels</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">

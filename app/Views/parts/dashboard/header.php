@@ -1,5 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
+    <?php 
+/* Grab Currency list from ::DB */
+$db = db_connect();
+$curr_list = $db->query('SELECT * FROM currency')->getResultArray();
+?>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,16 +35,21 @@
     <script src="<?= base_url('dashboard/js/jquery.min.js') ?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
+
     <!-- Begin page -->
     <div id="wrapper">
+        
+        
         <!-- Top Bar Start -->
         <div class="topbar">
             <!-- LOGO -->
-            <div class="topbar-left">
-                <a href="<?= route_to('admin.profile') ?>" class="logo">
+            <div class="topbar-left" style="background-color:white;">
+                <!--a href="<?= route_to('admin.profile') ?>" class="logo"-->
+                <a href="http://weotrip.com" class="logo">
                     <img src="<?= base_url() . '/uploads/logo/' . conf['site_logo'] ?>" class="logo-lg" alt="" height="50">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/W-circle.svg/1500px-W-circle.svg.png" class="logo-sm" alt="" height="50">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/W-circle.svg/1500px-W-circle.svg.png" class="logo-sm" alt="" height="50" style="width:80px;">
                 </a>
             </div>
             <!-- Search input -->
@@ -60,7 +71,7 @@
                     <!-- language-->
                     <li class="dropdown notification-list list-inline-item">
                         <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="<?= base_url('lang').'/en' ?>" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="<?= base_url() ?>/dashboard/images/flags/us_flag.jpg" class="mr-2" height="12" alt="" /> <span class="no_m">English</span> <span class="mdi mdi-chevron-down"></span>
+                            <img src="<?= base_url() ?>/dashboard/images/flags/us_flag.jpg" class="mr-2" height="12" alt="" /> <span class="no_m" style="color:#000;">English</span> <span class="mdi mdi-chevron-down"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated language-switch">
                             <a class="dropdown-item" href="<?= base_url('lang').'/fr' ?>"><img src="<?= base_url() ?>/dashboard/images/flags/french_flag.jpg" alt="" height="16" /> <span class=""> French </span></a>
@@ -72,7 +83,7 @@
                     <!-- notification -->
                     <li class="dropdown notification-list list-inline-item">
                         <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="<?= route_to('admin.notifications') ?>" role="button" aria-haspopup="false" aria-expanded="false">
-                            <i class="fas fa-bell noti-icon"></i>
+                            <i class="fas fa-bell noti-icon" style="color:black"></i>
                             <span class="badge badge-pill badge-danger noti-icon-badge">new</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg px-1">
@@ -128,6 +139,11 @@
                         <li>
                             <a href="<?= route_to('admin.dashboard') ?>" class="waves-effect">
                                 <i class="dripicons-meter"></i> <span> <?= lang('text.dashboard') ?> </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://weotrip.com" class="waves-effect">
+                                <i class="fas fa-home"></i> <span> Home </span>
                             </a>
                         </li>
                         <li>

@@ -84,23 +84,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" name="email" required class="form-control gmz-validation" data-validation="required" id="email">
+                                <input type="email" name="email" required class="form-control gmz-validation" data-validation="required" id="email">
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-lg-6">
                                     <label for="subject">Password<span class="required">*</span> </label>
-                                    <input type="text" name="password" required class="form-control gmz-validation" data-validation="required" id="password">
+                                    <input type="password" minlength="8" name="password" required class="form-control gmz-validation" data-validation="required" id="password">
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label for="email">Phone Number</label>
-                                    <input type="number" name="phone" required class="form-control gmz-validation" data-validation="required" id="phone">
+                                    <input type="number" name="phone" required minlength="9" maxlength="16" class="form-control gmz-validation" data-validation="required" id="phone">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="content">Address<span class="required">*</span> </label>
-                                <textarea name="address" rows="3" required class="form-control " id="address"></textarea>
+                                <textarea name="address" rows="3" minlength="12" required class="form-control " id="address"></textarea>
                             </div>
                             <div class="gmz-message"></div>
                             <button type="submit" class="btn btn-primary">SUBMIT REQUEST</button>
